@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title></title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Ala' Alrababa'h</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<p><br></p>
+<!---## Dissertation Project
+Starting in late 2010, major uprisings across the Middle East toppled four of the world's longest serving dictators, creating hope  for democratization in several Arab countries. Prominent scholars and observants of the Middle East claimed that new technologies in media, primarily satellite TV and the internet, were essential for the success of the uprisings because they facilitated the spread of new ideas, avoided state censorship, and provided protest leaders with powerful tools to organize and mobilize effectively. A few years later, as democratization faltered across the region, scholars began to blame the media for playing a particularly destructive role in the political transitions that followed the uprisings, in particular because they were often used by regimes to counter reformist efforts and bring about an authoritarian resurgence. How did these authoritarian regimes learn to counter the effects of new media, and what did these efforts look like? More generally, how have autocrats responded to the loss of their monopoly over information that resulted from advances in media technology?
+
+My dissertation project attempts to examine how Arab autocratic regimes responded to the rise of new media. I argue that autocrats adapted by using media to psychologically manipulate their publics. Before the proliferation of satellite television and internet media, autocrats had direct control over information through ownership of media organizations and censorship of unwanted articles. But once autocrats could no longer censor new media tools as effectively, they responded to this challenge by controlling available information in order to psychologically manipulate Arab publics. Specifically, autocrats use information to manipulate fear and optimism in ways that reduce the potential for domestic popular mobilization against the regime and influence foreign publics in ways that serve regime interests.
+
+<br> -->
+<div id="publications" class="section level2">
+<h2>Publications</h2>
+<p><strong>Maintaining Sovereignty and Preserving the Regime: How Saudi Arabia Views Strategic Stability</strong> in Lawrence Rubin and Adam N. Stulberg, eds., <em>The End of Strategic Stability.</em> Georgetown University Press. 2018.</p>
+<p><br></p>
+</div>
+<div id="under-review" class="section level2">
+<h2>Under Review</h2>
+<p><strong><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3325362">Attitudes toward Migrants in a Highly-Impacted Economy: Evidence from the Syrian Refugee Crisis in Jordan.</a></strong> <em>Revise &amp; Resubmit at Comparative Political Studies.</em><br />
+With Scott Williamson, Andrea Dillon, Jens Hainmueller, Dominik Hangartner, and Jeremy Weinstein.</p>
+<p>With a record number of migrants moving across the globe, a burgeoning literature has explored the drivers of attitudes towards migrants. However, most major studies to date have focused on developed countries, which have relatively few migrants and substantial capacity to absorb them. We address this sample bias by conducting a large-scale representative survey of public attitudes toward Syrians in Jordan, a developing country with one of the largest shares of refugees. Our analysis indicates that neither personal nor community-level exposure to the economic impact of the refugee crisis is associated with anti-refugee sentiments among natives. Further, an embedded conjoint experiment demonstrates the relative importance of humanitarian and cultural over economic concerns. Taken together, our evidence weakens the case for labor market competition and sociotropic economic concerns as critical drivers of anti-migrant attitudes, and demonstrates how humanitarian motives can sustain support for refugees when host and migrant cultures are similar.</p>
+<p><br></p>
+<p><strong><a href="https://www.dropbox.com/s/jz3eh192prn1tkc/april2019.pdf?dl=0">Authoritarian Media and Diversionary Threats: Lessons from Thirty Years of Syrian State Discourse.</a></strong> <em>Revise &amp; Resubmit at Political Science Research and Methods.</em><br />
+With Lisa Blaydes.</p>
+<p>Scholars have long argued that leaders manipulate foreign policy, sometimes even initiating wars in order to enhance their domestic political position. But diversionary wars are relatively rare given the high costs of conflict. In this project, we examine data from major Syrian daily newspapers over a thirty-year period (1987-2018) to explore how autocratic regimes use diversionary rhetoric. We find that emphasis on Israel as a diversionary threat decreases during peace negotiations between Syria and Israel. Further, we find that before the Arab Uprisings, Syria’s state-controlled media concentrated on Israel as a security and political threat. After 2011 scrutiny of Israel — and other long-standing topics of state discourse — was displaced by discussion of foreign plots and conspiracies against the Syrian state. Our analysis illustrates how authoritarian regimes make use of diversionary strategies as well as how political shocks generate discontinuities in authoritarian rhetoric.</p>
+<p><br></p>
+<p><strong>Do Donor Motives Matter? Investigating Perceptions of Foreign Aid in the conflict in Donbas</strong> <em>Revise &amp; Resubmit at International Studies Quarterly.</em><br />
+With Rachel Myrick and Isaac Webb.</p>
+<p>How do the perceived motives of donor states shape recipient attitudes towards foreign aid in a conflict zone? We identify two frames that characterize the motives of foreign powers involved in an ongoing civil conflict in the Donbas region of eastern Ukraine. These frames portray foreign actors as either providing aid to alleviate suffering during conflict (humanitarian frame) or to increase their power and influence in the recipient country (political influence frame). In a survey experiment conducted throughout Ukraine, we demonstrate how these frames impact attitudes towards foreign assistance from the European Union and the Russian government. We show that both frames increase support for foreign aid from the European Union but have no influence on views of Russian aid. Counter to conventional expectations, we demonstrate that aid provided for geopolitical, strategic reasons can at times be viewed as a positive, stabilizing force—even more than foreign aid provided for humanitarian reasons.</p>
+<p><br></p>
+<p><strong><a href="https://osf.io/preprints/socarxiv/eq8ca/">Can Exposure to Celebrities Reduce Prejudice? Estimating the Effect of Mohamed Salah on Islamophobic Attitudes and Behaviors</a></strong> <em>Under Review</em><br />
+With William Marble, Salma Mousa, and Alexandra Siegel.</p>
+<p>Can exposure to successful celebrities from stigmatized groups reduce prejudice toward that group at large? We exploit the sudden and phenomenal rise to fame of Liverpool F.C. soccer star Mohamed Salah, a visibly Muslim player, to answer this question. We causally estimate the effect of Salah joining Liverpool F.C. on Islamophobic attitudes and behaviors using 936 county-month hate crime observations, 15 million tweets from U.K. soccer fans, and an original survey experiment of 8,060 Liverpool F.C. fans. We find that Merseyside county (home to Liverpool F.C.) experienced a 18.9% drop in hate crimes relative to a synthetic control, while no similar effect was found for other types of crime. We also find that Liverpool F.C. fans halved their rates of posting anti-Muslim tweets (a drop from 7.3% to 3.8% of tweets about Muslims) relative to fans of other top-flight English soccer clubs. The survey experiment suggests that these results may be driven by increased familiarity with Islam. Our findings indicate that positive exposure to outgroup role models can reveal new information that humanizes the outgroup writ large.</p>
+<p><br></p>
+<p><strong>To Pardon or to Prosecute? Experimental Evidence on Attitudes Towards Post-Conflict Justice</strong> <em>Under Review</em><br />
+With Rachel Myrick</p>
+<p>Scholars and practitioners debate the effectiveness of various strategies of post-conflict justice, but how do citizens impacted by conflict evaluate these policies? The conflict in eastern Ukraine presents an opportunity to shed light on public attitudes towards the “peace- versus-justice” debate. In a survey experiment fielded across Ukraine, including in the separatist-controlled areas, we provide respondents information about whether separatists or pro-government forces allegedly committed more war crimes during the conflict. We examine how this treatment impacts respondents’ evaluations of three post-conflict strategies: international trials, domestic trials, and amnesty policies. We find surprisingly little evidence that inter-group bias conditions attitudes towards these policies. Instead, our results demonstrate substantial support for international law. Ukrainians believe international law is more likely to bring both peace and justice, suggesting they are not mutually exclusive objectives. Our findings suggest international law may be particularly effective in post-conflict democracies where citizens perceive state institutions as weak or corrupt.</p>
+<p><br></p>
+</div>
+<div id="working-papers" class="section level2">
+<h2>Working Papers</h2>
+<p><strong>Using Transnational Media as a Soft Power Tool Evidence from Al-Arabiya and Al-Jazeera.</strong> <em>Working Paper</em></p>
+<p>Since the end of the Cold War, the international relations literature has evolved to focus on non-traditional forms of power and competition. Perhaps most prominently, the study of soft power has shaped much of the academic literature and the policy world starting in the 1990s. Joseph Nye, who defined soft power as ``the ability to get what you want through attraction rather than coercion or payments,’’ claimed that public diplomacy, including the use of media, is one of the most important tools of soft power. The vast majority of existing studies of soft power have either focused on democratic countries, like the U.S. and Europe, or fast growing countries, like China, as producers of attractive models. Scholars have paid little attention to Arab countries as producers of soft power because their autocratic nature and natural-resources-driven growth do not generate an attractive model. In this project, I examine how Saudi Arabia and Qatar have been using transnational media–specifically Al-Arabiya and Al-Jazeera–as soft power instruments. This study provides an original theory to explain how countries with limited attractive qualities can use the power of ideas to advance their interests and undermine enemies. I argue that, Qatar, which has faced regional hostility since the mid-1990s, has used Al-Jazeera to attract Arab publics to the idea of victimization in order to increase opposition to their regimes. Meanwhile, Saudi Arabia, a counter-revolutionary power, has used Al-Arabiya to pacify and depoliticize Arab publics. During diplomatic crises, these news sources can also directly undermine rivaling countries through negative coverage. I test this theory through an analysis of over 270,000 articles published in these platforms since 2014, as well as using qualitative examination of the articles.</p>
+<p><br></p>
+<p><strong>Call of Jihad or Call of Duty: Evaluating the Motives of Foreign Fighters in Iraq and Syria</strong></p>
+<p>Over the past few decades, several civil wars have attracted a large number of foreign fighters. Most prominently, the ongoing Syrian civil war has drawn over 30,000 foreign fighters. While this influx has led to important policy questions, the topic remains largely understudied in political science. In this paper, I examine the motivations of foreign fighters by studying the effect of laws that criminalize foreign fighting. While laws are ineffective at preventing foreign fighters from traveling, they can have a differential effect on deterring foreign fighters depending on their motivations. Laws are unlikely to deter zealot fighters but they can deter adventure seekers from traveling to Iraq and Syria. In this paper, I use a difference-in-differences design to show that these laws have been an effective means for deterring potential foreign fighters from traveling to Iraq and Syria, thus suggesting that many foreign fighters are adventure seekers.</p>
+<p><br></p>
+</div>
+<div id="ongoing-projects" class="section level2">
+<h2>Ongoing Projects</h2>
+<p><br></p>
+<p><strong>The Enemy of my Enemy: How Autocrats Use Media to Manipulate Security Threats.</strong></p>
+<p><br></p>
+<p><strong>Credit Claiming and Blame Avoidance in Authoritarian Media</strong> with Scott Williamson</p>
+<p><br></p>
+<p><strong>Understanding the Dynamics of Refugee Return</strong> with Daniel Masterson, Marine Casalis, Dominik Hangartner, and Jeremy Weinstein.</p>
+<p><br></p>
+<p><strong>State Immigration Policy and Immigrant Health</strong> with Vicky Fouka, Jens Hainmueller, Dan Hopkins, Michael Hotard, Duncan Lawrence, and Rita Hamad.</p>
+<p><br></p>
+<p><strong>Permission to Secede? The Impact of Foreign Powers on Separatist Movements</strong> with Rachel Myrick</p>
+<p><br></p>
+<p><strong>Standards for Reporting Null Results</strong> with Andrea Dillon, Scott Williamson, Jens Hainmueller, Dominik Hangartner, and Jeremy Weinstein</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
