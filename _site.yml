@@ -6,6 +6,8 @@ navbar:
       href: index.html
     - text: "Research"
       href: research.html
+    - text: "Policy writing"
+      href: policy.html
 output_dir: "."
 output:
   html_document:
