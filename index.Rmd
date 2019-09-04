@@ -14,7 +14,7 @@ title: ""
  
 
 <div class="col2">
-<center><img src="images/alrababah.jpg" width="400px"></center>
+<center><img src="images/alrababah.jpg" width="350px"></center>
 
 <br>
 
