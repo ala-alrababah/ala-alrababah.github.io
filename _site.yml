@@ -4,4 +4,6 @@ navbar:
   left:
     - text: "Home"
       href: index.html
+    - text: "Research"
+      href: research.html
 output_dir: "."
