@@ -1,6 +1,6 @@
 name: "Ala' Alrababa'h"
 navbar:
-  title: "HOME"
+  title: "Ala' Alrababa'h"
   left:
     - text: "Home"
       href: index.html
