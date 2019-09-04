@@ -29,20 +29,28 @@ With Scott Williamson, Andrea Dillon, Jens Hainmueller, Dominik Hangartner, and 
 
 With a record number of migrants moving across the globe, a burgeoning literature has explored the drivers of attitudes towards migrants. However, most major studies to date have focused on developed countries, which have relatively few migrants and substantial capacity to absorb them. We address this sample bias by conducting a large-scale representative survey of public attitudes toward Syrians in Jordan, a developing country with one of the largest shares of refugees. Our analysis indicates that neither personal nor community-level exposure to the economic impact of the refugee crisis is associated with anti-refugee sentiments among natives. Further, an embedded conjoint experiment demonstrates the relative importance of humanitarian and cultural over economic concerns. Taken together, our evidence weakens the case for labor market competition and sociotropic economic concerns as critical drivers of anti-migrant attitudes, and demonstrates how humanitarian motives can sustain support for refugees when host and migrant cultures are similar.  
 
+<br>
+
 **[Authoritarian Media and Diversionary Threats: Lessons from Thirty Years of Syrian State Discourse.](https://www.dropbox.com/s/jz3eh192prn1tkc/april2019.pdf?dl=0)** *Revise & Resubmit at Political Science Research and Methods.*  
 With Lisa Blaydes.  
 
 Scholars have long argued that leaders manipulate foreign policy, sometimes even initiating wars in order to enhance their domestic political position. But diversionary wars are relatively rare given the high costs of conflict. In this project, we examine data from major Syrian daily newspapers over a thirty-year period (1987-2018) to explore how autocratic regimes use diversionary rhetoric. We find that emphasis on Israel as a diversionary threat decreases during peace negotiations between Syria and Israel. Further, we find that before the Arab Uprisings, Syria's state-controlled media concentrated on Israel as a security and political threat. After 2011 scrutiny of Israel --- and other long-standing topics of state discourse --- was displaced by discussion of foreign plots and conspiracies against the Syrian state. Our analysis illustrates how authoritarian regimes make use of diversionary strategies as well as how political shocks generate discontinuities in authoritarian rhetoric.  
+
+<br>
 
 **Do Donor Motives Matter? Investigating Perceptions of Foreign Aid in the conflict in Donbas** *Revise & Resubmit at International Studies Quarterly.*  
 With Rachel Myrick and Isaac Webb.
 
 How do the perceived motives of donor states shape recipient attitudes towards foreign aid in a conflict zone? We identify two frames that characterize the motives of foreign powers involved in an ongoing civil conflict in the Donbas region of eastern Ukraine. These frames portray foreign actors as either providing aid to alleviate suffering during conflict (humanitarian frame) or to increase their power and influence in the recipient country (political influence frame). In a survey experiment conducted throughout Ukraine, we demonstrate how these frames impact attitudes towards foreign assistance from the European Union and the Russian government. We show that both frames increase support for foreign aid from the European Union but have no influence on views of Russian aid. Counter to conventional expectations, we demonstrate that aid provided for geopolitical, strategic reasons can at times be viewed as a positive, stabilizing force---even more than foreign aid provided for humanitarian reasons.  
 
+<br>
+
 **[Can Exposure to Celebrities Reduce Prejudice? Estimating the Effect of Mohamed Salah on Islamophobic Attitudes and Behaviors](https://osf.io/preprints/socarxiv/eq8ca/)** *Under Review*  
 With William Marble, Salma Mousa, and Alexandra Siegel.  
 
 Can exposure to successful celebrities from stigmatized groups reduce prejudice toward that group at large? We exploit the sudden and phenomenal rise to fame of Liverpool F.C. soccer star Mohamed Salah, a visibly Muslim player, to answer this question. We causally estimate the effect of Salah joining Liverpool F.C. on Islamophobic attitudes and behaviors using 936 county-month hate crime observations, 15 million tweets from U.K. soccer fans, and an original survey experiment of 8,060 Liverpool F.C. fans. We find that Merseyside county (home to Liverpool F.C.) experienced a 18.9% drop in hate crimes relative to a synthetic control, while no similar effect was found for other types of crime. We also find that Liverpool F.C. fans halved their rates of posting anti-Muslim tweets (a drop from 7.3% to 3.8% of tweets about Muslims) relative to fans of other top-flight English soccer clubs. The survey experiment suggests that these results may be driven by increased familiarity with Islam. Our findings indicate that positive exposure to outgroup role models can reveal new information that humanizes the outgroup writ large.
+
+<br>
 
 **To Pardon or to Prosecute? Experimental Evidence on Attitudes Towards Post-Conflict Justice** *Under Review*
 
@@ -55,6 +63,8 @@ Scholars and practitioners debate the effectiveness of various strategies of pos
 **Using Transnational Media as a Soft Power Tool Evidence from Al-Arabiya and Al-Jazeera.** *Working Paper*
 
 Since the end of the Cold War, the international relations literature has evolved to focus on non-traditional forms of power and competition. Perhaps most prominently, the study of soft power has shaped much of the academic literature and the policy world starting in the 1990s. Joseph Nye, who defined soft power as ``the ability to get what you want through attraction rather than coercion or payments,'' claimed that public diplomacy, including the use of media, is one of the most important tools of soft power. The vast majority of existing studies of soft power have either focused on democratic countries, like the U.S. and Europe, or fast growing countries, like China, as producers of attractive models. Scholars have paid little attention to Arab countries as producers of soft power because their autocratic nature and natural-resources-driven growth do not generate an attractive model. In this project, I examine how Saudi Arabia and Qatar have been using transnational media--specifically Al-Arabiya and Al-Jazeera--as soft power instruments. This study provides an original theory to explain how countries with limited attractive qualities can use the power of ideas to advance their interests and undermine enemies. I argue that, Qatar, which has faced regional hostility since the mid-1990s, has used Al-Jazeera to attract Arab publics to the idea of victimization in order to increase opposition to their regimes. Meanwhile, Saudi Arabia, a counter-revolutionary power, has used Al-Arabiya to pacify and depoliticize Arab publics. During diplomatic crises, these news sources can also directly undermine rivaling countries through negative coverage. I test this theory through an analysis of over 270,000 articles published in these platforms since 2014, as well as using qualitative examination of the articles.
+
+<br>
 
 **Call of Jihad or Call of Duty: Evaluating the Motives of Foreign Fighters in Iraq and Syria**
 
