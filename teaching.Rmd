@@ -1,0 +1,22 @@
+---
+title: "Teaching"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+<br>
+
+I have worked as teaching assistant for courses in comparative politics, international relations, and Middle East politics. These courses include:
+
+* War and Peace in American Foreign Policy (Kenneth Schultz, Spring 2018)
+
+* Middle Eastern Politics (Lisa Blaydes, Fall 2017)
+
+* Islam, Iran, and the West (Abbas Milani, Spring 2017)
+
+* U.S. Relations with Iran (Abbas Milani, Fall 2016)
+
+I can teach courses on comparative politics, international relations, Middle East Politics, and media and politics. In addition, I can teach methods courses related to experiments, fieldwork, and text-as-data.
+
