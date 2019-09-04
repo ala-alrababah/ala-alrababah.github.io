@@ -2,6 +2,8 @@
 title: ""
 ---
 
+<br>
+
 Welcome! I am a PhD candidate in political science at Stanford University, a graduate fellow at the [Immigration Policy Lab (IPL)](http://immigrationlab.org), and a PhD fellow at the [Center on Philanthropy and Civil Society](https://pacscenter.stanford.edu/).
 
 My research utilizes computational and experimental methods to study authoritarianism, political violence, and refugees and migration.
