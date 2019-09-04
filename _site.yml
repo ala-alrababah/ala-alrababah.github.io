@@ -1,0 +1,7 @@
+name: "Ala' Alrababa'h"
+navbar:
+  title: "HOME"
+  left:
+    - text: "Home"
+      href: index.html
+output_dir: "."
