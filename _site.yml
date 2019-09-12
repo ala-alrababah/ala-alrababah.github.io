@@ -6,6 +6,8 @@ navbar:
       href: index.html
     - text: "Research"
       href: research.html
+    - text: "Data"
+      href: data.html      
     - text: "Policy Writing"
       href: policy.html
     - text: "Teaching"
