@@ -2,6 +2,18 @@
 title: ""
 ---
 
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149368049-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149368049-1');
+</script>
+</head> 
+
 <br>
 
 <style>
@@ -49,7 +61,7 @@ Welcome! I am a PhD candidate in political science at Stanford University, a gra
 
 Prior to arriving at Stanford University, I was a [Junior Fellow](https://carnegieendowment.org/about/jr-fellows) at the Carnegie Endowment for International Peace. I grew up in Amman, Jordan and graduated from Dartmouth College with a degree in Government.
 
-My research has been covered in several outlets, including [Freakonomics](http://freakonomics.com/podcast/london-live/) [BBC Arabic](https://twitter.com/BBCArabic/status/1142015205314125824), [The Economist](https://www.economist.com/britain/2019/06/06/mo-salahs-goals-help-to-tackle-islamophobia-in-liverpool), [The Times](https://www.thetimes.co.uk/article/mo-salah-success-scores-home-win-against-islamophobia-in-liverpool-6dnhttvp0), [The Daily Mail](https://www.dailymail.co.uk/news/article-7102863/Islamophobia-plummeted-Liverpool-Egyptian-footballer-Mo-Salah-signed-researchers-say.html), [Al Jazeera](https://www.aljazeera.net/news/humanrights/2019/6/3/%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9-%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A9-%D8%B5%D9%84%D8%A7%D8%AD-%D9%87%D8%B2%D9%85-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%88%D9%81%D9%88%D8%A8%D9%8A%D8%A7-%D9%81%D9%8A-%D9%85%D8%B9%D9%82%D9%84-%D9%84%D9%8A%D9%81%D8%B1%D8%A8%D9%88%D9%84), [Spiegel Online](https://www.spiegel.de/panorama/mohamed-salah-fc-liverpool-stuermer-laesst-islamfeindlichkeit-sinken-a-1270644.html), [Le Figaro](http://www.lefigaro.fr/le-scan-sport/2019/06/05/27001-20190605ARTFIG00034-la-signature-de-salah-a-liverpool-aurait-provoque-une-baisse-des-crimes-anti-musulmans.php),  [la Republica](https://www.repubblica.it/esteri/2019/06/06/news/il_calcio_che_unisce_a_liverpool_calano_attacchi_e_offese_anti-islam_grazie_a_salah-228076797/?fbclid=IwAR2YL0fQfljlx05PW0GXxdX06UneEHGQRKNYRgeM5O2GLb6HnbO1Vcu56sY&ref=RHPPBT-BH-I0-C4-P11-S1.4-T1), and [Al-Araby Al-Jadeed](https://www.alaraby.co.uk/medianews/2019/6/3/%d9%85%d8%ad%d9%85%d8%af-%d8%b5%d9%84%d8%a7%d8%ad-%d8%b3%d8%a7%d9%87%d9%85-%d8%a8%d8%a7%d9%86%d8%ae%d9%81%d8%a7%d8%b6-%d8%a7%d9%84%d8%a5%d8%b3%d9%84%d8%a7%d9%85%d9%88%d9%81%d9%88%d8%a8%d9%8a%d8%a7-%d9%81%d9%8a-%d9%84%d9%8a%d9%81%d8%b1%d8%a8%d9%88%d9%84). I have also written about my research in the [Washington Post's Monkey Cage blog](https://www.washingtonpost.com/news/monkey-cage/wp/2018/07/20/when-jordan-closed-its-border-to-refugees-the-public-protested-heres-why/). 
+My research has been covered in several outlets, including [Freakonomics](http://freakonomics.com/podcast/london-live/), [BBC Arabic](https://twitter.com/BBCArabic/status/1142015205314125824), [The Economist](https://www.economist.com/britain/2019/06/06/mo-salahs-goals-help-to-tackle-islamophobia-in-liverpool), [The Times](https://www.thetimes.co.uk/article/mo-salah-success-scores-home-win-against-islamophobia-in-liverpool-6dnhttvp0), [The Daily Mail](https://www.dailymail.co.uk/news/article-7102863/Islamophobia-plummeted-Liverpool-Egyptian-footballer-Mo-Salah-signed-researchers-say.html), [Al Jazeera](https://www.aljazeera.net/news/humanrights/2019/6/3/%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9-%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A9-%D8%B5%D9%84%D8%A7%D8%AD-%D9%87%D8%B2%D9%85-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%88%D9%81%D9%88%D8%A8%D9%8A%D8%A7-%D9%81%D9%8A-%D9%85%D8%B9%D9%82%D9%84-%D9%84%D9%8A%D9%81%D8%B1%D8%A8%D9%88%D9%84), [Spiegel Online](https://www.spiegel.de/panorama/mohamed-salah-fc-liverpool-stuermer-laesst-islamfeindlichkeit-sinken-a-1270644.html), [Le Figaro](http://www.lefigaro.fr/le-scan-sport/2019/06/05/27001-20190605ARTFIG00034-la-signature-de-salah-a-liverpool-aurait-provoque-une-baisse-des-crimes-anti-musulmans.php),  [la Republica](https://www.repubblica.it/esteri/2019/06/06/news/il_calcio_che_unisce_a_liverpool_calano_attacchi_e_offese_anti-islam_grazie_a_salah-228076797/?fbclid=IwAR2YL0fQfljlx05PW0GXxdX06UneEHGQRKNYRgeM5O2GLb6HnbO1Vcu56sY&ref=RHPPBT-BH-I0-C4-P11-S1.4-T1), and [Al-Araby Al-Jadeed](https://www.alaraby.co.uk/medianews/2019/6/3/%d9%85%d8%ad%d9%85%d8%af-%d8%b5%d9%84%d8%a7%d8%ad-%d8%b3%d8%a7%d9%87%d9%85-%d8%a8%d8%a7%d9%86%d8%ae%d9%81%d8%a7%d8%b6-%d8%a7%d9%84%d8%a5%d8%b3%d9%84%d8%a7%d9%85%d9%88%d9%81%d9%88%d8%a8%d9%8a%d8%a7-%d9%81%d9%8a-%d9%84%d9%8a%d9%81%d8%b1%d8%a8%d9%88%d9%84). I have also written about my research in the [Washington Post's Monkey Cage blog](https://www.washingtonpost.com/news/monkey-cage/wp/2018/07/20/when-jordan-closed-its-border-to-refugees-the-public-protested-heres-why/). 
 
 My research has been supported by [Innovations for Poverty Action's Peace and Recovery Program](https://www.poverty-action.org/program-area/peace-and-recovery), [Abbasi Program in Islamic Studies](https://islamicstudies.stanford.edu/),  [Stanford Institute for Economic Policy Research (SIEPR)](https://siepr.stanford.edu/), [Stanford Center on International Conflict and Negotiation (SCICN)](https://law.stanford.edu/stanford-center-on-international-conflict-and-negotiation-scicn/), and [Stanford Center on Philanthropy and Civil Society](https://pacscenter.stanford.edu/), among others.
 
