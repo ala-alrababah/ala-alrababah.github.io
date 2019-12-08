@@ -31,12 +31,12 @@ With a record number of migrants moving across the globe, a burgeoning literatur
 <br>
 
 ## Under Review
-<!---## 
+
 **[Authoritarian Media and Diversionary Threats: Lessons from Thirty Years of Syrian State Discourse.](papers/authoritarian_media.pdf)** *Revise & Resubmit at Political Science Research and Methods.*  
 With Lisa Blaydes.  
 
 Scholars have long argued that leaders manipulate foreign policy, sometimes even initiating wars in order to enhance their domestic political position. But diversionary wars are relatively rare given the high costs of conflict. In this project, we examine data from major Syrian daily newspapers over a thirty-year period (1987-2018) to explore how autocratic regimes use diversionary rhetoric. We find that emphasis on Israel as a diversionary threat decreases during peace negotiations between Syria and Israel. Further, we find that before the Arab Uprisings, Syria's state-controlled media concentrated on Israel as a security and political threat. After 2011 scrutiny of Israel --- and other long-standing topics of state discourse --- was displaced by discussion of foreign plots and conspiracies against the Syrian state. Our analysis illustrates how authoritarian regimes make use of diversionary strategies as well as how political shocks generate discontinuities in authoritarian rhetoric.  
-<br> -->
+<br>
 <br>
 
 **Do Donor Motives Matter? Investigating Perceptions of Foreign Aid in the conflict in Donbas** *Revise & Resubmit at International Studies Quarterly.*  
@@ -64,11 +64,11 @@ With Rachel Myrick
 Scholars and practitioners debate the effectiveness of various strategies of post-conflict justice, but how do citizens impacted by conflict evaluate these policies? The conflict in eastern Ukraine presents an opportunity to shed light on public attitudes towards the “peace- versus-justice” debate. In a survey experiment fielded across Ukraine, including in the separatist-controlled areas, we provide respondents information about whether separatists or pro-government forces allegedly committed more war crimes during the conflict. We examine how this treatment impacts respondents’ evaluations of three post-conflict strategies: international trials, domestic trials, and amnesty policies. We find surprisingly little evidence that inter-group bias conditions attitudes towards these policies. Instead, our results demonstrate substantial support for international law. Ukrainians believe international law is more likely to bring both peace and justice, suggesting they are not mutually exclusive objectives. Our findings suggest international law may be particularly effective in post-conflict democracies where citizens perceive state institutions as weak or corrupt.
 
 <br>
-<!---## 
+
 **Call of Jihad or Call of Duty: Evaluating the Motives of Foreign Fighters in Iraq and Syria** *Under Review*
 
 Over the past few decades, several civil wars have attracted a large number of foreign fighters. Most prominently, the ongoing Syrian civil war has drawn over 30,000 foreign fighters. While this influx has led to important policy questions, the topic remains largely understudied in political science. In this paper, I examine the motivations of foreign fighters by studying the effect of laws that criminalize foreign fighting. While laws are ineffective at preventing foreign fighters from traveling, they can have a differential effect on deterring foreign fighters depending on their motivations. Laws are unlikely to deter zealot fighters but they can deter adventure seekers from traveling to Iraq and Syria. In this paper, I use a difference-in-differences design to show that these laws have been an effective means for deterring potential foreign fighters from traveling to Iraq and Syria, thus suggesting that many foreign fighters are adventure seekers.
-<br> -->
+<br>
 <br>
 
 ## Working Papers
