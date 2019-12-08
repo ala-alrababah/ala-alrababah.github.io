@@ -1,5 +1,5 @@
 ---
-title: "Policy Writing"
+title: "Other Writing"
 output:
   html_document:
     toc: true
@@ -7,6 +7,8 @@ output:
 ---
 
 <br>
+
+* [**Quantitative Text Analysis of Arabic News Media**](https://apsamena.org/2019/12/03/quantitative-text-analysis-of-arabic-news-media/). *MENA Politics Newsletter, Volume 2, Issue 2* Fall 2019
 
 * [**Jordan shut out 60,000 Syrian refugees and then saw a backlash. This is why**](https://www.washingtonpost.com/news/monkey-cage/wp/2018/07/20/when-jordan-closed-its-border-to-refugees-the-public-protested-heres-why/?utm_term=.8297c8ba5625) (with Scott Williamson). *Monkey Cage Blog, The Washington Post.* 2018. 
 
