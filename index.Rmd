@@ -21,10 +21,15 @@ title: ""
     columns: 2 200px;         /* number of columns and width in pixels*/
     -webkit-columns: 2 200px; /* chrome, safari */
     -moz-columns: 2 200px;    /* firefox */
-    column-fill: auto;
   }
 </style>
 
+<style>
+.overflow{
+  overflow: hidden;
+}
+
+</style>
 
 <style>
 .column-left{
@@ -55,11 +60,6 @@ title: ""
 <div class="bottom-three">
 
 </div>
-
-<br>
-
-<br>
-<br>
 
 
 Welcome! I am a PhD candidate in political science at Stanford University, a graduate fellow at the [Immigration Policy Lab (IPL)](http://immigrationlab.org), and a PhD fellow at the [Center on Philanthropy and Civil Society](https://pacscenter.stanford.edu/). My primary research is in comparative politics and international relations with a focus on authoritarian media, political violence, and migration and refugees. To study these topics, my research combines fieldwork, machine learning, and experimental methods.
