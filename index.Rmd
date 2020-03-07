@@ -21,21 +21,20 @@ title: ""
     columns: 2 200px;         /* number of columns and width in pixels*/
     -webkit-columns: 2 200px; /* chrome, safari */
     -moz-columns: 2 200px;    /* firefox */
+    -moz-column-fill: auto;
+    column-fill: auto;
+    overflow: hidden;
   }
 </style>
 
-<style>
-.content{
-  overflow: hidden;
-}
-
-</style>
+  
 
 <style>
 .column-left{
   float: left;
   width: 35%;
   text-align: left;
+  column-fill: auto;
 }
 .column-right{
   float: right;
@@ -53,13 +52,12 @@ title: ""
 
 
 
-<div class="col2" style='width:100%; overflow:hidden'>
+<div class="col2" style='width:100%; overflow:hidden'; column-gap: 4em; moz-column-fill: auto; column-fill: auto>
 <center><img src="images/alrababah.jpg" width="300px"></center>
 
-<br> <br> <br> <br> 
-
-
 <div class="bottom-three">
+
+<br> <br> <br>
 
 </div>
 
