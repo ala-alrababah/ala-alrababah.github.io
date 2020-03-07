@@ -34,12 +34,12 @@ title: ""
 <style>
 .column-left{
   float: left;
-  width: 45%;
+  width: 35%;
   text-align: left;
 }
 .column-right{
   float: right;
-  width: 45%;
+  width: 60%;
   text-align: left;
 }
 </style>
@@ -53,9 +53,10 @@ title: ""
 
 
 
-<div class="col2">
+<div class="col2" style='width:100%; overflow:hidden'>
 
 <center><img src="images/alrababah.jpg" width="300px"></center>
+
 
 <div class="bottom-three">
 
