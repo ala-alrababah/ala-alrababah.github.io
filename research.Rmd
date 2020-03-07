@@ -18,6 +18,13 @@ My dissertation project attempts to examine how Arab autocratic regimes responde
 
 ## Publications
 
+**Do Donor Motives Matter? Investigating Perceptions of Foreign Aid in the conflict in Donbas** *Forthcoming at International Studies Quarterly.*  
+With Rachel Myrick and Isaac Webb.
+
+How do the perceived motives of donor states shape recipient attitudes towards foreign aid in a conflict zone? We identify two frames that characterize the motives of foreign powers involved in an ongoing civil conflict in the Donbas region of eastern Ukraine. These frames portray foreign actors as either providing aid to alleviate suffering during conflict (humanitarian frame) or to increase their power and influence in the recipient country (political influence frame). In a survey experiment, we demonstrate how these frames impact attitudes towards foreign assistance from the European Union and the Russian government. We show that both frames increase support for foreign aid from the European Union but have no influence on views of Russian aid. Counter to conventional expectations, we demonstrate that aid provided for geopolitical, strategic reasons can at times be viewed as a positive, stabilizing force---even more than foreign aid provided for humanitarian reasons.  
+
+<br>
+
 **[Authoritarian Media and Diversionary Threats: Lessons from Thirty Years of Syrian State Discourse.](papers/authoritarian_media.pdf)** *Conditionally accepted at Political Science Research and Methods.*  
 With Lisa Blaydes.  
 
@@ -38,13 +45,6 @@ With a record number of migrants moving across the globe, a burgeoning literatur
 <br>
 
 ## Under Review
-
-**Do Donor Motives Matter? Investigating Perceptions of Foreign Aid in the conflict in Donbas** *Revise & Resubmit at International Studies Quarterly.*  
-With Rachel Myrick and Isaac Webb.
-
-How do the perceived motives of donor states shape recipient attitudes towards foreign aid in a conflict zone? We identify two frames that characterize the motives of foreign powers involved in an ongoing civil conflict in the Donbas region of eastern Ukraine. These frames portray foreign actors as either providing aid to alleviate suffering during conflict (humanitarian frame) or to increase their power and influence in the recipient country (political influence frame). In a survey experiment conducted throughout Ukraine, we demonstrate how these frames impact attitudes towards foreign assistance from the European Union and the Russian government. We show that both frames increase support for foreign aid from the European Union but have no influence on views of Russian aid. Counter to conventional expectations, we demonstrate that aid provided for geopolitical, strategic reasons can at times be viewed as a positive, stabilizing force---even more than foreign aid provided for humanitarian reasons.  
-
-<br>
 
 **[Can Exposure to Celebrities Reduce Prejudice? Estimating the Effect of Mohamed Salah on Islamophobic Attitudes and Behaviors](https://osf.io/preprints/socarxiv/eq8ca/)** *Under Review*  
 With William Marble, Salma Mousa, and Alexandra Siegel.  
@@ -73,11 +73,16 @@ Over the past few decades, several civil wars have attracted a large number of f
 
 ## Working Papers
 
+**Manufacturing THreats: The Use of Diversionary Discourse in Autocratic A Media** *Working Paper*
+
+The  literature on autocratic media has focused on two strategies regimes use to manipulate information: censoring news that could mobilize the public and using propaganda to signal the regime's strength. In this project, I propose a new mechanism. When faced with domestic difficulties, regimes manipulate the discourse around security threats to dissuade the public from protesting. The nature of security threats provides autocratic regimes with private information that allows them to credibly manipulate news about threats. Manipulating security threats reduces dissent by causing fear, emphasizing imminent danger from an out-group, and portraying the regime as the sole protector of the public. To test this, I rely on a quantitative analysis of hundreds of thousands of articles from Bahraini and Egyptian media and a qualitative analysis of regime-controlled media in Egypt. To examine the effectiveness of this strategy, I utilize the heterogeneous effect of threats related to political Islam on Muslims and Christians in Egypt. Overall, I show that regimes engage in diversionary rhetoric during protests and that this discourse may reduce dissent. This project contributes to the literatures on authoritarian durability and the use of autocratic media. It also advances the scholarship on autocratic responses to the Arab uprisings and demonstrates how regimes have manipulated information to preserve their powers following the uprisings.
+
 **Using Transnational Media as a Soft Power Tool Evidence from Al-Arabiya and Al-Jazeera.** *Working Paper*
 
 Since the end of the Cold War, the international relations literature has evolved to focus on non-traditional forms of power and competition. Perhaps most prominently, the study of soft power has shaped much of the academic literature and the policy world starting in the 1990s. Joseph Nye, who defined soft power as ``the ability to get what you want through attraction rather than coercion or payments,'' claimed that public diplomacy, including the use of media, is one of the most important tools of soft power. The vast majority of existing studies of soft power have either focused on democratic countries, like the U.S. and Europe, or fast growing countries, like China, as producers of attractive models. Scholars have paid little attention to Arab countries as producers of soft power because their autocratic nature and natural-resources-driven growth do not generate an attractive model. In this project, I examine how Saudi Arabia and Qatar have been using transnational media--specifically Al-Arabiya and Al-Jazeera--as soft power instruments. This study provides an original theory to explain how countries with limited attractive qualities can use the power of ideas to advance their interests and undermine enemies. I argue that, Qatar, which has faced regional hostility since the mid-1990s, has used Al-Jazeera to attract Arab publics to the idea of victimization in order to increase opposition to their regimes. Meanwhile, Saudi Arabia, a counter-revolutionary power, has used Al-Arabiya to pacify and depoliticize Arab publics. During diplomatic crises, these news sources can also directly undermine rivaling countries through negative coverage. I test this theory through an analysis of over 270,000 articles published in these platforms since 2014, as well as using qualitative examination of the articles.
 
 <br>
+
 
 ## Ongoing Projects
 
