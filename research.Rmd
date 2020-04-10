@@ -48,7 +48,7 @@ With a record number of migrants moving across the globe, a burgeoning literatur
 
 ## Under Review
 
-**[Can Exposure to Celebrities Reduce Prejudice? Estimating the Effect of Mohamed Salah on Islamophobic Attitudes and Behaviors](https://osf.io/preprints/socarxiv/eq8ca/)** *Under Review*  
+**[Can Exposure to Celebrities Reduce Prejudice? Estimating the Effect of Mohamed Salah on Islamophobic Attitudes and Behaviors](https://osf.io/preprints/socarxiv/eq8ca/)** *Revise and resubmit at American Political Science Review*  
 With William Marble, Salma Mousa, and Alexandra Siegel.  
 
 * Selected media coverage: [BBC Arabic](https://twitter.com/BBCArabic/status/1142015205314125824), [The Economist](https://www.economist.com/britain/2019/06/06/mo-salahs-goals-help-to-tackle-islamophobia-in-liverpool), [The Times](https://www.thetimes.co.uk/article/mo-salah-success-scores-home-win-against-islamophobia-in-liverpool-6dnhttvp0), [Fox News](https://www.foxnews.com/sports/mohamed-salah-liverpool-islamophobia-study), [The Daily Mail](https://www.dailymail.co.uk/news/article-7102863/Islamophobia-plummeted-Liverpool-Egyptian-footballer-Mo-Salah-signed-researchers-say.html), [Sky News](https://news.sky.com/story/sky-views-football-fans-unity-has-enormous-power-to-drown-hatred-and-bile-11733823), [Vice](https://www.vice.com/en_us/article/qv7ev7/mo-salah-has-singlehandedly-reduced-islamophobia-in-liverpool), [The Independent](https://www.independent.co.uk/sport/football/news-and-comment/mohamed-salah-liverpool-islamophobia-muslim-goal-celebration-study-a8943501.html), [The National](https://www.thenational.ae/world/europe/mo-salah-may-have-caused-fall-in-islamophobia-in-liverpool-says-report-1.869695), [Spiegel Online](https://www.spiegel.de/panorama/mohamed-salah-fc-liverpool-stuermer-laesst-islamfeindlichkeit-sinken-a-1270644.html), [Le Figaro](http://www.lefigaro.fr/le-scan-sport/2019/06/05/27001-20190605ARTFIG00034-la-signature-de-salah-a-liverpool-aurait-provoque-une-baisse-des-crimes-anti-musulmans.php), [la Republica](https://www.repubblica.it/esteri/2019/06/06/news/il_calcio_che_unisce_a_liverpool_calano_attacchi_e_offese_anti-islam_grazie_a_salah-228076797/?fbclid=IwAR2YL0fQfljlx05PW0GXxdX06UneEHGQRKNYRgeM5O2GLb6HnbO1Vcu56sY&ref=RHPPBT-BH-I0-C4-P11-S1.4-T1), [Al Jazeera](https://www.aljazeera.net/news/humanrights/2019/6/3/%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9-%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A9-%D8%B5%D9%84%D8%A7%D8%AD-%D9%87%D8%B2%D9%85-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%88%D9%81%D9%88%D8%A8%D9%8A%D8%A7-%D9%81%D9%8A-%D9%85%D8%B9%D9%82%D9%84-%D9%84%D9%8A%D9%81%D8%B1%D8%A8%D9%88%D9%84), [EuroNews](https://arabic.euronews.com/2019/06/03/swiss-report-says-salah-cuts-hate-crime-and-islamophobia-into-half-in-liverpool), [Al-Masry Al-Youm](https://www.almasryalyoum.com/news/details/1402243), [Al-Araby Al-Jadeed](https://www.alaraby.co.uk/medianews/2019/6/3/%d9%85%d8%ad%d9%85%d8%af-%d8%b5%d9%84%d8%a7%d8%ad-%d8%b3%d8%a7%d9%87%d9%85-%d8%a8%d8%a7%d9%86%d8%ae%d9%81%d8%a7%d8%b6-%d8%a7%d9%84%d8%a5%d8%b3%d9%84%d8%a7%d9%85%d9%88%d9%81%d9%88%d8%a8%d9%8a%d8%a7-%d9%81%d9%8a-%d9%84%d9%8a%d9%81%d8%b1%d8%a8%d9%88%d9%84). 
@@ -65,6 +65,16 @@ With Rachel Myrick
 
 Scholars and practitioners debate the effectiveness of various strategies of post-conflict justice, but how do citizens impacted by conflict evaluate these policies? The conflict in eastern Ukraine presents an opportunity to shed light on public attitudes towards the “peace- versus-justice” debate. In a survey experiment fielded across Ukraine, including in the separatist-controlled areas, we provide respondents information about whether separatists or pro-government forces allegedly committed more war crimes during the conflict. We examine how this treatment impacts respondents’ evaluations of three post-conflict strategies: international trials, domestic trials, and amnesty policies. We find surprisingly little evidence that inter-group bias conditions attitudes towards these policies. Instead, our results demonstrate substantial support for international law. Ukrainians believe international law is more likely to bring both peace and justice, suggesting they are not mutually exclusive objectives. Our findings suggest international law may be particularly effective in post-conflict democracies where citizens perceive state institutions as weak or corrupt.
 
+
+<br>
+
+**[Learning from Null Effects: A Bottom-Up Approach](https://osf.io/preprints/socarxiv/5ebpy)** *Under Review*  
+With Scott Williamson, Andrea Dillon, Jens Hainmueller, Dominik Hangartner, Michael Hotard, David Laitin, Duncan Lawrence, Jeremy Weinstein
+
+
+A critical barrier to generating cumulative knowledge in political science and related disciplines is the inability of researchers to observe the results from the full set of research designs that scholars have conceptualized, implemented, and analyzed. For a variety of reasons, studies that produce null findings are especially likely to be unobserved, creating biases in publicly accessible research. While several approaches have been suggested to overcome this problem, none have yet proven adequate. We propose a new model in which scholars post short ``null results reports'' online that summarize their research designs, findings, and interpretations. We discuss a template for these reports and illustrate their utility with two experimental studies focused on naturalization of immigrants in the United States and attitudes toward Syrian refugees in Jordan. We conclude with a discussion of how to overcome incentive problems and inculcate a discipline-wide norm of publicizing null findings.
+
+
 <br>
 
 **Call of Jihad or Call of Duty: Evaluating the Motives of Foreign Fighters in Iraq and Syria** *Under Review*
@@ -75,7 +85,7 @@ Over the past few decades, several civil wars have attracted a large number of f
 
 ## Working Papers
 
-**Manufacturing THreats: The Use of Diversionary Discourse in Autocratic A Media** *Working Paper*
+**Manufacturing Threats: The Use of Diversionary Discourse in Autocratic A Media** *Working Paper*
 
 The  literature on autocratic media has focused on two strategies regimes use to manipulate information: censoring news that could mobilize the public and using propaganda to signal the regime's strength. In this project, I propose a new mechanism. When faced with domestic difficulties, regimes manipulate the discourse around security threats to dissuade the public from protesting. The nature of security threats provides autocratic regimes with private information that allows them to credibly manipulate news about threats. Manipulating security threats reduces dissent by causing fear, emphasizing imminent danger from an out-group, and portraying the regime as the sole protector of the public. To test this, I rely on a quantitative analysis of hundreds of thousands of articles from Bahraini and Egyptian media and a qualitative analysis of regime-controlled media in Egypt. To examine the effectiveness of this strategy, I utilize the heterogeneous effect of threats related to political Islam on Muslims and Christians in Egypt. Overall, I show that regimes engage in diversionary rhetoric during protests and that this discourse may reduce dissent. This project contributes to the literatures on authoritarian durability and the use of autocratic media. It also advances the scholarship on autocratic responses to the Arab uprisings and demonstrates how regimes have manipulated information to preserve their powers following the uprisings.
 
@@ -107,7 +117,3 @@ Since the end of the Cold War, the international relations literature has evolve
 <br>
 
 **Permission to Secede? The Impact of Foreign Powers on Separatist Movements** with Rachel Myrick.
-
-<br>
-
-**Standards for Reporting Null Results** with Andrea Dillon, Scott Williamson, Jens Hainmueller, Dominik Hangartner, and Jeremy Weinstein.
