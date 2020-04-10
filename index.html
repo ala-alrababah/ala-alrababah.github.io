@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
 
-<title></title>
+<title>index.utf8</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -69,9 +69,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -85,7 +83,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -95,6 +92,9 @@ img {
 }
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -110,7 +110,6 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
-
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -130,6 +129,43 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -151,19 +187,74 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -261,7 +352,7 @@ $(document).ready(function () {
 <p>Prior to arriving at Stanford University, I was a <a href="https://carnegieendowment.org/about/jr-fellows">Junior Fellow</a> at the Carnegie Endowment for International Peace. I grew up in Amman, Jordan and graduated from Dartmouth College with a degree in Government.</p>
 <p>My research has been covered in several outlets, including <a href="http://freakonomics.com/podcast/london-live/">Freakonomics</a>, <a href="https://twitter.com/BBCArabic/status/1142015205314125824">BBC Arabic</a>, <a href="https://www.economist.com/britain/2019/06/06/mo-salahs-goals-help-to-tackle-islamophobia-in-liverpool">The Economist</a>, <a href="https://www.thetimes.co.uk/article/mo-salah-success-scores-home-win-against-islamophobia-in-liverpool-6dnhttvp0">The Times</a>, <a href="https://www.dailymail.co.uk/news/article-7102863/Islamophobia-plummeted-Liverpool-Egyptian-footballer-Mo-Salah-signed-researchers-say.html">The Daily Mail</a>, <a href="https://www.aljazeera.net/news/humanrights/2019/6/3/%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9-%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A9-%D8%B5%D9%84%D8%A7%D8%AD-%D9%87%D8%B2%D9%85-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%88%D9%81%D9%88%D8%A8%D9%8A%D8%A7-%D9%81%D9%8A-%D9%85%D8%B9%D9%82%D9%84-%D9%84%D9%8A%D9%81%D8%B1%D8%A8%D9%88%D9%84">Al Jazeera</a>, <a href="https://www.spiegel.de/panorama/mohamed-salah-fc-liverpool-stuermer-laesst-islamfeindlichkeit-sinken-a-1270644.html">Spiegel Online</a>, <a href="http://www.lefigaro.fr/le-scan-sport/2019/06/05/27001-20190605ARTFIG00034-la-signature-de-salah-a-liverpool-aurait-provoque-une-baisse-des-crimes-anti-musulmans.php">Le Figaro</a>, <a href="https://www.repubblica.it/esteri/2019/06/06/news/il_calcio_che_unisce_a_liverpool_calano_attacchi_e_offese_anti-islam_grazie_a_salah-228076797/?fbclid=IwAR2YL0fQfljlx05PW0GXxdX06UneEHGQRKNYRgeM5O2GLb6HnbO1Vcu56sY&amp;ref=RHPPBT-BH-I0-C4-P11-S1.4-T1">la Republica</a>, and <a href="https://www.alaraby.co.uk/medianews/2019/6/3/%d9%85%d8%ad%d9%85%d8%af-%d8%b5%d9%84%d8%a7%d8%ad-%d8%b3%d8%a7%d9%87%d9%85-%d8%a8%d8%a7%d9%86%d8%ae%d9%81%d8%a7%d8%b6-%d8%a7%d9%84%d8%a5%d8%b3%d9%84%d8%a7%d9%85%d9%88%d9%81%d9%88%d8%a8%d9%8a%d8%a7-%d9%81%d9%8a-%d9%84%d9%8a%d9%81%d8%b1%d8%a8%d9%88%d9%84">Al-Araby Al-Jadeed</a>. I have also written about my research in the <a href="https://www.washingtonpost.com/news/monkey-cage/wp/2018/07/20/when-jordan-closed-its-border-to-refugees-the-public-protested-heres-why/">Washington Post’s Monkey Cage blog</a>.</p>
 <p>My research has been supported by <a href="https://www.poverty-action.org/program-area/peace-and-recovery">Innovations for Poverty Action’s Peace and Recovery Program</a>, <a href="https://islamicstudies.stanford.edu/">Abbasi Program in Islamic Studies</a>, <a href="https://siepr.stanford.edu/">Stanford Institute for Economic Policy Research (SIEPR)</a>, <a href="https://law.stanford.edu/stanford-center-on-international-conflict-and-negotiation-scicn/">Stanford Center on International Conflict and Negotiation (SCICN)</a>, and <a href="https://pacscenter.stanford.edu/">Stanford Center on Philanthropy and Civil Society</a>, among others.</p>
-<p>You can contact me via email at <a href="mailto:alaa@stanford.edu">alaa@stanford.edu</a> or follow me on twitter at <a href="https://twitter.com/a_alrababah">@a_alrababah</a>.</p>
+<p>You can contact me via email at <a href="mailto:alaa@stanford.edu" class="email">alaa@stanford.edu</a> or follow me on twitter at <a href="https://twitter.com/a_alrababah">@a_alrababah</a>.</p>
 </div>
 
 
@@ -281,6 +372,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

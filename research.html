@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -72,9 +72,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -88,7 +86,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -98,6 +95,9 @@ img {
 }
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -113,7 +113,6 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
-
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -133,6 +132,43 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -154,47 +190,66 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
-
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -208,6 +263,12 @@ $(document).ready(function ()  {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -243,8 +304,6 @@ div.tocify {
 
 .tocify-subheader .tocify-item {
   font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
 }
 
 .tocify .list-group-item {
@@ -253,6 +312,16 @@ div.tocify {
 
 
 </style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
@@ -342,7 +411,7 @@ With Andrea Dillon, Scott Williamson, Jens Hainmueller, Dominik Hangartner, and 
 </div>
 <div id="under-review" class="section level2">
 <h2>Under Review</h2>
-<p><strong><a href="https://osf.io/preprints/socarxiv/eq8ca/">Can Exposure to Celebrities Reduce Prejudice? Estimating the Effect of Mohamed Salah on Islamophobic Attitudes and Behaviors</a></strong> <em>Under Review</em><br />
+<p><strong><a href="https://osf.io/preprints/socarxiv/eq8ca/">Can Exposure to Celebrities Reduce Prejudice? Estimating the Effect of Mohamed Salah on Islamophobic Attitudes and Behaviors</a></strong> <em>Revise and resubmit at American Political Science Review</em><br />
 With William Marble, Salma Mousa, and Alexandra Siegel.</p>
 <ul>
 <li><p>Selected media coverage: <a href="https://twitter.com/BBCArabic/status/1142015205314125824">BBC Arabic</a>, <a href="https://www.economist.com/britain/2019/06/06/mo-salahs-goals-help-to-tackle-islamophobia-in-liverpool">The Economist</a>, <a href="https://www.thetimes.co.uk/article/mo-salah-success-scores-home-win-against-islamophobia-in-liverpool-6dnhttvp0">The Times</a>, <a href="https://www.foxnews.com/sports/mohamed-salah-liverpool-islamophobia-study">Fox News</a>, <a href="https://www.dailymail.co.uk/news/article-7102863/Islamophobia-plummeted-Liverpool-Egyptian-footballer-Mo-Salah-signed-researchers-say.html">The Daily Mail</a>, <a href="https://news.sky.com/story/sky-views-football-fans-unity-has-enormous-power-to-drown-hatred-and-bile-11733823">Sky News</a>, <a href="https://www.vice.com/en_us/article/qv7ev7/mo-salah-has-singlehandedly-reduced-islamophobia-in-liverpool">Vice</a>, <a href="https://www.independent.co.uk/sport/football/news-and-comment/mohamed-salah-liverpool-islamophobia-muslim-goal-celebration-study-a8943501.html">The Independent</a>, <a href="https://www.thenational.ae/world/europe/mo-salah-may-have-caused-fall-in-islamophobia-in-liverpool-says-report-1.869695">The National</a>, <a href="https://www.spiegel.de/panorama/mohamed-salah-fc-liverpool-stuermer-laesst-islamfeindlichkeit-sinken-a-1270644.html">Spiegel Online</a>, <a href="http://www.lefigaro.fr/le-scan-sport/2019/06/05/27001-20190605ARTFIG00034-la-signature-de-salah-a-liverpool-aurait-provoque-une-baisse-des-crimes-anti-musulmans.php">Le Figaro</a>, <a href="https://www.repubblica.it/esteri/2019/06/06/news/il_calcio_che_unisce_a_liverpool_calano_attacchi_e_offese_anti-islam_grazie_a_salah-228076797/?fbclid=IwAR2YL0fQfljlx05PW0GXxdX06UneEHGQRKNYRgeM5O2GLb6HnbO1Vcu56sY&amp;ref=RHPPBT-BH-I0-C4-P11-S1.4-T1">la Republica</a>, <a href="https://www.aljazeera.net/news/humanrights/2019/6/3/%D8%AF%D8%B1%D8%A7%D8%B3%D8%A9-%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A9-%D8%B5%D9%84%D8%A7%D8%AD-%D9%87%D8%B2%D9%85-%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85%D9%88%D9%81%D9%88%D8%A8%D9%8A%D8%A7-%D9%81%D9%8A-%D9%85%D8%B9%D9%82%D9%84-%D9%84%D9%8A%D9%81%D8%B1%D8%A8%D9%88%D9%84">Al Jazeera</a>, <a href="https://arabic.euronews.com/2019/06/03/swiss-report-says-salah-cuts-hate-crime-and-islamophobia-into-half-in-liverpool">EuroNews</a>, <a href="https://www.almasryalyoum.com/news/details/1402243">Al-Masry Al-Youm</a>, <a href="https://www.alaraby.co.uk/medianews/2019/6/3/%d9%85%d8%ad%d9%85%d8%af-%d8%b5%d9%84%d8%a7%d8%ad-%d8%b3%d8%a7%d9%87%d9%85-%d8%a8%d8%a7%d9%86%d8%ae%d9%81%d8%a7%d8%b6-%d8%a7%d9%84%d8%a5%d8%b3%d9%84%d8%a7%d9%85%d9%88%d9%81%d9%88%d8%a8%d9%8a%d8%a7-%d9%81%d9%8a-%d9%84%d9%8a%d9%81%d8%b1%d8%a8%d9%88%d9%84">Al-Araby Al-Jadeed</a>.</p></li>
@@ -354,12 +423,16 @@ With William Marble, Salma Mousa, and Alexandra Siegel.</p>
 With Rachel Myrick</p>
 <p>Scholars and practitioners debate the effectiveness of various strategies of post-conflict justice, but how do citizens impacted by conflict evaluate these policies? The conflict in eastern Ukraine presents an opportunity to shed light on public attitudes towards the “peace- versus-justice” debate. In a survey experiment fielded across Ukraine, including in the separatist-controlled areas, we provide respondents information about whether separatists or pro-government forces allegedly committed more war crimes during the conflict. We examine how this treatment impacts respondents’ evaluations of three post-conflict strategies: international trials, domestic trials, and amnesty policies. We find surprisingly little evidence that inter-group bias conditions attitudes towards these policies. Instead, our results demonstrate substantial support for international law. Ukrainians believe international law is more likely to bring both peace and justice, suggesting they are not mutually exclusive objectives. Our findings suggest international law may be particularly effective in post-conflict democracies where citizens perceive state institutions as weak or corrupt.</p>
 <p><br></p>
+<p><strong><a href="https://osf.io/preprints/socarxiv/5ebpy">Learning from Null Effects: A Bottom-Up Approach</a></strong> <em>Under Review</em><br />
+With Scott Williamson, Andrea Dillon, Jens Hainmueller, Dominik Hangartner, Michael Hotard, David Laitin, Duncan Lawrence, Jeremy Weinstein</p>
+<p>A critical barrier to generating cumulative knowledge in political science and related disciplines is the inability of researchers to observe the results from the full set of research designs that scholars have conceptualized, implemented, and analyzed. For a variety of reasons, studies that produce null findings are especially likely to be unobserved, creating biases in publicly accessible research. While several approaches have been suggested to overcome this problem, none have yet proven adequate. We propose a new model in which scholars post short ``null results reports’’ online that summarize their research designs, findings, and interpretations. We discuss a template for these reports and illustrate their utility with two experimental studies focused on naturalization of immigrants in the United States and attitudes toward Syrian refugees in Jordan. We conclude with a discussion of how to overcome incentive problems and inculcate a discipline-wide norm of publicizing null findings.</p>
+<p><br></p>
 <p><strong>Call of Jihad or Call of Duty: Evaluating the Motives of Foreign Fighters in Iraq and Syria</strong> <em>Under Review</em></p>
 <p>Over the past few decades, several civil wars have attracted a large number of foreign fighters. Most prominently, the ongoing Syrian civil war has drawn over 30,000 foreign fighters. While this influx has led to important policy questions, the topic remains largely understudied in political science. In this paper, I examine the motivations of foreign fighters by studying the effect of laws that criminalize foreign fighting. While laws are ineffective at preventing foreign fighters from traveling, they can have a differential effect on deterring foreign fighters depending on their motivations. Laws are unlikely to deter zealot fighters but they can deter adventure seekers from traveling to Iraq and Syria. In this paper, I use a difference-in-differences design to show that these laws have been an effective means for deterring potential foreign fighters from traveling to Iraq and Syria, thus suggesting that many foreign fighters are adventure seekers. <br> <br></p>
 </div>
 <div id="working-papers" class="section level2">
 <h2>Working Papers</h2>
-<p><strong>Manufacturing THreats: The Use of Diversionary Discourse in Autocratic A Media</strong> <em>Working Paper</em></p>
+<p><strong>Manufacturing Threats: The Use of Diversionary Discourse in Autocratic A Media</strong> <em>Working Paper</em></p>
 <p>The literature on autocratic media has focused on two strategies regimes use to manipulate information: censoring news that could mobilize the public and using propaganda to signal the regime’s strength. In this project, I propose a new mechanism. When faced with domestic difficulties, regimes manipulate the discourse around security threats to dissuade the public from protesting. The nature of security threats provides autocratic regimes with private information that allows them to credibly manipulate news about threats. Manipulating security threats reduces dissent by causing fear, emphasizing imminent danger from an out-group, and portraying the regime as the sole protector of the public. To test this, I rely on a quantitative analysis of hundreds of thousands of articles from Bahraini and Egyptian media and a qualitative analysis of regime-controlled media in Egypt. To examine the effectiveness of this strategy, I utilize the heterogeneous effect of threats related to political Islam on Muslims and Christians in Egypt. Overall, I show that regimes engage in diversionary rhetoric during protests and that this discourse may reduce dissent. This project contributes to the literatures on authoritarian durability and the use of autocratic media. It also advances the scholarship on autocratic responses to the Arab uprisings and demonstrates how regimes have manipulated information to preserve their powers following the uprisings.</p>
 <p><strong>Using Transnational Media as a Soft Power Tool Evidence from Al-Arabiya and Al-Jazeera.</strong> <em>Working Paper</em></p>
 <p>Since the end of the Cold War, the international relations literature has evolved to focus on non-traditional forms of power and competition. Perhaps most prominently, the study of soft power has shaped much of the academic literature and the policy world starting in the 1990s. Joseph Nye, who defined soft power as ``the ability to get what you want through attraction rather than coercion or payments,’’ claimed that public diplomacy, including the use of media, is one of the most important tools of soft power. The vast majority of existing studies of soft power have either focused on democratic countries, like the U.S. and Europe, or fast growing countries, like China, as producers of attractive models. Scholars have paid little attention to Arab countries as producers of soft power because their autocratic nature and natural-resources-driven growth do not generate an attractive model. In this project, I examine how Saudi Arabia and Qatar have been using transnational media–specifically Al-Arabiya and Al-Jazeera–as soft power instruments. This study provides an original theory to explain how countries with limited attractive qualities can use the power of ideas to advance their interests and undermine enemies. I argue that, Qatar, which has faced regional hostility since the mid-1990s, has used Al-Jazeera to attract Arab publics to the idea of victimization in order to increase opposition to their regimes. Meanwhile, Saudi Arabia, a counter-revolutionary power, has used Al-Arabiya to pacify and depoliticize Arab publics. During diplomatic crises, these news sources can also directly undermine rivaling countries through negative coverage. I test this theory through an analysis of over 270,000 articles published in these platforms since 2014, as well as using qualitative examination of the articles.</p>
@@ -377,8 +450,6 @@ With Rachel Myrick</p>
 <p><strong>State Immigration Policy and Immigrant Health</strong> with Vicky Fouka, Jens Hainmueller, Dan Hopkins, Michael Hotard, Duncan Lawrence, and Rita Hamad.</p>
 <p><br></p>
 <p><strong>Permission to Secede? The Impact of Foreign Powers on Separatist Movements</strong> with Rachel Myrick.</p>
-<p><br></p>
-<p><strong>Standards for Reporting Null Results</strong> with Andrea Dillon, Scott Williamson, Jens Hainmueller, Dominik Hangartner, and Jeremy Weinstein.</p>
 </div>
 
 
@@ -399,6 +470,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
