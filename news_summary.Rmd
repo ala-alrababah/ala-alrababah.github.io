@@ -1,0 +1,13 @@
+---
+title: "News summary"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+* [May 2, 2020](2020-05-02.html)
+
+<!-- ```{r showChoro1, echo = FALSE}
+htmltools::includeHTML("news_summary/2020-05-02.html")
+```-->
