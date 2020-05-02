@@ -1,0 +1,15 @@
+---
+title: "News summary"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+This section shows some interesting daily news articles from Arab media. Those are articles that I find interesting but should not be seen as representative of the content of these news sources. 
+
+* [May 2, 2020](2020-05-02.html)
+
+```{r showChoro1, echo = FALSE}
+htmltools::includeHTML("2020-05-02.html")
+```

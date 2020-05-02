@@ -1,5 +1,16 @@
 ---
 title: "CV"
+output:
+    html_document
 ---
 
+
 [To download my CV, click here.](cv/Alrababah_cv.pdf)
+
+<object data="https://www.dropbox.com/s/rxy149plyysko9o/Alrababah_cv.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="https://www.dropbox.com/s/rxy149plyysko9o/Alrababah_cv.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://www.dropbox.com/s/rxy149plyysko9o/Alrababah_cv.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+
+try
