@@ -14,6 +14,8 @@ navbar:
       href: teaching.html
     - text: "CV"
       href: cv.html
+    - text: "News summary"
+      href: news_summary.html
 output_dir: "."
 output:
   html_document:
