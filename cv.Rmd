@@ -4,10 +4,9 @@ output:
     html_document
 ---
 
-try5
+try6
 
-<object data="cv/Alrababah_cv.pdf" type="cv/Alrababah_cv.pdf" width="1500px" height="3000px">
+<object data="cv/Alrababah_cv.pdf" type="cv/Alrababah_cv.pdf" width=100% height=100%>
     <embed src="cv/Alrababah_cv.pdf">
 <p>If this browser does not support PDFs. Please download the PDF to view it: <a href="cv/Alrababah_cv.pdf">Download PDF</a>.</p>
-    </embed>
 </object>
