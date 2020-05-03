@@ -4,10 +4,8 @@ output:
     html_document
 ---
 
-try7
-
 <meta name="viewport" content="width=device-width">
-<p>If this browser does not support PDFs. Please download the PDF to view it: <a href="cv/Alrababah_cv.pdf">Download PDF</a>.</p>
+<p>You can download the CV to view it here: <a href="cv/Alrababah_cv.pdf">Download CV</a>.</p>
 <object data="cv/Alrababah_cv.pdf" type="application/pdf" style="min-height:100vh;width:100%"></object>
 
 
