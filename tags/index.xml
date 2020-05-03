@@ -1,112 +1,112 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Ala&#39; Alrababa&#39;h</title>
-    <link>/tags/</link>
-    <description>Recent content in Tags on Ala&#39; Alrababa&#39;h</description>
+    <title>Tags on </title>
+    <link>/home/tags/</link>
+    <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 02 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/home/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>corruption</title>
-      <link>/tags/corruption/</link>
+      <link>/home/tags/corruption/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/corruption/</guid>
+      <guid>/home/tags/corruption/</guid>
       <description></description>
     </item>
     
     <item>
       <title>covid19</title>
-      <link>/tags/covid19/</link>
+      <link>/home/tags/covid19/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/covid19/</guid>
+      <guid>/home/tags/covid19/</guid>
       <description></description>
     </item>
     
     <item>
       <title>egypt</title>
-      <link>/tags/egypt/</link>
+      <link>/home/tags/egypt/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/egypt/</guid>
+      <guid>/home/tags/egypt/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gulf</title>
-      <link>/tags/gulf/</link>
+      <link>/home/tags/gulf/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/gulf/</guid>
+      <guid>/home/tags/gulf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>israel</title>
-      <link>/tags/israel/</link>
+      <link>/home/tags/israel/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/israel/</guid>
+      <guid>/home/tags/israel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jordan</title>
-      <link>/tags/jordan/</link>
+      <link>/home/tags/jordan/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/jordan/</guid>
+      <guid>/home/tags/jordan/</guid>
       <description></description>
     </item>
     
     <item>
       <title>media</title>
-      <link>/tags/media/</link>
+      <link>/home/tags/media/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/media/</guid>
+      <guid>/home/tags/media/</guid>
       <description></description>
     </item>
     
     <item>
       <title>russia</title>
-      <link>/tags/russia/</link>
+      <link>/home/tags/russia/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/russia/</guid>
+      <guid>/home/tags/russia/</guid>
       <description></description>
     </item>
     
     <item>
       <title>syria</title>
-      <link>/tags/syria/</link>
+      <link>/home/tags/syria/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/syria/</guid>
+      <guid>/home/tags/syria/</guid>
       <description></description>
     </item>
     
     <item>
       <title>uprisings</title>
-      <link>/tags/uprisings/</link>
+      <link>/home/tags/uprisings/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/uprisings/</guid>
+      <guid>/home/tags/uprisings/</guid>
       <description></description>
     </item>
     
     <item>
       <title>yemen</title>
-      <link>/tags/yemen/</link>
+      <link>/home/tags/yemen/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/yemen/</guid>
+      <guid>/home/tags/yemen/</guid>
       <description></description>
     </item>
     
