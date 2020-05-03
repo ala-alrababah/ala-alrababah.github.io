@@ -16,7 +16,7 @@ navbar:
       href: cv.html
     - text: "News summary"
       href: news_summary.html
-output_dir: "_site"
+output_dir: "."
 output:
   html_document:
     theme: cosmo
