@@ -3,116 +3,112 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/home/</loc>
+    <loc>/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/media/news_2020-05-02/</loc>
+    <loc>/media/news_2020-05-02/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/tags/corruption/</loc>
+    <loc>/tags/corruption/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/tags/covid19/</loc>
+    <loc>/tags/covid19/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/tags/egypt/</loc>
+    <loc>/tags/egypt/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/tags/gulf/</loc>
+    <loc>/tags/gulf/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/tags/israel/</loc>
+    <loc>/tags/israel/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/tags/jordan/</loc>
+    <loc>/tags/jordan/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/media/</loc>
+    <loc>/media/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/tags/media/</loc>
+    <loc>/tags/media/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/categories/regional/</loc>
+    <loc>/categories/regional/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/tags/russia/</loc>
+    <loc>/tags/russia/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/tags/syria/</loc>
+    <loc>/tags/syria/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/tags/uprisings/</loc>
+    <loc>/tags/uprisings/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/tags/yemen/</loc>
+    <loc>/tags/yemen/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/home/cv/</loc>
+    <loc>/cv/</loc>
   </url>
   
   <url>
-    <loc>/home/home/</loc>
+    <loc>/data/</loc>
   </url>
   
   <url>
-    <loc>/home/data/</loc>
+    <loc>/writing/</loc>
   </url>
   
   <url>
-    <loc>/home/writing/</loc>
+    <loc>/policy/</loc>
   </url>
   
   <url>
-    <loc>/home/policy/</loc>
+    <loc>/research/</loc>
   </url>
   
   <url>
-    <loc>/home/research/</loc>
-  </url>
-  
-  <url>
-    <loc>/home/teaching/</loc>
+    <loc>/teaching/</loc>
   </url>
   
 </urlset>
