@@ -8,4 +8,4 @@ output:
 
 This section shows some interesting daily news articles from Arab media. Those are articles that I find interesting but should not be seen as representative of the content of these news sources. 
 
-* [Regional media, May 2, 2020](news/2020-05-02.html)
+* [Regional media, May 2, 2020](2020-05-02.html)
