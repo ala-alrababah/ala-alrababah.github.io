@@ -1,0 +1,23 @@
+name: "Ala' Alrababa'h"
+navbar:
+  title: "Ala' Alrababa'h"
+  left:
+    - text: "Home"
+      href: ./index.html
+    - text: "Research"
+      href: ./research.html
+    - text: "Data"
+      href: ./data.html      
+    - text: "Other Writing"
+      href: ./policy.html
+    - text: "Teaching"
+      href: ./teaching.html
+    - text: "CV"
+      href: ./cv.html
+    - text: "News summary"
+      href: ./news_summary.html
+output_dir: "."
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
