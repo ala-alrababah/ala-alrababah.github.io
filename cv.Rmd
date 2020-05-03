@@ -5,12 +5,8 @@ output:
 ---
 
 
-[To download my CV, click here.](cv/Alrababah_cv.pdf)
-
-<object data="cv/Alrababah_cv.pdf" type="cv/Alrababah_cv.pdf" width="700px" height="700px">
+<object data="cv/Alrababah_cv.pdf" type="cv/Alrababah_cv.pdf" width="1500px" height="3000">
     <embed src="cv/Alrababah_cv.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="cv/Alrababah_cv.pdf">Download PDF</a>.</p>
+        <p>If this browser does not support PDFs. Please download the PDF to view it: <a href="cv/Alrababah_cv.pdf">Download PDF</a>.</p>
     </embed>
 </object>
-
-try4
