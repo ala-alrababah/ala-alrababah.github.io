@@ -2,79 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <link>/</link>
+    <link>https://ala-alrababah.github.io/</link>
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 05 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ala-alrababah.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Regional news 2020-05-05</title>
-      <link>/media/news_2020-05-05/</link>
+      <link>https://ala-alrababah.github.io/media/news_2020-05-05/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/media/news_2020-05-05/</guid>
-      <description>Contents  Al-Araby Al-Jadeed  Al-Sharq Al-Awsat  Aljazeera  Alarabiya  Al-Quds Al-Araby  Ra’i Al-Youm   Al-Araby Al-Jadeed  Fears that imprisoned Saudi Princess Basma bint Saudi may have Corona Last month, the princess wrote on her twitter that she is imprisoned in Hair prison and her health is quickly deteriorating. She said he condition is critical and may lead to her death. She added that she has not received any medical assistance.</description>
+      <guid>https://ala-alrababah.github.io/media/news_2020-05-05/</guid>
+      <description>Contents  Al-Araby Al-Jadeed  Al-Sharq Al-Awsat  Aljazeera  Alarabiya  Al-Quds Al-Araby  Ra’i Al-Youm   Al-Araby Al-Jadeed  Fears that imprisoned Saudi Princess Basma bint Saudi may have Corona
+Last month, the princess wrote on her twitter that she is imprisoned in Hair prison and her health is quickly deteriorating. She said he condition is critical and may lead to her death. She added that she has not received any medical assistance.</description>
     </item>
     
     <item>
       <title>2020-05-04</title>
-      <link>/media/news_2020-05-04/</link>
+      <link>https://ala-alrababah.github.io/media/news_2020-05-04/</link>
       <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/media/news_2020-05-04/</guid>
+      <guid>https://ala-alrababah.github.io/media/news_2020-05-04/</guid>
       <description>Contents  Bahrain  Lebanon   Bahrain  Al-Ayyam Terrorists may take advantage of the world’s preoccupation with the Corona pandemic… the British ambassador for “Al-Ayyam”
 In an interview with Al-Ayyam, the British ambassador to Bahrain said that the response of the Bahraini health system to the spread of COVID-19 was exemplary and rapid, pointing to the impressive success of the Bahraini responses especially since it only took two months.</description>
     </item>
     
     <item>
       <title>2020-05-03</title>
-      <link>/media/news_2020-05-03/</link>
+      <link>https://ala-alrababah.github.io/media/news_2020-05-03/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/media/news_2020-05-03/</guid>
+      <guid>https://ala-alrababah.github.io/media/news_2020-05-03/</guid>
       <description>Contents  Egypt  Saudi  Qatar  Jordan  Syria   Egypt  Ahram One hand protects from the pandemic and the other builds the desert
 Throughout Egyptian history, Sinai has never received this volume of development projects… The roads, tunnels, and bridges tht are being built will change life across all of Egypt and not just Sinai… I have seen the many giant national projects, which were accomplished by the people of Egypt under the leadership of President Abdel Fattah El-Sisi during the past years, and… I did not believe that all of these projects were completed in this record time</description>
     </item>
     
     <item>
       <title>2020-05-02</title>
-      <link>/media/news_2020-05-02/</link>
+      <link>https://ala-alrababah.github.io/media/news_2020-05-02/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/media/news_2020-05-02/</guid>
+      <guid>https://ala-alrababah.github.io/media/news_2020-05-02/</guid>
       <description>Contents  Al-Araby Al-Jadeed  Al-Jazeera  Al-Arabiya  Sky News Arabia  Al-Sharq Al-Awsat   Al-Araby Al-Jadeed  Corona Egypt: Doubts about the efficiency of the return-to-work plans
 The Egyptian government continues to rush towards a full return to service and financial activities after the end of the month of Ramadan, despite the worsening situation of the new Corona epidemic, the steady increase in the number of daily casualties… and the failure of the state to conduct random tests even in areas that witnessed high infection rates.</description>
     </item>
     
     <item>
       <title>CV</title>
-      <link>/cv/</link>
+      <link>https://ala-alrababah.github.io/cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/cv/</guid>
+      <guid>https://ala-alrababah.github.io/cv/</guid>
       <description>  You can download my CV here.  If this browser does not support PDFs. Please download the PDF to view it: Download PDF.
  -- </description>
     </item>
     
     <item>
       <title>Data</title>
-      <link>/data/</link>
+      <link>https://ala-alrababah.github.io/data/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/data/</guid>
+      <guid>https://ala-alrababah.github.io/data/</guid>
       <description>We combined data from UNHCR’s Syrian refugees per locality in Lebanon (as defined by UNHCR, from December 2018) with data on Lebanese voters per locality (using the 2018 elections). The data can be accessed here.</description>
     </item>
     
     <item>
       <title>Other writing</title>
-      <link>/writing/</link>
+      <link>https://ala-alrababah.github.io/writing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/writing/</guid>
+      <guid>https://ala-alrababah.github.io/writing/</guid>
       <description>Quantitative Text Analysis of Arabic News Media. MENA Politics Newsletter, Volume 2, Issue 2 Fall 2019
  Jordan shut out 60,000 Syrian refugees and then saw a backlash. This is why (with Scott Williamson). Monkey Cage Blog, The Washington Post. 2018.
  Data Analysis: How did Jordanians Respond to the Formation of Al-Razzaz’s Government? 7iber.com. 2018.  Taking on Operation Dawn: The Creeping Advance of the Islamic State in Western Libya.</description>
@@ -82,10 +83,10 @@ The Egyptian government continues to rush towards a full return to service and f
     
     <item>
       <title>Policy</title>
-      <link>/policy/</link>
+      <link>https://ala-alrababah.github.io/policy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/policy/</guid>
+      <guid>https://ala-alrababah.github.io/policy/</guid>
       <description>Quantitative Text Analysis of Arabic News Media. MENA Politics Newsletter, Volume 2, Issue 2 Fall 2019
  Jordan shut out 60,000 Syrian refugees and then saw a backlash. This is why (with Scott Williamson). Monkey Cage Blog, The Washington Post. 2018.
  Data Analysis: How did Jordanians Respond to the Formation of Al-Razzaz’s Government? 7iber.com. 2018.  Taking on Operation Dawn: The Creeping Advance of the Islamic State in Western Libya.</description>
@@ -93,10 +94,10 @@ The Egyptian government continues to rush towards a full return to service and f
     
     <item>
       <title>Research</title>
-      <link>/research/</link>
+      <link>https://ala-alrababah.github.io/research/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/research/</guid>
+      <guid>https://ala-alrababah.github.io/research/</guid>
       <description>Publications Do Donor Motives Matter? Investigating Perceptions of Foreign Aid in the conflict in Donbas Forthcoming at International Studies Quarterly.
 With Rachel Myrick and Isaac Webb.
 How do the perceived motives of donor states shape recipient attitudes towards foreign aid in a conflict zone? We identify two frames that characterize the motives of foreign powers involved in an ongoing civil conflict in the Donbas region of eastern Ukraine. These frames portray foreign actors as either providing aid to alleviate suffering during conflict (humanitarian frame) or to increase their power and influence in the recipient country (political influence frame).</description>
@@ -104,10 +105,10 @@ How do the perceived motives of donor states shape recipient attitudes towards f
     
     <item>
       <title>Teaching</title>
-      <link>/teaching/</link>
+      <link>https://ala-alrababah.github.io/teaching/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/teaching/</guid>
+      <guid>https://ala-alrababah.github.io/teaching/</guid>
       <description> 
 I have worked as teaching assistant for courses in comparative politics, international relations, and Middle East politics. These courses include:
  War and Peace in American Foreign Policy (Kenneth Schultz, Spring 2018)
