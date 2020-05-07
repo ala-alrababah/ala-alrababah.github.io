@@ -2,327 +2,327 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on </title>
-    <link>https://ala-alrababah.github.io/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ala-alrababah.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>covid19</title>
+      <link>/tags/covid19/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/covid19/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Egypt</title>
-      <link>https://ala-alrababah.github.io/tags/egypt/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      <link>/tags/egypt/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ala-alrababah.github.io/tags/egypt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Germany</title>
-      <link>https://ala-alrababah.github.io/tags/germany/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/germany/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hezbollah</title>
-      <link>https://ala-alrababah.github.io/tags/hezbollah/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/hezbollah/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Iran</title>
-      <link>https://ala-alrababah.github.io/tags/iran/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/iran/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Islamists</title>
-      <link>https://ala-alrababah.github.io/tags/islamists/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/islamists/</guid>
+      <guid>/tags/egypt/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Israel</title>
-      <link>https://ala-alrababah.github.io/tags/israel/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      <link>/tags/israel/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ala-alrababah.github.io/tags/israel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Lebanon</title>
-      <link>https://ala-alrababah.github.io/tags/lebanon/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/lebanon/</guid>
+      <guid>/tags/israel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>media</title>
-      <link>https://ala-alrababah.github.io/tags/media/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      <link>/tags/media/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ala-alrababah.github.io/tags/media/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>media freedom</title>
-      <link>https://ala-alrababah.github.io/tags/media-freedom/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/media-freedom/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Morocco</title>
-      <link>https://ala-alrababah.github.io/tags/morocco/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/morocco/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Palestine</title>
-      <link>https://ala-alrababah.github.io/tags/palestine/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/palestine/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>regional</title>
-      <link>https://ala-alrababah.github.io/tags/regional/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/regional/</guid>
+      <guid>/tags/media/</guid>
       <description></description>
     </item>
     
     <item>
       <title>repression</title>
-      <link>https://ala-alrababah.github.io/tags/repression/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      <link>/tags/repression/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ala-alrababah.github.io/tags/repression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Saudi</title>
-      <link>https://ala-alrababah.github.io/tags/saudi/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/saudi/</guid>
+      <guid>/tags/repression/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Syria</title>
-      <link>https://ala-alrababah.github.io/tags/syria/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      <link>/tags/syria/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ala-alrababah.github.io/tags/syria/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>television</title>
-      <link>https://ala-alrababah.github.io/tags/television/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/television/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Turkey</title>
-      <link>https://ala-alrababah.github.io/tags/turkey/</link>
-      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/turkey/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bahrain</title>
-      <link>https://ala-alrababah.github.io/tags/bahrain/</link>
-      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/bahrain/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>corruption</title>
-      <link>https://ala-alrababah.github.io/tags/corruption/</link>
-      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/corruption/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>covid19</title>
-      <link>https://ala-alrababah.github.io/tags/covid19/</link>
-      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/covid19/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>IMF</title>
-      <link>https://ala-alrababah.github.io/tags/imf/</link>
-      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/imf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>migrants</title>
-      <link>https://ala-alrababah.github.io/tags/migrants/</link>
-      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/migrants/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>protests</title>
-      <link>https://ala-alrababah.github.io/tags/protests/</link>
-      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/protests/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sectarianism</title>
-      <link>https://ala-alrababah.github.io/tags/sectarianism/</link>
-      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ala-alrababah.github.io/tags/sectarianism/</guid>
+      <guid>/tags/syria/</guid>
       <description></description>
     </item>
     
     <item>
       <title>terrorism</title>
-      <link>https://ala-alrababah.github.io/tags/terrorism/</link>
+      <link>/tags/terrorism/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/terrorism/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Turkey</title>
+      <link>/tags/turkey/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/turkey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Germany</title>
+      <link>/tags/germany/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/germany/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hezbollah</title>
+      <link>/tags/hezbollah/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/hezbollah/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Iran</title>
+      <link>/tags/iran/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/iran/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Islamists</title>
+      <link>/tags/islamists/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/islamists/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lebanon</title>
+      <link>/tags/lebanon/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/lebanon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>media freedom</title>
+      <link>/tags/media-freedom/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/media-freedom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Morocco</title>
+      <link>/tags/morocco/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/morocco/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Palestine</title>
+      <link>/tags/palestine/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/palestine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regional</title>
+      <link>/tags/regional/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/regional/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Saudi</title>
+      <link>/tags/saudi/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/saudi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>television</title>
+      <link>/tags/television/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/television/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bahrain</title>
+      <link>/tags/bahrain/</link>
       <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ala-alrababah.github.io/tags/terrorism/</guid>
+      <guid>/tags/bahrain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>corruption</title>
+      <link>/tags/corruption/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/corruption/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IMF</title>
+      <link>/tags/imf/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/imf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>migrants</title>
+      <link>/tags/migrants/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/migrants/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>protests</title>
+      <link>/tags/protests/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/protests/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sectarianism</title>
+      <link>/tags/sectarianism/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/sectarianism/</guid>
       <description></description>
     </item>
     
     <item>
       <title>U.S.</title>
-      <link>https://ala-alrababah.github.io/tags/u.s./</link>
+      <link>/tags/u.s./</link>
       <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ala-alrababah.github.io/tags/u.s./</guid>
+      <guid>/tags/u.s./</guid>
       <description></description>
     </item>
     
     <item>
       <title>development</title>
-      <link>https://ala-alrababah.github.io/tags/development/</link>
+      <link>/tags/development/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ala-alrababah.github.io/tags/development/</guid>
+      <guid>/tags/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jordan</title>
-      <link>https://ala-alrababah.github.io/tags/jordan/</link>
+      <link>/tags/jordan/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ala-alrababah.github.io/tags/jordan/</guid>
+      <guid>/tags/jordan/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Qatar</title>
-      <link>https://ala-alrababah.github.io/tags/qatar/</link>
+      <link>/tags/qatar/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ala-alrababah.github.io/tags/qatar/</guid>
+      <guid>/tags/qatar/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Russia</title>
-      <link>https://ala-alrababah.github.io/tags/russia/</link>
+      <link>/tags/russia/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ala-alrababah.github.io/tags/russia/</guid>
+      <guid>/tags/russia/</guid>
       <description></description>
     </item>
     
     <item>
       <title>the blockade</title>
-      <link>https://ala-alrababah.github.io/tags/the-blockade/</link>
+      <link>/tags/the-blockade/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ala-alrababah.github.io/tags/the-blockade/</guid>
+      <guid>/tags/the-blockade/</guid>
       <description></description>
     </item>
     
     <item>
       <title>the Brotherhood</title>
-      <link>https://ala-alrababah.github.io/tags/the-brotherhood/</link>
+      <link>/tags/the-brotherhood/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ala-alrababah.github.io/tags/the-brotherhood/</guid>
+      <guid>/tags/the-brotherhood/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Gulf</title>
-      <link>https://ala-alrababah.github.io/tags/gulf/</link>
+      <link>/tags/gulf/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ala-alrababah.github.io/tags/gulf/</guid>
+      <guid>/tags/gulf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>uprisings</title>
-      <link>https://ala-alrababah.github.io/tags/uprisings/</link>
+      <link>/tags/uprisings/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ala-alrababah.github.io/tags/uprisings/</guid>
+      <guid>/tags/uprisings/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Yemen</title>
-      <link>https://ala-alrababah.github.io/tags/yemen/</link>
+      <link>/tags/yemen/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ala-alrababah.github.io/tags/yemen/</guid>
+      <guid>/tags/yemen/</guid>
       <description></description>
     </item>
     
