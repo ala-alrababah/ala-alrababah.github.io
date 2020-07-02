@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <link>/</link>
+    <link>https://ala-alrababah.github.io/</link>
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ala-alrababah.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CV</title>
-      <link>/cv/</link>
+      <link>https://ala-alrababah.github.io/cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/cv/</guid>
+      <guid>https://ala-alrababah.github.io/cv/</guid>
       <description>  You can download my CV here.  If this browser does not support PDFs. Please download the PDF to view it: Download PDF.
  -- </description>
     </item>
     
     <item>
       <title>Data</title>
-      <link>/data/</link>
+      <link>https://ala-alrababah.github.io/data/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/data/</guid>
+      <guid>https://ala-alrababah.github.io/data/</guid>
       <description>We combined data from UNHCR’s Syrian refugees per locality in Lebanon (as defined by UNHCR, from December 2018) with data on Lebanese voters per locality (using the 2018 elections). The data can be accessed here.</description>
     </item>
     
     <item>
       <title>Other writing</title>
-      <link>/writing/</link>
+      <link>https://ala-alrababah.github.io/writing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/writing/</guid>
+      <guid>https://ala-alrababah.github.io/writing/</guid>
       <description>Quantitative Text Analysis of Arabic News Media. MENA Politics Newsletter, Volume 2, Issue 2 Fall 2019
  Jordan shut out 60,000 Syrian refugees and then saw a backlash. This is why (with Scott Williamson). Monkey Cage Blog, The Washington Post. 2018.
    Jordan’s Danger Zone: The Perils of Building a Safe Haven in Syria. Foreign Affairs. 2015.
@@ -43,21 +43,21 @@
     
     <item>
       <title>Research</title>
-      <link>/research/</link>
+      <link>https://ala-alrababah.github.io/research/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/research/</guid>
-      <description>Publications Do Donor Motives Matter? Investigating Perceptions of Foreign Aid in the conflict in Donbas Forthcoming at International Studies Quarterly.
-With Rachel Myrick and Isaac Webb.
-How do the perceived motives of donor states shape recipient attitudes towards foreign aid in a conflict zone? We identify two frames that characterize the motives of foreign powers involved in an ongoing civil conflict in the Donbas region of eastern Ukraine. These frames portray foreign actors as either providing aid to alleviate suffering during conflict (humanitarian frame) or to increase their power and influence in the recipient country (political influence frame).</description>
+      <guid>https://ala-alrababah.github.io/research/</guid>
+      <description>Publications Authoritarian Media and Diversionary Threats: Lessons from Thirty Years of Syrian State Discourse. Political Science Research and Methods.
+With Lisa Blaydes.
+Scholars have long argued that leaders manipulate foreign policy, sometimes even initiating wars in order to enhance their domestic political position. But diversionary wars are relatively rare given the high costs of conflict. In this project, we examine data from major Syrian daily newspapers over a thirty-year period (1987-2018) to explore how autocratic regimes use diversionary rhetoric.</description>
     </item>
     
     <item>
       <title>Teaching</title>
-      <link>/teaching/</link>
+      <link>https://ala-alrababah.github.io/teaching/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/teaching/</guid>
+      <guid>https://ala-alrababah.github.io/teaching/</guid>
       <description> 
 I have worked as teaching assistant for courses in comparative politics, international relations, and Middle East politics. These courses include:
  War and Peace in American Foreign Policy (Kenneth Schultz, Spring 2018)
