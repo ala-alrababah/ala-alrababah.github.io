@@ -1,14 +1,114 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on </title>
-    <link>https://ala-alrababah.github.io/tags/</link>
-    <description>Recent content in Tags on </description>
+    <title>Tags on Ala&#39; Alrababa&#39;h</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Ala&#39; Alrababa&#39;h</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Sat, 02 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ala-alrababah.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>corruption</title>
+      <link>/tags/corruption/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/corruption/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>covid19</title>
+      <link>/tags/covid19/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/covid19/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>egypt</title>
+      <link>/tags/egypt/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/egypt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gulf</title>
+      <link>/tags/gulf/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/gulf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>israel</title>
+      <link>/tags/israel/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/israel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jordan</title>
+      <link>/tags/jordan/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/jordan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>media</title>
+      <link>/tags/media/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/media/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>russia</title>
+      <link>/tags/russia/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/russia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>syria</title>
+      <link>/tags/syria/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/syria/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>uprisings</title>
+      <link>/tags/uprisings/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/uprisings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yemen</title>
+      <link>/tags/yemen/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/yemen/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
