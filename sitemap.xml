@@ -1,41 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://ala-alrababah.github.io/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ala-alrababah.github.io/home/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ala-alrababah.github.io/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ala-alrababah.github.io/cv/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ala-alrababah.github.io/data/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ala-alrababah.github.io/writing/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ala-alrababah.github.io/research/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ala-alrababah.github.io/tags/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ala-alrababah.github.io/teaching/</loc>
   </url>
-  
 </urlset>
