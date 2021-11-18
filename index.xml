@@ -23,7 +23,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ala-alrababah.github.io/cv/</guid>
-      <description>You can download my CV here.  /* Define a margin before h1 element */ h1 { margin-top: 6em; } /* Define a margin before h2 element */ h2 { margin-top: 6em; } /* Define a margin before h1 element */ h3 { margin-top: 6em; } /* Define a margin before h1 element */ h4 { margin-top: 6em; } /* Define a margin before h1 element */ h5 { margin-top: 6em; } /* Define a margin before h1 element */ h6 { margin-top: 6em; } /* Define a margin after every first p elements */ p:first-of-type { margin-bottom: 3em; }  #r-markdown { margin-top: 6em; } #r-markdown p:first-of-type { margin-bottom: 3em; }  \[\\[1in]\]</description>
+      <description>You can download my CV here.  /* Define a margin before h1 element */ h1 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h2 element */ h2 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h1 element */ h3 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h1 element */ h4 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h1 element */ h5 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h1 element */ h6 { margin-top: 2em; margin-left: 2em; } /* Define a margin after every first p elements */ p:first-of-type { margin-bottom: 2em; margin-left: 2em; }  #r-markdown { margin-top: 6em; } #r-markdown p:first-of-type { margin-bottom: 3em; }  \[\\[1in]\]</description>
     </item>
     
     <item>
@@ -41,7 +41,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ala-alrababah.github.io/writing/</guid>
-      <description>/* Define a margin before h1 element */ h1 { margin-top: 3em; margin-left: 3em; } /* Define a margin before h2 element */ h2 { margin-top: 3em; margin-left: 3em; } /* Define a margin before h1 element */ h3 { margin-top: 3em; margin-left: 3em; } /* Define a margin before h1 element */ h4 { margin-top: 3em; margin-left: 3em; } /* Define a margin before h1 element */ h5 { margin-top: 3em; margin-left: 3em; } /* Define a margin before h1 element */ h6 { margin-top: 3em; margin-left: 3em; } /* Define a margin after every first p elements */ p:first-of-type { margin-bottom: 3em; margin-left: 3em; }</description>
+      <description>/* Define a margin before h1 element */ h1 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h2 element */ h2 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h1 element */ h3 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h1 element */ h4 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h1 element */ h5 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h1 element */ h6 { margin-top: 2em; margin-left: 2em; } /* Define a margin after every first p elements */ p:first-of-type { margin-bottom: 2em; margin-left: 2em; }</description>
     </item>
     
     <item>
