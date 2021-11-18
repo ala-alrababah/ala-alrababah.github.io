@@ -14,7 +14,7 @@
       <guid>https://ala-alrababah.github.io/home/</guid>
       <description>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag(&#39;js&#39;, new Date()); gtag(&#39;config&#39;, &#39;UA-154134423-1&#39;);   
   
-/* Define a margin before h1 element */ h1 { margin-top: 6em; } /* Define a margin before h2 element */ h2 { margin-top: 6em; } /* Define a margin before h1 element */ h3 { margin-top: 6em; } /* Define a margin before h1 element */ h4 { margin-top: 6em; } /* Define a margin before h1 element */ h5 { margin-top: 6em; } /* Define a margin before h1 element */ h6 { margin-top: 6em; } /* Define a margin after every first p elements */ p:first-of-type { margin-bottom: 3em; }  #r-markdown { margin-top: 6em; } #r-markdown p:first-of-type { margin-bottom: 3em; }  Welcome!</description>
+/* Define a margin before h1 element */ h1 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h2 element */ h2 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h3 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h4 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h5 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h6 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin after every first p elements */ p { #margin-bottom: 2em; margin-top: 2em; margin-left: 2em; margin-right: 2em; }  Welcome!</description>
     </item>
     
     <item>
@@ -23,7 +23,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ala-alrababah.github.io/cv/</guid>
-      <description>You can download my CV here.  /* Define a margin before h1 element */ h1 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h2 element */ h2 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h1 element */ h3 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h1 element */ h4 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h1 element */ h5 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h1 element */ h6 { margin-top: 2em; margin-left: 2em; } /* Define a margin after every first p elements */ p:first-of-type { margin-bottom: 20em; margin-left: 2em; }  If this browser does not support PDFs.</description>
+      <description>You can download my CV here.  /* Define a margin before h1 element */ h1 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h2 element */ h2 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h1 element */ h3 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h1 element */ h4 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h1 element */ h5 { margin-top: 2em; margin-left: 2em; } /* Define a margin before h1 element */ h6 { margin-top: 2em; margin-left: 2em; } /* Define a margin after every first p elements */ p { margin-bottom: 100em; margin-left: 2em; }  If this browser does not support PDFs.</description>
     </item>
     
     <item>
@@ -32,7 +32,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ala-alrababah.github.io/data/</guid>
-      <description>We combined data from UNHCR’s Syrian refugees per locality in Lebanon (as defined by UNHCR, from December 2018) with data on Lebanese voters per locality (using the 2018 elections). The data can be accessed here.</description>
+      <description>  
+We combined data from UNHCR’s Syrian refugees per locality in Lebanon (as defined by UNHCR, from December 2018) with data on Lebanese voters per locality (using the 2018 elections). The data can be accessed here.
+/* Define a margin before h1 element */ h1 { margin-top: 6em; } /* Define a margin before h2 element */ h2 { margin-top: 6em; } /* Define a margin before h1 element */ h3 { margin-top: 6em; } /* Define a margin before h1 element */ h4 { margin-top: 6em; } /* Define a margin before h1 element */ h5 { margin-top: 6em; } /* Define a margin before h1 element */ h6 { margin-top: 6em; } /* Define a margin after every first p elements */ p { margin-bottom: 3em; }  #r-markdown { margin-top: 6em; } #r-markdown p:first-of-type { margin-bottom: 3em; }  </description>
     </item>
     
     <item>
@@ -41,7 +43,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ala-alrababah.github.io/writing/</guid>
-      <description>/* Define a margin before h1 element */ h1 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h2 element */ h2 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h3 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h4 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h5 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h6 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin after every first p elements */ p:first-of-type { #margin-bottom: 2em; margin-top: 2em; margin-left: 2em; margin-right: 2em; }   Syria and some host governments want refugees to go home.</description>
+      <description>/* Define a margin before h1 element */ h1 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h2 element */ h2 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h3 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h4 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h5 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h6 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin after every first p elements */ p { #margin-bottom: 2em; margin-top: 2em; margin-left: 2em; margin-right: 2em; }   Syria and some host governments want refugees to go home.</description>
     </item>
     
     <item>
@@ -50,10 +52,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ala-alrababah.github.io/research/</guid>
-      <description>Publications Can Exposure to Celebrities Reduce Prejudice? Estimating the Effect of Mohamed Salah on Islamophobic Attitudes and Behaviors American Political Science Review
-With William Marble, Salma Mousa, and Alexandra Siegel.
- Selected media coverage: BBC Arabic, The Economist, The Times, Fox News, The Daily Mail, Sky News, Vice, The Independent, The National, Spiegel Online, Le Figaro, la Republica, Al Jazeera, EuroNews, Al-Masry Al-Youm, Al-Araby Al-Jadeed.
- DM&amp;amp;E Webinar presentation</description>
+      <description>/* Define a margin before h1 element */ h1 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h2 element */ h2 { margin-top: 2em; margin-left: 1em; margin-right: 2em; } /* Define a margin before h1 element */ h3 { margin-top: 2em; margin-left: 1em; margin-right: 2em; } /* Define a margin before h1 element */ h4 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h5 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h6 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin after every first p elements */ p { #margin-bottom: 2em; margin-top: 2em; margin-left: 2em; margin-right: 2em; }  Publications Can Exposure to Celebrities Reduce Prejudice?</description>
     </item>
     
     <item>
@@ -62,11 +61,7 @@ With William Marble, Salma Mousa, and Alexandra Siegel.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ala-alrababah.github.io/teaching/</guid>
-      <description>#r-markdown { margin-top: 3em; } #r-markdown p:first-of-type { margin-bottom: 3em; } #r-markdown { margin-left: 3em; } #r-markdown p:first-of-type { margin-right: 3em; }  
-I have worked as teaching assistant for courses in comparative politics, international relations, and Middle East politics. These courses include:
- War and Peace in American Foreign Policy (Kenneth Schultz, Spring 2018)
- Middle Eastern Politics (Lisa Blaydes, Fall 2017)
- Islam, Iran, and the West (Abbas Milani, Spring 2017)</description>
+      <description>/* Define a margin before h1 element */ h1 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h2 element */ h2 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h3 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h4 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h5 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin before h1 element */ h6 { margin-top: 2em; margin-left: 2em; margin-right: 2em; } /* Define a margin after every first p elements */ p { #margin-bottom: 2em; margin-top: 2em; margin-left: 2em; margin-right: 2em; }</description>
     </item>
     
   </channel>
