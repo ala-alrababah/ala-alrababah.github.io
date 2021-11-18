@@ -42,9 +42,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ala-alrababah.github.io/writing/</guid>
-      <description>Syria and some host governments want refugees to go home. What do refugees think? (with Marine Casalis and Daniel Masterson). The Monkey Cage, The Washington Post. December 2020.
- The Ministry of Made-Up Pages: Yemen-Based Actors Impersonate Government Agencies to Spread Anti-Houthi Content (with Shelby Grossman, Josh A. Goldstein, Natasha Patel, Shelby Perkins, and Abuzar Royesh)
- Returning Home? Conditions in Syria, Not Lebanon, Drive the Return Intentions of Syrian Refugees (with Daniel Masterson, Marine Casalis, Dominik Hangartner, Jeremy Weinstein, and Nasser Yassin) Innovations for Poverty Action Policy Brief September 2020.</description>
+      <description>/* Define a margin before h1 element */ h1 { margin-top: 6em; } /* Define a margin before h2 element */ h2 { margin-top: 6em; } /* Define a margin before h1 element */ h3 { margin-top: 6em; } /* Define a margin before h1 element */ h4 { margin-top: 6em; } /* Define a margin before h1 element */ h5 { margin-top: 6em; } /* Define a margin before h1 element */ h6 { margin-top: 6em; } /* Define a margin after every first p elements */ p:first-of-type { margin-bottom: 3em; }  #r-markdown { margin-top: 6em; } #r-markdown p:first-of-type { margin-bottom: 3em; }  Other Writing</description>
     </item>
     
     <item>
