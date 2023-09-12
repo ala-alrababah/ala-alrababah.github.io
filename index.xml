@@ -6,5 +6,73 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://ala-alrababah.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ala Alrababah</title>
+      <link>https://ala-alrababah.github.io/home/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ala-alrababah.github.io/home/</guid>
+      <description>I am an Assistant Professor in the Department of Social and Political Sciences at Bocconi University. Previously, I was a Postdoctoral Fellow at the Immigration Policy Lab, ETH Zurich. I received my Ph.D. in political science from Stanford University in 2021.
+My primary research is in comparative politics and international relations with a focus on authoritarian media, political violence, and immigration and refugees. To study these topics, my research combines fieldwork with experimental and computational methods.</description>
+    </item>
+    
+    <item>
+      <title>CV</title>
+      <link>https://ala-alrababah.github.io/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ala-alrababah.github.io/cv/</guid>
+      <description> You can download my CV here. </description>
+    </item>
+    
+    <item>
+      <title>Data</title>
+      <link>https://ala-alrababah.github.io/data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ala-alrababah.github.io/data/</guid>
+      <description>We combined data from UNHCR’s Syrian refugees per locality in Lebanon (as defined by UNHCR, from December 2018) with data on Lebanese voters per locality (using the 2018 elections). The data can be accessed here.</description>
+    </item>
+    
+    <item>
+      <title>Other writing</title>
+      <link>https://ala-alrababah.github.io/writing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ala-alrababah.github.io/writing/</guid>
+      <description>Syria and some host governments want refugees to go home. What do refugees think?. The Monkey Cage, The Washington Post.
+With Marine Casalis and Daniel Masterson.
+The Ministry of Made-Up Pages: Yemen-Based Actors Impersonate Government Agencies to Spread Anti-Houthi Content Stanford Internet Observatory.
+With Shelby Grossman, Josh A. Goldstein, Natasha Patel, Shelby Perkins, and Abuzar Royesh.
+Returning Home? Conditions in Syria, Not Lebanon, Drive the Return Intentions of Syrian Refugees.</description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>https://ala-alrababah.github.io/research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ala-alrababah.github.io/research/</guid>
+      <description>Publications The Dynamics of Refugee Return: Syrian Refugees and Their Migration Intentions. British Journal of Political Science 2023 With Daniel Masterson, Marine Casalis, Dominik Hangartner, and Jeremy Weinstein.
+Policy brief 2
+Policy brief 1
+CISAC Presentation
+Media: The Economist, The Washington Post (The Monkey Cage)
+Learning from Null Effects: A Bottom-Up Approach. Political Analysis. 2022 With Scott Williamson, Andrea Dillon, Jens Hainmueller, Dominik Hangartner, Michael Hotard, David Laitin, Duncan Lawrence, Jeremy Weinstein.</description>
+    </item>
+    
+    <item>
+      <title>Teaching</title>
+      <link>https://ala-alrababah.github.io/teaching/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ala-alrababah.github.io/teaching/</guid>
+      <description>I have worked as teaching assistant for courses in quantitative methods, comparative politics, international relations, and Middle East politics. These courses include:
+Methods II: Introduction to Quantitative Methods (Dominik Hangartner, Masters Students at ETH Zurich, Fall 2021)
+War and Peace in American Foreign Policy (Kenneth Schultz, Stanford University, Spring 2018)
+Middle Eastern Politics (Lisa Blaydes, Stanford University, Fall 2017)
+Islam, Iran, and the West (Abbas Milani, Stanford University, Spring 2017)</description>
+    </item>
+    
   </channel>
 </rss>
