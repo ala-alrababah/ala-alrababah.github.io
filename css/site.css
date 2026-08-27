@@ -1,0 +1,453 @@
+/* site.css — Ala Alrababah
+   Base (through the "print" block below) is the approved mockup
+   mockups/a-journal-serif.html <style> block, copied verbatim.
+   Multi-page additions are at the end, under "multi-page additions". */
+
+:root{
+  color-scheme: light;
+
+  --bg:#fdfcfa;
+  --ink:#1a1c20;
+  --muted:#5c6068;
+  --accent:#8a3324;
+  --rule:#e0dbd3;
+
+  --serif:"Source Serif 4","Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  --sans:"Source Sans 3","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+  --s1:0.25rem; --s2:0.5rem; --s3:0.75rem; --s4:1rem;
+  --s6:1.5rem; --s8:2rem; --s12:3rem; --s16:4rem; --s24:6rem;
+
+  --wrap:55rem;
+  --gutter:3.5rem;
+  --gutter-gap:1.5rem;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:clamp(1.1875rem, 1.1rem + 0.4vw, 1.28125rem);
+  line-height:1.58;
+  font-variant-numeric:oldstyle-nums proportional-nums;
+  font-kerning:normal;
+  text-rendering:optimizeLegibility;
+  overflow-wrap:break-word;
+  hyphens:none;
+}
+
+::selection{background:rgba(138,51,36,0.15);}
+
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:0.15em;transition:text-decoration-thickness 130ms ease, color 130ms ease;}
+a:hover{text-decoration-thickness:2px;}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:1px;}
+
+img{max-width:100%;height:auto;display:block;}
+
+.skip{
+  position:absolute;left:-9999px;top:0;
+  background:var(--bg);color:var(--ink);
+  padding:var(--s2) var(--s3);
+  font-family:var(--sans);font-size:1.0625rem;
+  z-index:10;
+}
+.skip:focus{left:var(--s4);top:var(--s4);}
+
+.wrap{
+  max-width:var(--wrap);
+  margin-inline:auto;
+  padding-inline:clamp(1.25rem, 4vw, 2rem);
+}
+
+/* ---------- nav ---------- */
+
+.topnav{
+  padding-block:var(--s6) 0;
+}
+.topnav ul{
+  list-style:none;margin:0;padding:0;
+  display:flex;flex-wrap:wrap;justify-content:flex-end;
+  gap:var(--s2) var(--s4);
+  font-family:var(--sans);
+  font-size:1.25rem;
+  font-variant-caps:all-small-caps;
+  font-variant-numeric:lining-nums;
+  letter-spacing:0.07em;
+}
+.topnav a{
+  color:var(--muted);
+  text-decoration:none;
+}
+.topnav a:hover{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:0.25em;}
+.topnav a[aria-current="page"]{color:var(--accent);}
+
+/* ---------- header ---------- */
+
+.masthead{
+  padding-block:var(--s12) 0;
+}
+h1{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:clamp(1.75rem, 1.4rem + 1.7vw, 2.3125rem);
+  line-height:1.15;
+  letter-spacing:-0.008em;
+  margin:0;
+}
+.rule-accent{
+  width:2.75rem;height:2px;
+  background:var(--accent);
+  border:0;margin:var(--s4) 0 var(--s3);
+}
+.role{
+  font-family:var(--sans);
+  font-size:1.0625rem;
+  line-height:1.5;
+  color:var(--muted);
+  margin:0;
+  letter-spacing:0.005em;
+}
+.role .sep{padding-inline:0.35em;color:var(--rule);}
+
+/* ---------- intro ---------- */
+
+.intro{
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:var(--s8) 2.5rem;
+  align-items:start;
+  padding-block:var(--s12) 0;
+}
+.intro p{margin:0;}
+.intro p + p{margin-top:var(--s4);}
+.portrait img{
+  width:280px;height:373px;
+  object-fit:cover;
+}
+/* Homepage: text left, portrait right (mockup h4-photo-right-r3, chosen 2026-08-27). */
+.intro-right{grid-template-columns:1fr 280px;}
+.intro-right .portrait{order:2;}
+/* Contact links under the portrait, separated by a hairline. */
+.side-card{
+  margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--rule);
+  font-family:var(--sans);font-size:1rem;line-height:1.5;color:var(--muted);width:280px;
+}
+.side-card p{margin:0;}
+.side-card p + p{margin-top:.4rem;}
+.side-card a{color:var(--accent);text-decoration-thickness:1px;}
+
+/* ---------- sections ---------- */
+
+section{padding-block:var(--s16) 0;}
+
+h2{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:1.5rem;
+  font-variant-caps:all-small-caps;
+  letter-spacing:0.09em;
+  line-height:1.2;
+  color:var(--ink);
+  margin:0 0 var(--s2);
+}
+.section-rule{
+  border:0;border-top:1px solid var(--rule);
+  margin:0 0 var(--s8);
+}
+
+/* ---------- entries ---------- */
+
+.entry{
+  display:grid;
+  grid-template-columns:var(--gutter) 1fr;
+  column-gap:var(--gutter-gap);
+  align-items:start;
+}
+.entry + .entry{margin-top:var(--s8);}
+/* Pages with no year column (writing) drop the gutter so text starts at the rule. */
+.entry--flush{grid-template-columns:1fr;column-gap:0;}
+
+.entry-year{
+  font-family:var(--sans);
+  font-size:1.0625rem;
+  font-variant-numeric:lining-nums tabular-nums;
+  letter-spacing:0.04em;
+  color:var(--muted);
+  padding-top:0.3rem;
+  white-space:nowrap;
+}
+
+.entry-title{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:1.125rem;
+  line-height:1.32;
+  margin:0;
+  letter-spacing:-0.003em;
+}
+.entry-title a{
+  color:var(--ink);
+  text-decoration-color:var(--rule);
+}
+.entry-title a:hover{color:var(--accent);text-decoration-color:currentColor;}
+
+.entry-authors{
+  font-family:var(--sans);
+  font-size:1.0625rem;
+  line-height:1.45;
+  color:var(--muted);
+  margin:var(--s1) 0 0;
+}
+.entry-venue{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:1.0625rem;
+  line-height:1.45;
+  color:var(--muted);
+  margin:0;
+}
+
+/* ---------- abstract toggle ---------- */
+
+details.abstract{margin-top:var(--s3);}
+details.abstract summary{
+  display:inline-flex;
+  align-items:baseline;
+  gap:0.45em;
+  cursor:pointer;
+  list-style:none;
+  font-family:var(--sans);
+  font-size:1.0625rem;
+  color:var(--muted);
+  width:max-content;
+  transition:color 130ms ease;
+}
+details.abstract summary::-webkit-details-marker{display:none;}
+details.abstract summary::before{
+  content:"\25B8";
+  display:inline-block;
+  font-size:0.7em;
+  line-height:1;
+  color:var(--muted);
+  transition:transform 140ms ease;
+  transform-origin:35% 55%;
+}
+details.abstract[open] summary::before{transform:rotate(90deg);}
+details.abstract summary:hover{color:var(--ink);}
+details.abstract summary:hover::before{color:var(--accent);}
+
+.abstract-body{
+  margin:var(--s3) 0 0;
+  padding-left:var(--s4);
+  border-left:1px solid var(--rule);
+  font-size:1.125rem;
+  line-height:1.6;
+}
+
+/* ---------- link rows ---------- */
+
+.links{
+  font-family:var(--sans);
+  font-size:1.0625rem;
+  line-height:1.7;
+  margin:var(--s3) 0 0;
+  color:var(--muted);
+}
+.links a{color:var(--accent);text-decoration-thickness:1px;}
+.links .sep{padding-inline:0.45em;color:var(--rule);}
+.links .label{color:var(--muted);padding-right:0.35em;}
+.links.coverage{margin-top:var(--s1);}
+.status{
+  font-family:var(--sans);
+  font-size:1.0625rem;
+  color:var(--muted);
+  margin:var(--s3) 0 0;
+}
+
+.more{
+  margin:var(--s8) 0 0;
+  padding-left:calc(var(--gutter) + var(--gutter-gap));
+  font-family:var(--sans);
+  font-size:1.0625rem;
+}
+
+/* ---------- footer ---------- */
+
+footer{
+  margin-top:var(--s24);
+  padding-bottom:var(--s12);
+}
+.footer-rule{
+  border:0;border-top:1px solid var(--rule);
+  margin:0 0 var(--s4);
+}
+.footer-inner{
+  font-family:var(--sans);
+  font-size:1.0625rem;
+  color:var(--muted);
+  display:flex;flex-wrap:wrap;gap:var(--s1) var(--s4);
+  letter-spacing:0.01em;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width:44rem){
+  .intro{
+    grid-template-columns:1fr;
+    gap:var(--s6);
+    padding-block:var(--s8) 0;
+  }
+  .portrait,.intro-right .portrait{order:-1;}
+  .portrait img{width:150px;height:200px;}
+  .side-card{width:auto;}
+  .masthead{padding-block:var(--s8) 0;}
+  .entry{grid-template-columns:1fr;column-gap:0;}
+  .entry-year{padding-top:0;margin-bottom:var(--s1);}
+  .more{padding-left:0;}
+  section{padding-block:var(--s12) 0;}
+  footer{margin-top:var(--s16);}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important;animation:none !important;}
+}
+
+/* ---------- print ---------- */
+
+@media print{
+  :root{--bg:#fff;--ink:#000;--muted:#333;--rule:#bbb;}
+  body{background:#fff;color:#000;font-size:11pt;line-height:1.4;}
+  .topnav,.skip,.more{display:none;}
+  a{color:#000;text-decoration:none;}
+  .portrait img{filter:none;}
+  details.abstract summary{display:none;}
+  details.abstract > *:not(summary){display:block !important;}
+  details.abstract::details-content{content-visibility:visible !important;block-size:auto !important;}
+  .entry{break-inside:avoid;}
+}
+
+/* ==========================================================================
+   Multi-page additions (not in the single-page mockup)
+   Only two components: .page-title and .coverage-details.
+   ========================================================================== */
+
+/* ---------- interior page title ---------- */
+/* Interior pages (Research, Teaching, CV) use
+   <header class="masthead"><h1 class="page-title">Research</h1>
+   <hr class="rule-accent" aria-hidden="true"></header>
+   — same family/size scale as the mockup h1, same short oxblood rule. */
+
+.page-title{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:clamp(1.75rem, 1.4rem + 1.7vw, 2.3125rem);
+  line-height:1.15;
+  letter-spacing:-0.008em;
+  margin:0;
+}
+
+/* ---------- collapsed coverage list ---------- */
+/* <details class="coverage-details"><summary>Coverage</summary>
+     <ul class="coverage-list"><li><a href="…">Outlet</a></li>…</ul>
+   </details>
+   Summary declarations are identical to details.abstract summary — keep the
+   two in sync. Body is the .links row typography in a list. */
+
+details.coverage-details{margin-top:var(--s3);}
+details.coverage-details summary{
+  display:inline-flex;
+  align-items:baseline;
+  gap:0.45em;
+  cursor:pointer;
+  list-style:none;
+  font-family:var(--sans);
+  font-size:1.0625rem;
+  color:var(--muted);
+  width:max-content;
+  transition:color 130ms ease;
+}
+details.coverage-details summary::-webkit-details-marker{display:none;}
+details.coverage-details summary::before{
+  content:"\25B8";
+  display:inline-block;
+  font-size:0.7em;
+  line-height:1;
+  color:var(--muted);
+  transition:transform 140ms ease;
+  transform-origin:35% 55%;
+}
+details.coverage-details[open] summary::before{transform:rotate(90deg);}
+details.coverage-details summary:hover{color:var(--ink);}
+details.coverage-details summary:hover::before{color:var(--accent);}
+
+.coverage-list{
+  list-style:none;
+  margin:var(--s3) 0 0;
+  padding:0 0 0 var(--s4);
+  border-left:1px solid var(--rule);
+  font-family:var(--sans);
+  font-size:1.0625rem;
+  line-height:1.7;
+  color:var(--muted);
+}
+.coverage-list li{margin:0;}
+.coverage-list a{color:var(--accent);text-decoration-thickness:1px;}
+
+@media print{
+  details.coverage-details summary{display:none;}
+  details.coverage-details > *:not(summary){display:block !important;}
+  details.coverage-details::details-content{content-visibility:visible !important;block-size:auto !important;}
+}
+
+/* multi-paragraph abstracts: keep the left rail continuous between paragraphs */
+details.abstract .abstract-body + .abstract-body{
+  margin-top:0;
+  padding-top:var(--s3);
+}
+
+/* print: expose link URLs so paper readers can follow them */
+@media print{
+  .links a::after{ content:" (" attr(href) ")"; font-size:0.85em; }
+  .coverage-list a::after{ content:" (" attr(href) ")"; font-size:0.85em; }
+}
+
+
+/* ---------- research page TOC (wide viewports only) ---------- */
+.toc{display:none;}
+@media (min-width:1280px){
+  .toc{
+    display:block;
+    position:sticky;
+    top:var(--s8);
+    float:left;
+    width:11rem;
+    margin-left:-13.5rem;
+    font-family:var(--sans);
+    font-size:1.0625rem;
+    line-height:1.5;
+  }
+  .toc a{color:var(--muted);text-decoration:none;display:block;padding-block:0.15rem;}
+  .toc a:hover{color:var(--accent);text-decoration:underline;text-underline-offset:0.15em;}
+  .toc .toc-years{margin:0 0 var(--s3) 0;padding-left:var(--s3);}
+  .toc .toc-years a{font-variant-numeric:lining-nums tabular-nums;color:var(--muted);}
+}
+@media print{ .toc{display:none;} }
+
+/* cv page */
+.cv-download{font-size:1.125rem;}
+
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+/* TA record lines (teaching): larger than entry metadata */
+.ta-line{
+  font-family:var(--sans);
+  font-size:1.125rem;
+  line-height:1.6;
+  color:var(--muted);
+  margin:var(--s2) 0 0;
+}

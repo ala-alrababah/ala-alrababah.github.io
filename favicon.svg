@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="A">
+  <title>A</title>
+  <rect width="64" height="64" fill="#8a3324"/>
+  <g fill="#ffffff">
+    <polygon points="29,11 33,11 21,53 12,53"/>
+    <polygon points="31,11 36,11 53,53 39,53"/>
+    <rect x="17.5" y="40" width="30" height="5"/>
+    <rect x="8" y="49.5" width="20" height="3.5"/>
+    <rect x="35" y="49.5" width="22" height="3.5"/>
+  </g>
+</svg>
