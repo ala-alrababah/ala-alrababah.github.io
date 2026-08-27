@@ -141,6 +141,9 @@ h1{
 .side-card p + p{margin-top:.4rem;}
 .side-card a{color:var(--accent);text-decoration-thickness:1px;}
 
+/* Course descriptions (teaching): below body size so the course title stays the larger element. */
+.course-desc{font-size:1.0625rem;line-height:1.6;margin:var(--s3) 0 0;}
+
 /* ---------- sections ---------- */
 
 section{padding-block:var(--s16) 0;}
@@ -178,7 +181,7 @@ h2{
   font-variant-numeric:lining-nums tabular-nums;
   letter-spacing:0.04em;
   color:var(--muted);
-  padding-top:0.3rem;
+  padding-top:0.1rem;
   white-space:nowrap;
 }
 
@@ -443,11 +446,3 @@ details.abstract .abstract-body + .abstract-body{
 
 @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
 
-/* TA record lines (teaching): larger than entry metadata */
-.ta-line{
-  font-family:var(--sans);
-  font-size:1.125rem;
-  line-height:1.6;
-  color:var(--muted);
-  margin:var(--s2) 0 0;
-}
