@@ -1,0 +1,2432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Islamist parties and power: Egypt and Tunisia</title>
+<!-- Built by group-session/sim/make_sim.mjs from sim.json and sim_rules.js.
+     Everything the page needs is inside this file or in the media folder beside
+     it: no fonts, no scripts, and no images from the internet, so the page runs
+     the same from the site and from the offline copy. Build 178f3211e1ba. -->
+<style>/* engine.css — the whole look of a simulation page. System fonts only: the page
+   must load nothing from the internet, so it also runs from the offline copy. */
+:root {
+  --bg: #eef0f4; --panel: #ffffff; --panel-2: #f5f7fa; --ink: #131a26; --ink-2: #3a4560;
+  --muted: #667089; --rule: #d5dae3; --rule-soft: #e6eaf1; --ui: #2a3c63;
+  --good: #00705f; --good-bg: #e2f0ec; --bad: #b8402a; --bad-bg: #f9e7e2;
+  --warn: #8a5a08; --warn-bg: #fbf0dc;
+  --shadow: 0 1px 2px rgba(19, 26, 38, .06), 0 12px 30px -22px rgba(19, 26, 38, .5);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0f18; --panel: #131a27; --panel-2: #0e1420; --ink: #e9eef7; --ink-2: #b6c1d6;
+    --muted: #8390a8; --rule: #232d43; --rule-soft: #1a2233; --ui: #a8bbe8;
+    --good: #2aa189; --good-bg: #0c2e28; --bad: #dd6242; --bad-bg: #361b14;
+    --warn: #dfa83e; --warn-bg: #33260f;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 12px 30px -22px rgba(0, 0, 0, 1);
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+body.staged { overflow: hidden; }
+h1 { font-size: clamp(26px, 3.6vw, 40px); line-height: 1.08; letter-spacing: -.02em; margin: 6px 0 12px; }
+h2 { font-size: 18px; margin: 22px 0 8px; }
+h3 { font-size: 17px; margin: 0 0 4px; }
+p { margin: 0 0 12px; }
+a { color: var(--ui); }
+button { font: inherit; cursor: pointer; }
+button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visible {
+  outline: 2px solid var(--ui); outline-offset: 2px;
+}
+.mono { font-family: ui-monospace, Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; }
+
+/* ---------------------------------------------------------------- top bar */
+.topbar {
+  position: sticky; top: 0; z-index: 40; background: var(--panel);
+  border-bottom: 1px solid var(--rule); padding: 10px 20px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.brand { margin-right: auto; display: flex; flex-direction: column; }
+.brand .name { font-size: 18px; font-weight: 700; letter-spacing: -.01em; }
+.brand .sub { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.tabs { display: flex; gap: 2px; }
+.tabs button {
+  background: none; border: 1px solid transparent; color: var(--muted); font-size: 13px; padding: 6px 12px;
+}
+.tabs button[aria-selected="true"] { color: var(--ink); border-color: var(--rule); background: var(--panel-2); }
+.topbar .ghost {
+  background: var(--panel-2); border: 1px solid var(--rule); color: var(--ink-2);
+  font-size: 12px; padding: 6px 10px;
+}
+.notice {
+  margin: 0; padding: 10px 20px; background: var(--warn-bg); color: var(--warn);
+  border-bottom: 1px solid var(--rule); font-size: 14px;
+}
+.notice.warn { background: var(--warn-bg); color: var(--warn); }
+
+/* ----------------------------------------------------------------- layout */
+main, .how { max-width: 1180px; margin: 0 auto; padding: 26px 20px 120px; }
+.stagewrap { max-width: 860px; margin: 0 auto; }
+.stagewrap.wide { max-width: 1100px; }
+.kicker { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.lede { font-size: 18px; color: var(--ink-2); max-width: 68ch; }
+.panel { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); margin: 18px 0; }
+.panel-h {
+  padding: 10px 15px; border-bottom: 1px solid var(--rule); font-size: 11px;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+  display: flex; justify-content: space-between; gap: 10px;
+}
+.panel-b { padding: 14px 15px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+.btn {
+  background: var(--ui); color: #fff; border: 1px solid var(--ui); padding: 11px 22px;
+  font-weight: 600; font-size: 15px;
+}
+.btn:hover { filter: brightness(1.12); }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+.btn.ghost { background: none; color: var(--ink-2); border-color: var(--rule); }
+.btn.big { padding: 13px 28px; font-size: 16px; }
+.tag {
+  font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+  border: 1px solid var(--rule); color: var(--muted); padding: 1px 7px; margin-right: 6px;
+}
+
+/* ------------------------------------------------------------------ brief */
+.brief-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, .55fr); gap: 22px; margin-top: 22px; }
+.brief-copy { min-width: 0; }
+.memo { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); padding: 22px 24px; }
+.memo-h { display: grid; grid-template-columns: auto 1fr; gap: 3px 14px; margin: 0 0 14px;
+  padding-bottom: 12px; border-bottom: 2px solid var(--ink); font-size: 13px; }
+.memo-h dt { color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-size: 11px; }
+.memo-h dd { margin: 0; }
+.steps { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); padding: 18px 22px; margin-top: 18px; }
+.steps ol { margin: 0; padding-left: 20px; color: var(--ink-2); }
+.steps li { margin-bottom: 6px; }
+.deliverable { margin: 14px 0 0; padding: 10px 12px; border-left: 3px solid var(--ui); background: var(--panel-2); font-size: 14px; }
+.grade-note { margin: 12px 0 0; padding: 10px 12px; border: 1px solid var(--warn); background: var(--warn-bg); color: var(--ink-2); font-size: 14px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 20px; }
+.tiles div { background: var(--panel); padding: 14px 16px; }
+.tiles .n { font-size: 24px; font-weight: 700; display: block; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.tiles .k { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; display: block; margin-top: 3px; }
+.tiles .src { font-size: 11px; color: var(--muted); display: block; margin-top: 6px; }
+.brief-photos { display: flex; flex-direction: column; gap: 14px; }
+.brief-photos figure { margin: 0; border: 1px solid var(--rule); background: var(--panel); box-shadow: var(--shadow); }
+.brief-photos img { width: 100%; display: block; }
+.brief-photos figcaption { font-size: 11px; color: var(--muted); padding: 6px 8px; }
+.startrow { margin-top: 26px; display: grid; gap: 8px; max-width: 640px; }
+.startrow label { font-weight: 700; font-size: 14px; }
+textarea, input[type="text"] {
+  font: inherit; width: 100%; background: var(--panel); color: var(--ink);
+  border: 1px solid var(--rule); padding: 10px 12px; resize: vertical;
+}
+.startrow { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); padding: 18px 20px; }
+.startrow .hint { font-size: 13.5px; color: var(--muted); margin: 0; }
+.startrow .namemsg { font-size: 13px; color: var(--muted); margin: 0; min-height: 18px; }
+.startrow .btn { justify-self: start; }
+.namefix { margin-top: 8px; font-size: 13px; color: var(--muted); }
+.namefix summary { cursor: pointer; }
+.namefix textarea { margin-top: 6px; }
+
+/* ----------------------------------------------------------------- choose */
+.choose { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 20px; align-items: start; margin-top: 18px; }
+.options { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); }
+.cat { padding: 14px 16px 0; }
+.cat h2 { margin: 6px 0 2px; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.catnote { font-size: 13px; color: var(--ink-2); }
+.opt { border-bottom: 1px solid var(--rule-soft); padding: 14px 16px; }
+.opt.on { background: var(--panel-2); }
+.oh { display: flex; gap: 12px; align-items: flex-start; }
+.chk { width: 20px; height: 20px; border: 1.5px solid var(--rule); background: var(--panel); color: #fff; padding: 0; flex: 0 0 auto; }
+.opt.on .chk { background: var(--ui); border-color: var(--ui); }
+.obody { flex: 1; min-width: 0; }
+.opt summary { cursor: pointer; list-style: none; }
+.opt summary::-webkit-details-marker { display: none; }
+.otitle { font-weight: 600; }
+.odesc { font-size: 14px; color: var(--ink-2); margin: 4px 0 0; }
+.odetail { font-size: 13.5px; color: var(--ink-2); margin: 6px 0 0; }
+.osource { font-size: 12px; color: var(--muted); margin: 8px 0 0; }
+.orow { font-size: 13.5px; color: var(--ui); margin: 8px 0 0; font-variant-numeric: tabular-nums; }
+.otags { margin-top: 8px; }
+.orange { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.orange input[type="range"] { flex: 1; accent-color: var(--ui); }
+.oscale { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.oval { font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.score { position: sticky; top: 76px; background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); padding: 16px; }
+.score h2 { margin: 0 0 10px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.big-n { padding: 10px 0; border-bottom: 1px solid var(--rule-soft); }
+.big-n .k { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: block; }
+.big-n .v { font-size: 28px; font-weight: 700; letter-spacing: -.03em; display: block; font-variant-numeric: tabular-nums; }
+.big-n .s { font-size: 13px; color: var(--muted); display: block; }
+.howlink {
+  margin-top: 12px; background: none; border: 0; padding: 0; color: var(--ui);
+  font-size: 13px; text-decoration: underline; text-underline-offset: 3px;
+}
+.flags { margin-top: 12px; display: grid; gap: 8px; }
+.flag { display: flex; gap: 8px; font-size: 13px; color: var(--ink-2); }
+.flag .fi { flex: 0 0 auto; border: 1px solid currentColor; padding: 0 5px; height: 18px; line-height: 16px; font-size: 11px; }
+.flag.bad .fi { color: var(--bad); }
+.flag.good .fi { color: var(--good); }
+.flag.warn .fi { color: var(--warn); }
+/* The bar sticks to the bottom, so the list keeps room under it: without this
+   the last choice sits behind the bar on a short screen. */
+.choosewrap { padding-bottom: 96px; }
+.submitbar {
+  position: sticky; bottom: 0; margin-top: 18px; background: var(--panel); border: 1px solid var(--rule);
+  padding: 12px 16px; display: flex; align-items: center; gap: 16px; justify-content: space-between;
+}
+
+/* ------------------------------------------------------------------- hold */
+.hold { text-align: center; padding-top: 6vh; }
+.hold .tiles { max-width: 640px; margin-left: auto; margin-right: auto; text-align: left; }
+.codebox { max-width: 380px; margin: 26px auto 0; display: grid; gap: 8px; text-align: left; }
+.codebox label { font-weight: 700; font-size: 14px; }
+.codemsg { min-height: 20px; font-size: 14px; color: var(--muted); margin: 0; }
+.codemsg.bad { color: var(--bad); }
+.hold .btn.ghost { margin-top: 18px; }
+
+/* --------------------------------------------------------------- surprise */
+.stage { position: fixed; inset: 0; z-index: 90; background: #05070b; display: grid; place-items: center; }
+.stage[hidden] { display: none; }
+.beatframe { position: relative; width: 100%; height: 100%; display: grid; place-items: center; overflow: hidden; }
+.beatmedia { position: absolute; inset: 0; }
+.beatmedia img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.25) contrast(1.1) brightness(.55); }
+.beatmedia .credit { position: absolute; right: 10px; top: 10px; font-size: 10px; color: rgba(255, 255, 255, .55); }
+.beattext { position: relative; z-index: 2; max-width: 92vw; padding: 0 6vw; text-align: center; color: #f7f6f3; }
+.beattext .stamp { display: block; font-size: 13px; letter-spacing: .24em; text-transform: uppercase; color: #e0754f; margin-bottom: 18px; }
+.beattext .figure { display: block; font-size: clamp(48px, 11vw, 130px); font-weight: 700; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.beattext p { font-size: clamp(24px, 4.4vw, 52px); line-height: 1.16; margin: 0 auto; max-width: 20ch; }
+.beatframe.slate { background: #05070a; }
+.beatframe.slate .beattext p { font-size: clamp(18px, 2.4vw, 30px); max-width: 44ch; line-height: 1.5; }
+.beatframe.end { background: #7a1c0d; }
+.beatframe.end .beattext p { font-size: clamp(30px, 6vw, 72px); font-weight: 700; max-width: 14ch; }
+.simlabel {
+  position: absolute; right: 16px; bottom: 16px; z-index: 3; font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(255, 255, 255, .72); border: 1px solid rgba(255, 255, 255, .3); padding: 4px 8px;
+}
+.beatctl { position: absolute; top: 16px; right: 16px; z-index: 3; display: flex; gap: 8px; }
+.beatctl button {
+  background: rgba(0, 0, 0, .5); border: 1px solid rgba(255, 255, 255, .34); color: #fff;
+  font-size: 12px; letter-spacing: .1em; text-transform: uppercase; padding: 6px 12px;
+}
+.beatframe .next {
+  position: absolute; left: 50%; bottom: 8vh; transform: translateX(-50%); z-index: 4;
+  background: #fff; color: #10141b; border: 0; padding: 15px 26px; font-size: 13px;
+  letter-spacing: .14em; text-transform: uppercase; min-width: 280px;
+}
+.beatframe .next[hidden] { display: none; }
+
+/* ---------------------------------------------------------------- respond */
+.strats { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-top: 18px; }
+.strat {
+  background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); padding: 18px;
+  text-align: left; color: inherit; display: flex; flex-direction: column; gap: 8px;
+}
+.strat.picked { border-color: var(--ui); box-shadow: 0 0 0 2px var(--panel-2), var(--shadow); }
+.strat .theory { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ui); }
+.strat .sn { font-size: 17px; font-weight: 700; }
+.strat .sd { font-size: 14px; color: var(--ink-2); }
+.strat .sc { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--rule-soft); font-size: 12px; color: var(--muted); display: grid; gap: 3px; }
+
+/* ------------------------------------------------------------------ write */
+.guide { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 18px 0; }
+.guide div { background: var(--panel); padding: 12px 14px; }
+.guide strong { display: block; font-size: 14px; margin-bottom: 3px; }
+.guide span { font-size: 13px; color: var(--ink-2); }
+.targets { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+.target { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 14px; background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); padding: 14px; }
+.target:not(:has(.tmedia)) { grid-template-columns: minmax(0, 1fr); }
+.tmedia img { width: 96px; height: 116px; object-fit: cover; border: 1px solid var(--rule); }
+.tmedia .credit { font-size: 10px; color: var(--muted); display: block; }
+.target .tm { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.target .pos { font-size: 14px; color: var(--ink-2); margin: 0 0 8px; }
+.target label { font-weight: 700; font-size: 13px; display: block; margin-bottom: 4px; }
+.result { display: flex; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--rule-soft); font-size: 14px; }
+.result.yes strong { color: var(--good); }
+.result.no strong { color: var(--bad); }
+
+/* ---------------------------------------------------------------- outcome */
+.tally { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); padding: 20px; text-align: center; margin: 18px 0; }
+.tally .tn { font-size: 54px; font-weight: 700; letter-spacing: -.04em; display: block; font-variant-numeric: tabular-nums; }
+.tally .tk { font-size: 13px; color: var(--muted); display: block; margin-top: 4px; }
+.tbar { height: 12px; background: var(--rule-soft); position: relative; margin-top: 14px; }
+.tbar i { position: absolute; left: 0; top: 0; bottom: 0; display: block; background: var(--bad); }
+.tbar i.pass { background: var(--good); }
+.tbar u { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--ink); }
+.blocs { display: grid; gap: 10px; }
+.bloc { background: var(--panel); border: 1px solid var(--rule); padding: 12px 14px; }
+.bh { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.bn { font-weight: 600; }
+.bs { font-size: 13px; font-variant-numeric: tabular-nums; }
+.bloc.yes .bs { color: var(--good); }
+.bloc.no .bs { color: var(--bad); }
+.bw { font-size: 13.5px; color: var(--ink-2); margin: 6px 0 0; }
+.advice { margin-top: 16px; font-size: 15px; color: var(--ink-2); }
+
+/* ---------------------------------------------------------------- receipt */
+.shotnote { border: 1px dashed var(--ui); color: var(--ui); padding: 10px 14px; text-align: center; font-size: 14px; }
+.receipt { background: var(--panel); border: 1px solid var(--ink); box-shadow: var(--shadow); padding: 30px 34px; margin-top: 14px; }
+.receipt .ex { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.receipt .names { font-weight: 700; font-size: 17px; }
+.rsec { margin-top: 20px; }
+.rsec h2 { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--rule); padding-bottom: 5px; margin-bottom: 8px; }
+.rsec ul { margin: 0; padding-left: 20px; }
+.rsec li { margin-bottom: 4px; }
+.offscreen { position: absolute; left: -9999px; top: 0; }
+.fallback { margin-top: 14px; }
+
+/* -------------------------------------------------- how this page works */
+.how h2 { margin-top: 26px; }
+.how ul { padding-left: 20px; }
+.how li { margin-bottom: 8px; }
+.how .note { color: var(--muted); font-size: 14px; max-width: 70ch; }
+.how .warn { background: var(--warn-bg); color: var(--warn); padding: 10px 14px; }
+
+@media (max-width: 980px) {
+  .brief-main, .choose { grid-template-columns: 1fr; }
+  .score { position: static; }
+}
+@media print {
+  .topbar, .submitbar, .shotnote, .row, .notice { display: none !important; }
+  body { background: #fff; }
+  .receipt { border: 1px solid #000; box-shadow: none; }
+}
+
+/* stage screens: a briefing, one call with a reason, then the record */
+.stagescreen .brief-copy > p { font-size: 16px; line-height: 1.55; max-width: 72ch; }
+.stageask { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); padding: 16px 18px; margin: 22px 0; }
+.stageask h2 { margin-top: 0; font-size: 19px; }
+.stagepicks { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin: 12px 0 16px; }
+.stagepick { text-align: left; background: var(--panel-2); border: 1px solid var(--rule); color: var(--ink); padding: 12px 13px; cursor: pointer; font: inherit; }
+.stagepick .pn { display: block; font-weight: 600; margin-bottom: 4px; }
+.stagepick .pd { display: block; font-size: 14px; color: var(--ink-2); line-height: 1.45; }
+.stagepick.on { border-color: var(--ui); box-shadow: inset 0 0 0 2px var(--ui); }
+.stagepick[disabled] { cursor: default; opacity: .8; }
+.stagepick.on[disabled] { opacity: 1; }
+.stageask textarea { width: 100%; font: inherit; padding: 8px; background: var(--panel-2); color: var(--ink); border: 1px solid var(--rule); }
+.stagereveal { border-left: 4px solid var(--ui); background: var(--panel); padding: 14px 18px; margin: 22px 0; box-shadow: var(--shadow); }
+.stagereveal h2 { margin-top: 0; }
+.stagecompare { font-weight: 600; }
+.stagetimeline li { margin: 5px 0; line-height: 1.45; }
+.stagelink { background: var(--panel-2); border: 1px solid var(--rule-soft); padding: 10px 14px; margin-top: 14px; }
+.stagelink h3 { margin: 0 0 6px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.stagereveal .src, .stagelink .src { font-size: 12px; color: var(--muted); }
+#case figure img { max-width: 100%; }
+.revealphotos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 14px; }
+.revealphotos figure, .stagescreen .brief-photos figure { margin: 0 0 12px; }
+.revealphotos img, .stagescreen .brief-photos img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); background: #fff; }
+.revealphotos figcaption, .stagescreen .brief-photos figcaption { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+.stagemap { margin: 18px 0 0; max-width: 640px; background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); }
+.stagemap img { width: 100%; display: block; }
+.stagemap figcaption { font-size: 12px; color: var(--muted); padding: 6px 10px; }
+.strats + .btn, .stagewrap .strats ~ .btn { margin-top: 18px; }
+.stagebullets li { margin: 6px 0; line-height: 1.5; font-size: 16px; max-width: 70ch; }
+.stagescreen .brief-main { grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); }
+.stagescreen .brief-photos .sidemap { background: var(--panel); }
+.stagelink ul { margin: 6px 0 0; padding-left: 20px; }
+.stagelink li { margin: 6px 0; line-height: 1.5; }
+.stagelink h3 { text-transform: none; letter-spacing: 0; font-size: 15px; color: var(--ink); }
+
+/* Photo info: hover, focus or tap shows more about the photo. */
+figure.hasinfo { position: relative; cursor: help; }
+figure.hasinfo .photoinfo { display: none; position: absolute; left: 0; right: 0; top: 0; padding: 12px 14px;
+  background: rgba(10, 14, 22, 0.92); color: #f2f4f8; font-size: 14px; line-height: 1.45; border-radius: 4px; }
+figure.hasinfo:hover .photoinfo, figure.hasinfo:focus .photoinfo, figure.hasinfo.open .photoinfo { display: block; }
+figure.hasinfo .infotag { position: absolute; right: 8px; top: 8px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+  background: rgba(10, 14, 22, 0.75); color: #f2f4f8; padding: 2px 7px; border-radius: 10px; }
+figure.hasinfo:hover .infotag, figure.hasinfo.open .infotag { display: none; }
+@media print { figure.hasinfo .photoinfo, figure.hasinfo .infotag { display: none !important; } }
+
+/* Progress strip, prediction step and explanation step (this site only). */
+.progressstrip { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 4px 0 14px; }
+.progressstrip .ps { width: 18px; height: 18px; border-radius: 3px; border: 1px solid rgba(255,255,255,.25); background: transparent; }
+.progressstrip .ps.same { background: #3f9a63; border-color: #3f9a63; }
+.progressstrip .ps.diff { background: #6b7385; border-color: #6b7385; }
+.progressstrip .ps.now { outline: 2px solid #a9b8f5; outline-offset: 1px; }
+.progressstrip .psnote { margin-left: 8px; font-size: 13px; opacity: .8; }
+.predictbox, .tagbox { margin: 14px 0; padding: 12px 14px; border: 1px solid rgba(169,184,245,.35); border-radius: 6px; }
+.predictopts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; }
+.predictopt { text-align: left; padding: 10px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.03); color: inherit; font: inherit; cursor: pointer; }
+.predictopt:hover:not([disabled]) { border-color: #a9b8f5; }
+.predictopt[disabled] { cursor: default; opacity: 1; }
+.predictopt.mine { border-color: #a9b8f5; border-width: 2px; }
+.predictopt.real { border-color: #3f9a63; border-width: 2px; }
+.predictopt .pw { display: block; margin-top: 6px; font-size: 13px; opacity: .85; }
+.predictopt.real .pw { color: #7fd29e; opacity: 1; font-weight: 600; }
+.tagopts { display: flex; flex-wrap: wrap; gap: 8px; }
+.tagopt { padding: 7px 12px; border-radius: 16px; border: 1px solid rgba(255,255,255,.25); background: transparent; color: inherit; font: inherit; font-size: 14px; cursor: pointer; }
+.tagopt.on { background: #a9b8f5; color: #10131a; border-color: #a9b8f5; }
+
+.predictopt .pg { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: #a9b8f5; margin-bottom: 4px; }
+.brief-photos img { max-height: 300px; object-fit: cover; object-position: top; }
+
+/* Others box, glossary notes, quick checks (this site only). */
+.othersbox { margin: 12px 0; padding: 10px 14px; border: 1px solid #9a9a9a; background: #f1f1f1; border-radius: 4px; }
+.othersbox .otag { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; background: #6b6b6b; color: #fff; padding: 1px 7px; border-radius: 3px; margin-right: 4px; vertical-align: 1px; }
+@media (prefers-color-scheme: dark) { .othersbox { background: #22262e; border-color: #5b6270; } }
+.otherpaths { margin: 10px 0 16px; }
+.otherpaths > summary { cursor: pointer; font-weight: 600; }
+.othersbox h3 { margin: 0 0 6px; font-size: 15px; }
+.otherswho { font-size: 14px; opacity: .9; margin: 0 0 4px; }
+.term { border-bottom: 1px dotted currentColor; cursor: help; position: relative; }
+.term .termnote { display: none; position: absolute; left: 0; top: 1.5em; z-index: 20; width: 280px; padding: 8px 10px; background: #0e131c; color: #eef1f6; border: 1px solid #3a4560; border-radius: 4px; font-size: 13px; font-weight: normal; line-height: 1.4; }
+.term:hover .termnote, .term:focus .termnote { display: block; }
+.quizlist { display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+.quizrow { padding: 10px 12px; border: 1px solid rgba(255,255,255,.15); border-radius: 6px; }
+.quiztext { margin: 0 0 8px; }
+.quizbtns { display: flex; gap: 8px; }
+.quizbtn { padding: 6px 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,.3); background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.quizbtn.right { background: #3f9a63; border-color: #3f9a63; color: #fff; }
+.quizbtn.wrong { background: #9a4a3f; border-color: #9a4a3f; color: #fff; }
+.quizbtn[disabled] { cursor: default; }
+.quiznote { margin: 8px 0 0; font-size: 14px; opacity: .9; }
+.quizscore { font-weight: 600; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="name">Islamist parties and power: Egypt and Tunisia</span>
+    <span class="sub">Islam, Politics, and the Middle East · session 11</span>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button type="button" role="tab" id="tab-run" aria-selected="true">The exercise</button>
+    <button type="button" role="tab" id="tab-case" aria-selected="false" hidden>The case</button>
+    <button type="button" role="tab" id="tab-how" aria-selected="false">How this page works</button>
+  </nav>
+  <button type="button" class="ghost" id="restart">Start over</button>
+</header>
+<p class="notice" id="notice" hidden></p>
+<main id="app"></main>
+<section class="how" id="case" hidden></section>
+<section class="how" id="how" hidden></section>
+<div class="stage" id="stage" hidden aria-hidden="true"></div>
+<script>/* core.js — the simulation engine's pure logic.
+
+   No DOM, no network, no randomness, no clock: everything here is a function of
+   the state, the simulation data, and the rules the session wrote. The page
+   loads it as a plain script; the Node tests and the route runner load it in a
+   vm. Both get the same answers, which is the point.
+
+   State shape:
+     {version, names, choices: {optionId: size 0..1}, strategy, texts: {targetId},
+      moved: {targetId: true}, sent, unlocked, screen}
+   Rules signature, written by the session in sim_rules.js:
+     RULES[name](state, data, helpers, extra) */
+(function (root) {
+  "use strict";
+
+  function normalizeCode(value) {
+    return String(value == null ? "" : value).replace(/\s+/g, "").toUpperCase();
+  }
+
+  function num(value, fallback) {
+    var n = Number(value);
+    return isFinite(n) ? n : (fallback == null ? 0 : fallback);
+  }
+
+  /* An option's size is a factor between 0 and 1 over its low-to-high range.
+     An option with no high is all or nothing, so the size cannot shrink it. */
+  function amount(option, size) {
+    if (!option) return 0;
+    var lo = num(option.low, 0);
+    if (option.high == null) return lo;
+    var hi = num(option.high, lo);
+    var f = size == null ? 1 : Math.max(0, Math.min(1, num(size, 1)));
+    return lo + (hi - lo) * f;
+  }
+
+  function eachOf(data, key, fn) {
+    (data && data.screens || []).forEach(function (screen) {
+      (screen[key] || []).forEach(fn);
+    });
+  }
+
+  function index(data) {
+    var byId = {};
+    ["options", "strategies", "targets"].forEach(function (key) {
+      eachOf(data, key, function (item) { if (item && item.id) byId[item.id] = item; });
+    });
+    return byId;
+  }
+
+  function chosen(state, data) {
+    var out = [];
+    eachOf(data, "options", function (option) {
+      if (state && state.choices && state.choices[option.id] != null) out.push(option);
+    });
+    return out;
+  }
+
+  /* What a rule gets as its third argument. Everything a formula needs about
+     this group's page, and nothing that could reach outside it. */
+  function helpers(state, data) {
+    var byId = index(data);
+    function option(id) { return typeof id === "string" ? (byId[id] || null) : (id || null); }
+    return {
+      option: option,
+      amount: function (idOrOption) {
+        var opt = option(idOrOption);
+        if (!opt) return 0;
+        return amount(opt, state && state.choices ? state.choices[opt.id] : 1);
+      },
+      size: function (idOrOption) {
+        var opt = option(idOrOption);
+        if (!opt || !state || !state.choices) return 0;
+        var size = state.choices[opt.id];
+        /* The same clamp as amount(): a size out of range would leave a choice
+           costing what it costs and doing whatever the store says. */
+        return size == null ? 0 : Math.max(0, Math.min(1, num(size, 0)));
+      },
+      picked: function (id) { return !!(state && state.choices && state.choices[id] != null); },
+      chosen: function () { return chosen(state, data); },
+      strategy: function () { return state && state.strategy ? option(state.strategy) : null; },
+      moved: function () { return Object.keys((state && state.moved) || {}); },
+      hasMoved: function (id) { return !!(state && state.moved && state.moved[id]); },
+      value: function (item, key, fallback) {
+        var obj = option(item);
+        if (!obj || !obj.values || obj.values[key] == null) return fallback == null ? 0 : fallback;
+        return obj.values[key];
+      },
+      sum: function (list, fn) {
+        return (list || []).reduce(function (total, item) {
+          return total + num(fn ? fn(item) : item, 0);
+        }, 0);
+      },
+      clamp: function (value, lo, hi) { return Math.max(lo, Math.min(hi, num(value, lo))); },
+      stagePick: function (stageId) {
+        var row = state && state.stages ? state.stages[stageId] : null;
+        return row && row.revealed ? row.pick : null;
+      }
+    };
+  }
+
+  function emptyState(version) {
+    return {
+      version: version || "",
+      names: "",
+      choices: {},
+      strategy: null,
+      texts: {},
+      moved: {},
+      sent: 0,
+      unlocked: false,
+      screen: null,
+      stages: {}
+    };
+  }
+
+  /* A saved state belongs to the build that wrote it. A rebuilt page keeps
+     nothing from an older build, and says so on screen rather than silently.
+     The saved code comes back too, or a reload after the unlock would land on a
+     screen the page can no longer open. Sizes are clamped on the way in: the
+     store is the student's own browser and anything can be typed into it. */
+  function restore(saved, version) {
+    if (!saved || typeof saved !== "object" || saved.version !== version) {
+      return { state: emptyState(version), dropped: !!saved };
+    }
+    var state = emptyState(version);
+    ["names", "strategy", "screen", "code"].forEach(function (key) {
+      if (saved[key] != null) state[key] = saved[key];
+    });
+    ["texts", "moved"].forEach(function (key) {
+      if (saved[key] && typeof saved[key] === "object") state[key] = saved[key];
+    });
+    if (saved.choices && typeof saved.choices === "object") {
+      Object.keys(saved.choices).forEach(function (id) {
+        var size = Number(saved.choices[id]);
+        state.choices[id] = isFinite(size) ? Math.max(0, Math.min(1, size)) : 1;
+      });
+    }
+    state.sent = Math.max(0, num(saved.sent, 0));
+    state.unlocked = !!saved.unlocked;
+    state.quiz = (saved.quiz && typeof saved.quiz === "object") ? saved.quiz : {};
+    /* A stage holds the group's call, its reason, and whether the record has
+       been shown. A call is never changed after the record is out. */
+    if (saved.stages && typeof saved.stages === "object") {
+      Object.keys(saved.stages).forEach(function (id) {
+        var row = saved.stages[id] || {};
+        state.stages[id] = {
+          pick: typeof row.pick === "string" ? row.pick : null,
+          why: typeof row.why === "string" ? row.why : "",
+          revealed: !!row.revealed && typeof row.pick === "string",
+          predict: typeof row.predict === "string" ? row.predict : null,
+          tag: typeof row.tag === "string" ? row.tag : null
+        };
+      });
+    }
+    return { state: state, dropped: false };
+  }
+
+  var DEFAULT_POLICY = { maxNewFirst: 2, maxNewRetry: 1, minOneIfWritten: true, minWords: 8 };
+
+  function words(text) {
+    return String(text || "").trim().split(/\s+/).filter(Boolean).length;
+  }
+
+  function byStrength(a, b) {
+    return (b.points - a.points)
+      || (b.text.length - a.text.length)
+      || String(a.target.name || a.target.id).localeCompare(String(b.target.name || b.target.id));
+  }
+
+  /* Holbein's locking policy, and the reasons it exists:
+       - nothing written persuades nobody (a group cannot skip the work);
+       - a real attempt always moves one (the exercise is not a dead end);
+       - never everyone at once, so the count stays hard;
+       - a target already moved stays moved and shows up as a yes in the count;
+       - a retry can move one more, and shows only the targets still open. */
+  function lockPitches(targets, texts, moved, score, policy, sends) {
+    var rules = {};
+    Object.keys(DEFAULT_POLICY).forEach(function (k) { rules[k] = DEFAULT_POLICY[k]; });
+    Object.keys(policy || {}).forEach(function (k) { if (policy[k] != null) rules[k] = policy[k]; });
+
+    var locked = {};
+    Object.keys(moved || {}).forEach(function (k) { if (moved[k]) locked[k] = true; });
+    var all = targets || [];
+
+    var scored = all.map(function (target) {
+      var text = String((texts && texts[target.id]) || "").trim();
+      var result = text ? (score(target, text) || {}) : { points: 0, ready: false };
+      return {
+        target: target, text: text, points: num(result.points, 0), ready: !!result.ready,
+        /* A real attempt has substance. Without this a full stop in each box
+           moves somebody, and a group can send the same junk again and again
+           until everybody has moved. */
+        real: words(text) >= rules.minWords
+      };
+    });
+    var anyReal = scored.some(function (row) { return row.real; });
+    var open = scored.filter(function (row) { return !locked[row.target.id]; });
+    /* The allowance follows how many times the group has pressed send, not how
+       many targets happen to have moved. */
+    var maxNew = num(sends, 0) > 0 ? rules.maxNewRetry : rules.maxNewFirst;
+    maxNew = Math.max(0, Math.min(maxNew, all.length - 1));   // never everybody at once
+
+    var winners = open.filter(function (row) { return row.ready && row.real; }).sort(byStrength).slice(0, maxNew);
+    if (!winners.length && anyReal && rules.minOneIfWritten && maxNew > 0) {
+      winners = open.filter(function (row) { return row.real; }).sort(byStrength).slice(0, 1);
+    }
+    winners.forEach(function (row) { locked[row.target.id] = true; });
+
+    var results = {};
+    scored.forEach(function (row) {
+      results[row.target.id] = {
+        moved: !!locked[row.target.id],
+        points: row.points,
+        ready: row.ready,
+        wrote: row.text.length > 0,
+        real: row.real
+      };
+    });
+    return { moved: locked, results: results };
+  }
+
+  function fill(text, vars) {
+    return String(text == null ? "" : text).replace(/\{\{(\w+)\}\}/g, function (whole, key) {
+      return vars && vars[key] != null ? String(vars[key]) : whole;
+    });
+  }
+
+  function group(value) {
+    var parts = String(value).split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  }
+
+  function formatValue(value, format, digits) {
+    if (value == null || value === "") return "—";
+    var n = Number(value);
+    if (format === "text" || !isFinite(n)) return String(value);
+    switch (format) {
+      case "int": return group(String(Math.round(n)));
+      case "one": return group(n.toFixed(1));
+      case "pct": return Math.round(n) + "%";
+      case "pct1": return n.toFixed(1) + "%";
+      case "fixed": return group(n.toFixed(num(digits, 0)));
+      default: return group(String(Math.round(n * 100) / 100));
+    }
+  }
+
+  /* The text a group copies into the Blackboard item. Every student's name is
+     the first line, because that is what the submission rule asks for. */
+  function receiptText(state, data, ctx) {
+    ctx = ctx || {};
+    var lines = [];
+    /* A simulation can leave the names off the page: the group adds them to the
+       downloaded file, or types them into Blackboard when it uploads. */
+    if (data && data.no_names) lines.push("Group members: (write every name in your group here)");
+    else lines.push(String((state && state.names) || "").trim() || "(no names entered)");
+    lines.push("");
+    lines.push([data && data.course, data && data.title].filter(Boolean).join(" — "));
+    if (ctx.stats && ctx.stats.length) {
+      lines.push("");
+      ctx.stats.forEach(function (row) { lines.push(row.label + ": " + row.value); });
+    }
+    if (ctx.choices && ctx.choices.length) {
+      lines.push("");
+      lines.push("What we chose");
+      ctx.choices.forEach(function (row) {
+        lines.push("- " + row.name + (row.value ? " (" + row.value + ")" : ""));
+      });
+    }
+    if (ctx.stages && ctx.stages.length) {
+      lines.push("");
+      lines.push("Our choices, stage by stage");
+      ctx.stages.forEach(function (row) {
+        lines.push("- " + row.title + ": " + (row.pick || "(no call)"));
+        if (row.why) lines.push("  Why: " + row.why);
+        if (row.real) lines.push("  What really happened: " + row.real);
+        if (row.predict) lines.push("  Our guess of what came next: " + row.predict);
+        if (row.tag) lines.push("  Explanation that fits best: " + row.tag);
+      });
+    }
+    if (ctx.quizzes && ctx.quizzes.length) {
+      lines.push("");
+      lines.push("Quick checks");
+      ctx.quizzes.forEach(function (q) { lines.push("- " + q); });
+    }
+    if (ctx.surprise) {
+      lines.push("");
+      lines.push("What broke: " + ctx.surprise);
+    }
+    if (ctx.strategy) {
+      lines.push("");
+      lines.push("Our response: " + ctx.strategy.name
+        + (ctx.strategy.theory ? " (" + ctx.strategy.theory + ")" : ""));
+    }
+    if (ctx.messages && ctx.messages.length) {
+      lines.push("");
+      lines.push("Our messages");
+      ctx.messages.forEach(function (row) {
+        lines.push("- " + row.name + ": " + (row.moved ? "moved" : "not moved"));
+        if (row.text) lines.push("  " + row.text);
+      });
+    }
+    if (ctx.outcome) {
+      lines.push("");
+      lines.push("Outcome: " + ctx.outcome.headline);
+      if (ctx.outcome.detail) lines.push(ctx.outcome.detail);
+    }
+    return lines.join("\n");
+  }
+
+  /* Every student's name, the way the submission rule asks for it. One name is
+     a group that forgot the others, so the page says so before it starts. */
+  function nameList(value) {
+    return String(value == null ? "" : value)
+      .split(/[,\n;]+| and /i)
+      .map(function (name) { return name.trim(); })
+      .filter(function (name) { return name.length > 1; });
+  }
+
+  /* The name of the file a group uploads: the simulation, then the names they
+     typed, so a folder of them can be read without opening any. */
+  function fileName(state, data) {
+    var names = String((state && state.names) || "").toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60).replace(/-+$/, "");
+    var id = String((data && data.id) || "simulation").toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    return [id, names || "answers"].filter(Boolean).join("-") + ".txt";
+  }
+
+  function rule(RULES, name) {
+    var fn = RULES && RULES[name];
+    if (typeof fn !== "function") throw new Error("rule not found: " + name);
+    return fn;
+  }
+
+  function run(RULES, name, state, data, extra) {
+    return rule(RULES, name)(state, data, helpers(state, data), extra);
+  }
+
+  root.SIMCORE = {
+    normalizeCode: normalizeCode,
+    amount: amount,
+    chosen: chosen,
+    helpers: helpers,
+    index: index,
+    emptyState: emptyState,
+    restore: restore,
+    lockPitches: lockPitches,
+    fill: fill,
+    formatValue: formatValue,
+    receiptText: receiptText,
+    fileName: fileName,
+    nameList: nameList,
+    rule: rule,
+    run: run,
+    DEFAULT_POLICY: DEFAULT_POLICY
+  };
+}(typeof globalThis !== "undefined" ? globalThis : this));
+</script>
+<script>/* sim_rules.js: the one rule this simulation needs.
+   The news before stage 9 opens with the group's own call at stage 6.
+   Pure function: no chance, no clock. */
+RULES = {
+  newsFor: function (state, data, H) {
+    var pick = H.stagePick("s6");
+    return pick || "default";
+  }
+};
+</script>
+<script>
+/* window, not const: a top-level const is not a property of the page's global
+   object, and the engine reads these from there. */
+window.DATA = {"id":"me-s11-islamists","title":"Islamist parties and power: Egypt and Tunisia","course":"Islam, Politics, and the Middle East","session":11,"address":"www.ala-alrababah.com/teaching/me-s11/","label":"A class exercise. Every event shown is real.","illustrative":false,"build":"178f3211e1ba","sources":[{"id":"aljazeera_ennahda_results","text":"Al Jazeera, Final Tunisian election results announced (November 2011)","url":""},{"id":"bbc_mb_profile","text":"BBC News, Profile: Egypt's Muslim Brotherhood","url":""},{"id":"cnn_egypt_parliament_results","text":"CNN, Two Islamist parties win big in Egypt election (January 2012)","url":""},{"id":"npr_morsi_president","text":"NPR, Muslim Brotherhood's Mohammed Morsi To Be Egypt's New President (24 June 2012)","url":""},{"id":"wilsoncenter_tunisia_decline_political_islam","text":"Wilson Center, Tunisia and the Decline of Political Islam","url":""},{"id":"MORE1","text":"Carnegie Endowment, profiles of the Muslim Brotherhood, Ennahda, Wasat, and the 2012 Egyptian constitution","url":""},{"id":"MORE2","text":"MERIP, Ghannouchi and the Islamic Tendency Movement (1988), and Egypt's 1984 elections (1985)","url":""},{"id":"MORE3","text":"Sharan Grewal, From Islamists to Muslim Democrats, American Political Science Review (2020)","url":""},{"id":"MORE4","text":"Definitions: Oxford Dictionary of Islam; Encyclopaedia Britannica (Islamism, sharia, secularism, jihad, Sunni); Barbara Geddes, Joseph Wright, and Erica Frantz, Autocratic Breakdown and Regime Transitions, Perspectives on Politics (2014); Alfred Stepan and Juan Linz, Democratization Theory and the Arab Spring, Journal of Democracy (2013); Joas Wagemakers, Salafism, Oxford Research Encyclopedia of Religion (2016); Vali Nasr, The Rise of Muslim Democracy, Journal of Democracy (2005); International IDEA, ACE Electoral Knowledge Network","url":""},{"id":"MORE5","text":"Brookings, Human Rights Watch, Amnesty International, Hudson Institute, Inter-Parliamentary Union, Wilson Center, Washington Institute, Combating Terrorism Center, Encyclopedia.com","url":""},{"id":"MORE6","text":"Al Jazeera, BBC, CNN, NPR, Asharq Al-Awsat, Foreign Policy, and Foreign Affairs news reports, 2011 to 2026, and Lawrence Wright, The Man Behind Bin Laden, The New Yorker (2002)","url":""}],"rules":[],"screens":[{"id":"brief","kind":"brief","kicker":"Islam, Politics, and the Middle East · Session 11","headline":"Islamist parties and power: Egypt and Tunisia","lede":"Your group leads two Islamist movements, Egypt's Muslim Brotherhood and Tunisia's Ennahda, which the Brotherhood inspired. In 10 stages, from the 1970s to 2013, you face the decisions their leaders faced. The stages switch between the two countries in the order the events happened.","steps":["Open this page on one laptop per group and press Start.","At each stage, read the briefing, agree on one choice, and write why.","Save your choice. The page then shows what the real leaders did and what happened afterwards. Then you answer a question about it.","Hover over or tap any underlined name or term, or any photo, to learn more. Twice you get a quick check: Egypt or Tunisia?"],"deliverable":"The tab called The case, at the top of the page, holds the explanations, the terms, and other Islamist movements. At the end, download your file and upload it to Blackboard.","grade_note":"Your choices are not graded.","panels":[{"title":"What moderation means","bullets":["An Islamist party moderates when it accepts two basic rules of democracy, even if it keeps a religious identity. First, laws are made by elected representatives, and no religious authority can overrule them. Second, everyone is free to practice any religion, any version of Islam, or none. Scholars have proposed 4 explanations for why Islamist parties moderate."]},{"title":"4 explanations for moderation","bullets":["**Votes.** To win elections, a party plays down religion to reach voters beyond its religious base and make alliances with other parties.","**Fear of repression.** Under a dictatorship, a party softens its program and avoids confronting the regime, so that the regime does not ban it or jail its members. The aim is to keep the organization alive, not to win votes.","**Inclusion.** When Islamists take part in politics, they must work with people who think very differently (for example, in parliament, in election alliances, at universities, and in civic groups). This contact can make them more tolerant of other views and more accepting of pluralism, the idea that many different views can coexist.","**Living in a secular democracy.** Islamists who studied or lived in exile in Western democracies saw democracy and religious freedom work in practice, met non-Muslims, and learned that a secular state need not repress religion. They tended to come back more accepting of secular democracy than those who stayed home."],"numbered":true},{"title":"Words you will meet","bullets":["**Islamists.** People and groups who want their vision of Islam to shape the state, the law, or society, for example by basing laws on sharia, and who organize to pursue that goal. Devout Muslims are not necessarily Islamists.","**Sharia.** Islamic law: God's law for Muslims as found in the Quran and the Sunna, the Prophet Muhammad's sayings and practice. It covers worship as well as family, trade, and crime. Scholars interpret it in many different ways, so \"applying sharia\" can mean very different things.","**Secular.** Keeping religion separate from the state: religious authorities do not control the laws or the courts, and the state does not impose a religion.","**Civil state.** The term many Arab parties use instead of \"secular,\" because the Arabic word for secularism can sound anti-religious. It usually means a state run neither by the army nor by clerics.","**Salafis.** Sunni Muslims who try to follow \"the pious predecessors,\" the first generations of Muslims, as closely as possible, and reject practices they see as later additions. Many, called quietists, focus on preaching and teaching and stay out of political activism. Some form parties, like Egypt's Nour. A minority, such as al-Qaeda, use violence.","**Jihad.** Arabic for \"effort\" or \"struggle.\" It can mean a Muslim's inner struggle to do right and avoid wrong, or armed fighting. Qutb argued that much of Muslim society was Muslim only in name and that those who stood in the way of God's rule were legitimate targets of armed jihad. Later armed Islamist groups took up this idea."]}],"tiles":[]},{"id":"s1","kind":"stage","kicker":"Stage 1 of 10 · Egypt · 1928 to 1970","headline":"Sadat's offer to the Brotherhood, 1970","receipt_title":"Stage 1, Sadat's offer, 1970","lede":"You lead the Muslim Brotherhood in Egypt. It is 1970, and Egypt has a new president.","panels":[],"tiles":[],"photos":[{"file":"media/hasan_al_banna.jpg","alt":"Hasan al-Banna","credit":"Hasan al-Banna. Photo: Khayr al-Din al-Zirikli, public domain.","info":"Born in 1906 near Alexandria, al-Banna led the Brotherhood with the title General Guide. By the late 1940s it had about 500,000 members in Egypt and branches in Palestine, Syria, Iraq, and Sudan."},{"file":"media/sayyid_qutb_large.jpg","alt":"Sayyid Qutb on trial","credit":"Sayyid Qutb on trial, around 1966. Photo: public domain.","info":"In 1965 Qutb was charged with plotting to overthrow the government. Prosecutors built their case mainly on passages from Milestones. His lawyer called it \"a revolutionary court, with no defense.\""}],"question":"Sadat offers you the right to preach if you give up violence. What do you do?","picks":[{"id":"s1_fight","name":"Refuse and fight the regime","detail":"Qutb called for jihad against governments he saw as un-Islamic. You keep all your goals, and the state keeps hunting your members.","others":{"who":"Al-Jihad, which assassinated Sadat in 1981, and al-Gamaa al-Islamiyya, two armed groups in Egypt inspired by Qutb.","bullets":["**1997.** Al-Gamaa al-Islamiyya killed dozens of tourists at Luxor.","Neither group took power."]}},{"id":"s1_deal","name":"Accept the deal and give up violence","detail":"You can preach in the open and hope your jailed members are freed. You stay illegal and depend on Sadat keeping his word."}],"why_min":10,"reveal":{"real_pick":"s1_deal","bullets":["**In Nasser's prisons.** The Brotherhood's leader, Hasan al-Hudaybi, answered Qutb from his own cell: no Muslim may declare another Muslim an unbeliever. His view won inside the Brotherhood.","**1971 to 1976.** Sadat released Brotherhood prisoners. The Brotherhood gave up violence and backed Sadat against leftists and the supporters of Nasser. In **1976** he let it publish its newspaper, al-Dawa (The Call), again. But the Brotherhood remained illegal.","**1981.** At a military parade, Lieutenant Khaled Islambouli and 3 other conspirators from al-Jihad, a militant group inspired by Qutb, attacked Sadat with grenades and machine-gun fire and killed him. Hosni Mubarak became president. Egypt later tried Islambouli with 23 others and executed 5 of them, Islambouli among them."],"class_link":{"text":["**Fear of repression.** The Brotherhood gave up violence after Nasser's crackdowns of 1954 and 1965. Sadat then let the Brotherhood preach and gradually freed its jailed members, but it stayed illegal.","**Living in a secular democracy.** Qutb's time in the United States did not make him more accepting of secular democracy. Grewal (2020) writes that Qutb \"was so shocked by the loose morals he saw in Colorado that he instead moved toward a stricter form of Islamism.\"","**Discuss:** did the Brotherhood change its beliefs, or only its tactics to survive?"],"reading":"Sources: Grewal (2020), BBC, Carnegie, Council on Foreign Relations.","title":"The explanations at this stage"},"real_label":"accepted the deal and gave up violence.","tag_options":["Votes","Fear of repression","Inclusion","Living in a secular democracy","None of them"],"tag_question":"Which explanation of moderation fits this stage best? Pick one, then discuss your reasons aloud.","actor":"the Brotherhood"},"bullets":["**1928.** Hasan al-Banna founds the Muslim Brotherhood to revive Islam in Egyptians' daily lives and in society. It preaches and does charity, then turns to politics against British control.","**1940s.** Al-Banna builds a secret armed wing, the Special Apparatus, which carries out bombings and assassinations against British targets and Egyptian officials. The government dissolves the Brotherhood in December 1948, and in February 1949 an unknown gunman, believed to be from the security forces, shoots al-Banna dead.","**1948 to 1950.** Sayyid Qutb, a well-known literary critic working for Egypt's Ministry of Education, spends almost two years in the United States, part of it at a college in Colorado. Living in a Western democracy did not win him over: he comes back condemning America as a soulless, materialistic place, and joins the Brotherhood.","**1954.** A Special Apparatus member tries to kill Egypt's leader, Gamal Abdel Nasser. The government dissolves the Brotherhood again, and jails and tortures thousands of its members.","**1964 to 1966.** Qutb, now the Brotherhood's leading thinker, publishes Milestones, which he wrote in prison. It calls for jihad against governments and societies he sees as un-Islamic. Nasser grants him parole in 1964, but the government arrests him again in 1965. A court sentences him to death, and Nasser's regime hangs him in August 1966.","**1970.** Nasser dies. His successor, Anwar Sadat, wants help against leftists and Nasser's supporters. He offers the Brotherhood the right to preach if it gives up violence. Under the deal it stays illegal."],"why_label":"Why? And name a risk to your choice."},{"id":"s2","kind":"stage","kicker":"Stage 2 of 10 · Tunisia · 1956 to 1981","headline":"Bourguiba promises to allow other parties, 1981","receipt_title":"Stage 2, going public, 1981","lede":"You lead the Islamic Group, Tunisia's secret Islamist preaching movement. It is April 1981.","panels":[{"title":"People","bullets":["**Habib Bourguiba.** Tunisia's first president, in power until 1987.","**Rached Ghannouchi.** Co-founder and leader of the Islamic Group.","**Abdelfattah Mourou.** Co-founder of the Islamic Group."]}],"tiles":[],"photos":[{"file":"media/bourguiba.jpg","alt":"Habib Bourguiba","credit":"Habib Bourguiba. Photo: Habib Osman, public domain.","info":"Bourguiba backed the Quranic Preservation Society, a religious group meant to counter the left and other critics of his government. In 1970 Ghannouchi and Mourou joined it."},{"file":"media/ghannouchi.jpg","alt":"Rached Ghannouchi","credit":"Rached Ghannouchi. Photo: Chatham House, CC BY 2.0.","info":"In the 1970s Ghannouchi spread the ideas of al-Banna and Qutb in Tunisia's long-empty mosques. By the early 1980s Islamists were the best-organized student group at the University of Tunis. This photo is from 2012."}],"question":"Bourguiba says he will allow other parties. What do you do?","picks":[{"id":"s2_public","name":"Go public and ask for a party license","detail":"You get a voice in politics, but the police learn who your leaders are."},{"id":"s2_secret","name":"Stay a secret preaching group","detail":"Your members stay hidden and keep preaching, but you have no say in politics.","others":{"who":"Egypt's Salafist Call, a Salafi movement founded in Alexandria in the 1970s, which stayed out of party politics and focused on preaching.","bullets":["The Salafist Call preached in the open. The regime banned it in 1994, and its networks survived by evading the security forces.","**2011.** The Salafist Call entered politics only after President Hosni Mubarak fell, when it founded the Nour party."]}}],"why_min":10,"reveal":{"real_pick":"s2_public","bullets":["**April 1981.** Ghannouchi and Mourou dissolved the secret group and founded a party, the Islamic Tendency Movement, known by its French initials, MTI. Ghannouchi asked for a license and never received an answer.","Ghannouchi called for \"the end of single-party politics and the acceptance of political pluralism and democracy\" and stressed the movement's \"rejection of violence.\"","**July 1981.** By the end of July the regime had arrested Ghannouchi and all the known leaders and members of the MTI in midnight raids. During interrogations, the regime often used torture.","**November 1981.** Bourguiba let 3 opposition movements run (none Islamist), but his ruling party rigged the elections, and its joint list with the main trade union won all 136 seats."],"class_link":{"text":["**Fear of repression.** After Bourguiba promised in April 1981 to open his one-party system, Ghannouchi and Mourou dissolved their secret group, founded a party, the MTI, asked for a license, rejected violence, and called for \"political pluralism and democracy.\" Even so, by the end of July 1981 the regime had arrested its known leaders and members."],"reading":"Sources: MERIP (1988), Wilson Center.","title":"The explanations at this stage"},"real_label":"went public and asked for a party license.","predict":{"question":"Before you read on: what did Bourguiba's regime do next?","options":[{"text":"It granted the movement a party license within 6 months.","real":false,"where":"No. Under Bourguiba the movement never received a license."},{"text":"It arrested the movement's leaders and members within 4 months.","real":true,"where":""},{"text":"It left the request unanswered and the movement alone for 3 years.","real":false,"where":"No. Ghannouchi never received an answer, but the arrests came within 4 months."}]},"tag_options":["Votes","Fear of repression","Inclusion","Living in a secular democracy","None of them"],"tag_question":"Which explanation of moderation fits this stage best? Pick one, then discuss your reasons aloud.","actor":"the Islamic Group"},"bullets":["**1956 to 1962.** Habib Bourguiba, Tunisia's first president, makes secular reforms. The 1956 Personal Status Code bans polygamy and lets women seek divorce. In 1962, during Ramadan, the month of fasting, he drinks orange juice on television.","**1970s.** Rached Ghannouchi, a preacher and philosophy teacher, and Abdelfattah Mourou lead the Islamic Group, a preaching movement relatively close to quietist Salafis, the Salafis who focus on preaching and avoid party politics.","**1979.** The group becomes a secret organization.","**April 1981.** Bourguiba says he will open his one-party system to other parties."],"map":{"file":"media/map_region.svg","alt":"Map of North Africa","credit":"Egypt and Tunisia, with Libya between them. Map: Natural Earth."},"why_label":"Why? And name a risk to your choice."},{"id":"s3","kind":"stage","kicker":"Stage 3 of 10 · Egypt · 1984","headline":"Egypt's 1984 election","receipt_title":"Stage 3, the 1984 election","lede":"You lead the Muslim Brotherhood. It is 1984, and Hosni Mubarak is president.","panels":[{"title":"People","bullets":["**Hosni Mubarak.** President of Egypt from 1981 to 2011."]}],"tiles":[],"photos":[{"file":"media/mubarak.jpg","alt":"Hosni Mubarak","credit":"Hosni Mubarak. Photo: Ricardo Stuckert/PR, CC BY 3.0 br.","info":"Mubarak kept Egypt under emergency law for his entire time in office, giving the state sweeping powers of arrest."}],"question":"What do you do in the 1984 election?","picks":[{"id":"s3_boycott","name":"Boycott the election","detail":"You refuse to make an unfair election look legitimate, and you have no one in parliament."},{"id":"s3_ally","name":"Ally with a secular party and run on its list","detail":"You get people into parliament, but under a secular party's name and in an unfair vote."}],"why_min":10,"reveal":{"real_pick":"s3_ally","bullets":["**1984.** The Brotherhood allied with the New Wafd, a secular liberal party. The alliance won 58 seats.","**1987.** The Brotherhood allied with the Socialist Labor and Socialist Liberal parties. The alliance won 78 seats, and Brotherhood members won 36 of them.","**1990.** The Brotherhood and most other opposition parties boycotted the election, saying the new election law would not make it free. The Brotherhood did not run again until 1995.","**1995 to 2005.** Brotherhood members ran as independents: 17 seats in 2000, 88 seats in 2005, about 20% of parliament. In 1996 younger members tried to found a new party, Wasat (the Center), that would separate preaching from politics. The Brotherhood's leaders expelled every member who joined Wasat.","**After 2005.** The government arrested hundreds of Brotherhood members and changed the constitution to ban parties based on religion."],"class_link":{"text":["**Fear of repression.** Under Mubarak the Brotherhood generally avoided confronting the regime. Even so, after its members won 88 seats in 2005, the government arrested hundreds of them and changed the constitution to ban parties based on religion.","**Inclusion.** In 1984 the Brotherhood ran on the list of the secular New Wafd, which accepted only 18 of the roughly 70 candidates it proposed, and 8 of them won seats. MERIP called it \"a tactical electoral alliance on terms largely dictated by the Wafd.\" In 1987 it allied with the Socialist Labor and Socialist Liberal parties. Yet in 1996 its leaders expelled every member who joined Wasat, the party young members founded to separate preaching from politics.","**Discuss:** did working with other parties change its leaders, or only its tactics?"],"reading":"Sources: MERIP (1985), Carnegie, BBC, Al Jazeera.","title":"The explanations at this stage"},"real_label":"allied with a secular party, the New Wafd, and ran on its list.","tag_options":["Votes","Fear of repression","Inclusion","Living in a secular democracy","None of them"],"tag_question":"Which explanation of moderation fits this stage best? Pick one, then discuss your reasons aloud."},"bullets":["**1984.** Mubarak holds parliamentary elections. The Brotherhood is still illegal and cannot run as a party. Egypt is not a democracy, and Mubarak's ruling party wrote the election law."],"why_label":"Why? And name a risk to your choice."},{"id":"s4","kind":"stage","kicker":"Stage 4 of 10 · Tunisia · 1984 to 1991","headline":"Tunisia's 1989 election","receipt_title":"Stage 4, the 1989 election","lede":"You lead the MTI, now called Ennahda. It is April 1989.","panels":[{"title":"People","bullets":["**Zine el-Abidine Ben Ali.** President of Tunisia from 1987 to 2011."]}],"tiles":[],"photos":[{"file":"media/ben_ali.jpg","alt":"Zine el-Abidine Ben Ali","credit":"Zine el-Abidine Ben Ali. Photo: CC BY 2.0.","info":"Ben Ali removed Bourguiba, then 84, by declaring him mentally unfit to rule. He then abolished the State Security Court, which had tried Ghannouchi in 1987, and had radio and television broadcast the Muslim call to prayer."}],"question":"What do you do in the 1989 election?","picks":[{"id":"s4_boycott","name":"Boycott the election","detail":"The regime refused you a license and the vote will not be fair. You keep your members out of sight."},{"id":"s4_run","name":"Run as independents across the country","detail":"You show your strength and that you accept elections, but the police learn who your people are."}],"why_min":10,"reveal":{"real_pick":"s4_run","bullets":["**April 1989.** Ennahda's members ran as independents. By official figures they won more than 10% of the vote but no seats (Under the electoral law, the list with the most votes in each district took every seat--ruling party took all the seats. There are reports that the government also falsified the results). Police attended every Ennahda rally and photographed who was on the stage and in the crowd.","**1989.** Ghannouchi left Tunisia for exile. He lived in London until 2011.","After Ennahda's strong showing in the April 1989 election, Ben Ali ended the brief opening.","**February 1991.** Young Ennahda members attacked a local office of the RCD, Ben Ali's ruling party, in Bab Souika in Tunis, and killed a security guard. Government attempts to link Ennahda's senior leaders to the attack failed. In 2011 Ennahda said the young members had acted on their own.","**1991.** Ben Ali's government used the attack as a pretext to ban Ennahda and arrest thousands of its members. Some of its leaders went into exile. In August 1992 military courts sentenced 265 alleged Ennahda members to terms of 1 year to life in prison.","In these arrests the police used the names on Ennahda's license application and its electoral lists."],"class_link":{"text":["**Fear of repression.** The MTI renamed itself Ennahda to conform to a 1988 law that banned parties founded on religious or ethnic grounds, and it was still refused a license. Its members ran as independents in April 1989. In 1991 the government banned Ennahda and arrested thousands of its members, using the names on its license application and electoral lists to decide whom to arrest."],"reading":"Sources: Meddeb (2019), Grewal (2020), Wilson Center, Inter-Parliamentary Union.","title":"The explanations at this stage"},"real_label":"ran their members as independents across the country.","predict":{"question":"Before you read on: how did Ennahda's members do in 1989?","options":[{"text":"Under 5% of the vote and 2 seats, by official figures.","real":false,"where":"No. By official figures they won more than 10% of the vote, but no seats."},{"text":"More than 10% of the vote, but no seats, by official figures.","real":true,"where":""},{"text":"Most of the seats in the first round, and then the army stepped in.","real":false,"where":"Not in Tunisia. In Algeria, the Islamic Salvation Front won most seats in the first round in December 1991, and the army cancelled the second round."}]},"tag_options":["Votes","Fear of repression","Inclusion","Living in a secular democracy","None of them"],"tag_question":"Which explanation of moderation fits this stage best? Pick one, then discuss your reasons aloud."},"bullets":["**1984.** Bourguiba pardons Ghannouchi after 3 years in prison. Ghannouchi says he will accept democracy even if voters reject his party. He keeps the movement's leadership secret so that it can survive new arrests.","**1986.** The MTI and a secular party, the Socialist Democrats, boycott the parliamentary elections. They call them \"neither free nor fair.\"","**1987.** The regime bans Ghannouchi from preaching and publishing. He keeps preaching, and the police arrest him. A court sentences him to life at forced labor for leading an Iranian-backed plot to overthrow the government. Observers call it a show trial.","**November 1987.** Zine el-Abidine Ben Ali, the prime minister, removes Bourguiba (84), by having him declared medically unfit to rule. Ben Ali becomes president, opens up politics for a short time, and pardons Ghannouchi in May 1988.","**1989.** To comply with a 1988 law that bans religious parties, the MTI renames itself Ennahda (Renaissance). The government still refuses it a license.","**April 1989.** Parliamentary elections. Ennahda cannot run as a party."],"why_label":"Why? And name a risk to your choice."},{"id":"s5","kind":"stage","kicker":"Stage 5 of 10 · Tunisia · 1991 to 2011","headline":"Forming Tunisia's government, 2011","receipt_title":"Stage 5, forming a government, 2011","lede":"You lead Ennahda. It is October 2011, 9 months after Tunisians forced Ben Ali out.","panels":[{"title":"Parties","bullets":["**Ennahda.** The Islamist party. **89 seats.**","**Congress for the Republic (CPR).** Secular and left-wing, led by the human rights activist Moncef Marzouki. **29 seats.**","**Popular Petition.** A populist party, unknown before the election and led by a London-based millionaire. **26 seats.**","**Ettakatol.** Secular and center-left, led by Mustapha Ben Jaafar. **20 seats.**","**Progressive Democratic Party (PDP).** Secular and center-left. It campaigned on the claim that Ennahda would lead Tunisia back to the Middle Ages. **16 seats.**","**Democratic Modernist Pole.** A small alliance of parties, among them Ettajdid. Like the PDP, it campaigned on the claim that Ennahda would lead Tunisia back to the Middle Ages. **5 seats.**","**Others.** Independent lists and small parties. **32 seats.**"]}],"tiles":[{"value":"89 of 217","label":"Ennahda's seats in the assembly elected in October 2011. A majority needs 109.","source":"aljazeera_ennahda_results"}],"photos":[{"file":"media/tunis_vote_2011.jpg","alt":"Voting in Tunisia, October 2011","credit":"Voting in Tunisia's election, October 2011. Photo: Habib M'henni, CC BY-SA 3.0.","info":"Tunisia's first free election since independence in 1956, with about 4 million voters. Every party list had to alternate men and women candidates."},{"file":"media/tunisia_2011.jpg","alt":"Protest in Tunis, January 2011","credit":"Protest in Tunis, January 2011. Photo: VOA Photo/L. Bryant, public domain.","info":"The protests began after Mohamed Bouazizi, a fruit seller in Sidi Bouzid, set himself on fire on 17 December 2010. On 14 January Ben Ali and his family fled the country, into exile in Saudi Arabia."},{"file":"media/assembly_2011_seats.svg","alt":"Pie chart of seats in Tunisia's assembly elected in October 2011","credit":"Seats in the assembly elected in October 2011. Data: Al Jazeera, final results."}],"question":"How do you form a government?","picks":[{"id":"s5_minority","name":"Govern alone as a minority","detail":"You won more than 3 times as many seats as the next party. Keep all 3 top posts and find votes bill by bill."},{"id":"s5_cpr","name":"Govern with the CPR only","detail":"Together you hold 118 seats, a majority. Give the CPR 1 of the 3 top posts and keep the other 2."},{"id":"s5_troika","name":"Share power with the CPR and Ettakatol","detail":"Together you hold 138 seats, more than you need. Give them 2 of the 3 top posts."}],"why_min":10,"reveal":{"real_pick":"s5_troika","bullets":["**24 October 2011.** The day after the vote, Ali Laarayedh, a senior Ennahda leader, said the party was considering a coalition with Ettakatol and the CPR.","**November to December 2011.** The coalition, called the troika, took office. Mustapha Ben Jaafar of Ettakatol became head of the assembly in November. In December Moncef Marzouki of the CPR became president and Hamadi Jebali of Ennahda head of government."],"class_link":{"text":["**Fear of repression.** Before the October 2011 election, Ghannouchi pledged that Ennahda would govern in coalition even if it won a majority. Making the case for sharing power, Ennahda's leaders often cited Algeria in 1990 and 1991, where the military regime stopped elections that Islamists were winning and cracked down on them.","**Inclusion.** In 2005 Ennahda joined the CPR, Ettakatol, and other secular parties in the 18 October Collective. All of them, Ennahda included, backed Tunisia's liberal family code, and their joint statement said \"there can be no compulsion in religion.\" In 2011 Ennahda gave the CPR and Ettakatol 2 of the 3 top posts (the CPR got the presidency and Ettakatol got the head of the assembly to Ettakatol. Ennahda kept head of government)."],"reading":"Sources: Stepan (2012), Marks (2015), Carnegie (2014), Al Jazeera.","title":"The explanations at this stage"},"real_label":"shared power with the CPR and Ettakatol.","tag_options":["Votes","Fear of repression","Inclusion","Living in a secular democracy","None of them"],"tag_question":"Which explanation of moderation fits this stage best? Pick one, then discuss your reasons aloud."},"bullets":["**1991 to 2011.** Ennahda is split: one part in prison or underground in Tunisia, the other in exile.","**2005.** Ennahda joins secular opponents of Ben Ali in the 18 October Collective, a forum where opposition parties write joint positions on a future political system.","**January to March 2011.** Ennahda plays almost no part in the protests that force Ben Ali out on 14 January. Ghannouchi returns from London on 30 January. On 1 March the interim government legalizes Ennahda.","**23 October 2011.** Tunisians elect an assembly to write a new constitution. Ennahda wins 37% of the vote and 89 of 217 seats.","A majority needs 109 of 217 seats.","The 3 top posts are president, head of government, and head of the assembly."],"why_label":"Why? And name a risk to your choice."},{"id":"quiz1","kind":"custom","quiz":true,"text":"Quick check 1","kicker":"Quick check","headline":"Egypt or Tunisia?","receipt_title":"Quick check 1","lede":"Halfway point. For each fact, click the country it belongs to.","choices":["Egypt","Tunisia"],"items":[{"text":"The movement's leading thinker spent almost two years in the United States, part of it at a college.","answer":"Egypt","note":"Sayyid Qutb, 1948 to 1950. He came back condemning America."},{"text":"Young members of the movement attacked an office of the ruling party and killed a security guard.","answer":"Tunisia","note":"Bab Souika, February 1991."},{"text":"The police used the movement's own electoral lists to arrest its members.","answer":"Tunisia","note":"Ennahda, after 1989."},{"text":"The movement's leader answered from prison that no Muslim may declare another an unbeliever.","answer":"Egypt","note":"Hasan al-Hudaybi, answering Qutb."},{"text":"Islamist candidates ran as independents and won 88 seats, about a fifth of parliament.","answer":"Egypt","note":"The Brotherhood, 2005."},{"text":"Islamist candidates ran as independents, won more than 10% of the vote by official figures, and got no seats.","answer":"Tunisia","note":"Ennahda, April 1989."}]},{"id":"s7","kind":"stage","kicker":"Stage 6 of 10 · Tunisia · 2012","headline":"Islamic law in Tunisia's new constitution, 2012","receipt_title":"Stage 6, sharia and the constitution, 2012","lede":"You lead Ennahda, now heading the government. It is March 2012.","panels":[{"title":"Article 1 of Tunisia's 1959 constitution","bullets":["It says that Tunisia is a free, independent, and sovereign state and that its religion is Islam. It does not name Islam as a source of legislation."]}],"tiles":[],"photos":[{"file":"media/tunisia_assembly.jpg","alt":"Tunisia's National Constituent Assembly","credit":"Tunisia's National Constituent Assembly. Photo: Parti Mouvement Ennahdha, CC BY 2.0.","info":"Of the 49 women elected to the assembly in October 2011, 42 were Ennahda members. Before the election, Ennahda and most other main parties had agreed to finish the constitution within 1 year."}],"question":"What do you put in the constitution?","picks":[{"id":"s7_sharia","name":"Name sharia as a source of legislation","detail":"You satisfy Ellouze, Chourou, and the Salafis, and Ettakatol may leave your government."},{"id":"s7_article1","name":"Keep the old Article 1 and add nothing on sharia","detail":"You keep Ettakatol, and disappoint part of your base."}],"why_min":10,"reveal":{"real_pick":"s7_article1","bullets":["**November 2011.** Ghannouchi had already said that Article 1 would stay, with \"no other references to religion in the constitution.\"","**26 March 2012.** Ennahda announced that it would not include sharia. Article 1 stayed as it was.","**August 2012.** A draft article of the new constitution said that the roles of men and women \"should complement each other within the household,\" instead of calling them equal. Critics said it would weaken the equal rights women had held since 1956, and thousands marched in Tunis against it. Ennahda later replaced it with wording that guaranteed equality. It also agreed to drop a proposal to make blasphemy a crime."],"class_link":{"text":["**Living in a secular democracy.** Rached Ghannouchi, who had lived in exile in London, pledged to keep sharia out of the constitution.","**Fear of repression.** Grewal argues that having been in prison may heighten a person's fear of repression. Yet Habib Ellouze and Sadok Chourou, who had spent much of the previous 20 years in Tunisian prisons, still pushed for sharia.","On Inclusion, Ennahda dropped sharia while its secular partner Ettakatol threatened to leave the government over it."],"reading":"Sources: Grewal (2020).","title":"The explanations at this stage"},"real_label":"kept the old Article 1 and added nothing on sharia.","tag_options":["Votes","Fear of repression","Inclusion","Living in a secular democracy","None of them"],"tag_question":"Which explanation of moderation fits this stage best? Pick one, then discuss your reasons aloud."},"bullets":["**Early 2012.** Two Ennahda leaders, Habib Ellouze and Sadok Chourou, who spent much of the previous 20 years in Tunisian prisons, push to name sharia, Islamic law, as a source of legislation.","**25 March 2012.** Salafi demonstrators in Tunis demand sharia.","Ennahda's coalition partner Ettakatol threatens to leave the government if sharia appears in the constitution in any form."],"why_label":"Why? And name a risk to your choice."},{"id":"s6","kind":"stage","kicker":"Stage 7 of 10 · Egypt · 2011 to 2012","headline":"The Brotherhood and the presidency, 2012","receipt_title":"Stage 7, the presidential race, 2012","lede":"You lead the Muslim Brotherhood. It is March 2012.","panels":[{"title":"Parties","bullets":["**Democratic Alliance.** Led by the Brotherhood's Freedom and Justice Party (FJP), which holds 213 of its seats. **235 seats.**","**Islamist Bloc.** Salafi parties led by Nour. **123 seats.**","**New Wafd.** Liberal and nationalist. **41 seats.**","**Egyptian Bloc.** Secular center-left and liberal parties, among them the Social Democrats and the Free Egyptians. **35 seats.**","**Wasat.** A moderate Islamist party, founded by young members who left the Brotherhood. **10 seats.**","**Revolution Continues.** A leftist alliance. **9 seats.**","**Reform and Development.** Liberal. **9 seats.**","**Parties of Mubarak's former ruling party.** Small parties formed by its former members. **17 seats.**","**Others.** Small parties and independents. **19 seats.**"]},{"title":"People and groups","bullets":["**SCAF.** The army's Supreme Council of the Armed Forces, which has ruled Egypt since Mubarak fell.","**Nour party.** A Salafi party."]}],"tiles":[],"photos":[{"file":"media/tahrir_2011.jpg","alt":"Tahrir Square, 2011","credit":"Tahrir Square, Cairo, 2011. Photo: Alisdare Hickson from Canterbury, United Kingdom, CC BY-SA 2.0.","info":"Crowds greet soldiers on 29 January 2011. Troops had been ordered onto the streets the day before. On 31 January the army said it \"will not resort to use of force against our great people.\""},{"file":"media/egypt_parliament_2011_seats.svg","alt":"Pie chart of seats in Egypt's lower house elected from November 2011 to January 2012","credit":"Elected seats in the lower house, November 2011 to January 2012. Data: Wikipedia, from official results."}],"question":"Do you run a candidate for president?","picks":[{"id":"s6_keep","name":"Keep the promise and stay out of the race","detail":"You reassure those who fear an Islamist takeover, and leave the presidency to someone else."},{"id":"s6_run","name":"Break the promise and run your own candidate","detail":"You lead the largest party in parliament and can win, but critics will say you cannot be trusted."}],"why_min":10,"reveal":{"real_pick":"s6_run","bullets":["**31 March 2012.** The Brotherhood's Shura Council, its internal governing body, voted 56 to 52 to run a candidate, breaking its promise.","**April 2012.** The election commission disqualified the Brotherhood's first choice, Khairat al-Shater, a businessman and Brotherhood leader. A law barred candidates for 6 years after their release from prison, and Shater had been released in March 2011. Mohamed Morsi, a Brotherhood leader and its back-up candidate, ran instead.","**May 2012.** About 23 million Egyptians voted in the first round. Morsi came first with about 5.8 million votes and Ahmed Shafiq second with about 5.5 million. The leftist Hamdeen Sabahi and Abdel Moneim Aboul Fotouh, a moderate who had left the Brotherhood, came close behind.","**14 June 2012.** The Supreme Constitutional Court ruled the parliamentary election law unconstitutional, because it let party members run for seats meant for independent candidates, and the Islamist-led lower house was dissolved. This was 2 days before the presidential run-off, the second round between the top 2 candidates.","**24 June 2012.** The election commission declared Morsi the winner of the run-off with 51.7% against Ahmed Shafiq, a former air force commander and Mubarak's last prime minister, whom many saw as the candidate of the old regime.","**12 August 2012.** Morsi retired the army's top 2 generals and made Abdel Fattah al-Sisi, the head of military intelligence, defense minister.  He also canceled SCAF's 17 June amendment, which had kept control of the army for SCAF and given it a say over war and the new constitution."],"class_link":{"text":["**Votes.** After Mubarak fell in February 2011, the Brotherhood stopped using its traditional slogan, \"Islam is the solution,\" in favor of \"civil state.\" In the elections of November 2011 to January 2012 its party, the FJP, and its allies won 235 of 498 seats.","**Fear of repression.** On 31 March 2012 the Brotherhood's Shura Council voted 56 to 52 to run a candidate. A Brotherhood official said those against it feared the repercussions. Al Jazeera reported that the decision was likely to escalate the Brotherhood's confrontation with SCAF."],"reading":"Sources: Kantz Feder (2014), FairVote, Atlantic Council, Al Jazeera.","title":"The explanations at this stage"},"real_label":"ran their own candidate.","predict":{"question":"Before you read on: the Brotherhood's governing council, the Shura Council, voted on running a candidate. How did it vote?","options":[{"text":"100 to 8 to run.","real":false,"where":"No. The council was split almost in half: 56 to 52."},{"text":"56 to 52 to run.","real":true,"where":""},{"text":"58 to 50 against running, and the top leaders overruled it.","real":false,"where":"No. The council itself voted to run, 56 to 52."}]},"tag_options":["Votes","Fear of repression","Inclusion","Living in a secular democracy","None of them"],"tag_question":"Which explanation of moderation fits this stage best? Pick one, then discuss your reasons aloud."},"bullets":["**25 January to 11 February 2011.** Mass protests force Mubarak out. The Brotherhood does not organize the first protest but joins officially on 28 January. SCAF takes control.","**February 2011.** The Brotherhood promises not to run for president, to reassure progressives and Western countries that fear an Islamist takeover.","**Spring 2011.** It founds a party, the Freedom and Justice Party (FJP).","**November 2011 to January 2012.** In the lower house of parliament the FJP and its allies win 235 of 498 elected seats. The Salafi Nour party and its allies win 123. Liberal and secular parties together win just under 30% of the seats.","Parliament is now elected, but SCAF still holds the president's powers. It has promised to hand them to a civilian president once one is elected, in June 2012."],"why_label":"Why? And name a risk to your choice."},{"id":"s8","kind":"stage","kicker":"Stage 8 of 10 · Egypt · November to December 2012","headline":"Egypt's new constitution, 2012","receipt_title":"Stage 8, the constitution, 2012","lede":"You are President Mohamed Morsi, elected in June 2012, and the Brotherhood leaders who back him. It is November 2012.","panels":[],"tiles":[],"question":"How do you get the constitution through?","picks":[{"id":"s8_decree","name":"Bar the courts from overturning your decisions","detail":"No court can overturn your decisions until a constitution passes and a new parliament is elected. Expect street protests."},{"id":"s8_bargain","name":"Bargain with the opposition","detail":"Delay the referendum and reopen the panel to the parties and churches that left. The courts may dissolve it in the meantime."}],"why_min":10,"reveal":{"real_pick":"s8_decree","bullets":["**22 November 2012.** Morsi issued a declaration that barred courts from challenging his decisions. Protesters in Tahrir Square called it a coup.","**5 to 6 December.** Clashes between his supporters and opponents outside the presidential palace killed 7 people and injured more than 770. 7 of his senior advisers resigned, 4 of them after the clashes.","**8 December.** Morsi annulled the declaration but kept the referendum date. A spokesman for the National Salvation Front, one of the largest opposition parties, called the annulment \"relatively meaningless.\"","**December 2012.** Like Egypt's 1971 constitution, the new one made the principles of sharia, Islamic law, the main source of legislation. Unlike it, the new constitution also defined those principles, using the terms of Islamic legal scholarship, and said al-Azhar, Egypt's leading center of Sunni Islamic learning, would be consulted on Islamic law. Voters approved it with 63.8% yes, on a turnout of 32.9%."],"class_link":{"text":["**Inclusion.**  Here the cooperation broke down. By 17 November 2012 the secular and liberal members and the churches had left the panel writing the constitution, in protest at Islamist members' efforts to draft an \"Islamic\" constitution. Morsi kept the referendum date, and the main opposition parties rejected his call for dialogue.","**Votes.** The constitution Morsi pushed through did not play religion down. It defined the principles of sharia in the terms of Islamic legal scholarship and said al-Azhar would be consulted on Islamic law. Voters approved it with 63.8% yes, on a turnout of 32.9%.","**Discuss:** did the courts leave Morsi no other way, or did he choose not to share the writing of the constitution with his opponents?"],"reading":"Sources: Egypt Independent, Al Jazeera.","title":"The explanations at this stage"},"real_label":"Morsi barred the courts from overturning his decisions.","tag_options":["Votes","Fear of repression","Inclusion","Living in a secular democracy","None of them"],"tag_question":"Which explanation of moderation fits this stage best? Pick one, then discuss your reasons aloud.","photos":[{"file":"media/egypt_2012_protest.jpg","alt":"Protest in Cairo, 2012","credit":"Protest in Cairo, late 2012. Photo: Yuli Weeks for VOA, public domain.","info":"Opponents of the draft constitution on 12 December 2012, 3 days before voting began. In the clashes at the palace a week earlier, opponents chanted \"No to dictatorship\" and Morsi's supporters \"Defending Morsi is defending Islam.\""}]},"bullets":["**November 2012.** Secular and liberal members have left the panel writing the constitution or stopped taking part in it. They say its Islamist majority is drafting an \"Islamic\" constitution that gives the president too much power. On 17 November Egypt's churches withdraw their 3 members, saying the draft \"does not reflect the pluralistic identity of Egypt.\"","The courts have already dissolved the lower house. They may dissolve the panel next.","Once written, the constitution must pass a referendum, a national vote."],"photos":[],"why_label":"Why? And name a risk to your choice."},{"id":"s9","kind":"stage","kicker":"Stage 9 of 10 · Egypt · June to July 2013","headline":"Morsi and the army, 2013","receipt_title":"Stage 9, the army's ultimatum, 2013","lede":"You are President Mohamed Morsi and the Brotherhood leaders who back him. It is 1 July 2013.","panels":[],"tiles":[],"photos":[{"file":"media/june2013_march.jpg","alt":"Anti-Morsi march in Cairo, June 2013","credit":"Anti-Morsi march in Cairo, 28 June 2013. Photo: Lilian Wagdy, CC BY 2.0.","info":"Protesters march against Morsi in Cairo 2 days before the mass protests of 30 June, the first anniversary of the day he took office. Many protesters waved red cards and chanted \"irhal,\" Arabic for \"leave.\""}],"question":"What do you do in the 48 hours?","picks":[{"id":"s9_early","name":"Call an early presidential election","detail":"You give the protesters what they ask for and risk losing the presidency at the polls."},{"id":"s9_refuse","name":"Refuse to step down","detail":"You were elected a year ago. Giving way would show that protests and an army deadline can remove an elected president."},{"id":"s9_resign","name":"Resign now","detail":"You give up the presidency so the army does not move against you, and hope to keep the movement legal."}],"why_min":10,"reveal":{"real_pick":"s9_refuse","bullets":["**2 July.** In a speech, Morsi refused to resign. By the next day his supporters had vowed to \"face a coup with martyrdom.\"","**3 July.** As the deadline ran out, Morsi still refused to step down. His office proposed a consensus coalition government to oversee the next parliamentary election. The army removed him the same day and suspended the constitution. Sisi announced the removal on television beside the liberal leader Mohamed ElBaradei, the head of al-Azhar, and the Coptic pope, who leads Egypt's largest Christian church.","**14 August 2013.** Security forces broke up a pro-Morsi sit-in at Rabaa Square in Cairo, killing at least 817 people and likely more than 1,000.","**December 2013.** Egypt's interim government declared the Brotherhood a terrorist organization. In **June 2019** Morsi, by then a prisoner, collapsed in court and died."],"class_link":{"text":["**Fear of repression.** Given 48 hours by the army, Morsi refused to step down. The army removed him on 3 July 2013. On 14 August security forces killed at least 817 people at the Rabaa sit-in, and in December the government declared the Brotherhood a terrorist organization.","**Inclusion.** As the deadline ran out, Morsi's office offered a consensus coalition government to oversee the next parliamentary election. When Sisi announced Morsi's removal, the liberal leader Mohamed ElBaradei stood beside him.","**Discuss:** was the Brotherhood brought down by its own choices, or by an army that would have acted anyway?"],"reading":"Sources: BBC, Al Jazeera, NPR, Human Rights Watch.","title":"The explanations at this stage"},"real_label":"Morsi refused to step down.","tag_options":["Votes","Fear of repression","Inclusion","Living in a secular democracy","None of them"],"tag_question":"Which explanation of moderation fits this stage best? Pick one, then discuss your reasons aloud.","predict":{"question":"Before you read on: as the army's deadline ran out on 3 July, what did Morsi's office propose?","options":[{"text":"An early presidential election within 6 months.","real":false,"where":"No. His office proposed a consensus coalition government instead."},{"text":"A referendum on whether he should stay in office.","real":false,"where":"No. His office proposed a consensus coalition government instead."},{"text":"A consensus coalition government to oversee the next parliamentary election.","real":true,"where":""}]},"photos":[{"file":"media/rabaa.jpg","alt":"The Rabaa sit-in, 2013","credit":"The Rabaa sit-in, Cairo, 2013. Photo: H. Elrasam for VOA, public domain.","info":"Human Rights Watch used aerial photos to estimate that about 85,000 protesters were here on 2 August 2013. The organizers vowed to stay until Morsi was back in office."}]},"bullets":["**30 June 2013.** Mass protests against Morsi. The Tamarod campaign behind them wants an early presidential election.","**1 July 2013.** The army gives Morsi 48 hours to meet the protesters' demands.","Abdel Fattah al-Sisi, whom Morsi made defense minister, commands the army."],"why_label":"Why? And name a risk to your choice."},{"id":"s10","kind":"stage","kicker":"Stage 10 of 10 · Tunisia · 2012 to 2013","headline":"Tunisia after two assassinations, 2013","receipt_title":"Stage 10, the assassinations, 2013","lede":"You lead Ennahda. It is late July 2013. In Egypt, the army removed Morsi on 3 July.","panels":[{"title":"People","bullets":["**Chokri Belaid** and **Mohamed Brahmi.** Leftist politicians, killed in 2013. In March 2024 a Tunisian court sentenced 4 people to death and 2 to life in prison for Belaid's killing.","**Ansar al-Sharia.** A Salafi jihadist group."]}],"tiles":[],"photos":[{"file":"media/belaid_funeral.jpg","alt":"After Chokri Belaid's killing, February 2013","credit":"Tunis after Chokri Belaid's killing, February 2013. Photo: Emnamizouni, CC BY-SA 3.0.","info":"Belaid headed the leftist Democratic Patriots party and accused Ennahda of ignoring violence against secularists. His funeral drew one of the largest crowds in Tunisia's history."}],"question":"The opposition wants you out. What do you do?","picks":[{"id":"s10_hold","name":"Stay in government until the next election","detail":"You won the election. Forcing you out would be a coup.","others":{"who":"Egypt's Brotherhood, a few weeks earlier.","bullets":["Morsi refused to step down when the army gave him 48 hours.","The army removed him on 3 July 2013, and security forces killed at least 817 people at the Rabaa sit-in."]}},{"id":"s10_early","name":"Call early elections and stay in government until then","detail":"You let voters decide, before the constitution is finished."},{"id":"s10_handover","name":"Hand power to non-party experts","detail":"Agree with the opposition on a temporary government of non-party experts."}],"why_min":10,"reveal":{"real_pick":"s10_handover","bullets":["**29 July 2013.** The head of government, Ali Laarayedh, refused to resign and proposed an election for 17 December.","Days after Brahmi's killing, Ennahda's spokeswoman said: \"The Egyptian scenario indeed proves that the disruption of a political process only leads to further division, instability, chaos and violence.\"","**Early August 2013.** Rached Ghannouchi offered to bring opposition parties into a broader government. The opposition refused. On 6 August the assembly suspended its work.","**From August 2013.** Rached Ghannouchi held talks with Beji Caid Essebsi, leader of the secular Nidaa Tounes party. Tunisia's main trade union and 3 other groups that are not political parties, known together as the Quartet, ran a national dialogue, talks among the parties.","**Late September 2013.** Ennahda accepted the Quartet's plan: its government would resign and hand power to non-party experts. Rached Ghannouchi said later: \"We have exported revolution ... to Egypt, and we don't want to import from Egypt a coup.\"","**26 January 2014.** The assembly approved the constitution by a large majority. It named Islam as Tunisia's religion but not as a source of legislation, and guaranteed freedom of conscience, the freedom to hold any religion or none. On **29 January** Laarayedh handed power to a government of non-party experts."],"class_link":{"text":["**Fear of repression.** One analyst noted that Ennahda said the Rabaa killings in Egypt reminded them of the repression they had suffered under Ben Ali in the 1990s and made them fear it could happen again in Tunisia. Another analyst claimed that Ennahda \"didn't have to worry about the intervention of a powerful army.\" Ennahda agreed to resign and hand power to non-party experts.","**Inclusion.** In August 2013 Ghannouchi met Beji Caid Essebsi, leader of the secular Nidaa Tounes party, in Paris. The Quartet, formed in the summer of 2013, mediated among the parties. The constitution they agreed on in January 2014 guaranteed freedom of conscience (the freedom to hold any religion or none).","**Discuss:** did the compromise help Ennahda survive?"],"reading":"Sources: Marks (2015), Wilson Center, Al Jazeera, Nobel Prize.","title":"The explanations at this stage"},"real_label":"proposed an election for 17 December and offered a broader government, then agreed to hand power to non-party experts.","tag_options":["Votes","Fear of repression","Inclusion","Living in a secular democracy","None of them"],"tag_question":"Which explanation of moderation fits this stage best? Pick one, then discuss your reasons aloud.","actor":"Ennahda"},"bullets":["**2012.** Ennahda lets peaceful Salafis organize and tries to bring members of Ansar al-Sharia, the group the authorities later blamed in part for the killings below, into politics.","**14 September 2012.** Several hundred protesters, angry over an anti-Islam film made in the United States, storm the US embassy compound in Tunis, and 4 people die. Members of Ansar al-Sharia take part.","**6 February 2013.** Gunmen shoot dead Chokri Belaid, a leftist opposition leader, in his car outside his home. That day Hamadi Jebali, Ennahda's head of government, proposes a cabinet of non-party experts. Ennahda refuses. Jebali resigns on 19 February, and Ali Laarayedh replaces him.","**25 July 2013.** Gunmen shoot dead Mohamed Brahmi, a leftist member of the assembly and a critic of Ennahda, outside his house. The government blames radical extremists, some from Ansar al-Sharia, for both killings. The opposition demands that the government resign."],"why_label":"Why? And name a risk to your choice."},{"id":"quiz2","kind":"custom","quiz":true,"text":"Quick check 2","kicker":"Quick check","headline":"Egypt or Tunisia?","receipt_title":"Quick check 2","lede":"Last step before your file. For each fact, click the country it belongs to.","choices":["Egypt","Tunisia"],"items":[{"text":"The Islamist party's own head of government proposed a cabinet of non-party experts, and the party refused.","answer":"Tunisia","note":"Jebali and Ennahda, February 2013."},{"text":"The movement's governing council voted, by a margin of 4 votes, to break a public promise.","answer":"Egypt","note":"The Brotherhood's Shura Council, 56 to 52, March 2012."},{"text":"The new constitution said a leading center of Islamic learning would be consulted on Islamic law.","answer":"Egypt","note":"Al-Azhar, in the constitution of December 2012."},{"text":"The Islamist leader's office offered to bring other parties into government, and the army removed him the same day.","answer":"Egypt","note":"Morsi's office, 3 July 2013."},{"text":"Thousands marched against a draft article saying that the roles of men and women complement each other within the household.","answer":"Tunisia","note":"Tunis, August 2012."},{"text":"The Islamist-led government offered to bring other parties into government, was refused, and months later agreed to resign.","answer":"Tunisia","note":"Ennahda, July to October 2013."}]},{"id":"receipt","kind":"receipt","title":"Egypt and Tunisia: Your choices","shot_note":"Click Download to get a text file. Open it, add the names of everyone in your group at the top, and upload it to Blackboard. Or click Copy and paste the text into Blackboard, with everyone's name at the top.","grade_note":"None of these choices is graded."}],"how_it_works":{"intro":"This page tells the real history of two Islamist movements. At each stage your group makes a choice, and then sees what really happened. This exercise is inspired by John Holbein's President's Budget simulation (johnholbein.org/teaching-activities/presidents-budget).","model_note":"Nothing on this page is graded.","notes":[]},"reference":{"title":"The case","sections":[{"title":"What moderation means","items":["An Islamist party moderates when it accepts two basic rules of democracy, even if it keeps a religious identity. First, laws are made by elected representatives, and no religious authority can overrule them. Second, everyone is free to practice any religion, any version of Islam, or none. Scholars have proposed 4 explanations for why Islamist parties moderate."]},{"title":"4 explanations for moderation","items":["**Votes.** To win elections, a party plays down religion to reach voters beyond its religious base and make alliances with other parties.","**Fear of repression.** Under a dictatorship, a party softens its program and avoids confronting the regime, so that the regime does not ban it or jail its members. The aim is to keep the organization alive, not to win votes.","**Inclusion.** When Islamists take part in politics, they must work with people who think very differently (for example, in parliament, in election alliances, at universities, and in civic groups). This contact can make them more tolerant of other views and more accepting of pluralism, the idea that many different views can coexist.","**Living in a secular democracy.** Islamists who studied or lived in exile in Western democracies saw democracy and religious freedom work in practice, met non-Muslims, and learned that a secular state need not repress religion. They tended to come back more accepting of secular democracy than those who stayed home."],"numbered":true},{"title":"Kinds of Islamist movements","items":["**Islamists.** People and groups who want their vision of Islam to shape the state, the law, or society, for example by basing laws on sharia, and who organize to pursue that goal. Devout Muslims are not necessarily Islamists.","**The Muslim Brotherhood.** Founded in Egypt in 1928. It combines preaching, social services, and running in elections. It inspired movements elsewhere, among them Ennahda.","**Salafis.** Sunni Muslims who try to follow \"the pious predecessors,\" the first generations of Muslims, as closely as possible, and reject practices they see as later additions. Many, called quietists, focus on preaching and teaching and stay out of political activism. Some form parties, like Egypt's Nour. A minority, such as al-Qaeda, use violence.","**Muslim Democrats.** Islamists who keep a religious identity but accept secular democracy: laws are made by elected representatives, and everyone may practice any religion or none. The name echoes Europe's Christian Democratic parties."]},{"title":"Terms","items":["**Sharia.** Islamic law: God's law for Muslims as found in the Quran and the Sunna, the Prophet Muhammad's sayings and practice. It covers worship as well as family, trade, and crime. Scholars interpret it in many different ways, so \"applying sharia\" can mean very different things.","**Secular.** Keeping religion separate from the state: religious authorities do not control the laws or the courts, and the state does not impose a religion.","**Civil state.** The term many Arab parties use instead of \"secular,\" because the Arabic word for secularism can sound anti-religious. It usually means a state run neither by the army nor by clerics.","**Jihad.** Arabic for \"effort\" or \"struggle.\" It can mean a Muslim's inner struggle to do right and avoid wrong, or armed fighting. Qutb argued that much of Muslim society was Muslim only in name and that those who stood in the way of God's rule were legitimate targets of armed jihad. Later armed Islamist groups took up this idea.","**Referendum.** A vote in which all voters decide a single question directly, such as whether to approve a new constitution.","**Run-off.** A second round of voting, held when no candidate wins a majority in the first round, usually between the top 2 candidates."]},{"title":"Other paths: Algeria","open_after":"s4","items":["**December 1991.** The Islamic Salvation Front (FIS) won 188 of the 231 seats decided in the first round. **January 1992.** The army cancelled the second round, which led to a civil war. In 2005 the government acknowledged 150,000 deaths."]},{"title":"Other paths: Turkey and Morocco","items":["**Turkey.** In 1997 the army forced a government led by the Islamist Welfare Party out of power. In 2001 Erdogan founded the AKP with former Welfare members. It won the 2002 election.","**Morocco.** The Islamist PJD led the government under the king from 2011 to 2021, fell to 13 seats in 2021, and won 54 in September 2026 by provisional results."]},{"title":"Ennahda after 2013","open_after":"s10","items":["**4 January 2014.** The assembly voted on making the Quran and the Sunna, the sayings and practice of the Prophet Muhammad, the main sources of legislation. Ennahda asked its members to abstain. Of Ennahda's 89 members of the assembly, 38 abstained, 22 voted for, 17 against, and 12 were absent. The proposal failed.","**October 2014.** Ennahda came second in the election and joined the governing coalition.","**May 2016.** 93.5% of the party's delegates voted to separate the party's political activity from its religious activity. Ennahda said it was no longer an Islamist party but a party of Muslim Democrats.","**2021 to 2026.** On 25 July 2021 President Kais Saied dismissed the head of government and suspended parliament. Critics called it a coup. In April 2023 security forces arrested Ghannouchi at his home, and in June 2026 a court sentenced him to life in prison plus 30 years on terrorism-related charges."]},{"title":"Egypt after 2013","open_after":"s9","items":["**2014 to 2016.** Mohamed Kamal, a member of the Brotherhood's top leadership, approved limited violent action in early 2014. In spring 2015 older leaders began to speak of non-violence and accused Kamal's wing of abandoning it, and the leadership split into quarreling factions.","Courts sentenced hundreds to death in mass trials, among them the head of the Brotherhood, Mohamed Badie. Security forces arrested tens of thousands of government critics."]}]},"no_names":true,"glossary":[{"term":"Hasan al-Banna","info":"A schoolteacher who founded the Muslim Brotherhood in 1928 and led it until 1949. The Brotherhood held that there could be no Islamic society without an Islamic state. But in the 1930s and 1940s, al-Banna sought to reform society through education and to gain influence within the existing government."},{"term":"Sayyid Qutb","info":"An Egyptian writer who became the Muslim Brotherhood's chief thinker. Arrested and tortured in 1954, he was sentenced to life in prison, and his prison writings show his views hardening."},{"term":"Qutb","info":"An Egyptian writer who became the Muslim Brotherhood's chief thinker. Arrested and tortured in 1954, he was sentenced to life in prison, and his prison writings show his views hardening."},{"term":"Hasan al-Hudaybi","info":"The Muslim Brotherhood's leader after al-Banna, a respected judge from outside the movement. The Brotherhood chose him as a gesture to the king and to keep any one faction from dominating. His book Preachers, Not Judges refuted Qutb's ideas without naming him."},{"term":"Gamal Abdel Nasser","info":"An army colonel who led the Free Officers, the group that forced King Farouk from power in July 1952, and then ruled Egypt until 1970. According to fellow plotters, he had secretly promised the Brotherhood to impose sharia, Islamic law. Instead, the two became rivals."},{"term":"Anwar Sadat","info":"Egypt's president from 1970 and one of the Free Officers who took power in 1952. He had been the Free Officers' link to the Brotherhood. After the 1954 crackdown, he was one of the 3 judges who tried Sayyid Qutb."},{"term":"Hosni Mubarak","info":"Sadat's successor as Egypt's president, from 1981 to 2011. After taking office, he gave the Brotherhood more freedom, and its membership soared."},{"term":"Mohamed Morsi","info":"A Brotherhood leader who headed its Freedom and Justice Party and won Egypt's presidency in June 2012. He earned an engineering PhD in California in 1982 and taught there until 1985. On winning, he resigned as party head and left the Brotherhood, saying, \"I am president for all Egyptians.\""},{"term":"Abdel Fattah al-Sisi","info":"Egypt's defense minister and commander of the armed forces from August 2012. Before that, he headed military intelligence and was the youngest member of SCAF, the army council that ruled Egypt after Mubarak fell."},{"term":"Khairat al-Shater","info":"The Muslim Brotherhood's deputy leader, a businessman said to be its main funder. He resigned the post in March 2012 to run as its presidential candidate. He had left prison in March 2011, and a law barred candidates until 6 years after release or pardon."},{"term":"Ahmed Shafiq","info":"Mubarak's last prime minister and Morsi's opponent in the June 2012 presidential run-off. A former air force commander and longtime friend of Mubarak, he campaigned on a promise to restore stability. Egypt's Christians mostly backed him."},{"term":"Habib Bourguiba","info":"Tunisia's first president, who ruled from independence in 1956 until 1987. In 1975 he was declared president for life. His ruling party had badly weakened the labor unions and the secular opposition."},{"term":"Zine el-Abidine Ben Ali","info":"President of Tunisia from 1987 to 2011. Before that he headed Tunisia's military security and then its national security, and put down the unrest of 1978 and 1984. In 1988, after saying he would ease Bourguiba's measures against the opposition, he signed a national pact with opposition leaders."},{"term":"Ben Ali","info":"President of Tunisia from 1987 to 2011. Before that he headed Tunisia's military security and then its national security, and put down the unrest of 1978 and 1984. In 1988, after saying he would ease Bourguiba's measures against the opposition, he signed a national pact with opposition leaders."},{"term":"Rached Ghannouchi","info":"Leader and co-founder of the Islamist movement that became Ennahda. After the army crushed a general strike in January 1978, he concluded that \"remaining on the sidelines\" had cut the movement off from the young, workers, and the poor. In the main trade union, he preached that Islam is not only prayer and fasting but activism \"on the side of the poor and the oppressed.\""},{"term":"Ghannouchi","info":"Leader and co-founder of the Islamist movement that became Ennahda. After the army crushed a general strike in January 1978, he concluded that \"remaining on the sidelines\" had cut the movement off from the young, workers, and the poor. In the main trade union, he preached that Islam is not only prayer and fasting but activism \"on the side of the poor and the oppressed.\""},{"term":"Abdelfattah Mourou","info":"Co-founder, with Ghannouchi, of the Islamist movement that became Ennahda, and a lawyer. Sayida Ounissi, an Ennahda member of parliament, says his \"spiritual father\" was not Sayyid Qutb but Hmed Ben Miled, a scholar from the Islamic university Zaytouna who supported the institutions of the modern Tunisian state."},{"term":"Hamadi Jebali","info":"Ennahda's secretary-general and Tunisia's head of government from December 2011. Like most Ennahda leaders who stayed in Tunisia, he was in prison for most of the years from 1991 to 2011. The analyst Duncan Pickard wrote that he was known as \"conciliatory and an avoider of conflict.\""},{"term":"Ali Laarayedh","info":"A senior Ennahda leader, Tunisia's interior minister from December 2011, and head of government from 2013. A state security court under Bourguiba sentenced him to death in 1987. Under Ben Ali he served 14 years in prison, more than 11 of them in solitary confinement."},{"term":"Beji Caid Essebsi","info":"Leader of Nidaa Tounes, \"the Call of Tunisia,\" a secular party founded in 2012 to oppose Ennahda. He had been Bourguiba's interior minister and led Tunisia's interim government in 2011. In 2013 he called for dissolving the assembly elected under that government."},{"term":"Habib Ellouze","info":"An Ennahda leader and, after 2011, the most outspoken figure in its conservative wing. He was a founding member of the MTI in 1981. A member of Ennahda's policymaking council said in 2013 that Ellouze and Chourou were \"the big voices\" for sharia and \"managed to persuade more people.\""},{"term":"Special Apparatus","info":"The Muslim Brotherhood's secret armed wing, whose members fought British rule. Al-Banna set it up around 1940, and his control over it was weak. In the 1948 war with Israel, militant members refused his deal with the government to merge the Brotherhood's fighters into Egypt's army."},{"term":"Milestones","info":"A manifesto by Sayyid Qutb, in Arabic Ma'alim fi al-Tariq. It called for a vanguard, a group that leads the way, to start an Islamic revival in a Muslim country. Egypt soon banned it, and anyone caught with a copy could be charged with sedition, stirring up revolt."},{"term":"Wasat","info":"A party that younger Muslim Brotherhood members, led by Abu al-Ila Madi, founded in 1996. It included Christians and backed equality between men and women. The government turned down its requests for a party license in 1996, 1998, 2004, and 2009."},{"term":"New Wafd","info":"A secular party, founded in 1978 by Fuad Serag al-Din and Ibrahim Farag to revive the Wafd, which had championed Egypt's independence and won every free election before 1952. In 1984 it took only 18 of some 70 proposed Brotherhood candidates, and put only 8 in winnable list positions."},{"term":"SCAF","info":"The Supreme Council of the Armed Forces, a council of senior military leaders that took power when Mubarak fell in February 2011. Its head, Hussein Tantawi, had been Mubarak's defense minister for 2 decades. It promised to hand power to civilians in June 2012, once a president was elected."},{"term":"Freedom and Justice Party","info":"The Muslim Brotherhood's political party, formed in 2011. Parties with a religious identity were still banned, so the Brotherhood registered it as a \"civil\" party. Its platform called for a parliamentary system, with a government led by a prime minister and only a symbolic role for the president."},{"term":"Nour party","info":"A Salafi party, founded in 2011 as the political wing of the Salafist Call. It left the Democratic Alliance, formed by the Brotherhood's party, in September 2011 and became the largest party in the Islamist Alliance. It officially supports democracy, but senior members have called democracy apostasy, abandoning Islam."},{"term":"Tamarod","info":"A petition campaign against Morsi, set up by opposition activists in late April 2013. Its name is Arabic for \"rebellion.\" The petition blamed Morsi for failing to restore security and fix the economy, and by late June the campaign claimed 22 million signatures, which cannot be verified."},{"term":"al-Azhar","info":"A mosque and university in Cairo, founded in 970, Egypt's leading center of Sunni Islamic learning. In 2010 Mubarak made Ahmed al-Tayeb its head, the Grand Imam. Tayeb was a member of Mubarak's ruling party and at first refused to quit it, saying the two roles did not conflict."},{"term":"Tahrir Square","info":"A square in Cairo, the heart of the 2011 revolution that forced Mubarak out. During those protests, Brotherhood members kept their group's slogans out of the square but brought food and water and set up checkpoints to keep pro-government forces out."},{"term":"MTI","info":"The Islamic Tendency Movement, the party Ghannouchi and Mourou founded in April 1981, which called itself \"a political movement based on Islam.\" A government spokesman called it an Iranian puppet. After the July 1981 arrests, non-Islamist groups, among them the Communist Party, rallied behind Ghannouchi."},{"term":"troika","info":"The 3-party coalition of Ennahda, the CPR, and Ettakatol that governed Tunisia from late 2011. Ennahda also offered ministries to other party leaders, such as Hamma Hammami of the Workers' Party, who refused. Only the CPR and Ettakatol, which had not run hard anti-Islamist campaigns, agreed."},{"term":"Congress for the Republic","info":"A secular, left-wing party founded in 2001 by Moncef Marzouki, a human rights activist and critic of Ben Ali. Ben Ali banned it in 2002. Marzouki's human rights record and his support for Arab unity drew supporters from the left, from nationalists, and from people leaning toward Islamism."},{"term":"Ettakatol","info":"The Democratic Forum for Labor and Liberties, a secular, center-left party founded by Mustapha Ben Jaafar in 1994. Before the 2011 election it proposed a unity government of secular and Islamist parties. In the campaign, Ben Jaafar defended its secular character more clearly than the CPR's leader, Marzouki."},{"term":"18 October Collective","info":"A coalition of Islamists, secularists, and communists against Ben Ali's dictatorship, named after a hunger strike that 8 opposition and civic figures began on 18 October 2005. In joint statements, all its parties, Ennahda included, backed Tunisia's liberal family law and the right to hold any religion or none."},{"term":"Ansar al-Sharia","info":"A Salafi jihadist group, its name Arabic for \"supporters of Islamic law,\" founded in April 2011 by Abu Iyadh, who had fought against the United States in Afghanistan. It said it opposed democracy because democracy went against Islam and put men on the same level as God."},{"term":"Quartet","info":"Tunisia's main trade union, employers' union, Human Rights League, and Order of Lawyers. They formed the Quartet in summer 2013, when the move to democracy was in danger of collapsing. The trade union backed the opposition's demand for a new government but not for dissolving the assembly."},{"term":"Salafis","info":"Sunni Muslims who try to follow al-salaf al-salih, Arabic for \"the pious predecessors,\" the first generations of Muslims. Salafis have generally rejected taking part in democracy because it does not rest on God's sovereignty, and they fault the Muslim Brotherhood for embracing it."},{"term":"Salafi","info":"Sunni Muslims who try to follow al-salaf al-salih, Arabic for \"the pious predecessors,\" the first generations of Muslims. Salafis have generally rejected taking part in democracy because it does not rest on God's sovereignty, and they fault the Muslim Brotherhood for embracing it."},{"term":"sharia","info":"Islamic law, which Muslims see as God's law and as unchanging. Fiqh, the scholars' work of spelling out its rules, is open to debate, reinterpretation, and change."},{"term":"Sunni","info":"The larger of Islam's two main branches, the other being Shia. The split began over who should lead Muslims after the Prophet Muhammad died in 632. Sunnis are the majority of Muslims in Egypt and Tunisia, as in all but a few countries."},{"term":"Sunna","info":"The Prophet Muhammad's sayings and practice, which with the Quran express God's will, the basis of sharia. It is known through hadith, stories about the Prophet passed down orally and written down 1 to 2 centuries after his death. Not all scholars agreed on which stories were certainly true."},{"term":"Personal Status Code","info":"Tunisia's family law of 1956, a key piece of women's rights legislation under Bourguiba. It still said a wife should \"obey\" her husband and left sharia inheritance rules in place. Ghannouchi criticized the code, raising doubts among progressive Tunisians about how free women would be under his movement."},{"term":"Ramadan","info":"The Islamic month of fasting, whose fast is among the 5 pillars of Islam. From 1960 Bourguiba urged Tunisians to break the fast to fight poverty. The Tunisian journalist Ahmed Nadhif writes that this call to break the fast shocked most Tunisians and helped spark the Islamic revival that led the opposition in the 1970s."},{"term":"British control","info":"British rule over Egypt, which began when Britain occupied the country in 1882. In 1922 Britain declared Egypt independent but kept the final say over its foreign relations, communications, military, and Sudan. Only in 1954 did Britain agree to withdraw its last troops, within 20 months."}]};
+window.LOCKED = {};
+</script>
+<script>/* ui.js — everything the student sees and clicks.
+
+   The pure logic lives in core.js; this file renders screens, keeps the state
+   in localStorage, opens the locked screens when the classroom code is typed,
+   plays the surprise, and writes the receipt. It touches no network: there is
+   no fetch, no font, and no image that is not beside the page. */
+(function (root) {
+  "use strict";
+
+  const CORE = root.SIMCORE;
+  const RULES = root.RULES || {};
+  const DATA = root.DATA;
+  const LOCKED = root.LOCKED;
+  const KEY = "sim:" + DATA.id;
+
+  let state = CORE.emptyState(DATA.build);
+  let screens = [];
+  let opened = null;          // the after-screens, once the code is in
+  let soundOn = false;
+  let stageRun = 0;
+
+  /* ---------------------------------------------------------------- tools */
+  const $ = (sel, node) => (node || document).querySelector(sel);
+  const $$ = (sel, node) => Array.prototype.slice.call((node || document).querySelectorAll(sel));
+
+  /* A photo can carry "info": more about who or what it shows. It opens over the
+     photo on hover, on keyboard focus, and on a tap (phones have no hover). */
+  function addInfo(figure, p) {
+    if (!p || !p.info) return;
+    figure.classList.add("hasinfo");
+    figure.tabIndex = 0;
+    figure.setAttribute("aria-label", (p.alt || "") + ". " + p.info);
+    const box = el("div", "photoinfo", rich(p.info));
+    figure.appendChild(box);
+    figure.addEventListener("click", () => figure.classList.toggle("open"));
+  }
+
+  /* Glossary terms already explained on the screen being drawn. */
+  let glossShown = new Set();
+
+  function el(tag, cls, html) {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (html != null) node.innerHTML = html;
+    return node;
+  }
+
+  function esc(value) {
+    return String(value == null ? "" : value)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
+  function fromBase64(value) {
+    const binary = atob(value);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+    return bytes;
+  }
+
+  function notice(text, kind) {
+    const node = $("#notice");
+    if (!node) return;
+    if (!text) { node.hidden = true; node.textContent = ""; return; }
+    node.className = "notice" + (kind ? " " + kind : "");
+    node.textContent = text;
+    node.hidden = false;
+  }
+
+  function save() {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(state));
+    } catch (err) {
+      notice("This browser is not saving your work. Keep the tab open until you have copied your answers.", "warn");
+    }
+  }
+
+  function load() {
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (err) { saved = null; }
+    const restored = CORE.restore(saved, DATA.build);
+    if (restored.dropped) {
+      notice("This page was rebuilt since you last opened it, so the earlier answers were cleared.", "warn");
+    }
+    return restored.state;
+  }
+
+  function rule(name, extra) {
+    return CORE.run(RULES, name, state, dataForRules(), extra);
+  }
+
+  /* Rules see the screens that are open. Before the code, the locked screens
+     are not there, which is also true for the student. */
+  function dataForRules() {
+    return Object.assign({}, DATA, { screens: screens });
+  }
+
+  function screenById(id) {
+    for (let i = 0; i < screens.length; i += 1) if (screens[i].id === id) return screens[i];
+    return null;
+  }
+
+  function optionById(id) {
+    return CORE.index(dataForRules())[id] || null;
+  }
+
+  function value(spec) {
+    if (!spec) return "";
+    const raw = spec.rule ? rule(spec.rule) : spec.value;
+    if (raw && typeof raw === "object") return String(raw.text == null ? "" : raw.text);
+    const body = CORE.formatValue(raw, spec.format, spec.digits);
+    return (spec.prefix || "") + body + (spec.suffix ? " " + spec.suffix : "");
+  }
+
+  function sourceLine(id) {
+    const source = (DATA.sources || []).filter(s => s.id === id)[0];
+    return source ? source.text : "";
+  }
+
+  /* ------------------------------------------------------------ the shell */
+  function go(id) {
+    state.screen = id;
+    save();
+    render();
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  function currentScreen() {
+    return screenById(state.screen) || screens[0];
+  }
+
+  function render() {
+    glossShown = new Set();
+    const screen = currentScreen();
+    const app = $("#app");
+    app.innerHTML = "";
+    const kinds = {
+      brief: renderBrief, choose: renderChoose, hold: renderHold, respond: renderRespond,
+      write: renderWrite, outcome: renderOutcome, receipt: renderReceipt, surprise: renderSurpriseGate,
+      custom: renderCustom, stage: renderStage, record: renderRecord, quiz: renderQuiz
+    };
+    (kinds[screen.kind] || renderCustom)(screen, app);
+  }
+
+  function nextScreenId(id) {
+    for (let i = 0; i < screens.length; i += 1) {
+      if (screens[i].id === id && screens[i + 1]) return screens[i + 1].id;
+    }
+    return id;
+  }
+
+  function panel(title, meta) {
+    const box = el("section", "panel");
+    const head = el("div", "panel-h");
+    head.appendChild(el("span", null, esc(title)));
+    if (meta) head.appendChild(el("span", "mono", esc(meta)));
+    box.appendChild(head);
+    const body = el("div", "panel-b");
+    box.appendChild(body);
+    return { box: box, body: body };
+  }
+
+  /* ------------------------------------------------------------ 1. brief */
+  function renderBrief(screen, app) {
+    const wrap = el("div", "stagewrap brief");
+    if (screen.kicker) wrap.appendChild(el("p", "kicker", esc(screen.kicker)));
+    wrap.appendChild(el("h1", null, esc(screen.headline)));
+    if (screen.lede) wrap.appendChild(el("p", "lede", esc(screen.lede)));
+
+    const columns = el("div", "brief-main");
+    const left = el("div", "brief-copy");
+
+    if (screen.memo) {
+      const memo = el("div", "memo");
+      const head = el("dl", "memo-h");
+      [["To", screen.memo.to], ["From", screen.memo.from], ["Re", screen.memo.re]].forEach(pair => {
+        if (!pair[1]) return;
+        const row = el("div");
+        row.appendChild(el("dt", null, esc(pair[0])));
+        row.appendChild(el("dd", null, esc(pair[1])));
+        head.appendChild(row);
+      });
+      memo.appendChild(head);
+      (screen.memo.paragraphs || []).forEach(p => memo.appendChild(el("p", null, esc(p))));
+      left.appendChild(memo);
+    }
+
+    if (screen.steps && screen.steps.length) {
+      const steps = el("div", "steps");
+      steps.appendChild(el("h2", null, "What your group does"));
+      const list = el("ol");
+      screen.steps.forEach(s => list.appendChild(el("li", null, esc(s))));
+      steps.appendChild(list);
+      if (screen.deliverable) steps.appendChild(el("p", "deliverable", esc(screen.deliverable)));
+      if (screen.grade_note) steps.appendChild(el("p", "grade-note", esc(screen.grade_note)));
+      left.appendChild(steps);
+    }
+
+    (screen.panels || []).forEach(p => {
+      const box = panel(p.title, p.meta);
+      const list = el(p.numbered ? "ol" : "ul"); // "numbered": true draws a numbered list (5 Oct 2026)
+      (p.bullets || []).forEach(b => list.appendChild(el("li", null, rich(b))));
+      box.body.appendChild(list);
+      left.appendChild(box.box);
+    });
+
+    if (screen.tiles && screen.tiles.length) {
+      const tiles = el("div", "tiles");
+      screen.tiles.forEach(t => {
+        const tile = el("div");
+        tile.appendChild(el("span", "n", esc(t.value)));
+        tile.appendChild(el("span", "k", esc(t.label)));
+        if (t.source) tile.appendChild(el("span", "src", esc(sourceLine(t.source))));
+        tiles.appendChild(tile);
+      });
+      left.appendChild(tiles);
+    }
+    columns.appendChild(left);
+
+    if (screen.photos && screen.photos.length) {
+      const right = el("div", "brief-photos");
+      screen.photos.forEach(p => {
+        const figure = el("figure");
+        const img = el("img");
+        img.src = p.file;
+        img.alt = p.alt || "";
+        figure.appendChild(img);
+        addInfo(figure, p);
+        figure.appendChild(el("figcaption", null, esc(p.credit || "")));
+        right.appendChild(figure);
+      });
+      columns.appendChild(right);
+    }
+    wrap.appendChild(columns);
+
+    if (DATA.no_names) {
+      const start = el("div", "startrow");
+      const go1 = el("button", "btn big", esc(screen.start_label || "Start"));
+      go1.type = "button";
+      go1.addEventListener("click", () => go(nextScreenId(screen.id)));
+      start.appendChild(go1);
+      wrap.appendChild(start);
+      app.appendChild(wrap);
+      return;
+    }
+    const start = el("div", "startrow");
+    const label = el("label", null, esc(screen.names_label || "Every student's name in your group"));
+    label.setAttribute("for", "names");
+    const hint = el("p", "hint", esc(screen.names_hint
+      || "Separate them with commas. Every name here goes on what you hand in."));
+    const box = el("textarea");
+    box.id = "names";
+    box.rows = 2;
+    box.placeholder = "Amal Hourani, Rami Odeh, Sara Nasser";
+    box.value = state.names || "";
+    const said = el("p", "namemsg");
+    const button = el("button", "btn big", "Start");
+    button.type = "button";
+
+    function paintNames() {
+      const names = CORE.nameList(box.value);
+      button.disabled = names.length < 2;
+      said.textContent = names.length >= 2
+        ? names.length + " names"
+        : (box.value.trim() ? "Add the rest of the group, separated by commas." : "");
+    }
+    box.addEventListener("input", () => {
+      state.names = box.value;
+      paintNames();
+      save();
+    });
+    button.addEventListener("click", () => go(nextScreenId(screen.id)));
+    paintNames();
+    start.appendChild(label);
+    start.appendChild(hint);
+    start.appendChild(box);
+    start.appendChild(said);
+    start.appendChild(button);
+    wrap.appendChild(start);
+    app.appendChild(wrap);
+  }
+
+  /* ----------------------------------------------------------- 2. choose */
+  function renderChoose(screen, app) {
+    const wrap = el("div", "choosewrap");
+    const head = el("div", "stagewrap");
+    if (screen.intro) head.appendChild(el("p", "lede", esc(screen.intro)));
+    wrap.appendChild(head);
+
+    const grid = el("div", "choose");
+    const list = el("div", "options");
+    const cats = screen.categories && screen.categories.length
+      ? screen.categories
+      : [{ id: null, name: "" }];
+
+    cats.forEach(cat => {
+      if (cat.name) {
+        const catHead = el("div", "cat");
+        catHead.appendChild(el("h2", null, esc(cat.name)));
+        if (cat.note) catHead.appendChild(el("p", "catnote", esc(cat.note)));
+        list.appendChild(catHead);
+      }
+      (screen.options || [])
+        .filter(o => (cat.id == null ? true : o.category === cat.id))
+        .forEach(option => list.appendChild(optionCard(option, screen)));
+    });
+    grid.appendChild(list);
+    grid.appendChild(scoreboard(screen));
+    wrap.appendChild(grid);
+
+    const bar = el("div", "submitbar");
+    const count = el("span", "mono", esc(CORE.chosen(state, dataForRules()).length + " chosen"));
+    const submit = el("button", "btn", esc(screen.submit_label || "Submit"));
+    submit.type = "button";
+    submit.addEventListener("click", () => {
+      const min = screen.min_choices == null ? 1 : screen.min_choices;
+      if (CORE.chosen(state, dataForRules()).length < min) {
+        notice("Choose at least " + min + " before you submit.", "warn");
+        return;
+      }
+      notice("");
+      go(nextScreenId(screen.id));
+    });
+    bar.appendChild(count);
+    bar.appendChild(submit);
+    wrap.appendChild(bar);
+    app.appendChild(wrap);
+  }
+
+  function optionCard(option, screen) {
+    const on = state.choices[option.id] != null;
+    const card = el("div", "opt" + (on ? " on" : ""));
+    const row = el("div", "oh");
+
+    const tick = el("button", "chk", on ? "✓" : "");
+    tick.type = "button";
+    tick.setAttribute("aria-pressed", on ? "true" : "false");
+    tick.setAttribute("aria-label", (on ? "Remove " : "Add ") + option.name);
+    tick.addEventListener("click", () => {
+      if (state.choices[option.id] != null) delete state.choices[option.id];
+      else state.choices[option.id] = option.high == null ? 1 : 0.5;
+      save();
+      render();
+    });
+    row.appendChild(tick);
+
+    const body = el("div", "obody");
+    const details = el("details");
+    const summary = el("summary");
+    summary.appendChild(el("span", "otitle", esc(option.name)));
+    details.appendChild(summary);
+    if (option.description) details.appendChild(el("p", "odesc", esc(option.description)));
+    (option.detail || []).forEach(d => {
+      const line = el("p", "odetail");
+      line.appendChild(el("strong", null, esc(d.label) + ": "));
+      line.appendChild(document.createTextNode(d.text));
+      details.appendChild(line);
+    });
+    if (option.source) details.appendChild(el("p", "osource", esc(sourceLine(option.source))));
+    body.appendChild(details);
+
+    if (option.tags && option.tags.length) {
+      const tags = el("div", "otags");
+      option.tags.forEach(t => tags.appendChild(el("span", "tag", esc(t))));
+      body.appendChild(tags);
+    }
+
+    /* What this one choice does, on the row where the choice is made. A total a
+       student cannot take apart is a total nobody trusts. */
+    if (on && screen.row_rule) {
+      let line = "";
+      try { line = rule(screen.row_rule, { option: option }); } catch (err) { line = ""; }
+      if (line) body.appendChild(el("p", "orow", esc(line)));
+    }
+
+    if (on && option.high != null) {
+      const range = el("div", "orange");
+      range.appendChild(el("span", "oscale", esc(CORE.formatValue(option.low, option.format || "int"))));
+      const slider = el("input");
+      slider.type = "range";
+      slider.min = "0";
+      slider.max = "1";
+      slider.step = "0.05";
+      slider.value = String(state.choices[option.id]);
+      slider.setAttribute("aria-label", "How big: " + option.name);
+      slider.addEventListener("input", () => {
+        state.choices[option.id] = parseFloat(slider.value);
+        save();
+        paintScore();
+        const shown = card.querySelector(".oval");
+        if (shown) shown.textContent = amountText(option);
+      });
+      range.appendChild(slider);
+      range.appendChild(el("span", "oscale", esc(CORE.formatValue(option.high, option.format || "int"))));
+      body.appendChild(range);
+    }
+    row.appendChild(body);
+    row.appendChild(el("div", "oval", esc(amountText(option))));
+    card.appendChild(row);
+    return card;
+  }
+
+  function amountText(option) {
+    const size = state.choices[option.id];
+    const amount = CORE.amount(option, size == null ? 1 : size);
+    return (option.prefix || "") + CORE.formatValue(amount, option.format || "int")
+      + (option.unit ? " " + option.unit : "");
+  }
+
+  function scoreboard(screen) {
+    const box = el("aside", "score");
+    box.id = "score";
+    paintScore(box, screen);
+    return box;
+  }
+
+  function paintScore(box, screen) {
+    box = box || $("#score");
+    if (!box) return;
+    screen = screen || currentScreen();
+    box.innerHTML = "";
+    box.appendChild(el("h2", null, "Where you stand"));
+    (screen.totals || []).forEach(total => {
+      const item = el("div", "big-n");
+      item.appendChild(el("span", "k", esc(total.label)));
+      item.appendChild(el("span", "v", esc(value(total))));
+      if (total.note_rule) {
+        const note = rule(total.note_rule);
+        if (note) item.appendChild(el("span", "s", esc(note)));
+      }
+      box.appendChild(item);
+    });
+    const how = el("button", "howlink", "How this page works");
+    how.type = "button";
+    how.addEventListener("click", () => showTab("how"));
+    box.appendChild(how);
+    if (screen.flags_rule) {
+      const flags = rule(screen.flags_rule) || [];
+      const list = el("div", "flags");
+      flags.forEach(flag => {
+        const line = el("div", "flag " + (flag.kind || "note"));
+        line.appendChild(el("span", "fi", esc(flag.mark || "!")));
+        line.appendChild(el("span", null, esc(flag.text)));
+        list.appendChild(line);
+      });
+      box.appendChild(list);
+    }
+  }
+
+  /* ------------------------------------------------------------- 3. hold */
+  function renderHold(screen, app) {
+    const wrap = el("div", "stagewrap hold");
+    wrap.appendChild(el("h1", null, esc(screen.headline || "Wait here.")));
+    if (screen.text) wrap.appendChild(el("p", "lede", esc(screen.text)));
+
+    if (screen.tiles && screen.tiles.length) {
+      const tiles = el("div", "tiles");
+      screen.tiles.forEach(t => {
+        const tile = el("div");
+        tile.appendChild(el("span", "n", esc(value(t))));
+        tile.appendChild(el("span", "k", esc(t.label)));
+        tiles.appendChild(tile);
+      });
+      wrap.appendChild(tiles);
+    }
+
+    const form = el("div", "codebox");
+    const label = el("label", null, esc(screen.code_label || "The code on the screen at the front"));
+    label.setAttribute("for", "code");
+    const input = el("input");
+    input.id = "code";
+    input.type = "text";
+    input.autocomplete = "off";
+    input.setAttribute("aria-label", "The code on the screen");
+    const button = el("button", "btn", "Continue");
+    button.type = "button";
+    const said = el("p", "codemsg");
+
+    async function tryCode() {
+      said.textContent = "Checking…";
+      const ok = await unlock(input.value);
+      if (!ok) {
+        said.textContent = "That code is not right. Check the screen.";
+        said.className = "codemsg bad";
+        return;
+      }
+      said.textContent = "";
+      go(nextScreenId(screen.id));
+    }
+    button.addEventListener("click", tryCode);
+    input.addEventListener("keydown", event => { if (event.key === "Enter") tryCode(); });
+
+    form.appendChild(label);
+    form.appendChild(input);
+    form.appendChild(button);
+    form.appendChild(said);
+    wrap.appendChild(form);
+
+    /* A saved stage call cannot be changed, so there is nothing to go back to. */
+    const previous = screens[screens.indexOf(screen) - 1];
+    if (previous && previous.kind !== "stage") {
+      const back = el("button", "btn ghost", "Go back and change our answers");
+      back.type = "button";
+      back.addEventListener("click", () => go(previous.id));
+      wrap.appendChild(back);
+    }
+    app.appendChild(wrap);
+  }
+
+  /* The locked screens are AES-GCM ciphertext until the classroom code opens
+     them, so a student who opens the address early sees nothing of what comes. */
+  async function unlock(code) {
+    const clean = CORE.normalizeCode(code);
+    if (!clean || !LOCKED || !LOCKED.data) return false;
+    try {
+      const enc = new TextEncoder();
+      const raw = await crypto.subtle.importKey("raw", enc.encode(clean), "PBKDF2", false, ["deriveKey"]);
+      const key = await crypto.subtle.deriveKey(
+        { name: "PBKDF2", salt: fromBase64(LOCKED.salt), iterations: LOCKED.iter, hash: "SHA-256" },
+        raw, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+      const plain = await crypto.subtle.decrypt(
+        { name: "AES-GCM", iv: fromBase64(LOCKED.iv) }, key, fromBase64(LOCKED.data));
+      opened = JSON.parse(new TextDecoder().decode(plain));
+      state.unlocked = true;
+      state.code = clean;
+      mergeOpened();
+      save();
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function mergeOpened() {
+    if (!opened || !opened.screens) return;
+    const byId = {};
+    opened.screens.forEach(s => { byId[s.id] = s; });
+    screens = screens.map(s => (byId[s.id] ? byId[s.id] : s));
+  }
+
+  /* --------------------------------------------------------- 4. surprise */
+  function renderSurpriseGate(screen, app) {
+    const wrap = el("div", "stagewrap");
+    wrap.appendChild(el("h1", null, esc(screen.headline || "Watch the screen.")));
+    const play = el("button", "btn big", "Play it");
+    play.type = "button";
+    play.addEventListener("click", () => playSurprise(screen));
+    wrap.appendChild(play);
+    app.appendChild(wrap);
+    playSurprise(screen);
+  }
+
+  function variantFor(screen) {
+    let key = null;
+    try { key = screen.pick_rule ? rule(screen.pick_rule) : null; } catch (err) { key = null; }
+    const variants = screen.variants || {};
+    return variants[key] || variants.default || variants[Object.keys(variants)[0]] || { beats: [] };
+  }
+
+  function playSurprise(screen) {
+    const run = ++stageRun;
+    const stage = $("#stage");
+    const variant = variantFor(screen);
+    const picked = variant.option ? optionById(variant.option) : null;
+    const vars = {
+      names: state.names || "your group",
+      option: picked ? picked.name : (variant.label || ""),
+      amount: picked ? amountText(picked) : ""
+    };
+    const beats = (variant.beats || []).map(beat => Object.assign({}, beat, {
+      text: CORE.fill(beat.text, vars),
+      say: CORE.fill(beat.say || beat.text, vars)
+    }));
+
+    stage.innerHTML = "";
+    stage.hidden = false;
+    stage.setAttribute("aria-hidden", "false");
+    document.body.classList.add("staged");
+
+    const frame = el("div", "beatframe");
+    const media = el("div", "beatmedia");
+    const text = el("div", "beattext");
+    const label = el("div", "simlabel", esc(DATA.label || "Simulated for a class exercise"));
+    const controls = el("div", "beatctl");
+    const sound = el("button", null, soundOn ? "Sound on" : "Sound off");
+    const replay = el("button", null, "Play it again");
+    const skip = el("button", null, esc(screen.skip_label || "Skip ahead"));
+    const next = el("button", "next", esc(screen.continue_label || "Continue"));
+    next.hidden = true;
+    controls.appendChild(sound);
+    controls.appendChild(replay);
+    controls.appendChild(skip);
+    frame.appendChild(media);
+    frame.appendChild(text);
+    frame.appendChild(label);
+    frame.appendChild(controls);
+    frame.appendChild(next);
+    stage.appendChild(frame);
+
+    sound.addEventListener("click", () => {
+      soundOn = !soundOn;
+      sound.textContent = soundOn ? "Sound on" : "Sound off";
+      if (!soundOn) stopSpeech();
+    });
+    replay.addEventListener("click", () => playSurprise(screen));
+    skip.addEventListener("click", () => finish());
+    next.addEventListener("click", () => finish());
+
+    function finish() {
+      if (run !== stageRun) return;
+      stopSpeech();
+      stage.hidden = true;
+      stage.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("staged");
+      go(nextScreenId(screen.id));
+    }
+
+    let index = 0;
+    function beat() {
+      if (run !== stageRun) return;
+      if (index >= beats.length) {
+        next.hidden = false;
+        next.focus();
+        return;
+      }
+      const item = beats[index];
+      index += 1;
+      frame.className = "beatframe " + (item.kind || "line");
+      media.innerHTML = "";
+      if (item.file) {
+        const img = el("img");
+        img.src = item.file;
+        img.alt = item.alt || "";
+        media.appendChild(img);
+        if (item.credit) media.appendChild(el("span", "credit", esc(item.credit)));
+      }
+      text.innerHTML = "";
+      if (item.stamp) text.appendChild(el("span", "stamp", esc(item.stamp)));
+      if (item.figure_rule) {
+        let figure = "";
+        try { figure = CORE.formatValue(rule(item.figure_rule), item.format || "int"); } catch (err) { figure = ""; }
+        text.appendChild(el("span", "figure", esc(figure)));
+      }
+      text.appendChild(el("p", null, esc(item.text)));
+      const ms = Math.max(item.min || 3200, estimateMs(item.text));
+      speak(item.say, () => {});
+      window.setTimeout(beat, ms);
+    }
+    beat();
+  }
+
+  function estimateMs(text) {
+    const words = String(text || "").split(/\s+/).filter(Boolean).length;
+    return 900 + words * 340;
+  }
+
+  /* Browser narration, with the four fixes Holbein's notes record: no blank
+     utterance (it wedges Chrome's queue), a generation guard so a cancelled
+     line cannot resume over the next one, a watchdog because onend sometimes
+     never fires, and no resume() after a cancel. */
+  let speechRun = 0;
+  function speak(text, done) {
+    const clean = String(text || "").trim();
+    if (!soundOn || !clean || !("speechSynthesis" in window)) { if (done) done(); return; }
+    const run = ++speechRun;
+    try { window.speechSynthesis.cancel(); } catch (err) { /* nothing to cancel */ }
+    const utterance = new SpeechSynthesisUtterance(clean);
+    utterance.rate = 0.95;
+    let finished = false;
+    const finish = () => {
+      if (finished || run !== speechRun) return;
+      finished = true;
+      if (done) done();
+    };
+    utterance.onend = finish;
+    utterance.onerror = finish;
+    window.setTimeout(finish, Math.max(2000, clean.length * 80));
+    try { window.speechSynthesis.speak(utterance); } catch (err) { finish(); }
+  }
+
+  function stopSpeech() {
+    speechRun += 1;
+    try { if ("speechSynthesis" in window) window.speechSynthesis.cancel(); } catch (err) { /* fine */ }
+  }
+
+  /* ---------------------------------------------------------- 5. respond */
+  function renderRespond(screen, app) {
+    const wrap = el("div", "stagewrap");
+    if (screen.headline) wrap.appendChild(el("h1", null, esc(screen.headline)));
+    if (screen.intro) wrap.appendChild(el("p", "lede", esc(screen.intro)));
+    const grid = el("div", "strats");
+    (screen.strategies || []).forEach(strategy => {
+      const card = el("button", "strat" + (state.strategy === strategy.id ? " picked" : ""));
+      card.type = "button";
+      if (strategy.theory) card.appendChild(el("span", "theory", esc(strategy.theory)));
+      card.appendChild(el("span", "sn", esc(strategy.name)));
+      if (strategy.description) card.appendChild(el("span", "sd", esc(strategy.description)));
+      if (strategy.costs && strategy.costs.length) {
+        const costs = el("span", "sc");
+        strategy.costs.forEach(c => costs.appendChild(el("b", null, esc(c))));
+        card.appendChild(costs);
+      }
+      card.addEventListener("click", () => {
+        state.strategy = strategy.id;
+        save();
+        render();
+      });
+      grid.appendChild(card);
+    });
+    wrap.appendChild(grid);
+
+    const next = el("button", "btn", esc(screen.continue_label || "Continue"));
+    next.type = "button";
+    next.disabled = !state.strategy;
+    next.addEventListener("click", () => go(nextScreenId(screen.id)));
+    wrap.appendChild(next);
+    app.appendChild(wrap);
+  }
+
+  /* ------------------------------------------------------------ 6. write */
+  function renderWrite(screen, app) {
+    const wrap = el("div", "stagewrap wide");
+    if (screen.headline) wrap.appendChild(el("h1", null, esc(screen.headline)));
+    if (screen.intro) wrap.appendChild(el("p", "lede", esc(screen.intro)));
+
+    if (screen.guide && screen.guide.length) {
+      const guide = el("div", "guide");
+      screen.guide.forEach(g => {
+        const item = el("div");
+        item.appendChild(el("strong", null, esc(g.title)));
+        item.appendChild(el("span", null, esc(g.text)));
+        guide.appendChild(item);
+      });
+      wrap.appendChild(guide);
+    }
+
+    const sent = state.sent > 0;
+    const targets = (screen.targets || []).filter(t => !(sent && state.moved[t.id]));
+    const cards = el("div", "targets");
+    targets.forEach(target => {
+      const card = el("div", "target");
+      if (target.file) {
+        const media = el("div", "tmedia");
+        const img = el("img");
+        img.src = target.file;
+        img.alt = target.name;
+        media.appendChild(img);
+        if (target.credit) media.appendChild(el("span", "credit", esc(target.credit)));
+        card.appendChild(media);
+      }
+      const body = el("div");
+      body.appendChild(el("h3", null, esc(target.name)));
+      if (target.role || target.size != null) {
+        body.appendChild(el("div", "tm", esc([target.role, target.size != null ? target.size + " votes" : ""].filter(Boolean).join(" · "))));
+      }
+      if (target.position) {
+        const p = el("p", "pos");
+        p.appendChild(el("strong", null, "What they say now: "));
+        p.appendChild(document.createTextNode(target.position));
+        body.appendChild(p);
+      }
+      if (target.needs) {
+        const p = el("p", "pos");
+        p.appendChild(el("strong", null, "What they want: "));
+        p.appendChild(document.createTextNode(target.needs));
+        body.appendChild(p);
+      }
+      if (target.source) body.appendChild(el("p", "osource", esc(sourceLine(target.source))));
+      const label = el("label", null, esc(screen.box_label || "Your message"));
+      label.setAttribute("for", "t-" + target.id);
+      const box = el("textarea");
+      box.id = "t-" + target.id;
+      box.rows = 4;
+      box.value = state.texts[target.id] || "";
+      box.addEventListener("input", () => {
+        state.texts[target.id] = box.value;
+        save();
+      });
+      body.appendChild(label);
+      body.appendChild(box);
+      card.appendChild(body);
+      cards.appendChild(card);
+    });
+    wrap.appendChild(cards);
+
+    if (sent) wrap.appendChild(resultsPanel(screen));
+
+    const row = el("div", "row");
+    const send = el("button", "btn", sent ? "Send these too" : (screen.send_label || "Send the messages"));
+    send.type = "button";
+    send.disabled = targets.length === 0;
+    send.addEventListener("click", () => {
+      const all = screen.targets || [];
+      const scored = CORE.lockPitches(all, state.texts, state.moved,
+        (target, text) => rule(screen.score_rule, { target: target, text: text }),
+        screen.policy, state.sent);
+      state.moved = scored.moved;
+      state.sent += 1;
+      save();
+      render();
+    });
+    row.appendChild(send);
+    if (sent) {
+      const next = el("button", "btn", esc(screen.continue_label || "See where the count stands"));
+      next.type = "button";
+      next.addEventListener("click", () => go(nextScreenId(screen.id)));
+      row.appendChild(next);
+    }
+    wrap.appendChild(row);
+    app.appendChild(wrap);
+  }
+
+  function resultsPanel(screen) {
+    const box = panel("What came back", null);
+    (screen.targets || []).forEach(target => {
+      const moved = !!state.moved[target.id];
+      const row = el("div", "result " + (moved ? "yes" : "no"));
+      row.appendChild(el("strong", null, esc(target.name)));
+      /* A group that gets nothing but "not moved" learns nothing. When the
+         score rule says what was missing, that line is the answer. */
+      /* What happened decides the line. The score rule's own sentence explains
+         it only when the two agree: a target that moved on the fallback must
+         not be told it stayed put. */
+      let why = moved ? (target.moved_line || "Comes with you.")
+        : (target.open_line || "Still not with you.");
+      if (screen.score_rule && !moved) {
+        const text = String(state.texts[target.id] || "").trim();
+        let scored = null;
+        try { scored = rule(screen.score_rule, { target: target, text: text }); } catch (err) { scored = null; }
+        if (scored && scored.why && !scored.ready) why = scored.why;
+      }
+      row.appendChild(el("span", null, esc(why)));
+      box.body.appendChild(row);
+    });
+    return box.box;
+  }
+
+  /* ---------------------------------------------------------- 7. outcome */
+  function renderOutcome(screen, app) {
+    const wrap = el("div", "stagewrap wide");
+    if (screen.headline) wrap.appendChild(el("h1", null, esc(screen.headline)));
+    if (screen.intro) wrap.appendChild(el("p", "lede", esc(screen.intro)));
+
+    const blocs = rule(screen.blocs_rule) || [];
+    const yes = blocs.filter(b => b.yes).reduce((total, b) => total + (Number(b.size) || 0), 0);
+    const tally = el("div", "tally");
+    tally.appendChild(el("span", "tn", esc(String(yes))));
+    tally.appendChild(el("span", "tk", esc((screen.tally_label || "with you")
+      + " · " + screen.threshold + " " + (screen.threshold_label || "needed"))));
+    const bar = el("div", "tbar");
+    const fill = el("i");
+    fill.style.width = Math.min(100, (yes / (screen.total || 100)) * 100) + "%";
+    fill.className = yes >= screen.threshold ? "pass" : "fail";
+    bar.appendChild(fill);
+    const mark = el("u");
+    mark.style.left = ((screen.threshold / (screen.total || 100)) * 100) + "%";
+    bar.appendChild(mark);
+    tally.appendChild(bar);
+    wrap.appendChild(tally);
+
+    const list = el("div", "blocs");
+    blocs.forEach(bloc => {
+      const row = el("div", "bloc " + (bloc.yes ? "yes" : "no"));
+      const head = el("div", "bh");
+      head.appendChild(el("span", "bn", esc(bloc.name)));
+      head.appendChild(el("span", "bs", esc((bloc.yes ? "✓ with you" : "✗ against") + " · " + bloc.size)));
+      row.appendChild(head);
+      if (bloc.why) row.appendChild(el("p", "bw", esc(bloc.why)));
+      list.appendChild(row);
+    });
+    wrap.appendChild(list);
+
+    if (screen.advice_rule) {
+      const advice = rule(screen.advice_rule);
+      if (advice) wrap.appendChild(el("p", "advice", esc(advice)));
+    }
+
+    const row = el("div", "row");
+    if (screen.back_to) {
+      const back = el("button", "btn ghost", esc(screen.back_label || "Go back and change our answers"));
+      back.type = "button";
+      back.addEventListener("click", () => go(screen.back_to));
+      row.appendChild(back);
+    }
+    const next = el("button", "btn", esc(screen.continue_label || "Finish"));
+    next.type = "button";
+    next.addEventListener("click", () => go(nextScreenId(screen.id)));
+    row.appendChild(next);
+    wrap.appendChild(row);
+    app.appendChild(wrap);
+  }
+
+  /* ---------------------------------------------------------- 8. receipt */
+  function receiptContext() {
+    const chosen = CORE.chosen(state, dataForRules()).map(option => ({
+      name: option.name, value: amountText(option)
+    }));
+    const strategyScreen = screens.filter(s => s.kind === "respond")[0];
+    const strategy = strategyScreen
+      ? (strategyScreen.strategies || []).filter(s => s.id === state.strategy)[0]
+      : null;
+    const writeScreen = screens.filter(s => s.kind === "write")[0];
+    const messages = writeScreen
+      ? (writeScreen.targets || []).map(target => ({
+        name: target.name, moved: !!state.moved[target.id], text: (state.texts[target.id] || "").trim()
+      }))
+      : [];
+    const outcomeScreen = screens.filter(s => s.kind === "outcome")[0];
+    let outcome = null;
+    if (outcomeScreen) {
+      const blocs = rule(outcomeScreen.blocs_rule) || [];
+      const yes = blocs.filter(b => b.yes).reduce((total, b) => total + (Number(b.size) || 0), 0);
+      outcome = {
+        headline: yes + " of " + outcomeScreen.total + ", " + outcomeScreen.threshold + " needed",
+        detail: yes >= outcomeScreen.threshold ? "It passes as it stands." : "It does not pass as it stands."
+      };
+    }
+    const surpriseScreen = screens.filter(s => s.kind === "surprise")[0];
+    let surprise = "";
+    if (surpriseScreen && state.unlocked) {
+      const variant = variantFor(surpriseScreen);
+      surprise = variant.label || (variant.option ? (optionById(variant.option) || {}).name : "") || "";
+    }
+    const quizzes = screens.filter(x => x.quiz).map(x => {
+      const ans = (state.quiz || {})[x.id] || {}; const items = x.items || [];
+      const right = items.filter((it, i) => ans[i] === it.answer).length;
+      return (x.receipt_title || x.headline) + ": " + right + " of " + items.length + " right";
+    });
+    return { choices: chosen, strategy: strategy, messages: messages, outcome: outcome, surprise: surprise, stages: stageContext(), quizzes: quizzes };
+  }
+
+  function renderReceipt(screen, app) {
+    const ctx = receiptContext();
+    ctx.stats = (screen.stats || []).map(stat => ({ label: stat.label, value: value(stat) }));
+    const wrap = el("div", "stagewrap receiptwrap");
+    wrap.appendChild(el("p", "shotnote", esc(screen.shot_note
+      || "This is what your group hands in. Copy the text into the Blackboard item.")));
+
+    const card = el("div", "receipt");
+    card.appendChild(el("p", "ex", esc(screen.exercise_note
+      || (DATA.course + " · a classroom exercise, not a real document"))));
+    card.appendChild(el("h1", null, esc(screen.title || DATA.title)));
+    const namesLine = el("p", "names", esc(DATA.no_names
+      ? "Group members: add every name to the file you download, or type them into Blackboard when you upload it."
+      : (state.names || "(no names entered)")));
+    card.appendChild(namesLine);
+    const fix = el("details", "namefix");
+    const fixHead = el("summary", null, "Somebody missing? Add them");
+    const fixBox = el("textarea");
+    fixBox.rows = 2;
+    fixBox.value = state.names || "";
+    fixBox.addEventListener("input", () => {
+      state.names = fixBox.value;
+      namesLine.textContent = fixBox.value || "(no names entered)";
+      save();
+    });
+    fix.appendChild(fixHead);
+    fix.appendChild(fixBox);
+    if (!DATA.no_names) card.appendChild(fix);
+
+    if (ctx.stats.length) {
+      const stats = el("div", "tiles");
+      ctx.stats.forEach(stat => {
+        const tile = el("div");
+        tile.appendChild(el("span", "n", esc(stat.value)));
+        tile.appendChild(el("span", "k", esc(stat.label)));
+        stats.appendChild(tile);
+      });
+      card.appendChild(stats);
+    }
+
+    const sections = [
+      ["Our choices, stage by stage", (ctx.stages || []).filter(r => r.pick).map(r => r.title + ": " + r.pick + (r.why ? ". Why: " + r.why : "") + (r.real ? ". What they did: " + r.real : "") + (r.predict ? ". Our guess: " + r.predict : "") + (r.tag ? ". Explanation that fits best: " + r.tag : ""))],
+      ["What we chose", ctx.choices.map(c => c.name + " (" + c.value + ")")],
+      ["Our response", ctx.strategy ? [ctx.strategy.name] : []],
+      ["Our messages", ctx.messages.map(m => m.name + ": " + (m.moved ? "moved" : "not moved"))],
+      ["Outcome", ctx.outcome ? [ctx.outcome.headline, ctx.outcome.detail] : []]
+    ];
+    sections.forEach(pair => {
+      if (!pair[1].length) return;
+      const section = el("div", "rsec");
+      section.appendChild(el("h2", null, esc(pair[0])));
+      const list = el("ul");
+      pair[1].forEach(line => list.appendChild(el("li", null, esc(line))));
+      section.appendChild(list);
+      card.appendChild(section);
+    });
+    if (screen.grade_note) card.appendChild(el("p", "grade-note", esc(screen.grade_note)));
+    wrap.appendChild(card);
+
+    const row = el("div", "row");
+    const copy = el("button", "btn", "Copy the text for Blackboard");
+    copy.type = "button";
+    copy.addEventListener("click", () => {
+      const text = CORE.receiptText(state, DATA, ctx);
+      const area = el("textarea", "offscreen");
+      area.value = text;
+      document.body.appendChild(area);
+      area.select();
+      let ok = false;
+      try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
+      document.body.removeChild(area);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => { copy.textContent = "Copied"; }, () => {});
+      }
+      copy.textContent = ok ? "Copied" : "Select the text below and copy it";
+      if (!ok) {
+        const fallback = el("textarea", "fallback");
+        fallback.value = text;
+        fallback.rows = 12;
+        wrap.appendChild(fallback);
+      }
+    });
+    /* The other way to hand it in: a file the group uploads to Blackboard, for
+       a room where pasting into a text box goes wrong. */
+    const download = el("button", "btn ghost", esc(screen.download_label || "Download our choices"));
+    download.type = "button";
+    download.addEventListener("click", () => {
+      const text = CORE.receiptText(state, DATA, ctx);
+      const blob = new Blob([text], { type: "text/plain" });
+      const link = el("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = CORE.fileName(state, DATA);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+      download.textContent = "Downloaded " + CORE.fileName(state, DATA);
+    });
+
+    const print = el("button", "btn ghost", "Print");
+    print.type = "button";
+    print.addEventListener("click", () => window.print());
+    if (DATA.no_names) {
+      download.className = "btn";
+      copy.className = "btn ghost";
+      row.appendChild(download);
+      row.appendChild(copy);
+    } else {
+      row.appendChild(copy);
+      row.appendChild(download);
+    }
+    row.appendChild(print);
+    wrap.appendChild(row);
+    app.appendChild(wrap);
+  }
+
+  /* ------------------------------------------------------------ 8b. stage
+     One stage of a case told in order: the briefing, one call with the
+     group's reason, then what really happened and what it shows for class.
+     The record stays hidden until the call is locked, and a locked call is
+     never changed, so the group always meets the record after deciding. */
+  /* Terms and people in the text carry a short note, shown on hover, focus or
+     tap. Each term is marked once per block of text, so a page is not covered
+     in underlines. Notes come from the glossary in sim.json. */
+  const GLOSS = (DATA.glossary || []).slice().sort((a, b) => b.term.length - a.term.length);
+  /* At most one note per sentence, and two names for one person (same note)
+     count as one term, so a sentence never carries two underlines. Within a
+     sentence a term not yet explained on this screen wins, then the first in
+     reading order. */
+  const GLOSS_RE = GLOSS.map(g => ({ g: g, re: new RegExp("(^|[^A-Za-z-])(" + g.term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")(?![A-Za-z-])") }));
+  function gloss(html) {
+    if (!GLOSS.length) return html;
+    const used = new Set();
+    return html.split(/(?<=[.?!]) (?=\S)/).map(sent => {
+      let best = null;
+      GLOSS_RE.forEach(x => {
+        if (used.has(x.g.info)) return;
+        const m = x.re.exec(sent);
+        if (!m) return;
+        /* A term not yet explained on this screen beats one that was. */
+        const fresh = !glossShown.has(x.g.info), at = m.index + m[1].length;
+        if (!best || (fresh && !best.fresh) || (fresh === best.fresh && at < best.at)) best = { x: x, at: at, len: m[2].length, fresh: fresh };
+      });
+      if (!best) return sent;
+      used.add(best.x.g.info);
+      glossShown.add(best.x.g.info);
+      return sent.slice(0, best.at) + '<span class="term" tabindex="0">' + sent.slice(best.at, best.at + best.len)
+        + '<span class="termnote">' + esc(best.x.g.info) + "</span></span>" + sent.slice(best.at + best.len);
+    }).join(" ");
+  }
+  function rich(text) {
+    return gloss(String(text == null ? "" : text).split("**")
+      .map((part, i) => (i % 2 ? "<strong>" + esc(part) + "</strong>" : esc(part))).join(""));
+  }
+
+  /* Progress strip: one square per stage, green where the group's choice
+     matched what really happened. Not a score: a way to see the pattern. */
+  function progressStrip(current) {
+    const stages = screens.filter(s => s.kind === "stage" && s.reveal);
+    let seen = 0, same = 0;
+    const strip = el("div", "progressstrip");
+    const m = String((screens.filter(s => s.id === current)[0] || {}).kicker || "").match(/of (\d+)/);
+    const total = m ? Number(m[1]) : stages.length;
+    stages.forEach(s => {
+      const row = (state.stages || {})[s.id] || {};
+      let cls = "ps";
+      if (row.revealed) { seen++; if (row.pick === s.reveal.real_pick) { same++; cls += " same"; } else cls += " diff"; }
+      if (s.id === current) cls += " now";
+      const sq = el("span", cls);
+      sq.title = s.headline;
+      strip.appendChild(sq);
+    });
+    for (let k = stages.length; k < total; k++) strip.appendChild(el("span", "ps"));
+    const note = el("span", "psnote", seen ? esc("Green: your choice was the real one. Grey: it was not. So far " + same + " of " + seen + (seen === 1 ? " stage." : " stages.")) : esc("Each square is a stage. Green will mean your choice was the real one, grey that it was not."));
+    strip.appendChild(note);
+    return strip;
+  }
+
+  function renderStage(screen, app) {
+    const wrap = el("div", "stagewrap stagescreen");
+    if (screen.kicker) wrap.appendChild(el("p", "kicker", esc(screen.kicker)));
+    if (screen.reveal) wrap.appendChild(progressStrip(screen.id));
+    wrap.appendChild(el("h1", null, esc(screen.headline)));
+    if (screen.lede) wrap.appendChild(el("p", "lede", rich(screen.lede)));
+
+    const columns = el("div", "brief-main");
+    const left = el("div", "brief-copy");
+    (screen.paragraphs || []).forEach(p => left.appendChild(el("p", null, rich(p))));
+    if (screen.bullets && screen.bullets.length) {
+      const list = el("ul", "stagebullets");
+      screen.bullets.forEach(b => list.appendChild(el("li", null, rich(b))));
+      left.appendChild(list);
+    }
+    (screen.panels || []).forEach(p => {
+      const box = panel(p.title, p.meta);
+      const list = el("ul");
+      (p.bullets || []).forEach(b => list.appendChild(el("li", null, rich(b))));
+      box.body.appendChild(list);
+      left.appendChild(box.box);
+    });
+    if (screen.tiles && screen.tiles.length) {
+      const tiles = el("div", "tiles");
+      screen.tiles.forEach(t => {
+        const tile = el("div");
+        tile.appendChild(el("span", "n", esc(t.value)));
+        tile.appendChild(el("span", "k", esc(t.label)));
+        if (t.source) tile.appendChild(el("span", "src", esc(sourceLine(t.source))));
+        tiles.appendChild(tile);
+      });
+      left.appendChild(tiles);
+    }
+    columns.appendChild(left);
+    if ((screen.photos && screen.photos.length) || (screen.map && screen.map.file)) {
+      const right = el("div", "brief-photos");
+      if (screen.map && screen.map.file) {
+        const figure = el("figure", "sidemap");
+        const img = el("img");
+        img.src = screen.map.file;
+        img.alt = screen.map.alt || "";
+        figure.appendChild(img);
+        addInfo(figure, screen.map);
+        figure.appendChild(el("figcaption", null, esc(screen.map.credit || "")));
+        right.appendChild(figure);
+      }
+      (screen.photos || []).forEach(p => {
+        const figure = el("figure");
+        const img = el("img");
+        img.src = p.file;
+        img.alt = p.alt || "";
+        figure.appendChild(img);
+        addInfo(figure, p);
+        figure.appendChild(el("figcaption", null, esc(p.credit || "")));
+        right.appendChild(figure);
+      });
+      columns.appendChild(right);
+    }
+    wrap.appendChild(columns);
+
+    state.stages = state.stages || {};
+    const row = state.stages[screen.id] || { pick: null, why: "", revealed: false };
+    state.stages[screen.id] = row;
+    const picks = screen.picks || [];
+
+    const ask = el("div", "stageask");
+    if (screen.question) ask.appendChild(el("h2", null, rich(screen.question)));
+    const list = el("div", "stagepicks");
+    const buttons = [];
+    picks.forEach(pick => {
+      const card = el("button", "stagepick");
+      card.type = "button";
+      card.appendChild(el("span", "pn", esc(pick.name)));
+      if (pick.detail) card.appendChild(el("span", "pd", rich(pick.detail)));
+      card.disabled = row.revealed;
+      if (row.pick === pick.id) card.classList.add("on");
+      card.addEventListener("click", () => {
+        if (row.revealed) return;
+        row.pick = pick.id;
+        buttons.forEach(b => b.classList.toggle("on", b === card));
+        save();
+        paint();
+      });
+      buttons.push(card);
+      list.appendChild(card);
+    });
+    ask.appendChild(list);
+
+    const minWords = Number(screen.why_min || 10);
+    const whyLabel = el("label", null, esc(screen.why_label || "Why? Use a fact from this page."));
+    whyLabel.setAttribute("for", "why-" + screen.id);
+    const why = el("textarea");
+    why.id = "why-" + screen.id;
+    why.rows = 3;
+    why.value = row.why || "";
+    why.disabled = row.revealed;
+    const said = el("p", "namemsg");
+    const lock = el("button", "btn big", esc(screen.lock_label || "Save our choice"));
+    lock.type = "button";
+    function wordCount(text) { return String(text || "").trim().split(/\s+/).filter(Boolean).length; }
+    function paint() {
+      const n = wordCount(why.value);
+      lock.disabled = row.revealed || !row.pick || n < minWords;
+      if (row.revealed) said.textContent = "";
+      else if (!row.pick) said.textContent = "Pick one choice first.";
+      else if (n < minWords) said.textContent = "Write at least " + minWords + " words on why.";
+      else said.textContent = "";
+    }
+    why.addEventListener("input", () => { row.why = why.value; save(); paint(); });
+    lock.addEventListener("click", () => {
+      if (lock.disabled) return;
+      row.why = why.value;
+      row.revealed = true;
+      save();
+      render();
+    });
+    ask.appendChild(whyLabel);
+    ask.appendChild(why);
+    ask.appendChild(said);
+    if (!row.revealed) ask.appendChild(lock);
+    wrap.appendChild(ask);
+    paint();
+
+    if (row.revealed && !screen.reveal) {
+      if (screen.wait_note) wrap.appendChild(el("p", "lede", rich(screen.wait_note)));
+      const next = el("button", "btn big", esc(screen.continue_label || "Continue"));
+      next.type = "button";
+      next.addEventListener("click", () => go(nextScreenId(screen.id)));
+      wrap.appendChild(next);
+    }
+    if (row.revealed && screen.reveal) {
+      const r = screen.reveal;
+      const box = el("div", "stagereveal");
+      box.appendChild(el("h2", null, esc(r.headline || "What really happened")));
+      const mine = picks.filter(p => p.id === row.pick)[0];
+      const real = picks.filter(p => p.id === r.real_pick)[0];
+      if (mine) {
+        const line = "Your choice: " + mine.name + "."
+          + (r.real_label ? " What they did: " + r.real_label : (real ? " What they did: " + real.name + "." : ""));
+        box.appendChild(el("p", "stagecompare", esc(line)));
+      }
+      /* Predict before the record: what came next? The other options are real
+         events from other cases, labelled once the group has guessed. */
+      if (r.predict && (r.predict.options || []).length) {
+        const pr = el("div", "predictbox");
+        pr.appendChild(el("h3", null, esc(r.predict.question || "What do you think happened next?")));
+        const opts = el("div", "predictopts");
+        r.predict.options.forEach(o => {
+          const b = el("button", "predictopt");
+          b.type = "button";
+          b.appendChild(el("span", "pt", esc(o.text)));
+          if (row.predict) {
+            b.disabled = true;
+            if (o.text === row.predict) { b.classList.add("mine"); b.insertBefore(el("span", "pg", "Your guess"), b.firstChild); }
+            if (o.real) b.classList.add("real");
+            b.appendChild(el("span", "pw", esc(o.real ? "This is what happened." : (o.where || ""))));
+          } else {
+            b.addEventListener("click", () => { row.predict = o.text; save(); render(); });
+          }
+          opts.appendChild(b);
+        });
+        pr.appendChild(opts);
+        box.appendChild(pr);
+        if (!row.predict) {
+          pr.appendChild(el("p", "namemsg", esc("Agree on a guess to see what happened.")));
+          wrap.appendChild(box);
+          app.appendChild(wrap);
+          return;
+        }
+      }
+      (r.paragraphs || []).forEach(p => box.appendChild(el("p", null, rich(p))));
+      if (r.bullets && r.bullets.length) {
+        const ul = el("ul", "stagetimeline");
+        r.bullets.forEach(b => ul.appendChild(el("li", null, rich(b))));
+        box.appendChild(ul);
+      }
+      /* Choices the real movement did not make: what happened to another group
+         that made them. Shown after the record, in a grey box tagged as not the
+         movement's story, so nobody reads it as what really happened. */
+      const actor = r.actor || "the real movement";
+      const actorPos = r.actor_pos || (actor + "'s");
+      function othersBox(o, title) {
+        const ob = el("div", "othersbox");
+        const head = el("h3");
+        head.appendChild(el("span", "otag", esc("Not what " + actor + " did")));
+        head.appendChild(document.createTextNode(" " + title));
+        ob.appendChild(head);
+        if (o.who) ob.appendChild(el("p", "otherswho", rich(o.who)));
+        const ol = el("ul");
+        (o.bullets || []).forEach(b => ol.appendChild(el("li", null, rich(b))));
+        ob.appendChild(ol);
+        return ob;
+      }
+      const mineP = picks.filter(p => p.id === row.pick)[0];
+      if (mineP && mineP.others && row.pick !== r.real_pick) {
+        box.appendChild(othersBox(mineP.others, "Your choice was not " + actorPos + ". What happened to others who made it"));
+      }
+      /* The other paths, read only. The saved choice never changes. */
+      const rest = picks.filter(p => p.others && p.id !== row.pick && p.id !== r.real_pick);
+      if (rest.length) {
+        const more = el("details", "otherpaths");
+        more.appendChild(el("summary", null, "What happened to groups that made the other choices"));
+        rest.forEach(p => more.appendChild(othersBox(p.others, "Choice: " + p.name)));
+        box.appendChild(more);
+      }
+
+      /* Which explanation fits? One click, saved with the choices. */
+      const tagOptions = r.tag_options || DATA.tag_options || [];
+      let tagPending = false;
+      if (tagOptions.length) {
+        const tg = el("div", "tagbox");
+        tg.appendChild(el("h3", null, esc(r.tag_question || DATA.tag_question || "Which explanation fits this stage best?")));
+        const row3 = el("div", "tagopts");
+        tagOptions.forEach(t => {
+          const b = el("button", "tagopt" + (row.tag === t ? " on" : ""));
+          b.type = "button";
+          b.textContent = t;
+          b.addEventListener("click", () => { row.tag = t; save(); render(); });
+          row3.appendChild(b);
+        });
+        tg.appendChild(row3);
+        if (!row.tag) { tagPending = true; tg.appendChild(el("p", "namemsg", esc("Pick one to go on. It is saved with your choices."))); }
+        box.appendChild(tg);
+      }
+      if (r.class_link && !tagPending) {
+        const link = el("div", "stagelink");
+        link.appendChild(el("h3", null, esc(r.class_link.title || "How this connects to the readings")));
+        const ll = el("ul");
+        (Array.isArray(r.class_link.text) ? r.class_link.text : [r.class_link.text])
+          .filter(Boolean).forEach(t => ll.appendChild(el("li", null, rich(t))));
+        link.appendChild(ll);
+        if (r.class_link.reading) link.appendChild(el("p", "src", esc(r.class_link.reading)));
+        box.appendChild(link);
+      }
+      if (r.source) box.appendChild(el("p", "src", esc(sourceLine(r.source))));
+      /* Photographs of what happened stay hidden with the record. */
+      if (r.photos && r.photos.length) {
+        const row2 = el("div", "revealphotos");
+        r.photos.forEach(p => {
+          const figure = el("figure");
+          const img = el("img");
+          img.src = p.file;
+          img.alt = p.alt || "";
+          figure.appendChild(img);
+          addInfo(figure, p);
+          figure.appendChild(el("figcaption", null, esc(p.credit || "")));
+          row2.appendChild(figure);
+        });
+        box.appendChild(row2);
+      }
+      wrap.appendChild(box);
+      const next = el("button", "btn big", esc(screen.continue_label || "Continue"));
+      next.type = "button";
+      next.disabled = tagPending;
+      next.addEventListener("click", () => { if (!next.disabled) go(nextScreenId(screen.id)); });
+      wrap.appendChild(next);
+    }
+    app.appendChild(wrap);
+  }
+
+  /* A record screen: what really happened after a stage whose record waited
+     behind the code, with the group's own call beside it. */
+  function renderRecord(screen, app) {
+    const wrap = el("div", "stagewrap stagescreen");
+    if (screen.kicker) wrap.appendChild(el("p", "kicker", esc(screen.kicker)));
+    wrap.appendChild(el("h1", null, esc(screen.headline)));
+    const box = el("div", "stagereveal");
+    const of = screenById(screen.stage) || {};
+    const row = (state.stages || {})[screen.stage] || {};
+    const mine = (of.picks || []).filter(p => p.id === row.pick)[0];
+    const real = (of.picks || []).filter(p => p.id === screen.real_pick)[0];
+    if (mine) {
+      box.appendChild(el("p", "stagecompare", esc("Your choice: " + mine.name + "."
+        + (real ? " What they did: " + real.name + "." : (screen.real_label ? " What they did: " + screen.real_label : "")))));
+    }
+    (screen.paragraphs || []).forEach(p => box.appendChild(el("p", null, rich(p))));
+    if (screen.bullets && screen.bullets.length) {
+      const ul = el("ul", "stagetimeline");
+      screen.bullets.forEach(b => ul.appendChild(el("li", null, rich(b))));
+      box.appendChild(ul);
+    }
+    if (screen.class_link) {
+      const link = el("div", "stagelink");
+      link.appendChild(el("h3", null, esc(screen.class_link.title || "How this connects to the readings")));
+      const ll = el("ul");
+      (Array.isArray(screen.class_link.text) ? screen.class_link.text : [screen.class_link.text])
+        .filter(Boolean).forEach(t => ll.appendChild(el("li", null, rich(t))));
+      link.appendChild(ll);
+      if (screen.class_link.reading) link.appendChild(el("p", "src", esc(screen.class_link.reading)));
+      box.appendChild(link);
+    }
+    if (screen.photos && screen.photos.length) {
+      const row2 = el("div", "revealphotos");
+      screen.photos.forEach(p => {
+        const figure = el("figure");
+        const img = el("img");
+        img.src = p.file;
+        img.alt = p.alt || "";
+        figure.appendChild(img);
+        addInfo(figure, p);
+        figure.appendChild(el("figcaption", null, esc(p.credit || "")));
+        row2.appendChild(figure);
+      });
+      box.appendChild(row2);
+    }
+    wrap.appendChild(box);
+    const next = el("button", "btn big", esc(screen.continue_label || "Continue"));
+    next.type = "button";
+    next.addEventListener("click", () => go(nextScreenId(screen.id)));
+    wrap.appendChild(next);
+    app.appendChild(wrap);
+  }
+
+  function stageContext() {
+    return screens.filter(s => s.kind === "stage").map(screen => {
+      const row = (state.stages || {})[screen.id] || {};
+      const picks = screen.picks || [];
+      const mine = picks.filter(p => p.id === row.pick)[0];
+      const recordScreen = screens.filter(x => x.kind === "record" && x.stage === screen.id)[0];
+      const r = screen.reveal || recordScreen || {};
+      const real = picks.filter(p => p.id === r.real_pick)[0];
+      return {
+        title: screen.receipt_title || screen.headline,
+        pick: row.revealed && mine ? mine.name : "",
+        why: row.revealed ? String(row.why || "").trim() : "",
+        real: row.revealed ? String(r.real_label || (real ? real.name : "")).replace(/\.\s*$/, "") : "",
+        predict: row.revealed && row.predict ? String(row.predict).replace(/\*\*/g, "").replace(/\.\s*$/, "") : "",
+        tag: row.revealed && row.tag ? row.tag : ""
+      };
+    });
+  }
+
+  /* ----------------------------------------------------------- 9. custom */
+  /* A quick check: sort facts between two answers, with feedback at once. */
+  function renderQuiz(screen, app) {
+    const wrap = el("div", "stagewrap quizscreen");
+    if (screen.kicker) wrap.appendChild(el("p", "kicker", esc(screen.kicker)));
+    wrap.appendChild(el("h1", null, esc(screen.headline || "Quick check")));
+    if (screen.lede) wrap.appendChild(el("p", "lede", rich(screen.lede)));
+    state.quiz = state.quiz || {};
+    const answers = state.quiz[screen.id] = state.quiz[screen.id] || {};
+    const items = screen.items || [];
+    const choices = screen.choices || ["Egypt", "Tunisia"];
+    let done = 0, right = 0;
+    const list = el("div", "quizlist");
+    items.forEach((it, i) => {
+      const row = el("div", "quizrow");
+      row.appendChild(el("p", "quiztext", rich(it.text)));
+      const btns = el("div", "quizbtns");
+      choices.forEach(c => {
+        const b = el("button", "quizbtn");
+        b.type = "button";
+        b.textContent = c;
+        const got = answers[i];
+        if (got) {
+          b.disabled = true;
+          if (c === it.answer) b.classList.add("right");
+          if (c === got && got !== it.answer) b.classList.add("wrong");
+        } else {
+          b.addEventListener("click", () => { answers[i] = c; save(); render(); });
+        }
+        btns.appendChild(b);
+      });
+      row.appendChild(btns);
+      if (answers[i]) {
+        done++; if (answers[i] === it.answer) right++;
+        row.appendChild(el("p", "quiznote", rich((answers[i] === it.answer ? "Right. " : "No: " + it.answer + ". ") + (it.note || ""))));
+      }
+      list.appendChild(row);
+    });
+    wrap.appendChild(list);
+    wrap.appendChild(el("p", "quizscore", esc(done < items.length ? ("Answered " + done + " of " + items.length + ".") : ("You got " + right + " of " + items.length + " right."))));
+    const next = el("button", "btn big", esc(screen.continue_label || "Continue"));
+    next.type = "button";
+    next.disabled = done < items.length;
+    next.addEventListener("click", () => { if (!next.disabled) go(nextScreenId(screen.id)); });
+    wrap.appendChild(next);
+    app.appendChild(wrap);
+  }
+
+  function renderCustom(screen, app) {
+    if (screen.quiz) return renderQuiz(screen, app);
+    const wrap = el("div", "stagewrap");
+    if (screen.headline) wrap.appendChild(el("h1", null, esc(screen.headline)));
+    if (screen.render_rule && typeof RULES[screen.render_rule] === "function") {
+      const html = rule(screen.render_rule);
+      wrap.appendChild(el("div", "custombody", String(html == null ? "" : html)));
+    } else if (screen.text) {
+      wrap.appendChild(el("p", "lede", esc(screen.text)));
+    }
+    const next = el("button", "btn", esc(screen.continue_label || "Continue"));
+    next.type = "button";
+    next.addEventListener("click", () => go(nextScreenId(screen.id)));
+    wrap.appendChild(next);
+    app.appendChild(wrap);
+  }
+
+  /* ------------------------------------------- how this page works (tab) */
+  function renderHow() {
+    const box = $("#how");
+    box.innerHTML = "";
+    const how = DATA.how_it_works || {};
+    box.appendChild(el("h1", null, "How this page works"));
+    if (how.intro) box.appendChild(el("p", "lede", esc(how.intro)));
+    if (DATA.illustrative) {
+      box.appendChild(el("p", "warn", "The numbers on this page are illustrative. It is an example build, not a class exercise."));
+    }
+
+    box.appendChild(el("h2", null, "What changes with your choices"));
+    const rules = el("ul");
+    (DATA.rules || []).forEach(r => {
+      const item = el("li");
+      item.appendChild(el("strong", null, esc(r.label || r.name)));
+      item.appendChild(document.createTextNode(" " + (r.describe || "")));
+      rules.appendChild(item);
+    });
+    box.appendChild(rules);
+    box.appendChild(el("p", "note", esc(how.model_note
+      || "These are a classroom model. The numbers they read are real and sourced below. The weights are the instructor's, chosen so the exercise is hard and fair, not to predict what would happen.")));
+
+    box.appendChild(el("h2", null, "Where the numbers come from"));
+    const sources = el("ul");
+    (DATA.sources || []).forEach(source => {
+      const item = el("li");
+      if (source.url) {
+        const link = el("a", null, esc(source.text));
+        link.href = source.url;
+        link.target = "_blank";
+        link.rel = "noopener";
+        item.appendChild(link);
+      } else {
+        item.appendChild(document.createTextNode(source.text));
+      }
+      sources.appendChild(item);
+    });
+    box.appendChild(sources);
+
+    if (how.notes && how.notes.length) {
+      box.appendChild(el("h2", null, "About this page"));
+      const notes = el("ul");
+      how.notes.forEach(n => notes.appendChild(el("li", null, esc(n))));
+      box.appendChild(notes);
+    }
+  }
+
+  /* The case tab: the timeline, the people, the armed groups and the terms,
+     one click away from every screen. Shown only when the simulation has one. */
+  function renderCase() {
+    const box = $("#case");
+    if (!box) return;
+    box.innerHTML = "";
+    const ref = DATA.reference || {};
+    box.appendChild(el("h1", null, esc(ref.title || "The case")));
+    if (ref.intro) box.appendChild(el("p", "lede", rich(ref.intro)));
+    /* A section tied to a stage stays hidden until that stage's record is
+       out, so the tab never tells a group what happened before it decides. */
+    (ref.sections || []).filter(section => !section.open_after
+      || ((state.stages || {})[section.open_after] || {}).revealed).forEach(section => {
+      box.appendChild(el("h2", null, esc(section.title)));
+      (section.paragraphs || []).forEach(p => box.appendChild(el("p", null, rich(p))));
+      if (section.items && section.items.length) {
+        const list = el(section.numbered ? "ol" : "ul");
+        section.items.forEach(item => list.appendChild(el("li", null, rich(item))));
+        box.appendChild(list);
+      }
+      (section.photos || []).forEach(p => {
+        const figure = el("figure");
+        const img = el("img");
+        img.src = p.file;
+        img.alt = p.alt || "";
+        figure.appendChild(img);
+        addInfo(figure, p);
+        figure.appendChild(el("figcaption", null, esc(p.credit || "")));
+        box.appendChild(figure);
+      });
+    });
+  }
+
+  function showTab(which) {
+    $("#app").hidden = which !== "run";
+    $("#how").hidden = which !== "how";
+    const caseBox = $("#case");
+    if (caseBox) caseBox.hidden = which !== "case";
+    ["run", "case", "how"].forEach(name => {
+      const tab = $("#tab-" + name);
+      if (tab) tab.setAttribute("aria-selected", which === name ? "true" : "false");
+    });
+    if (which === "how") renderHow();
+    if (which === "case") renderCase();
+  }
+
+  /* ------------------------------------------------------------- 10. boot */
+  async function boot() {
+    screens = (DATA.screens || []).slice();
+    state = load();
+    if (state.unlocked && state.code) {
+      const ok = await unlock(state.code);
+      if (!ok) { state.unlocked = false; state.code = null; save(); }
+    }
+    if (!state.screen || !screenById(state.screen)) state.screen = screens[0] ? screens[0].id : null;
+    /* A screen that is still locked cannot be rendered. That happens when a
+       reload arrives before the code has been typed, so the group goes back to
+       the waiting screen rather than onto an empty one. */
+    const here = screenById(state.screen);
+    if (here && here.locked) {
+      const hold = screens.filter(screen => screen.kind === "hold")[0];
+      state.screen = hold ? hold.id : screens[0].id;
+      notice("Type the code again to open the rest.", "warn");
+      save();
+    }
+    $("#tab-run").addEventListener("click", () => showTab("run"));
+    $("#tab-how").addEventListener("click", () => showTab("how"));
+    const caseTab = $("#tab-case");
+    if (caseTab && DATA.reference) {
+      caseTab.hidden = false;
+      caseTab.addEventListener("click", () => showTab("case"));
+    }
+    const restart = $("#restart");
+    if (restart) {
+      restart.addEventListener("click", () => {
+        if (!window.confirm("This clears everything your group has entered. Start over?")) return;
+        try { localStorage.removeItem(KEY); } catch (err) { /* nothing to remove */ }
+        state = CORE.emptyState(DATA.build);
+        opened = null;
+        screens = (DATA.screens || []).slice();
+        state.screen = screens[0] ? screens[0].id : null;
+        notice("");
+        render();
+      });
+    }
+    showTab("run");
+    render();
+  }
+
+  root.SIMUI = { boot: boot, render: render, go: go };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+}(typeof globalThis !== "undefined" ? globalThis : this));
+</script>
+</body>
+</html>
