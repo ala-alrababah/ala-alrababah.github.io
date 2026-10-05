@@ -1,0 +1,2296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Colombia's war, 1946 to today</title>
+<!-- Built by group-session/sim/make_sim.mjs from sim.json and sim_rules.js.
+     Everything the page needs is inside this file or in the media folder beside
+     it: no fonts, no scripts, and no images from the internet, so the page runs
+     the same from the site and from the offline copy. Build e0a3940724c7. -->
+<style>/* engine.css — the whole look of a simulation page. System fonts only: the page
+   must load nothing from the internet, so it also runs from the offline copy. */
+:root {
+  --bg: #eef0f4; --panel: #ffffff; --panel-2: #f5f7fa; --ink: #131a26; --ink-2: #3a4560;
+  --muted: #667089; --rule: #d5dae3; --rule-soft: #e6eaf1; --ui: #2a3c63;
+  --good: #00705f; --good-bg: #e2f0ec; --bad: #b8402a; --bad-bg: #f9e7e2;
+  --warn: #8a5a08; --warn-bg: #fbf0dc;
+  --shadow: 0 1px 2px rgba(19, 26, 38, .06), 0 12px 30px -22px rgba(19, 26, 38, .5);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0f18; --panel: #131a27; --panel-2: #0e1420; --ink: #e9eef7; --ink-2: #b6c1d6;
+    --muted: #8390a8; --rule: #232d43; --rule-soft: #1a2233; --ui: #a8bbe8;
+    --good: #2aa189; --good-bg: #0c2e28; --bad: #dd6242; --bad-bg: #361b14;
+    --warn: #dfa83e; --warn-bg: #33260f;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 12px 30px -22px rgba(0, 0, 0, 1);
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+body.staged { overflow: hidden; }
+h1 { font-size: clamp(26px, 3.6vw, 40px); line-height: 1.08; letter-spacing: -.02em; margin: 6px 0 12px; }
+h2 { font-size: 18px; margin: 22px 0 8px; }
+h3 { font-size: 17px; margin: 0 0 4px; }
+p { margin: 0 0 12px; }
+a { color: var(--ui); }
+button { font: inherit; cursor: pointer; }
+button:focus-visible, input:focus-visible, textarea:focus-visible, a:focus-visible {
+  outline: 2px solid var(--ui); outline-offset: 2px;
+}
+.mono { font-family: ui-monospace, Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; }
+
+/* ---------------------------------------------------------------- top bar */
+.topbar {
+  position: sticky; top: 0; z-index: 40; background: var(--panel);
+  border-bottom: 1px solid var(--rule); padding: 10px 20px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.brand { margin-right: auto; display: flex; flex-direction: column; }
+.brand .name { font-size: 18px; font-weight: 700; letter-spacing: -.01em; }
+.brand .sub { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.tabs { display: flex; gap: 2px; }
+.tabs button {
+  background: none; border: 1px solid transparent; color: var(--muted); font-size: 13px; padding: 6px 12px;
+}
+.tabs button[aria-selected="true"] { color: var(--ink); border-color: var(--rule); background: var(--panel-2); }
+.topbar .ghost {
+  background: var(--panel-2); border: 1px solid var(--rule); color: var(--ink-2);
+  font-size: 12px; padding: 6px 10px;
+}
+.notice {
+  margin: 0; padding: 10px 20px; background: var(--warn-bg); color: var(--warn);
+  border-bottom: 1px solid var(--rule); font-size: 14px;
+}
+.notice.warn { background: var(--warn-bg); color: var(--warn); }
+
+/* ----------------------------------------------------------------- layout */
+main, .how { max-width: 1180px; margin: 0 auto; padding: 26px 20px 120px; }
+.stagewrap { max-width: 860px; margin: 0 auto; }
+.stagewrap.wide { max-width: 1100px; }
+.kicker { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.lede { font-size: 18px; color: var(--ink-2); max-width: 68ch; }
+.panel { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); margin: 18px 0; }
+.panel-h {
+  padding: 10px 15px; border-bottom: 1px solid var(--rule); font-size: 11px;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+  display: flex; justify-content: space-between; gap: 10px;
+}
+.panel-b { padding: 14px 15px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+.btn {
+  background: var(--ui); color: #fff; border: 1px solid var(--ui); padding: 11px 22px;
+  font-weight: 600; font-size: 15px;
+}
+.btn:hover { filter: brightness(1.12); }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+.btn.ghost { background: none; color: var(--ink-2); border-color: var(--rule); }
+.btn.big { padding: 13px 28px; font-size: 16px; }
+.tag {
+  font-size: 11px; letter-spacing: .06em; text-transform: uppercase;
+  border: 1px solid var(--rule); color: var(--muted); padding: 1px 7px; margin-right: 6px;
+}
+
+/* ------------------------------------------------------------------ brief */
+.brief-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, .55fr); gap: 22px; margin-top: 22px; }
+.brief-copy { min-width: 0; }
+.memo { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); padding: 22px 24px; }
+.memo-h { display: grid; grid-template-columns: auto 1fr; gap: 3px 14px; margin: 0 0 14px;
+  padding-bottom: 12px; border-bottom: 2px solid var(--ink); font-size: 13px; }
+.memo-h dt { color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-size: 11px; }
+.memo-h dd { margin: 0; }
+.steps { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); padding: 18px 22px; margin-top: 18px; }
+.steps ol { margin: 0; padding-left: 20px; color: var(--ink-2); }
+.steps li { margin-bottom: 6px; }
+.deliverable { margin: 14px 0 0; padding: 10px 12px; border-left: 3px solid var(--ui); background: var(--panel-2); font-size: 14px; }
+.grade-note { margin: 12px 0 0; padding: 10px 12px; border: 1px solid var(--warn); background: var(--warn-bg); color: var(--ink-2); font-size: 14px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 20px; }
+.tiles div { background: var(--panel); padding: 14px 16px; }
+.tiles .n { font-size: 24px; font-weight: 700; display: block; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.tiles .k { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; display: block; margin-top: 3px; }
+.tiles .src { font-size: 11px; color: var(--muted); display: block; margin-top: 6px; }
+.brief-photos { display: flex; flex-direction: column; gap: 14px; }
+.brief-photos figure { margin: 0; border: 1px solid var(--rule); background: var(--panel); box-shadow: var(--shadow); }
+.brief-photos img { width: 100%; display: block; }
+.brief-photos figcaption { font-size: 11px; color: var(--muted); padding: 6px 8px; }
+.startrow { margin-top: 26px; display: grid; gap: 8px; max-width: 640px; }
+.startrow label { font-weight: 700; font-size: 14px; }
+textarea, input[type="text"] {
+  font: inherit; width: 100%; background: var(--panel); color: var(--ink);
+  border: 1px solid var(--rule); padding: 10px 12px; resize: vertical;
+}
+.startrow { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); padding: 18px 20px; }
+.startrow .hint { font-size: 13.5px; color: var(--muted); margin: 0; }
+.startrow .namemsg { font-size: 13px; color: var(--muted); margin: 0; min-height: 18px; }
+.startrow .btn { justify-self: start; }
+.namefix { margin-top: 8px; font-size: 13px; color: var(--muted); }
+.namefix summary { cursor: pointer; }
+.namefix textarea { margin-top: 6px; }
+
+/* ----------------------------------------------------------------- choose */
+.choose { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 20px; align-items: start; margin-top: 18px; }
+.options { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); }
+.cat { padding: 14px 16px 0; }
+.cat h2 { margin: 6px 0 2px; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.catnote { font-size: 13px; color: var(--ink-2); }
+.opt { border-bottom: 1px solid var(--rule-soft); padding: 14px 16px; }
+.opt.on { background: var(--panel-2); }
+.oh { display: flex; gap: 12px; align-items: flex-start; }
+.chk { width: 20px; height: 20px; border: 1.5px solid var(--rule); background: var(--panel); color: #fff; padding: 0; flex: 0 0 auto; }
+.opt.on .chk { background: var(--ui); border-color: var(--ui); }
+.obody { flex: 1; min-width: 0; }
+.opt summary { cursor: pointer; list-style: none; }
+.opt summary::-webkit-details-marker { display: none; }
+.otitle { font-weight: 600; }
+.odesc { font-size: 14px; color: var(--ink-2); margin: 4px 0 0; }
+.odetail { font-size: 13.5px; color: var(--ink-2); margin: 6px 0 0; }
+.osource { font-size: 12px; color: var(--muted); margin: 8px 0 0; }
+.orow { font-size: 13.5px; color: var(--ui); margin: 8px 0 0; font-variant-numeric: tabular-nums; }
+.otags { margin-top: 8px; }
+.orange { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.orange input[type="range"] { flex: 1; accent-color: var(--ui); }
+.oscale { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.oval { font-weight: 600; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.score { position: sticky; top: 76px; background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); padding: 16px; }
+.score h2 { margin: 0 0 10px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.big-n { padding: 10px 0; border-bottom: 1px solid var(--rule-soft); }
+.big-n .k { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: block; }
+.big-n .v { font-size: 28px; font-weight: 700; letter-spacing: -.03em; display: block; font-variant-numeric: tabular-nums; }
+.big-n .s { font-size: 13px; color: var(--muted); display: block; }
+.howlink {
+  margin-top: 12px; background: none; border: 0; padding: 0; color: var(--ui);
+  font-size: 13px; text-decoration: underline; text-underline-offset: 3px;
+}
+.flags { margin-top: 12px; display: grid; gap: 8px; }
+.flag { display: flex; gap: 8px; font-size: 13px; color: var(--ink-2); }
+.flag .fi { flex: 0 0 auto; border: 1px solid currentColor; padding: 0 5px; height: 18px; line-height: 16px; font-size: 11px; }
+.flag.bad .fi { color: var(--bad); }
+.flag.good .fi { color: var(--good); }
+.flag.warn .fi { color: var(--warn); }
+/* The bar sticks to the bottom, so the list keeps room under it: without this
+   the last choice sits behind the bar on a short screen. */
+.choosewrap { padding-bottom: 96px; }
+.submitbar {
+  position: sticky; bottom: 0; margin-top: 18px; background: var(--panel); border: 1px solid var(--rule);
+  padding: 12px 16px; display: flex; align-items: center; gap: 16px; justify-content: space-between;
+}
+
+/* ------------------------------------------------------------------- hold */
+.hold { text-align: center; padding-top: 6vh; }
+.hold .tiles { max-width: 640px; margin-left: auto; margin-right: auto; text-align: left; }
+.codebox { max-width: 380px; margin: 26px auto 0; display: grid; gap: 8px; text-align: left; }
+.codebox label { font-weight: 700; font-size: 14px; }
+.codemsg { min-height: 20px; font-size: 14px; color: var(--muted); margin: 0; }
+.codemsg.bad { color: var(--bad); }
+.hold .btn.ghost { margin-top: 18px; }
+
+/* --------------------------------------------------------------- surprise */
+.stage { position: fixed; inset: 0; z-index: 90; background: #05070b; display: grid; place-items: center; }
+.stage[hidden] { display: none; }
+.beatframe { position: relative; width: 100%; height: 100%; display: grid; place-items: center; overflow: hidden; }
+.beatmedia { position: absolute; inset: 0; }
+.beatmedia img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.25) contrast(1.1) brightness(.55); }
+.beatmedia .credit { position: absolute; right: 10px; top: 10px; font-size: 10px; color: rgba(255, 255, 255, .55); }
+.beattext { position: relative; z-index: 2; max-width: 92vw; padding: 0 6vw; text-align: center; color: #f7f6f3; }
+.beattext .stamp { display: block; font-size: 13px; letter-spacing: .24em; text-transform: uppercase; color: #e0754f; margin-bottom: 18px; }
+.beattext .figure { display: block; font-size: clamp(48px, 11vw, 130px); font-weight: 700; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.beattext p { font-size: clamp(24px, 4.4vw, 52px); line-height: 1.16; margin: 0 auto; max-width: 20ch; }
+.beatframe.slate { background: #05070a; }
+.beatframe.slate .beattext p { font-size: clamp(18px, 2.4vw, 30px); max-width: 44ch; line-height: 1.5; }
+.beatframe.end { background: #7a1c0d; }
+.beatframe.end .beattext p { font-size: clamp(30px, 6vw, 72px); font-weight: 700; max-width: 14ch; }
+.simlabel {
+  position: absolute; right: 16px; bottom: 16px; z-index: 3; font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(255, 255, 255, .72); border: 1px solid rgba(255, 255, 255, .3); padding: 4px 8px;
+}
+.beatctl { position: absolute; top: 16px; right: 16px; z-index: 3; display: flex; gap: 8px; }
+.beatctl button {
+  background: rgba(0, 0, 0, .5); border: 1px solid rgba(255, 255, 255, .34); color: #fff;
+  font-size: 12px; letter-spacing: .1em; text-transform: uppercase; padding: 6px 12px;
+}
+.beatframe .next {
+  position: absolute; left: 50%; bottom: 8vh; transform: translateX(-50%); z-index: 4;
+  background: #fff; color: #10141b; border: 0; padding: 15px 26px; font-size: 13px;
+  letter-spacing: .14em; text-transform: uppercase; min-width: 280px;
+}
+.beatframe .next[hidden] { display: none; }
+
+/* ---------------------------------------------------------------- respond */
+.strats { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-top: 18px; }
+.strat {
+  background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); padding: 18px;
+  text-align: left; color: inherit; display: flex; flex-direction: column; gap: 8px;
+}
+.strat.picked { border-color: var(--ui); box-shadow: 0 0 0 2px var(--panel-2), var(--shadow); }
+.strat .theory { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ui); }
+.strat .sn { font-size: 17px; font-weight: 700; }
+.strat .sd { font-size: 14px; color: var(--ink-2); }
+.strat .sc { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--rule-soft); font-size: 12px; color: var(--muted); display: grid; gap: 3px; }
+
+/* ------------------------------------------------------------------ write */
+.guide { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 18px 0; }
+.guide div { background: var(--panel); padding: 12px 14px; }
+.guide strong { display: block; font-size: 14px; margin-bottom: 3px; }
+.guide span { font-size: 13px; color: var(--ink-2); }
+.targets { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+.target { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 14px; background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); padding: 14px; }
+.target:not(:has(.tmedia)) { grid-template-columns: minmax(0, 1fr); }
+.tmedia img { width: 96px; height: 116px; object-fit: cover; border: 1px solid var(--rule); }
+.tmedia .credit { font-size: 10px; color: var(--muted); display: block; }
+.target .tm { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.target .pos { font-size: 14px; color: var(--ink-2); margin: 0 0 8px; }
+.target label { font-weight: 700; font-size: 13px; display: block; margin-bottom: 4px; }
+.result { display: flex; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--rule-soft); font-size: 14px; }
+.result.yes strong { color: var(--good); }
+.result.no strong { color: var(--bad); }
+
+/* ---------------------------------------------------------------- outcome */
+.tally { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); padding: 20px; text-align: center; margin: 18px 0; }
+.tally .tn { font-size: 54px; font-weight: 700; letter-spacing: -.04em; display: block; font-variant-numeric: tabular-nums; }
+.tally .tk { font-size: 13px; color: var(--muted); display: block; margin-top: 4px; }
+.tbar { height: 12px; background: var(--rule-soft); position: relative; margin-top: 14px; }
+.tbar i { position: absolute; left: 0; top: 0; bottom: 0; display: block; background: var(--bad); }
+.tbar i.pass { background: var(--good); }
+.tbar u { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--ink); }
+.blocs { display: grid; gap: 10px; }
+.bloc { background: var(--panel); border: 1px solid var(--rule); padding: 12px 14px; }
+.bh { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.bn { font-weight: 600; }
+.bs { font-size: 13px; font-variant-numeric: tabular-nums; }
+.bloc.yes .bs { color: var(--good); }
+.bloc.no .bs { color: var(--bad); }
+.bw { font-size: 13.5px; color: var(--ink-2); margin: 6px 0 0; }
+.advice { margin-top: 16px; font-size: 15px; color: var(--ink-2); }
+
+/* ---------------------------------------------------------------- receipt */
+.shotnote { border: 1px dashed var(--ui); color: var(--ui); padding: 10px 14px; text-align: center; font-size: 14px; }
+.receipt { background: var(--panel); border: 1px solid var(--ink); box-shadow: var(--shadow); padding: 30px 34px; margin-top: 14px; }
+.receipt .ex { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.receipt .names { font-weight: 700; font-size: 17px; }
+.rsec { margin-top: 20px; }
+.rsec h2 { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--rule); padding-bottom: 5px; margin-bottom: 8px; }
+.rsec ul { margin: 0; padding-left: 20px; }
+.rsec li { margin-bottom: 4px; }
+.offscreen { position: absolute; left: -9999px; top: 0; }
+.fallback { margin-top: 14px; }
+
+/* -------------------------------------------------- how this page works */
+.how h2 { margin-top: 26px; }
+.how ul { padding-left: 20px; }
+.how li { margin-bottom: 8px; }
+.how .note { color: var(--muted); font-size: 14px; max-width: 70ch; }
+.how .warn { background: var(--warn-bg); color: var(--warn); padding: 10px 14px; }
+
+@media (max-width: 980px) {
+  .brief-main, .choose { grid-template-columns: 1fr; }
+  .score { position: static; }
+}
+@media print {
+  .topbar, .submitbar, .shotnote, .row, .notice { display: none !important; }
+  body { background: #fff; }
+  .receipt { border: 1px solid #000; box-shadow: none; }
+}
+
+/* stage screens: a briefing, one call with a reason, then the record */
+.stagescreen .brief-copy > p { font-size: 16px; line-height: 1.55; max-width: 72ch; }
+.stageask { background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); padding: 16px 18px; margin: 22px 0; }
+.stageask h2 { margin-top: 0; font-size: 19px; }
+.stagepicks { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin: 12px 0 16px; }
+.stagepick { text-align: left; background: var(--panel-2); border: 1px solid var(--rule); color: var(--ink); padding: 12px 13px; cursor: pointer; font: inherit; }
+.stagepick .pn { display: block; font-weight: 600; margin-bottom: 4px; }
+.stagepick .pd { display: block; font-size: 14px; color: var(--ink-2); line-height: 1.45; }
+.stagepick.on { border-color: var(--ui); box-shadow: inset 0 0 0 2px var(--ui); }
+.stagepick[disabled] { cursor: default; opacity: .8; }
+.stagepick.on[disabled] { opacity: 1; }
+.stageask textarea { width: 100%; font: inherit; padding: 8px; background: var(--panel-2); color: var(--ink); border: 1px solid var(--rule); }
+.stagereveal { border-left: 4px solid var(--ui); background: var(--panel); padding: 14px 18px; margin: 22px 0; box-shadow: var(--shadow); }
+.stagereveal h2 { margin-top: 0; }
+.stagecompare { font-weight: 600; }
+.stagetimeline li { margin: 5px 0; line-height: 1.45; }
+.stagelink { background: var(--panel-2); border: 1px solid var(--rule-soft); padding: 10px 14px; margin-top: 14px; }
+.stagelink h3 { margin: 0 0 6px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.stagereveal .src, .stagelink .src { font-size: 12px; color: var(--muted); }
+#case figure img { max-width: 100%; }
+.revealphotos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 14px; }
+.revealphotos figure, .stagescreen .brief-photos figure { margin: 0 0 12px; }
+.revealphotos img, .stagescreen .brief-photos img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); background: #fff; }
+.revealphotos figcaption, .stagescreen .brief-photos figcaption { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+.stagemap { margin: 18px 0 0; max-width: 640px; background: var(--panel); border: 1px solid var(--rule); box-shadow: var(--shadow); }
+.stagemap img { width: 100%; display: block; }
+.stagemap figcaption { font-size: 12px; color: var(--muted); padding: 6px 10px; }
+.strats + .btn, .stagewrap .strats ~ .btn { margin-top: 18px; }
+.stagebullets li { margin: 6px 0; line-height: 1.5; font-size: 16px; max-width: 70ch; }
+.stagescreen .brief-main { grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); }
+.stagescreen .brief-photos .sidemap { background: var(--panel); }
+.stagelink ul { margin: 6px 0 0; padding-left: 20px; }
+.stagelink li { margin: 6px 0; line-height: 1.5; }
+.stagelink h3 { text-transform: none; letter-spacing: 0; font-size: 15px; color: var(--ink); }
+figure.hasinfo { position: relative; cursor: pointer; }
+figure.hasinfo .figinfo { display: none; position: absolute; left: 0; right: 0; top: 0; max-height: 100%; overflow: auto; background: rgba(15, 20, 30, .93); color: #f2f4f8; font-size: 14px; line-height: 1.45; padding: 12px 14px; }
+figure.hasinfo:hover .figinfo, figure.hasinfo:focus .figinfo, figure.hasinfo.open .figinfo { display: block; }
+figure.hasinfo .infohint { position: absolute; top: 8px; right: 8px; background: rgba(15, 20, 30, .8); color: #fff; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding: 3px 7px; border-radius: 3px; }
+figure.hasinfo:hover .infohint, figure.hasinfo.open .infohint { display: none; }
+.stageothers { border: 1px dashed var(--ui); background: var(--panel-2); padding: 10px 14px; margin: 10px 0 16px; }
+.stageothers h3 { margin: 0 0 4px; font-size: 15px; }
+.stageothers .othersnote { margin: 0 0 6px; font-weight: 600; color: var(--ink-2); }
+.stageothers li { margin: 5px 0; line-height: 1.45; }
+.stageothers { background: #f1f1f1; border-color: #9a9a9a; }
+.stageothers .otag { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; background: #6b6b6b; color: #fff; padding: 1px 7px; border-radius: 3px; margin-right: 4px; vertical-align: 1px; }
+.otherpaths { margin: 10px 0 16px; }
+.otherpaths > summary { cursor: pointer; font-weight: 600; }
+.gl { position: relative; border-bottom: 1px dotted var(--ui); cursor: help; }
+.gl .gltip { display: none; position: absolute; left: 0; top: 1.5em; z-index: 20; width: min(320px, 70vw); background: #121826; color: #eef1f6; font-size: 13.5px; font-weight: 400; line-height: 1.45; padding: 9px 11px; border: 1px solid #3a4560; box-shadow: 0 6px 18px rgba(0,0,0,.35); text-transform: none; letter-spacing: 0; }
+.gl:hover .gltip, .gl:focus .gltip, .gl.open .gltip { display: block; }
+
+.tagbox { margin: 14px 0; padding: 12px 14px; border: 1px solid rgba(169,184,245,.35); border-radius: 6px; }
+.tagbox h3 { margin-top: 0; }
+.tagopts { display: flex; flex-wrap: wrap; gap: 8px; }
+.tagopt { padding: 7px 12px; border-radius: 16px; border: 1px solid rgba(255,255,255,.25); background: transparent; color: inherit; font: inherit; font-size: 14px; cursor: pointer; }
+.tagopt.on { background: #a9b8f5; color: #10131a; border-color: #a9b8f5; }
+
+.rolebox { margin: 14px 0 18px; padding: 12px 16px; border-left: 5px solid #a9b8f5; background: rgba(169,184,245,.12); border-radius: 4px; max-width: 72ch; }
+.rolebox .rolelabel { display: block; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #a9b8f5; font-weight: 700; margin-bottom: 4px; }
+.rolebox p { margin: 0; font-size: 21px; font-weight: 600; line-height: 1.4; color: var(--ink); }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="name">Colombia's war, 1946 to today</span>
+    <span class="sub">Politics of Conflict</span>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button type="button" role="tab" id="tab-run" aria-selected="true">The exercise</button>
+    <button type="button" role="tab" id="tab-case" aria-selected="false" hidden>The case</button>
+    <button type="button" role="tab" id="tab-how" aria-selected="false">How this page works</button>
+  </nav>
+  <button type="button" class="ghost" id="restart">Start over</button>
+</header>
+<p class="notice" id="notice" hidden></p>
+<main id="app"></main>
+<section class="how" id="case" hidden></section>
+<section class="how" id="how" hidden></section>
+<div class="stage" id="stage" hidden aria-hidden="true"></div>
+<script>/* core.js — the simulation engine's pure logic.
+
+   No DOM, no network, no randomness, no clock: everything here is a function of
+   the state, the simulation data, and the rules the session wrote. The page
+   loads it as a plain script; the Node tests and the route runner load it in a
+   vm. Both get the same answers, which is the point.
+
+   State shape:
+     {version, names, choices: {optionId: size 0..1}, strategy, texts: {targetId},
+      moved: {targetId: true}, sent, unlocked, screen}
+   Rules signature, written by the session in sim_rules.js:
+     RULES[name](state, data, helpers, extra) */
+(function (root) {
+  "use strict";
+
+  function normalizeCode(value) {
+    return String(value == null ? "" : value).replace(/\s+/g, "").toUpperCase();
+  }
+
+  function num(value, fallback) {
+    var n = Number(value);
+    return isFinite(n) ? n : (fallback == null ? 0 : fallback);
+  }
+
+  /* An option's size is a factor between 0 and 1 over its low-to-high range.
+     An option with no high is all or nothing, so the size cannot shrink it. */
+  function amount(option, size) {
+    if (!option) return 0;
+    var lo = num(option.low, 0);
+    if (option.high == null) return lo;
+    var hi = num(option.high, lo);
+    var f = size == null ? 1 : Math.max(0, Math.min(1, num(size, 1)));
+    return lo + (hi - lo) * f;
+  }
+
+  function eachOf(data, key, fn) {
+    (data && data.screens || []).forEach(function (screen) {
+      (screen[key] || []).forEach(fn);
+    });
+  }
+
+  function index(data) {
+    var byId = {};
+    ["options", "strategies", "targets"].forEach(function (key) {
+      eachOf(data, key, function (item) { if (item && item.id) byId[item.id] = item; });
+    });
+    return byId;
+  }
+
+  function chosen(state, data) {
+    var out = [];
+    eachOf(data, "options", function (option) {
+      if (state && state.choices && state.choices[option.id] != null) out.push(option);
+    });
+    return out;
+  }
+
+  /* What a rule gets as its third argument. Everything a formula needs about
+     this group's page, and nothing that could reach outside it. */
+  function helpers(state, data) {
+    var byId = index(data);
+    function option(id) { return typeof id === "string" ? (byId[id] || null) : (id || null); }
+    return {
+      option: option,
+      amount: function (idOrOption) {
+        var opt = option(idOrOption);
+        if (!opt) return 0;
+        return amount(opt, state && state.choices ? state.choices[opt.id] : 1);
+      },
+      size: function (idOrOption) {
+        var opt = option(idOrOption);
+        if (!opt || !state || !state.choices) return 0;
+        var size = state.choices[opt.id];
+        /* The same clamp as amount(): a size out of range would leave a choice
+           costing what it costs and doing whatever the store says. */
+        return size == null ? 0 : Math.max(0, Math.min(1, num(size, 0)));
+      },
+      picked: function (id) { return !!(state && state.choices && state.choices[id] != null); },
+      chosen: function () { return chosen(state, data); },
+      strategy: function () { return state && state.strategy ? option(state.strategy) : null; },
+      moved: function () { return Object.keys((state && state.moved) || {}); },
+      hasMoved: function (id) { return !!(state && state.moved && state.moved[id]); },
+      value: function (item, key, fallback) {
+        var obj = option(item);
+        if (!obj || !obj.values || obj.values[key] == null) return fallback == null ? 0 : fallback;
+        return obj.values[key];
+      },
+      sum: function (list, fn) {
+        return (list || []).reduce(function (total, item) {
+          return total + num(fn ? fn(item) : item, 0);
+        }, 0);
+      },
+      clamp: function (value, lo, hi) { return Math.max(lo, Math.min(hi, num(value, lo))); },
+      stagePick: function (stageId) {
+        var row = state && state.stages ? state.stages[stageId] : null;
+        return row && row.revealed ? row.pick : null;
+      }
+    };
+  }
+
+  function emptyState(version) {
+    return {
+      version: version || "",
+      names: "",
+      choices: {},
+      strategy: null,
+      texts: {},
+      moved: {},
+      sent: 0,
+      unlocked: false,
+      screen: null,
+      stages: {}
+    };
+  }
+
+  /* A saved state belongs to the build that wrote it. A rebuilt page keeps
+     nothing from an older build, and says so on screen rather than silently.
+     The saved code comes back too, or a reload after the unlock would land on a
+     screen the page can no longer open. Sizes are clamped on the way in: the
+     store is the student's own browser and anything can be typed into it. */
+  function restore(saved, version) {
+    if (!saved || typeof saved !== "object" || saved.version !== version) {
+      return { state: emptyState(version), dropped: !!saved };
+    }
+    var state = emptyState(version);
+    ["names", "strategy", "screen", "code"].forEach(function (key) {
+      if (saved[key] != null) state[key] = saved[key];
+    });
+    ["texts", "moved"].forEach(function (key) {
+      if (saved[key] && typeof saved[key] === "object") state[key] = saved[key];
+    });
+    if (saved.choices && typeof saved.choices === "object") {
+      Object.keys(saved.choices).forEach(function (id) {
+        var size = Number(saved.choices[id]);
+        state.choices[id] = isFinite(size) ? Math.max(0, Math.min(1, size)) : 1;
+      });
+    }
+    state.sent = Math.max(0, num(saved.sent, 0));
+    state.unlocked = !!saved.unlocked;
+    /* A stage holds the group's call, its reason, and whether the record has
+       been shown. A call is never changed after the record is out. */
+    if (saved.stages && typeof saved.stages === "object") {
+      Object.keys(saved.stages).forEach(function (id) {
+        var row = saved.stages[id] || {};
+        state.stages[id] = {
+          pick: typeof row.pick === "string" ? row.pick : null,
+          why: typeof row.why === "string" ? row.why : "",
+          revealed: !!row.revealed && typeof row.pick === "string"
+        };
+      });
+    }
+    return { state: state, dropped: false };
+  }
+
+  var DEFAULT_POLICY = { maxNewFirst: 2, maxNewRetry: 1, minOneIfWritten: true, minWords: 8 };
+
+  function words(text) {
+    return String(text || "").trim().split(/\s+/).filter(Boolean).length;
+  }
+
+  function byStrength(a, b) {
+    return (b.points - a.points)
+      || (b.text.length - a.text.length)
+      || String(a.target.name || a.target.id).localeCompare(String(b.target.name || b.target.id));
+  }
+
+  /* Holbein's locking policy, and the reasons it exists:
+       - nothing written persuades nobody (a group cannot skip the work);
+       - a real attempt always moves one (the exercise is not a dead end);
+       - never everyone at once, so the count stays hard;
+       - a target already moved stays moved and shows up as a yes in the count;
+       - a retry can move one more, and shows only the targets still open. */
+  function lockPitches(targets, texts, moved, score, policy, sends) {
+    var rules = {};
+    Object.keys(DEFAULT_POLICY).forEach(function (k) { rules[k] = DEFAULT_POLICY[k]; });
+    Object.keys(policy || {}).forEach(function (k) { if (policy[k] != null) rules[k] = policy[k]; });
+
+    var locked = {};
+    Object.keys(moved || {}).forEach(function (k) { if (moved[k]) locked[k] = true; });
+    var all = targets || [];
+
+    var scored = all.map(function (target) {
+      var text = String((texts && texts[target.id]) || "").trim();
+      var result = text ? (score(target, text) || {}) : { points: 0, ready: false };
+      return {
+        target: target, text: text, points: num(result.points, 0), ready: !!result.ready,
+        /* A real attempt has substance. Without this a full stop in each box
+           moves somebody, and a group can send the same junk again and again
+           until everybody has moved. */
+        real: words(text) >= rules.minWords
+      };
+    });
+    var anyReal = scored.some(function (row) { return row.real; });
+    var open = scored.filter(function (row) { return !locked[row.target.id]; });
+    /* The allowance follows how many times the group has pressed send, not how
+       many targets happen to have moved. */
+    var maxNew = num(sends, 0) > 0 ? rules.maxNewRetry : rules.maxNewFirst;
+    maxNew = Math.max(0, Math.min(maxNew, all.length - 1));   // never everybody at once
+
+    var winners = open.filter(function (row) { return row.ready && row.real; }).sort(byStrength).slice(0, maxNew);
+    if (!winners.length && anyReal && rules.minOneIfWritten && maxNew > 0) {
+      winners = open.filter(function (row) { return row.real; }).sort(byStrength).slice(0, 1);
+    }
+    winners.forEach(function (row) { locked[row.target.id] = true; });
+
+    var results = {};
+    scored.forEach(function (row) {
+      results[row.target.id] = {
+        moved: !!locked[row.target.id],
+        points: row.points,
+        ready: row.ready,
+        wrote: row.text.length > 0,
+        real: row.real
+      };
+    });
+    return { moved: locked, results: results };
+  }
+
+  function fill(text, vars) {
+    return String(text == null ? "" : text).replace(/\{\{(\w+)\}\}/g, function (whole, key) {
+      return vars && vars[key] != null ? String(vars[key]) : whole;
+    });
+  }
+
+  function group(value) {
+    var parts = String(value).split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+  }
+
+  function formatValue(value, format, digits) {
+    if (value == null || value === "") return "—";
+    var n = Number(value);
+    if (format === "text" || !isFinite(n)) return String(value);
+    switch (format) {
+      case "int": return group(String(Math.round(n)));
+      case "one": return group(n.toFixed(1));
+      case "pct": return Math.round(n) + "%";
+      case "pct1": return n.toFixed(1) + "%";
+      case "fixed": return group(n.toFixed(num(digits, 0)));
+      default: return group(String(Math.round(n * 100) / 100));
+    }
+  }
+
+  /* The text a group copies into the Blackboard item. Every student's name is
+     the first line, because that is what the submission rule asks for. */
+  function receiptText(state, data, ctx) {
+    ctx = ctx || {};
+    var lines = [];
+    /* A simulation can leave the names off the page: the group adds them to the
+       downloaded file, or types them into Blackboard when it uploads. */
+    if (data && data.no_names) lines.push("Group members: (write every name in your group here)");
+    else lines.push(String((state && state.names) || "").trim() || "(no names entered)");
+    lines.push("");
+    lines.push([data && data.course, data && data.title].filter(Boolean).join(" — "));
+    if (ctx.stats && ctx.stats.length) {
+      lines.push("");
+      ctx.stats.forEach(function (row) { lines.push(row.label + ": " + row.value); });
+    }
+    if (ctx.choices && ctx.choices.length) {
+      lines.push("");
+      lines.push("What we chose");
+      ctx.choices.forEach(function (row) {
+        lines.push("- " + row.name + (row.value ? " (" + row.value + ")" : ""));
+      });
+    }
+    if (ctx.stages && ctx.stages.length) {
+      lines.push("");
+      lines.push("Our calls, stage by stage");
+      ctx.stages.forEach(function (row) {
+        lines.push("- " + row.title + ": " + (row.pick || "(no call)"));
+        if (row.why) lines.push("  Why: " + row.why);
+        if (row.real) lines.push("  What really happened: " + row.real);
+      });
+    }
+    if (ctx.surprise) {
+      lines.push("");
+      lines.push("What broke: " + ctx.surprise);
+    }
+    if (ctx.strategy) {
+      lines.push("");
+      lines.push("Our response: " + ctx.strategy.name
+        + (ctx.strategy.theory ? " (" + ctx.strategy.theory + ")" : ""));
+    }
+    if (ctx.messages && ctx.messages.length) {
+      lines.push("");
+      lines.push("Our messages");
+      ctx.messages.forEach(function (row) {
+        lines.push("- " + row.name + ": " + (row.moved ? "moved" : "not moved"));
+        if (row.text) lines.push("  " + row.text);
+      });
+    }
+    if (ctx.outcome) {
+      lines.push("");
+      lines.push("Outcome: " + ctx.outcome.headline);
+      if (ctx.outcome.detail) lines.push(ctx.outcome.detail);
+    }
+    return lines.join("\n");
+  }
+
+  /* Every student's name, the way the submission rule asks for it. One name is
+     a group that forgot the others, so the page says so before it starts. */
+  function nameList(value) {
+    return String(value == null ? "" : value)
+      .split(/[,\n;]+| and /i)
+      .map(function (name) { return name.trim(); })
+      .filter(function (name) { return name.length > 1; });
+  }
+
+  /* The name of the file a group uploads: the simulation, then the names they
+     typed, so a folder of them can be read without opening any. */
+  function fileName(state, data) {
+    var names = String((state && state.names) || "").toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60).replace(/-+$/, "");
+    var id = String((data && data.id) || "simulation").toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    return [id, names || "answers"].filter(Boolean).join("-") + ".txt";
+  }
+
+  function rule(RULES, name) {
+    var fn = RULES && RULES[name];
+    if (typeof fn !== "function") throw new Error("rule not found: " + name);
+    return fn;
+  }
+
+  function run(RULES, name, state, data, extra) {
+    return rule(RULES, name)(state, data, helpers(state, data), extra);
+  }
+
+  root.SIMCORE = {
+    normalizeCode: normalizeCode,
+    amount: amount,
+    chosen: chosen,
+    helpers: helpers,
+    index: index,
+    emptyState: emptyState,
+    restore: restore,
+    lockPitches: lockPitches,
+    fill: fill,
+    formatValue: formatValue,
+    receiptText: receiptText,
+    fileName: fileName,
+    nameList: nameList,
+    rule: rule,
+    run: run,
+    DEFAULT_POLICY: DEFAULT_POLICY
+  };
+}(typeof globalThis !== "undefined" ? globalThis : this));
+</script>
+<script>/* sim_rules.js: the page scores nothing. One rule counts the calls saved,
+   which the build's route check uses to confirm the exercise can be finished. */
+RULES = {
+  callsSaved: function (state, data, H) {
+    var n = 0;
+    ["s1", "s2", "s3", "s4", "s4b", "s5", "s6"].forEach(function (id) { if (H.stagePick(id)) n += 1; });
+    return n;
+  }
+};
+</script>
+<script>
+/* window, not const: a top-level const is not a property of the page's global
+   object, and the engine reads these from there. */
+window.DATA = {"id":"poc-s11-colombia","title":"Colombia's war, 1946 to today","course":"Politics of Conflict","session":null,"address":"www.ala-alrababah.com/teaching/poc-s11/","label":"A class exercise. Every event shown is real.","illustrative":false,"build":"e0a3940724c7","sources":[{"id":"CEV","text":"Truth Commission of Colombia, final report (2022)","url":""},{"id":"IC1","text":"InSight Crime, The FARC 1964-2002: From Ragged Rebellion to Military Machine","url":""},{"id":"MORE1","text":"National Center for Historical Memory, ¡Basta Ya! (2013) and Todo pasó frente a nuestros ojos (2018), and the Inter-American Court of Human Rights, Unión Patriótica vs. Colombia (2022)","url":""},{"id":"MORE2","text":"The La Uribe accords (1984), the M-19 peace agreement (1990), and the Final Agreement to End the Armed Conflict (2016)","url":""},{"id":"MORE3","text":"Fearon (1995), Fearon and Laitin (2003), Humphreys and Weinstein (2008), Arjona and Kalyvas (2009), Walter (2009), Cederman, Weidmann, and Gleditsch (2011), Matanock and García-Sánchez (2017), and Mampilly and Gutiérrez (2023)","url":""},{"id":"MORE4","text":"UN Verification Mission in Colombia, Security Council Report, US Congressional Research Service, UK Home Office, Council on Foreign Relations, Human Rights Watch, and Global Protection Cluster","url":""},{"id":"MORE5","text":"InSight Crime, Fundación Ideas para la Paz, Indepaz, Colombiacheck, Rutas del Conflicto, and the CIA's Studies in Intelligence","url":""},{"id":"MORE6","text":"BBC, Al Jazeera, Foreign Policy, Semana, El Tiempo, El Colombiano, and Radio Nacional de Colombia news reports, 1990 to 2026","url":""}],"rules":[{"name":"callsSaved","label":"Calls saved.","describe":"Counts how many of the 7 calls your group has saved. Nothing is scored."}],"screens":[{"id":"brief","kind":"brief","kicker":"Politics of Conflict","headline":"Colombia's war, 1946 to today","lede":"Your group leads the peasant fighters who became the FARC (Revolutionary Armed Forces of Colombia), Colombia's largest guerrilla group. You will go through 6 stages from 1946 to today. Your role changes from stage to stage.","steps":["Open this page on one laptop per group and press Start.","At each stage, read the briefing, agree on one call, and write why.","Save your call. The page then shows what the real fighters did and what happened afterwards. Then you need to answer an additional question about it.","Underlined names and terms, and the photos and maps, give a short note when you hover over or tap them."],"deliverable":"The tab called The case starts almost empty and fills up as you go. After each stage it adds that stage's timeline and terms, and at the end the evidence that may be useful for an essay. At the end, download your file and upload it to Blackboard.","grade_note":"Your calls are not graded.","panels":[{"title":"Why civil wars start","bullets":["**Exclusion (Cederman, Weidmann, and Gleditsch 2011).** Ethnic groups shut out of state power, or, in very unequal countries, much richer or poorer than the national average, resent their position, and those in power share it only reluctantly. So excluded groups rebel more often than included ones, and very rich and very poor groups more often than groups near the average.","**Opportunity (Fearon and Laitin 2003).** Grievances are common, they argue, so they cannot explain where wars break out. Wars start where small rebel bands can survive: a poor state with weak police and army, rough terrain far from the capital where rebels can hide, and a large population."]},{"title":"Why people join (based on Humphreys and Weinstein 2008)","bullets":["**Grievances.** People join to fight for a cause, out of anger at poverty or at being shut out of politics.","**Selective incentives.** A rebellion's gains go to everyone, fighters or not, so each person is tempted to let others take the risk. Armed groups overcome this with rewards only fighters get: money, goods, or loot, or protection when staying out is more dangerous than joining.","**Social sanctions.** Close communities watch their members and shame or punish those who stay out, so people join when their friends, family, and neighbors do.","**Force.** Armed groups can also fill their ranks by abducting people or making them join."]},{"title":"Why bargains fail (Fearon 1995, Walter 2009)","bullets":["**Private information.** If both sides knew who would win, they would almost always prefer a deal to the costs of war. But each knows its own strength and resolve better than the other does and has reasons to bluff, so both may expect to win until the fighting shows who is stronger.","**Commitment problem.** A deal can fail even when both sides want it, because nothing enforces it over time and it can leave one or both sides open to attack. Rebels must usually disarm as part of a deal, and Walter and others find that wars end in a deal more often when an outside state or international organization sends peacekeepers to help carry it out.","**Indivisible stakes.** If what the sides fight over cannot be split, such as sole control of a territory or of the government, no compromise exists. Walter notes that Fearon dismisses this problem, holding that a compromise short of war is almost always available, but she adds that in practice such disputes appear harder to settle, especially over territory that matters for symbolic or strategic reasons."]}],"tiles":[{"value":"450,664","label":"people killed in the war between 1985 and 2018.","source":"CEV"},{"value":"About 7.75 million","label":"people forced from their homes between 1985 and 2019.","source":"CEV"}]},{"id":"s1","kind":"stage","kicker":"Stage 1 of 6 · 1946 to 1953","headline":"1953: General Rojas offers an amnesty","receipt_title":"Stage 1, the 1953 amnesty","lede":"You are a Communist peasant fighter in southern Tolima, in the mountains of central Colombia. It is late 1953.","paragraphs":[],"panels":[{"title":"What the amnesty offers","bullets":["A pardon for political crimes.","Release of prisoners, help for victims, and the rebuilding of towns and schools in the war zones.","A promise of a role in politics, though Congress stays closed. In return, fighters hand in their weapons.","The government promises to protect former fighters. Nobody outside the government checks that it does. The army that has been fighting the Communists remains in charge of security."]}],"tiles":[{"value":"About 200,000","label":"killed in La Violencia, the estimate most often cited","source":"CEV"}],"question":"Rojas offers an amnesty. What do you do?","picks":[{"id":"s1_disarm","name":"Take the amnesty and hand in your weapons","detail":"Go home and farm, with a pardon, as the largest Liberal force has done. The army has no reason left to hunt you, and you rely on the government's promise of safety.","others":{"who":"The Llanos guerrillas, a Liberal force led by Guadalupe Salcedo.","bullets":["**15 September 1953.** Salcedo's 200-plus men handed in their weapons at Monterrey, Casanare.","**6 June 1957.** Police killed Salcedo in Bogotá. The official account spoke of a shootout. The autopsy found 5 bullet wounds, 2 in the backs of his hands, which suggested he was shot while surrendering."]}},{"id":"s1_keep","name":"Stop fighting but keep your weapons","detail":"Farm in your own zone, under your own guard. You keep your protection, but an armed zone gives the government a reason to treat you as rebels."},{"id":"s1_fight","name":"Keep fighting","detail":"Refuse the amnesty. You keep your freedom to act, but the army, now backed by both major parties, can turn its full force on you.","others":{"who":"Liberal bands that kept fighting after the amnesty. The Liberal Party disowned them, and they were called 'bandoleros', bandits. Not the Communist groups that became the FARC.","bullets":["**About 1958.** An estimate of the time, cited by the Truth Commission, put the number of armed groups at about 200, most of them called bandoleros.","**22 January 1963.** The army killed the bandolero leader known as Chispas."]}}],"why_min":12,"reveal":{"real_pick":"s1_keep","bullets":["**The Liberals disarmed, the Communists did not.** Many Liberal fighters took the amnesty. In southern Tolima the Communists doubted that a military government could end La Violencia. Their party told them to stop fighting but keep their weapons and organize the peasants for self-defense.","**1954 to 1955: war on the Communist zones.** Rojas outlawed the Communist Party. When the army arrested a Communist leader in Villarrica, Tolima, the fighting resumed, and the army dropped at least 50 napalm bombs on the area. About 100,000 people fled.","**December 1955: a new refuge.** Driven from their zones, Charro Negro and Marulanda settled their group in a remote corner of southern Tolima and named it Marquetalia.","**June 1957: Salcedo is killed.** Police shot the Liberal commander who had disarmed, in Bogotá. They called it a shootout. Other former fighters were killed in those years too.","**1957: the two parties share power.** Rojas fell after he began building his own party, which threatened the leaders of both. The Liberals and Conservatives agreed to the National Front: they would alternate the presidency and split every seat in Congress and the courts, for 12 years, later 16. The Communists were left out of the pact. The 1957 vote did lift the ban on their party, and the self-defense groups moved into politics.","**1958: the Communists keep their weapons again.** Offered a new amnesty, they again refused to disarm. The Truth Commission writes that they had seen Liberals who disarmed, such as Salcedo, murdered."],"class_link":{"text":["**Exclusion.** The closing of Congress in November 1949 shut the Liberals out of power, and the 1954 ban on the Communist Party and the 1957 National Front shut out the Communists (all above). The Communists armed in October 1949, a month before Congress closed, and first kept their weapons in 1953, before the ban. The excluded groups were political parties, not the ethnic groups Cederman, Weidmann, and Gleditsch study.","**Opportunity.** The armed groups formed in the mountains of Tolima and Cundinamarca and on the eastern plains. After the army's offensive on Villarrica in June 1955, the guerrillas who had come there from southern Tolima marched with hundreds of families to El Pato and Guayabero, on the Huila and Caquetá border, and settled there. Charro Negro and Marulanda's group went to Marquetalia (December 1955, above)."],"reading":"Truth Commission, No matarás (2022), pp. 58 to 70. Cederman, Weidmann, and Gleditsch (2011), p. 488.","title":"How this connects to the course","tag_question":"Armed peasant groups formed across Colombia from 1949. Which explanation of why civil wars start fits this best? Pick one, then argue it out.","tag_options":["Exclusion","Opportunity","Something else"]}},"lock_label":"Save our call and see what happened","photos":[{"file":"media/gaitan.jpg","alt":"Jorge Eliécer Gaitán, 1936","credit":"Jorge Eliécer Gaitán, 1936. Photo: Revista Credencial Historia, public domain.","info":"On 7 February 1948 Gaitán led the March of Silence through Bogotá to protest the political violence. Estimates, hard to verify, put the crowd at about 100,000."},{"file":"media/rojas_pinilla2.jpg","alt":"General Gustavo Rojas Pinilla","credit":"General Gustavo Rojas Pinilla. Photo: public domain.","info":"The Liberal leader Darío Echandía hailed the takeover as a 'golpe de opinión', a coup of public opinion."}],"map":{"file":"media/map_stage1.svg","alt":"Map of Colombia for stage 1","credit":"Shaded: Tolima, Cundinamarca, and the Llanos, the main areas of armed groups in this stage. Map: Natural Earth, geoBoundaries, and GeoNames.","info":"**Dots**: Ceilán, in Valle del Cauca, and Sumapaz, in Cundinamarca. Sumapaz's dot lies about 80 km southwest of Bogotá in a straight line."},"bullets":["**Two parties.** Colombia was run by two major parties, the Liberals and the Conservatives, who fought over who held the state and its jobs.","**1946: the Conservatives take back power.** The Liberals had governed since 1930, but they split between two candidates, Gabriel Turbay and Jorge Eliécer Gaitán, and the Conservative Mariano Ospina Pérez won.","**The police.** From 1945 to 1947 at least 78 of Gaitán's supporters were murdered, many in Boyacá, where Ospina's government recruited a police force, the chulavitas, that it used against Liberals.","**9 April 1948: Gaitán is shot dead in Bogotá.** The Liberals' most popular leader was killed, and riots, the Bogotazo, spread across the country.","**La Violencia.** In the countryside, Conservative police and gunmen attacked Liberal villages, and Liberals formed guerrillas to fight back.","**November 1949: Congress is closed.** When the Liberals moved to remove President Ospina in Congress, he declared emergency rule, closed Congress, and censored the press. Congress stayed closed for 9 years. The Conservative Laureano Gómez was then elected with no opponent.","**The Communists arm.** In October 1949 the Communist Party, strong among peasants who had fought landowners since the 1920s, told its followers to form armed self-defense groups, to hold off attacks by the state and Conservative gunmen.","**Liberals and Communists split.** In southern Tolima, Liberal and Communist families first hid together on one farm, El Davis. By 1951 they had split into two hostile camps: the limpios, loyal to the Liberal Party and its landowners, and the comunes, who had turned Communist and farmed collectively. Manuel Marulanda, later the FARC's top commander, went with the Communists.","**June 1953: a general takes over.** With the Conservatives divided and the country at war, General Gustavo Rojas Pinilla overthrew the hard-line government of Laureano Gómez. The Liberals, Ospina's wing of the Conservatives, business, and the Church backed him. He promised peace, and the Liberals hoped he would reopen politics.","**The amnesty.** To end the fighting, Rojas offered an amnesty under the slogan 'peace, justice, and liberty for all'. It covered both sides, so the chulavita police who had attacked Liberal villages were pardoned too.","**15 September 1953: the largest Liberal force disarms.** Guadalupe Salcedo, commander of the Llanos guerrillas, handed in his men's weapons. Many Liberals followed."],"why_label":"Why? And name the risk you accept."},{"id":"s2","kind":"stage","kicker":"Stage 2 of 6 · 1958 to 1964","headline":"1964: The army prepares to attack Marquetalia","receipt_title":"Stage 2, Marquetalia in 1964","lede":"You lead the armed peasant community of Marquetalia, in the far south of Tolima. It is early April 1964.","paragraphs":[],"panels":[],"tiles":[],"question":"What does Marquetalia do?","picks":[{"id":"s2_defend","name":"Stay and defend Marquetalia","detail":"Move the women, children, and old people out. The armed men hold the land and the homes built since 1955, and show the country they are farmers defending themselves. The army can bring far more men than you have."},{"id":"s2_mobile","name":"Leave and become mobile guerrillas","detail":"Abandon the homes and fields built since 1955 and move through the mountains in small armed bands. You become what the army says you are: guerrillas, not settlers defending their land."},{"id":"s2_petition","name":"Ask the president for peace","detail":"Ask the president to call off the troops and send schools, roads, and clinics, and keep your weapons while you wait. The government gets a peaceful way out, but the troops may march before it answers."}],"why_min":12,"reveal":{"real_pick":"s2_mobile","bullets":["**May 1964: the attack.** Operation Marquetalia began on 18 May with 2,000 to 3,000 soldiers, by military sources. Two days later more than 300 settlers wrote to the president asking for the troops to leave, and for schools, roads, and clinics. They did not offer to disarm, and said they were ready to die fighting.","**June 1964: they slip away.** The fighters left, and Marulanda went to Riochiquito, in Cauca.","**Mobile guerrillas.** By late 1964 (1965 in some accounts) the settlers had become mobile guerrillas, and in 1966 they took the name FARC.","**A small group.** In 1970 only 3 FARC actions are recorded, against 12 by the EPL and 18 by the ELN, two newer guerrilla groups."],"paragraphs":[],"class_link":{"text":["**Commitment problem.** The Communists' 1958 pledge not to use their weapons, Marulanda's return to arms after Charro Negro's killing in January 1960 ('we are next'), the dispute over whether the pledge was broken in the December 1963 ambush, and the May 1964 letter that did not offer to disarm are all above.","**Private information.** Weeks before the attack, government intelligence counted at least 400 armed men at Marquetalia, and the FARC later said it had about 50 (both above). The size of the attacking force is also disputed: 2,000 to 3,000 soldiers by military sources (above), and 10,000 to 16,000 by the guerrillas' later account.","**Indivisible stakes.** In his 1961 speech (above), Gómez Hurtado also said the zones did not recognize the sovereignty of the Colombian state. The settlers' May 1964 letter asked for the troops to leave (above).","**Discuss:** Marulanda later said the settlers asked only for roads, a market, and schools, which would have cost the state no more than 5 million pesos. If peace was that cheap, why did the state attack?"],"reading":"Truth Commission, No matarás (2022), pp. 70 and 97 to 104. Colombiacheck (2026), on the settlers' May 1964 letter and the intelligence count.","title":"How this connects to the course","tag_question":"The armed peace of 1958 ended in war by 1964. Which explanation of why peace fails fits this best? Pick one, then argue it out.","tag_options":["Commitment problem","Private information","Indivisible stakes","Something else"]}},"lock_label":"Save our call and see what happened","photos":[{"file":"media/planadas.jpg","alt":"Planadas, the municipality in southern Tolima where Marquetalia lay, 2021","credit":"Planadas today, the municipality in southern Tolima where Marquetalia lay. Photo: Felviper, CC BY-SA 4.0, 2021.","info":"Planadas is now Tolima's largest coffee producer, known for specialty coffee, and its growers have won Colombia's national Cup of Excellence coffee contest."}],"map":{"file":"media/map_stage2.svg","alt":"Map of Colombia for stage 2","credit":"Shaded: Tolima, Huila, and Cauca. El Pato and Guayabero lay just to the east, in Caquetá and Meta. Map: Natural Earth, geoBoundaries, and GeoNames.","info":"**Dots**: Marquetalia, Riochiquito, El Pato, and Guayabero. In a straight line, Marquetalia lay about 250 km southwest of Bogotá and about 60 km from Riochiquito."},"bullets":["**1958: an armed peace.** Under the National Front the Communists stopped fighting but kept their weapons, promising not to use them. Marulanda took a job as a road inspector, and fighters' families settled at Marquetalia to farm.","**What they asked for.** In 1958 talks with the government, the Communists asked for an end to rule by emergency decree, the return of land taken in La Violencia, and an end to attacks by the limpios.","**January 1960: the peace breaks.** In a feud over a machine gun, the limpio leader Mariachi had Charro Negro, Marquetalia's co-founder, shot dead. By a fighter's account, Marulanda said: 'They killed Charro, and we are next.' He took up arms again.","**1961: 'independent republics'.** In the Senate, the Conservative Álvaro Gómez Hurtado called the Communist zones 'independent republics' 'where the Colombian army cannot enter' and urged the army to take them back. Similar pressure, and the guerrilla attacks (below), led the president to order an attack.","**The army prepares.** It was the Cold War, and the army's new plan, Plan Lazo, drew on US advice on fighting Communist insurgents.","**Who attacked first is disputed.** In 1962 and 1963 guerrillas carried out a wave of attacks. The army says Marquetalia's fighters killed 5 soldiers in an ambush in December 1963. A former fighter says the settlers had kept their promise not to attack the army.","**1964: the target.** The army's campaign plan names Marquetalia and three other Communist zones, Riochiquito, El Pato, and Guayabero. The attack is set for the third week of May.","**How strong is Marquetalia?**  Government intelligence reported at least 400 armed men. The FARC later said it had about 50 armed men (plus dozens of families, numbering hundreds of individuals in total)."],"why_label":"Why? And name the risk you accept."},{"id":"s3","kind":"stage","kicker":"Stage 3 of 6 · 1978 to 1983","headline":"1982: Paying for the war","receipt_title":"Stage 3, how to pay for the war","lede":"You sit on the FARC's leadership. It is May 1982, and the FARC is holding its Seventh Conference in Guayabero, in Meta.","paragraphs":[],"panels":[],"tiles":[],"question":"What will be the FARC's main source of money?","picks":[{"id":"s3_refuse","name":"Refuse drug money","detail":"Live on contributions from your peasant supporters. You keep their support and Arenas's line against drug money, but you may grow slowly.","others":{"who":"The ELN (National Liberation Army), another guerrilla group that refused drug money for decades, though not kidnapping.","bullets":["In the early 1980s it grew on kidnapping and on payments from oil companies building the Caño Limón-Coveñas pipeline.","Under pressure from the security forces, the paramilitaries, and the FARC, some of its fronts later moved into drugs, including taxing coca growers."]}},{"id":"s3_growers","name":"Tax the coca growers","detail":"Charge every peasant who grows coca a fee per gram. Coca is the main crop in your southern zones, so the money is steady, and it comes from the people you say you defend."},{"id":"s3_traffickers","name":"Tax the traffickers, spare the growers","detail":"Demand large sums from traffickers and cocaine labs in your areas, and leave small growers alone. The sums are large, but you depend on the men who formed MAS to hunt kidnappers."},{"id":"s3_kidnap","name":"Kidnap ranchers and businessmen","detail":"Make holding wealthy people for ransom your main source, as other guerrilla groups do. It pays fast. The traffickers' answer to the M-19 shows what it can provoke.","others":{"who":"Two guerrilla groups that kidnapped more than the FARC in the 1980s: the M-19 and the ELN.","bullets":["Cocaine traffickers created Death to Kidnappers (MAS) within weeks, to hunt kidnappers.","**1999.** The ELN kidnapped about 190 people from a church in Cali, the largest kidnapping in Colombia's history. Its refusal to give up kidnapping was among the obstacles that stalled its talks with the government from 2022 to 2025."]}}],"why_min":12,"reveal":{"bullets":["**The coca rule.** Sources disagree on what was decided. By the FARC's own documents, it banned charging small and medium growers per gram, and told units to demand large sums from major traffickers, without the FARC's role becoming public.","**Units broke the rule.** That year the leaders rebuked Argemiro, commander in Caquetá, for taxing growers and for his ties with traffickers. In 1983 they complained that some fronts had bought businesses and property.","**Kidnapping and the militias.** In October 1983 the leaders admitted that units in the Magdalena Medio had kidnapped small and medium ranchers, and that this fed the anger that built the militias against the FARC. Traffickers, Pablo Escobar among them, bought land there and paid for those militias, which became the paramilitaries.","**Others kidnapped more.** From 1980 to 1989 the FARC carried out 489 kidnappings, fewer than the M-19 (672) or the ELN (574).","**Growth.** Fronts grew from 16 in 1982 to 48 in 1991. Fighters grew from 5,800 in 1991 to between 16,000 and 28,000 around 2002, by different estimates. Arenas died in 1990. His objection to drug money had been one of the main obstacles to a larger FARC role in the trade."],"class_link":{"text":["**Grievances.** Arjona and Kalyvas surveyed former paramilitaries and former FARC fighters who had left the group on their own. Economic, political, and ideological grievances did not set FARC recruits apart from recruits to the paramilitaries, who fought the FARC. If anything, those who saw themselves as poor were more likely to have joined the paramilitaries. A former FARC member: 'I lived in Tolima with my family which was poor. We worked in farms, I was not paid. I got bored with this and joined the FARC.'","**Selective incentives.** The FARC paid its fighters no salary, despite its income from illegal sources, while the paramilitaries usually paid an estimated $200 a month. About 25% of former FARC members said they had expected some material reward, against about half of former paramilitaries, who named economic interest as a reason. Only about 4% in each group named safety as key to joining.","**Social sanctions.** Arjona and Kalyvas measured community ties partly by whether recruits said they joined because friends or family already had. Former FARC members were more likely than former paramilitaries to say so. One said he 'liked the ideas. Because of friends, for fun.' The authors had expected no difference between the two groups on such measures."],"reading":"Arjona and Kalyvas (2009), pp. 18 to 19, 24, 28, and 29.","title":"How this connects to the course","tag_question":"The FARC grew from about 3,000 fighters in 1982 to between 16,000 and 28,000 around 2002. Why did people join? Which motive fits best? Pick one, then argue it out.","tag_options":["Grievances","Selective incentives","Social sanctions","Something else"]},"real_label":"by its own rules, tax the traffickers and spare the growers. In practice some units also taxed growers, and the FARC kidnapped for ransom."},"lock_label":"Save our call and see what happened","photos":[{"file":"media/marulanda_arenas.jpg","alt":"Manuel Marulanda and Jacobo Arenas","credit":"Manuel Marulanda (left) and Jacobo Arenas, undated. Photo: Agencia Fariana de Prensa, the FARC's press agency, CC0.","info":"Marulanda was the FARC's first commander. Arenas came to it from the Communist Party and had traveled to Havana and Moscow."}],"map":{"file":"media/map_stage3.svg","alt":"Map of Colombia for stage 3","credit":"Shaded: the southern coca frontier (Caquetá, Putumayo, Guaviare, and Meta), and Antioquia, Boyacá, and Santander, in the Magdalena Medio valley. Map: Natural Earth, geoBoundaries, and GeoNames.","info":"**Dots**: the Magdalena Medio, about 160 km north-northwest of Bogotá in a straight line, and the Seventh Conference, about 270 km south."},"bullets":["**The FARC is still small.** In 1982 it has 16 fronts (regional units), up from 9 in 1979, and about 3,000 fighters, by one estimate.","**A plan to take power.** Marulanda and Jacobo Arenas, the FARC's political leader, present a plan to take power in 8 years with an army of 28,000. That needs far more money than the FARC has.","**Coca is spreading in its zones.** In the 1970s traffickers pushed peasants in the southern frontier to grow coca and make coca paste. It became the region's main crop.","**The FARC already taxes drugs.** It taxed marijuana growers from the mid-1970s. By one grower's account, it first opposed coca, then stopped bothering growers around 1980.","**Kidnapping for ransom.** Guerrillas often kidnap wealthy people for ransom. When the M-19 kidnapped Marta Nieves Ochoa, the sister of cocaine traffickers, in November 1981, the traffickers formed Death to Kidnappers (MAS) to hunt kidnappers.","**Ranchers' militias.** In the Magdalena Medio valley, ranchers are forming militias against the guerrillas, with weapons and training from the army.","**A moral objection.** Arenas thinks drug money will corrupt the FARC."],"why_label":"Why? And name the risk you accept."},{"id":"s4","kind":"stage","kicker":"Stage 4 of 6 · 1982 to 1984","headline":"1984: The La Uribe accords","receipt_title":"Stage 4, the 1984 peace offer","lede":"You lead the FARC. It is 1984, and President Belisario Betancur is offering peace.","paragraphs":[],"panels":[],"question":"What does the FARC do with the truce?","picks":[{"id":"s4_both","name":"Launch a party, keep the weapons","detail":"Send commanders into politics and run in elections. Keep the fronts armed in case the deal fails. The army will see your party as the guerrillas in disguise."},{"id":"s4_disarm","name":"Disarm and become a party","detail":"Hand in the weapons and compete for votes like any other party. The army loses its main argument against your party, and your members' safety rests on the government.","others":{"who":"The M-19, which disarmed in 1990.","bullets":["**8 March 1990.** The M-19 handed in its weapons.","**26 April 1990.** Its leader, presidential candidate Carlos Pizarro, was killed.","**1991.** Its party, in alliance with the former EPL guerrillas, won 9 Senate and 13 House seats.","**1994.** It lost all its Senate seats and soon disappeared as a party."]}},{"id":"s4_grow","name":"Use the truce to grow, stay out of politics","detail":"Keep the ceasefire but send nobody into elections. Recruit and build new fronts while the army holds back. You risk nothing in politics, and you give up the chance to win support by votes.","others":{"who":"The closest case: the ELN, another guerrilla group, which stayed out of the 1984 talks altogether.","bullets":["It ignored Betancur's call for peace and rebuilt under its leader Manuel Pérez.","**1990 to 1991.** It refused to disarm when the M-19 and most of the EPL did.","It is still fighting today."]}}],"why_min":12,"lock_label":"Save our call and see what happened","photos":[{"file":"media/betancur.jpg","alt":"President Belisario Betancur, 1985","credit":"President Belisario Betancur, 1985. Photo: Ronald Reagan Library, public domain.","info":"Betancur also founded a publishing house and translated the Greek poet Constantine Cavafy."}],"map":{"file":"media/map_stage4.svg","alt":"Map of Colombia for stage 4","credit":"Shaded: Meta, where the accords were signed. Map: Natural Earth, geoBoundaries, and GeoNames.","info":"La Uribe lies about 155 km south of Bogotá in a straight line."},"bullets":["**A president who wants peace.** Belisario Betancur, a Conservative elected in 1982, said the war had social causes that had to be fixed, and chose to negotiate. Under his amnesty more than 1,000 jailed guerrillas went free.","**28 March 1984: the La Uribe accords.** The FARC and the government agree to a ceasefire from 28 May 1984, checked by a national commission. The FARC promises to stop kidnapping and extortion.","**A door into politics.** Once the ceasefire holds, a 1-year trial period opens in which FARC members may organize politically, with guarantees from the government that the accords do not spell out.","**What the accords leave out.** They do not require the FARC to hand in its weapons. They do not say how its members will be protected, and no one from outside Colombia monitors them.","**The army.** Top army officers see talks with the FARC during a ceasefire as weakness and want to defeat it by force. In January 1984 Betancur forced out his defense minister, General Fernando Landazábal, for undermining the peace policy."],"reveal":{"real_pick":"s4_both","bullets":["**May 1985: a new party.** The Patriotic Union (UP) was founded out of the peace talks. The FARC kept its weapons, and kept growing, from 27 fronts in 1984 to 39 in 1987.","**The communist party agreed with this decision.** The FARC's main ally, the Communist Party, helped found the UP. Since 1961 the party had held that votes and weapons could be combined.","**1986: the first elections.** The UP won 4.5% of the vote for president, 9 of 199 House seats and 6 of 114 Senate seats (counting coalitions), and 325 town councilors (351 by the Truth Commission's count)."]},"why_label":"Why? And name the risk you accept."},{"id":"s4b","kind":"stage","kicker":"Stage 4 of 6 · 1986 to 1987","headline":"1987: The Patriotic Union under attack","receipt_title":"Stage 4, after the killings began","lede":"You lead the FARC. It is early 1987, and members of your party, the Patriotic Union, are being killed across the country, among them members of Congress and town councilors.","paragraphs":[],"question":"What does the FARC do now?","picks":[{"id":"s4b_war","name":"Pull your people out of politics and go back to war","detail":"Call your commanders back from the party to the fronts and prepare for war. Your commanders are safer, but you give up the seats won in 1986, and the party's unarmed members are left on their own."},{"id":"s4b_both","name":"Keep the party and the weapons","detail":"Stay in elections and keep your armed fronts, so neither is given up. As long as the fronts stay armed, every party member stays a target."},{"id":"s4b_break","name":"Break with armed struggle to protect the party","detail":"Say in public that the party has nothing to do with the guerrillas, and ask the state to protect its members. The party may survive, if the killers believe you.","others":{"who":"The Patriotic Union's own leaders, who broke with the FARC.","bullets":["**By 1988.** The party had declared itself separate from the FARC. The army and the government kept calling it part of the guerrilla.","**11 October 1987.** The UP's president, Jaime Pardo Leal, was killed. **22 March 1990.** His successor as UP president, Bernardo Jaramillo, was killed.","**1990.** In the congressional elections, the UP won just 1 Senate seat and 1 House seat on its own lists, plus 6 Senate seats and 1 House seat on joint lists with other parties.","The Truth Commission counts 5,733 people tied to the party killed or disappeared, 5,195 of them members."]}},{"id":"s4b_deal","name":"Disarm in exchange for guarantees","detail":"Offer to hand in your weapons if the state commits to protect your members and your party. You would be trusting a state whose soldiers and police are among the likely killers.","others":{"who":"The M-19, which disarmed in 1990 under its own deal.","bullets":["**8 March 1990.** The M-19 handed in its weapons.","**26 April 1990.** Its leader, presidential candidate Carlos Pizarro, was shot on a plane by a hitman. Courts later convicted the paramilitary leaders Carlos and Fidel Castaño (2002) and a state security agent on his bodyguard team (2025).","It never went back to war. Its party won seats in the 1991 constitutional assembly and in Congress."]}}],"why_min":12,"reveal":{"real_pick":"s4b_war","bullets":["**February 1987.** The FARC pulled out of the Patriotic Union and called its members back to the fronts.","**June 1987.** The truce broke down. The memory center ties the break to the systematic killing of UP members.","**The next screen** shows what happened to the party."]},"continue_label":"See the full record","bullets":["**Who is killing them, and why.** The killers are rarely caught. Colombia's National Center for Historical Memory later named paramilitaries as the likely killers in most cases where one is known, and soldiers and police in about a quarter. The Truth Commission describes local networks of army units, politicians, ranchers, and drug traffickers that wanted to stop the UP from governing the towns where it had won elections.","**How the army sees your party.** Most army officers see the UP as the FARC in politics, not as a separate party. In 1986 the former defense minister, General Fernando Landazábal, called it a front for the guerrillas. The Truth Commission writes that for these officers, attacking the UP meant attacking the FARC.","**What leaving politics would cost.** The seats won in 1986: 9 in the House, 6 in the Senate (counting coalitions), and 325 town councilors."],"why_label":"Why? And name the risk you accept.","photos":[{"file":"media/pardo_leal.jpg","alt":"Jaime Pardo Leal","credit":"Jaime Pardo Leal, the UP's president and its 1986 presidential candidate. Photo: Lidio.m32, CC BY-SA 3.0."}]},{"id":"r4","kind":"record","stage":"s4","real_pick":"s4_both","kicker":"Stage 4 of 6 · the full record","headline":"The Patriotic Union, 1985 to 1991","bullets":["**The party leaders chose votes.** Jaime Pardo Leal, the UP's president and 1986 presidential candidate, September 1987: 'At this moment armed struggle is not the correct path.' Bernardo Jaramillo, its next president: 'We do not need weapons to win votes.'","**Leaders killed.** Pardo Leal on 11 October 1987, Jaramillo on 22 March 1990. Jaramillo was its 1990 presidential candidate. The UP then pulled out of that race, saying it had no protection.","**By whom.** For 1984 to 1988 the memory center names paramilitaries as the likely killers in 60.8% of cases, state agents in 25.9%, and both together in 6.8%.","**How many.** Counts differ. The memory center counts 4,153 UP members killed, disappeared, or kidnapped from the 1984 accords to 2002. The Truth Commission counts 5,195 members killed or disappeared. The Inter-American Court of Human Rights counts more than 6,000 victims, including survivors of threats and torture, and called it an extermination.","**The M-19 disarms.** Its 1990 deal gave a pardon and the right to do politics, and the government and the M-19 promised to back special seats in Congress, for one election only, for parties of disarmed guerrillas. It disarmed on 8 March 1990. On 26 April a hired gunman shot its leader and presidential candidate, Carlos Pizarro, on a plane. The paramilitary leader Carlos Castaño admitted training the gunman and planning the killing, and prosecutors are investigating former officials of the state security agency for weakening Pizarro's protection.","**The M-19 after Pizarro's death.** The M-19 stayed in the deal. Its leader Antonio Navarro later said the Medellín drug cartel was killing presidential candidates, and asked: 'What did we do? Keep our word.' On 9 December 1990 its party won 19 of 70 seats in the assembly that wrote the 1991 Constitution. The UP won 2. The same day, the army bombed Casa Verde, the FARC's headquarters.","**The EPL.** The EPL also disarmed in 1991 and got seats in that assembly. Its party, Esperanza, Paz y Libertad, lost 110 members to targeted killings in the years that followed."],"paragraphs":["In the Truth Commission's words, the FARC then gave up on winning office openly and put its army first."],"class_link":{"title":"How this connects to the course","text":["**Commitment problem.** The 1984 accords did not require the FARC to disarm, did not say how its members would be protected, and had no monitor from outside Colombia. Thousands of UP members were then killed or disappeared (above), and in February 1987 the FARC called its members back to the fronts. Through the truce the FARC also kept growing, from 27 fronts in 1984 to 39 in 1987.","**Indivisible stakes.** Power in Congress and in the towns: in 1986 the UP won 9 of 199 House seats, 6 of 114 Senate seats (counting coalitions), and 325 town councilors, and local networks of army units, politicians, ranchers, and drug traffickers then tried to stop it from governing the towns it had won.","**Discuss:** the M-19 disarmed, lost its candidate, and stayed in its deal. Did it solve the commitment problem, or just accept the risk?"],"reading":"La Uribe accords (1984). National Center for Historical Memory, Todo pasó frente a nuestros ojos (2018), pp. 44, 58, 62 to 63, and 67. Truth Commission, La esperanza acorralada (2022). Fundación Ideas para la Paz, Hoy y ayer del Bloque Oriental de las FARC (2015).","tag_question":"The FARC kept its weapons through the 1984 truce, and the truce collapsed in 1987. Which explanation of why peace fails fits this best? Pick one, then argue it out.","tag_options":["Commitment problem","Indivisible stakes","Something else"]},"photos":[{"file":"media/jaramillo_ossa.jpg","alt":"Bernardo Jaramillo Ossa","credit":"Bernardo Jaramillo Ossa. Photo: Lidio.m32, CC BY-SA 3.0."},{"file":"media/pardo_leal_mural.jpg","alt":"Mural honoring Jaime Pardo Leal at the University of Antioquia, Medellín","credit":"A mural honoring Jaime Pardo Leal at the University of Antioquia, Medellín, 2025. Photo: CC0."}],"show_call":false},{"id":"s5","kind":"stage","kicker":"Stage 5 of 6 · 1993 to 2016","headline":"1998: Pastrana's demilitarized zone","receipt_title":"Stage 5, the 1998 zone","lede":"You lead the FARC. It is November 1998, the FARC is near its peak, and the new president, Andrés Pastrana, offers it a zone of its own for peace talks.","paragraphs":[],"panels":[],"tiles":[{"value":"More than 10,000","label":"FARC fighters in the 1990s, by one estimate","source":"IC1"}],"question":"What do you do with the zone?","picks":[{"id":"s5_negotiate","name":"Negotiate a settlement","detail":"Use the talks to win land reform and a place in politics while your forces are at their largest. A deal means giving up the army that won you this offer.","others":{"who":"The closest case: the paramilitary AUC, the FARC's enemy, which negotiated with President Uribe.","bullets":["**July 2003.** It agreed to demobilize. The Justice and Peace Law of 2005 later offered reduced sentences to members who confessed to major crimes.","**April 2006.** More than 31,000 members had demobilized and handed in more than 17,000 weapons.","**13 May 2008.** Colombia extradited 14 people to the US, among them top paramilitary commanders.","Many former paramilitaries joined new criminal groups. By 2013 the Urabeños were the strongest of them."]}},{"id":"s5_grow","name":"Talk, but use the zone to grow","detail":"Train, recruit, and hold prisoners there while the talks go on. You get stronger, but if the country sees the zone used for war, the next government may fight you harder."},{"id":"s5_refuse","name":"Refuse the zone","detail":"Talks have failed before. Keep fighting everywhere and give the president nothing to show. You avoid a trap, and you lose a safe base the size of Switzerland.","others":{"who":"No guerrilla group turned down a zone. The closest case is the ELN, whose own talks failed and which never got a zone.","bullets":["**1998.** Its own peace talks failed.","**2000.** It asked for a zone in southern Bolívar. The paramilitary leader Carlos Castaño opposed it, and the plan failed. The ELN is still fighting."]}}],"why_min":12,"reveal":{"real_pick":"s5_grow","bullets":["**1999 to 2002: talking and fighting.** Marulanda did not come, and Pastrana opened the talks on 7 January 1999 next to his empty chair. The FARC said paramilitaries planned to kill Marulanda there. Both sides kept fighting, and the memory center says the war reached its greatest intensity. A US Congressional Research Service report says the FARC was widely seen as using the zone to regroup and rearm.","**February 2002: the end of the zone.** After the FARC hijacked a plane and kidnapped a senator on board, Pastrana ended the talks and the zone on 20 February. Three days later the FARC kidnapped presidential candidate Íngrid Betancourt.","**2002 to 2010: all-out war.** President Álvaro Uribe fought the FARC with US aid from Plan Colombia, for which the US Congress had approved $1.3 billion in 2000. Kills became the army's measure of success.","**Losses.** In March 2008 the military killed second-in-command Raúl Reyes in Ecuador, and Marulanda died of a heart attack. In November 2011 it killed his successor, Alfonso Cano. Fighters fell from between 16,000 and 28,000 around 2002 to between 7,000 and 9,000 by 2012.","**2012 to 2016: a deal in Havana.** The FARC, led by Rodrigo Londoño, known as Timochenko, negotiated with President Juan Manuel Santos, Uribe's former defense minister. They signed on 26 September 2016.","**What the deal promised.** At least 5 Senate and 5 House seats for 2 terms, whatever the vote. 90% of the minimum wage for 24 months for each former fighter without a paid job. A security body, run jointly by the state's protection agency and the FARC's new party, to protect former fighters. A UN mission to verify the ceasefire and the handover of weapons. The text says what happened to the Patriotic Union must never happen again.","**Voters said no.** On 2 October 2016 they rejected the deal, 50.2% to 49.8%, with turnout under 38%. Those who voted No objected that fighters who confessed would avoid prison, and to the payments and the guaranteed seats. Many said they did not trust the FARC to disarm for good.","**A revised deal.** It was signed on 24 November 2016, and Congress later approved it. In June 2017 the FARC handed 7,132 weapons to the UN."],"class_link":{"text":["**Commitment problem.** Both sides kept fighting during the talks, the FARC was widely seen as using the zone to rearm, and the US Congress funded Plan Colombia (all above). The Truth Commission writes that for the FARC a ceasefire was where the talks would end and disarming was not even considered, and that distrust persisted because of the paramilitaries, whose close ties to members of the armed forces had been exposed. The 2016 deal added the security body and the UN mission above, whose observers the deal describes as unarmed.","**Indivisible stakes.** The 1993 plan to close in on the cities and the FARC's wish to be recognized as a political force are above. The Truth Commission writes that in the zone, where it had its rear base, the FARC sought to set up a power of its own alongside the state, and that what it sought from the talks was to make its military power legitimate in politics. In 2016, after its losses, it accepted guaranteed seats in Congress (above).","**Discuss:** the FARC was near its peak in 1998 and signed a deal only in 2016, after the losses above. Is a rebel group more likely to make peace when it is strong or when it is losing, and why?"],"reading":"Truth Commission, No matarás (2022), pp. 348 to 349. Final Agreement (2016), pp. 60 and 70 to 71. US Congressional Research Service, Colombia's Peace Process Through 2016 (2016). National Center for Historical Memory, ¡Basta ya! (2013), pp. 154 to 155.","title":"How this connects to the course","tag_question":"The talks in Pastrana's zone failed in 2002. Which explanation of why peace fails fits this best? Pick one, then argue it out.","tag_options":["Commitment problem","Indivisible stakes","Something else"]},"photos":[{"file":"media/santos_timochenko_signing.jpg","alt":"A crowd watches the signing of the peace deal on a giant screen","credit":"A crowd in Cartagena watches the signing on a giant screen, 26 September 2016. Photo: US Department of State, public domain.","info":"Santos and Timochenko signed with a pen made from a .50-caliber bullet casing, engraved: 'Bullets marked our past. Education, our future.'"}]},"lock_label":"Save our call and see what happened","photos":[{"file":"media/pastrana.jpg","alt":"President Andrés Pastrana, 2001","credit":"President Andrés Pastrana, 2001. Photo: US Department of Defense, public domain.","info":"He won the June 1998 runoff against the Liberal Horacio Serpa, 50.3% to 46.6%, after making peace talks with the guerrillas his priority. The FARC and the ELN made no secret of preferring him."},{"file":"media/caguan_farc.jpg","alt":"FARC commanders raise their rifles at the Caguán peace talks","credit":"FARC commanders at the Caguán peace talks, held in the zone, 1998 to 2002. Photo: US Drug Enforcement Administration, public domain.","info":"Pastrana's decree of 14 October 1998 cleared the army out of San Vicente del Caguán and 4 municipalities in Meta, La Uribe, Mesetas, La Macarena, and Vistahermosa, for 90 days at first."}],"map":{"file":"media/map_stage5.svg","alt":"Map of Colombia for stage 5","credit":"Shaded: the 5 municipalities of the 1998 to 2002 zone. Map: Natural Earth, geoBoundaries, and GeoNames.","info":"**Dots**: the FARC's attacks at Las Delicias, El Billar, and Mitú, and the paramilitary massacre at Mapiripán. In a straight line, Mitú lies about 570 km southeast of Bogotá, and San Vicente del Caguán about 290 km south."},"bullets":["**The FARC goes on the offensive.** In 1993 it decided to fight in larger units that take and hold ground, and to close in on the cities, Bogotá first.","**Major attacks.** At Las Delicias, Putumayo, in August 1996, 28 soldiers died (Truth Commission count) and 60 were taken prisoner. At El Billar, Caquetá, in March 1998, it killed dozens of soldiers. In November 1998 it held Mitú, capital of Vaupés, for 3 days. It was collecting prisoners to trade.","**The paramilitaries unite.** In 1997 regional paramilitary groups formed a national federation, the AUC. That July paramilitaries killed about 49 people in Mapiripán, Meta.","**A new president seeks talks.** Andrés Pastrana, elected in 1998, met Marulanda in the jungle on 9 July, before taking office.","**The offer.** The army will leave 5 municipalities, 42,000 square kilometers, about the size of Switzerland, while the talks go on. It begins to leave on 7 November 1998.","**How the FARC sees it.** The Truth Commission writes that the FARC wanted the zone as recognition as a political force, and still distrusted the state."],"why_label":"Why? And name the risk you accept."},{"id":"s6","kind":"stage","kicker":"Stage 6 of 6 · 2017 to today","headline":"2017: After the peace deal","receipt_title":"Stage 6, after the deal","lede":"It is 2017. You are a former FARC fighter who has just handed your rifle to the UN.","paragraphs":[],"question":"What do you do?","picks":[{"id":"s6_stay","name":"Stay in the deal","detail":"Work in your cooperative, back the party, and confess to the court. You keep a legal life, and you rely on a state that has been slow to deliver land and safety."},{"id":"s6_dissident","name":"Go back to the jungle with the dissidents","detail":"Join the former FARC units that refused or left the deal. You are armed and among comrades again, and the army and rival groups hunt you.","others":{"who":"FARC commanders who left the deal and their followers, now separate armed groups. Not the FARC's party.","bullets":["**July 2016.** The 1st Front, under Iván Mordisco, left the peace process. Gentil Duarte joined it.","**August 2019.** Iván Márquez, Jesús Santrich, and El Paisa announced a new group, the Second Marquetalia.","**2021 to 2022.** Santrich, El Paisa, and another commander, Romaña, were killed in Venezuela. Gentil Duarte was killed there in May 2022."]}},{"id":"s6_criminal","name":"Join a drug-trafficking group that pays","detail":"Sell your skills as a fighter for a salary. The pay is real, and you fight for traffickers, not a cause.","others":{"who":"Former FARC fighters at the Gallo camp in Córdoba, some of whom may have left the deal for a drug-trafficking group. The FARC as a group stayed in the deal.","bullets":["**By early 2018.** Officials and farmers believed 30 to 40 former fighters at Gallo may have joined the Urabeños, a drug-trafficking group that offered about 1,800,000 pesos (about $610) to those who switched. It threatened some who said no.","Later, many former fighters in the camps were forced to move or join criminal groups, according to InSight Crime."]}}],"why_min":12,"reveal":{"real_pick":"s6_stay","bullets":["**Most stayed.** Most former fighters stayed in the deal. A minority rearmed. The dissident groups grew mostly through new recruits. Estimates of former FARC fighters among them range from hundreds to thousands.","**The chief negotiator left.** In April 2018 negotiator Jesús Santrich was arrested on US drug charges, and in protest the chief negotiator, Iván Márquez, refused his Senate seat and demanded that unkept promises be met. In August 2019 Márquez announced a return to arms 'in response to the State's betrayal' of the deal.","**What the state has delivered.** By mid-2026 the UN counted 493 former FARC fighters killed since they signed the deal. By early 2026, 323,579 of a promised 3 million hectares of land had been handed out.","**The court.** In September 2025 the JEP handed down its first sentences: 8 years of reparation work, such as clearing land mines, for 7 former FARC leaders, for kidnapping.","**The party.** In March 2026, the first election without its guaranteed seats, the former FARC's party, Comunes, ran in a left coalition that got about 114,000 votes, far below the 500,000 needed to keep its legal status. It won no seats. The party said threats in several regions hindered its campaign.","**A new president.** In June 2026 Abelardo de la Espriella, a right-wing critic of the deal, won the presidency, 49.7% to 48.7% for left-wing senator Iván Cepeda. He announced plans to close the office that implements the deal, and his government has proposed cutting the JEP's budget."],"class_link":{"text":["**Grievances.** Márquez said he took up arms again in August 2019 'in response to the State's betrayal' of the deal. Most former fighters stayed in the deal, and in some camps land and projects had not arrived (all above). At Gallo, InSight Crime reported in January 2018 that, unlike many other camps, not a single productive project was moving forward.","**Selective incentives.** At Gallo, in Córdoba, InSight Crime reported in January 2018 that the Urabeños, a drug-trafficking group, were offering 1,800,000 pesos (about $610) to former fighters who switched sides, and that officials and small farmers believed 30 to 40 may have joined them. Gentil Duarte's $1.35 million and the dissidents' growth mostly through new recruits are above.","**Force.** InSight Crime reported in January 2018 that the Urabeños had threatened some former fighters at Gallo who refused to join. It also reports that pressure from armed groups, among them the ELN and the FARC dissidents themselves, forced many former fighters in the camps to move or to join these groups."],"reading":"Vanguardia (29 August 2019), on Márquez. InSight Crime (2 January 2018), on Gallo. InSight Crime, on Gentil Duarte. InSight Crime, FARC profile, on the camps.","title":"How this connects to the course","tag_question":"Some former FARC fighters took up arms again after 2016. Which motive fits best? Pick one, then argue it out.","tag_options":["Grievances","Selective incentives","Force","Something else"]},"photos":[]},"lock_label":"Save our call and see what happened","photos":[{"file":"media/etcr_icononzo.jpg","alt":"A camp for former FARC fighters in Icononzo, Tolima, 2018","credit":"A camp for former FARC fighters in Icononzo, Tolima, 2018. Photo: Juan Sebastian GilM, CC BY-SA 4.0.","info":"One of 26 FARC camps in 2017. After the fighters handed in their rifles, the UN let some weapons stay in the camps for security until 1 August 2017."}],"map":{"file":"media/map_stage6.svg","alt":"Map of Colombia for stage 6","credit":"Shaded: Guaviare, base of the first FARC unit to reject the deal. Dots: two camps for former fighters. Map: Natural Earth, geoBoundaries, and GeoNames.","info":"In a straight line, the Icononzo camp lies about 70 km southwest of Bogotá, and the Gallo camp, in the municipality of Tierralta, about 450 km northwest."},"bullets":["**What you were promised.** Land for peasants. A special court, the JEP, where those who confess do reparation work, such as clearing land mines, instead of prison. A party with 10 guaranteed seats in Congress for 2 terms, 2018 to 2026. 90% of the minimum wage for 24 months for each former fighter without a paid job.","**What you have.** Your weapons are with the UN. Former fighters are setting up cooperatives, farms, and businesses.","**What you do not have.** In some camps land and projects have not arrived. 'There is no land,' says a former fighter in Córdoba. After a former fighter was murdered in Caquetá, a local leader said no one protects them. Former fighters fear being killed if they visit their families.","**Offers to rearm.** Criminal groups offer money and salaries. Gentil Duarte, a FARC commander, left the peace process at the end of 2016 with $1.35 million and some of his men, and kept control of drug trafficking in the south."],"why_label":"Why? And name the risk you accept."},{"id":"receipt","kind":"receipt","title":"Colombia's war: our calls","shot_note":"Download this file, then upload it to the Blackboard item. Add every name in your group at the top of the file, or type the names into Blackboard when you upload. If your group wrote the essay, add it at the end of the file.","grade_note":"Your calls are not graded."}],"how_it_works":{"intro":"This page describes the history of Colombia's war. Throughout, you need to make calls with your groups and afterwards you will see what really happened. This exercise is inspired by John Holbein's President's Budget simulation (johnholbein.org/teaching-activities/presidents-budget).","model_note":"Nothing on this page is scored. Your calls do not change the history you see.","notes":[]},"reference":{"title":"The case","intro":"This tab starts almost empty and fills up as you go. After each stage, it adds what happened at that stage and the terms you need.","sections":[{"title":"The armed groups","items":["**FARC.** Revolutionary Armed Forces of Colombia. A Communist peasant guerrilla group, Colombia's largest."]},{"title":"Terms","items":["**La Violencia.** The killing between Liberals and Conservatives, about 1946 to 1958.","**Front.** A regional unit of the FARC.","**Self-defense groups.** The Communist Party's term for armed peasant groups formed to defend their own communities."]},{"title":"Terms, stage 1","open_after":"s1","items":["**National Front.** The 1957 pact in which the two major parties shared power and excluded everyone else."]},{"title":"Terms, stage 2","open_after":"s1","items":["**Independent republics.** A senator's name in 1961 for the Communist zones, which he said the army could not enter."]},{"title":"The armed groups, from stage 3","open_after":"s2","items":["**ELN.** National Liberation Army. A guerrilla group whose first attack was in 1965.","**EPL.** Popular Liberation Army. A Maoist guerrilla group, formed in 1967.","**M-19.** An urban guerrilla group named after the disputed election of 19 April 1970.","**Paramilitaries.** Militias of ranchers and drug traffickers, often helped by the army, that fought the guerrillas and attacked civilians they saw as guerrilla supporters."]},{"title":"Terms, stage 4","open_after":"s4b","items":["**Patriotic Union (UP).** The party born from the 1984 to 1985 peace talks."]},{"title":"Terms, stage 5","open_after":"s5","items":["**AUC.** United Self-Defense Forces of Colombia, the national federation of paramilitary groups from 1997.","**Plan Colombia.** A Colombian plan funded by US aid from 2000, first against drugs and from 2002 also against armed groups.","**False positives.** Civilians killed by the security forces, mostly the army, and presented as guerrillas killed in combat.","**JEP.** Special Jurisdiction for Peace, the court created by the 2016 deal."]},{"title":"Terms, stage 6","open_after":"s6","items":["**Dissidents.** Former FARC units and commanders who rejected or left the 2016 deal.","**Total Peace.** President Petro's policy, from 2022, of talking with many armed groups at once."]},{"title":"Timeline, stage 1","open_after":"s1","items":["**1946.** Conservatives win the presidency. Party violence grows.","**9 April 1948.** Gaitán killed. Riots across the country.","**1949.** Congress closed. Communists form self-defense groups.","**1953.** Rojas Pinilla's coup and amnesty.","**1955.** Villarrica bombed. Marquetalia founded.","**1957.** National Front approved by plebiscite."]},{"title":"Timeline, stage 2","open_after":"s2","items":["**11 January 1960.** Charro Negro killed.","**1961.** The 'independent republics' speech.","**May 1964.** Operation Marquetalia.","**20 July 1964.** Agrarian Program.","**1965 to 1967.** ELN and EPL begin.","**1966.** The FARC takes its name.","**1974.** M-19's first action."]},{"title":"Timeline, stage 3","open_after":"s3","items":["**November 1981.** Marta Nieves Ochoa kidnapped. MAS formed weeks later.","**May 1982.** Seventh Conference: FARC-EP, plan to take power.","**1982.** The FARC has 16 fronts.","**1980s.** Ranchers and traffickers build paramilitaries in the Magdalena Medio."]},{"title":"Timeline, stage 4","open_after":"s4b","items":["**28 March 1984.** La Uribe accords.","**28 May 1985.** Patriotic Union founded.","**June 1987.** Truce breaks down.","**11 October 1987.** Pardo Leal killed.","**22 March 1990.** Jaramillo killed.","**March to April 1990.** M-19 disarms. Pizarro killed.","**1991.** New Constitution."]},{"title":"Timeline, stage 5","open_after":"s5","items":["**1997.** AUC formed. Mapiripán massacre.","**1999 to 2002.** Talks in the southern zone.","**2000.** Plan Colombia.","**2002 to 2010.** Uribe's offensive. False positives.","**2008 to 2011.** FARC leaders killed.","**2012 to 2016.** Havana talks and deal. Voters reject it, a revised deal passes.","**2017.** FARC disarms."]},{"title":"Timeline, stage 6","open_after":"s6","items":["**2019.** Iván Márquez rearms.","**2022.** Petro elected. Total Peace.","**January 2025.** Catatumbo fighting.","**2026.** Comunes loses its seats. De la Espriella elected."]},{"title":"Evidence for the essay","open_after":"s6","paragraphs":["Each explanation, with facts from this page that support it and facts that cut against it."],"items":["**Commitment problem, for.** People who laid down arms or entered politics were killed: Salcedo in 1957, thousands of Patriotic Union members after 1985, Pizarro in 1990, and 493 former FARC fighters since 2016. **Against.** The M-19 disarmed and never went back to war, and most FARC fighters stayed in the 2016 deal.","**Exclusion, for.** The National Front shut every other party out of power from 1958. The Communist Party was outlawed in 1954. When the FARC tried politics in 1985, its party's members were killed by the thousands.","**Exclusion, against.** Though left out of the National Front, the Communists regained a legal party in 1957 and moved into politics. Cederman and colleagues study the exclusion of ethnic groups, and the FARC was a Communist peasant guerrilla, not an ethnic movement. The FARC grew fastest in the 1980s and 1990s, after the National Front had ended.","**Opportunity, for.** The war began in remote zones outside state control. In 1998 the state handed the FARC a zone of its own.","**Opportunity, against.** The FARC stayed small from 1966 until the late 1970s. Its mountains and remote plains had not changed.","**Selective incentives, for.** The FARC grew from about 3,000 fighters in 1982 to between 16,000 and 28,000 by about 2002 (estimates differ) as coca and kidnapping money came in. Dissidents after 2016 offered pay.","**Selective incentives, against.** Only about 25% of former FARC members said they expected a material reward. Its leaders argued about the morality of drug money for years."]}]},"no_names":true,"glossary":{"Gaitán":"Jorge Eliécer Gaitán, head of the Liberal Party and its sole candidate for the 1950 presidential election. His movement drew peasants, workers, and small property owners. The Truth Commission writes that victims remember his murder as a way of keeping popular leaders from power.","Rojas Pinilla":"Gustavo Rojas Pinilla, a general who took power in a coup in June 1953. The Truth Commission writes that his rule was a temporary way to settle disputes between Liberals and Conservatives, not a political project of its own. His amnesty covered soldiers jailed for an earlier coup attempt.","Ospina":"Mariano Ospina Pérez, Conservative president of Colombia from 1946 to 1950, whom the Truth Commission calls more moderate than Laureano Gómez. In April 1947 Gaitán sent him and his interior minister a formal list of grievances over the killings of Liberals and the lack of punishment for them.","Marulanda":"Manuel Marulanda, born Pedro Antonio Marín, a Liberal guerrilla in southern Tolima who joined the Communists and later led the FARC. As a young trader he saw Conservative gunmen kill about 150 people at Ceilán, Valle, in October 1949, which he said made him join the Liberal guerrillas.","Jacobo Arenas":"Luis Alberto Morantes, known as Jacobo Arenas, a trade unionist and Communist Party leader who headed the FARC's political wing. The party had sent him as its political officer to the fighters at what became Marquetalia, and he had been with the Communists at Villarrica.","Charro Negro":"Jacobo Prías Alape, known as Charro Negro, a Liberal guerrilla who went over to the Communists and became one of their main commanders in southern Tolima. The Colombian magazine Sur calls him the most prominent Communist guerrilla leader of his time and a member of the party's Central Committee.","Mariachi":"Jesús María Oviedo, known as Mariachi, a commander of the limpios, the armed Liberals loyal to their party, in southern Tolima. He had once hidden at El Davis with the Communists. The Truth Commission writes that, though officially disarmed, he kept attacking them with local bosses and security forces.","Salcedo":"Guadalupe Salcedo, commander of the Liberal guerrillas of the Llanos, the eastern plains, which the Truth Commission calls the largest and best-armed guerrilla movement of the time. Its fighters seized military bases and towns, and by 1952 much of the movement had declared a revolution to overthrow the government.","Gómez Hurtado":"Álvaro Gómez Hurtado, a Conservative senator and son of Laureano Gómez, president from 1950 to 1951. In his October 1961 speech he blamed President Alberto Lleras Camargo's National Front government for failing to bring peace, and named Sumapaz, Planadas, and Riochiquito among the 'independent republics'.","Betancur":"Belisario Betancur, Conservative president of Colombia elected in 1982, who offered the FARC peace talks. The Truth Commission writes that his 1982 amnesty set no conditions, not even disarmament, which angered the army, and that many guerrillas it freed went back to their groups.","Landazábal":"General Fernando Landazábal, Betancur's first defense minister. In October 1982, as Congress debated the amnesty, he said that just as the army neared final victory, the government was turning the guerrillas' defeats into victories: 'Let us hope this is the last amnesty.'","Pardo Leal":"Jaime Pardo Leal, president of the Patriotic Union (UP) and its candidate in the May 1986 presidential election, where he won 4.5% of the vote. A member of the Communist Party's Central Committee, he campaigned for land reform, nationalizing the banks and oil, and disbanding paramilitary groups.","Jaramillo":"Bernardo Jaramillo Ossa, Pardo Leal's successor as president of the Patriotic Union (UP) and its 1990 presidential candidate. In March 1990 the interior minister said voters had defeated the UP, 'the FARC's political arm'. Jaramillo said the remark had marked them for death.","Pizarro":"Carlos Pizarro, top commander of the M-19, an urban guerrilla group. In 1984 he arrived wounded to sign a ceasefire, after the army attacked his delegation on the way. When the M-19 disarmed, he laid his pistol on top of its weapons and said: 'We have done our part.'","Navarro":"Antonio Navarro Wolff, an M-19 leader who signed its 1990 peace deal and replaced Pizarro as its presidential candidate. In 1985 undercover members of the security forces threw a grenade at him, and he lost a leg. In 1991 he co-chaired the constitutional assembly.","Pastrana":"Andrés Pastrana, president of Colombia elected in 1998 on a promise of peace with the FARC. The Truth Commission writes that in October 1998 he recognized the FARC as a political force and accepted 3 negotiators from its richest bloc, the one behind attacks such as Las Delicias.","Uribe":"Álvaro Uribe, president of Colombia from 2002 to 2010, elected as an independent on promises of a hard line against the FARC and the ELN. His 'democratic security' policy aimed to bring the whole country under state control, and in 2016 he led the campaign against the peace deal.","Santos":"Juan Manuel Santos, Uribe's defense minister, then president of Colombia from 2010. His government kept up the military offensive against the guerrillas but made the victims and a negotiated end to the war its 2 main goals. He won the 2016 Nobel Peace Prize.","Timochenko":"Rodrigo Londoño, known as Timochenko, the FARC's third and last commander-in-chief, from November 2011. InSight Crime writes that he had a reputation as a hardliner. A US Congressional Research Service report says that he quickly offered Santos's government a political dialogue.","Raúl Reyes":"Luis Édgar Devia, known as Raúl Reyes, the FARC's second-in-command and its international spokesman. Pastrana accepted him as one of 3 FARC negotiators in the 1998 talks. The 2008 raid that killed him was the first time the government had killed a member of the FARC's 7-member ruling secretariat.","Alfonso Cano":"Guillermo León Sáenz, known as Alfonso Cano, who replaced Marulanda as the FARC's top leader in 2008. The Truth Commission writes that he took over Jacobo Arenas's central role in the FARC's political strategy after Arenas died in 1990, and that he negotiated in failed peace talks in Mexico.","Iván Márquez":"Luciano Marín Arango, known as Iván Márquez, the FARC's former second-in-command and head of its negotiating team in Havana. In the 1980s he was a Patriotic Union emissary and alternate member of Congress, until the FARC recalled him in 1987 as persecution of the party intensified.","Santrich":"Seuxis Hernández, known as Jesús Santrich, one of the FARC's 2 main negotiators in Havana, with Iván Márquez. The Truth Commission writes that analysts saw the 2 men as the hard-line wing most skeptical of the talks, and that both had lived in Venezuela for at least a decade.","Gentil Duarte":"Miguel Botache Santillana, known as Gentil Duarte, a FARC commander of more than 30 years and a negotiator in the talks from 2012. In 2016 the FARC's leaders sent him from the talks in Cuba to restore discipline in the 1st Front, the first unit to reject the deal.","Mordisco":"Néstor Gregorio Vera Fernández, known as Iván Mordisco, commander of the FARC's 1st Front, in Guaviare. When his front left the peace process, it said it would keep fighting the root causes of the war. He went on to lead one of the 2 main dissident groups.","Petro":"Gustavo Petro, a former member of the M-19 guerrilla group, elected in June 2022 as Colombia's first left-wing president. Under his Total Peace policy his government held talks with both main FARC dissident groups. InSight Crime reports that the dissidents grew stronger during those talks and ceasefires.","De la Espriella":"Abelardo de la Espriella, a right-wing lawyer who became president of Colombia on 7 August 2026. On 7 September 2026 his government shut down the remaining talks with criminal groups that had run since 2022 under President Gustavo Petro.","Cepeda":"Iván Cepeda, a left-wing senator of the Historic Pact (Pacto Histórico) coalition, who pledged to continue peace talks with armed groups and narrowly lost the June 2026 runoff. His father, Manuel Cepeda, the Patriotic Union's only member of Congress in 1994, was murdered in Bogotá in August 1994.","Castaño":"Carlos Castaño, a paramilitary leader who with his brother Fidel commanded a paramilitary group based in Córdoba. The brothers began working with the army as informants in 1981, after their father died while held hostage by the FARC.","Escobar":"Pablo Escobar, one of the main partners of the Medellín cartel, which processed coca paste and smuggled it to the United States. In 1983 he sat in Congress, until a newspaper revived an old arrest of his and he went into hiding.","Argemiro":"Commander of the FARC's 3rd Front, in Caquetá. He called his tax on coca growers 'gramaje,' a fee on each gram of semi-processed cocaine. The leaders wrote that by taxing poor growers he favored 'the big export mafias.'","ELN":"National Liberation Army, a Marxist-Leninist guerrilla group formed in July 1964 by radical student and social activists influenced by the Cuban Revolution. Its program centered on armed struggle to take power. It announced itself on 7 January 1965 by seizing Simacota, in Santander.","EPL":"Popular Liberation Army, a Maoist guerrilla group founded in 1967 as the armed wing of a breakaway from Colombia's Communist Party. It believed in a long people's war carried from the countryside to the cities. Its strongest bases were in the cattle lands of Córdoba and Sucre.","M-19":"The 19th of April Movement, an urban guerrilla group formed in 1973. Its leaders came from the left wing of Rojas's party, supporters of Golconda, a group of Catholic priests, and disillusioned members of FARC and the Communist Party. In 1974, it stole Simón Bolívar's sword from a Bogotá museum.","AUC":"United Self-Defense Forces of Colombia, a national federation formed in 1997 when the heads of 9 paramilitary groups united under a single command. It called itself an anti-guerrilla movement. Led by Carlos Castaño, it then began the largest paramilitary expansion yet, across the whole country.","MAS":"Death to Kidnappers (Muerte a Secuestradores), an armed group that cocaine traffickers created in late 1981 rather than pay the M-19 a $12 million ransom. On 2 December a plane dropped its letter over a Cali football stadium, promising to find and execute kidnappers, criminal and guerrilla alike.","Patriotic Union":"Unión Patriótica (UP), a party founded on 28 May 1985 out of the FARC's peace talks with the government. By its own count, it formed 2,229 local committees in 209 municipalities that year. Its November 1985 congress drew the FARC, the Communist Party, and independent Liberals and Conservatives.","Comunes":"The political party formed by the FARC's former leaders under the 2016 peace deal. It was first called the Common Alternative Revolutionary Force, keeping the initials FARC, and later renamed Comunes, Spanish for 'the common people.' In September 2017 it elected Timochenko, the FARC's last commander, as its president.","Urabeños":"Spanish for 'the men from Urabá,' a region of Antioquia, and the name of a drug-trafficking armed group also called the Gulf Clan or the Gaitanist Self-Defense Forces. It formed in 2006, when the paramilitary commander Vicente Castaño left the AUC's demobilization and rearmed a paramilitary unit.","chulavitas":"A police force set up in Boyacá, which the Truth Commission calls the instrument of violence of Ospina's Conservative government. After Gaitán's murder in 1948, a union leader recalled, the state sent the chulavitas as its elite force to Barrancabermeja, a Santander oil town whose workers had risen up.","limpios":"Spanish for 'the clean ones,' the Liberal fighters of southern Tolima in La Violencia. Many were sharecroppers, tenants, and day laborers on Liberal landowners' estates, serving them even with arms. The Truth Commission writes that they used methods like the chulavitas' and went out to hunt Conservatives.","bandoleros":"Spanish for 'bandits,' the name party leaders gave to local rebels who stayed in arms, to distance themselves from them. The label was used for Liberal, Conservative, and Communist bands. Historians cited by the Truth Commission write that they had local support and served local bosses as enforcers.","paramilitaries":"Armed groups that fought the guerrillas and attacked civilians they saw as enemies within. They grew out of a December 1965 decree, made permanent law in 1968, that let civilians arm themselves in support of the security forces.","Paramilitaries":"Armed groups that fought the guerrillas and attacked civilians they saw as enemies within. They grew out of a December 1965 decree, made permanent law in 1968, that let civilians arm themselves in support of the security forces.","Tolima":"A department, or province, in the Andean region of west-central Colombia, crossed by the Central Mountain Range. The memory center writes that in La Violencia, landowners there took revenge on peasants for the land struggles of the 1920s and 1930s.","Sumapaz":"An area of Cundinamarca and a center of peasant land struggles since the 1920s. Its best-known peasant leader, Juan de la Cruz Varela, moved from the Liberals to the Communists. He recalled that nobody recruited him: he asked to join, drawn by a comrade's praise of the Soviet Union.","Llanos":"Spanish for 'plains,' Colombia's eastern plains, in Meta, Casanare, Arauca, and Vichada. Their Liberal guerrillas were the best armed of La Violencia and seized military bases and towns. Landowners first backed them, then broke with them when they took up the defense of land and farmhands.","Marquetalia":"A remote Communist peasant settlement in Planadas, in the far south of Tolima. Its founders went there to regain influence in Tolima and Huila. The place, first called El Támaro, lay near the Nevado del Huila, a snow-capped volcano.","Riochiquito":"A Communist peasant settlement in Tierradentro, Cauca, led by Ciro Trujillo, a Liberal guerrilla who had turned Communist. He founded a farmers' union there that gave land to former fighters and built schools and roads.","El Pato":"A Communist peasant settlement on the border of Huila and Caquetá. After the army attacked Villarrica in 1955, Communist guerrillas led hundreds of families down the Duda River in 'marching columns,' modeled on Mao's Long March, and settled new land there while keeping their weapons.","Guayabero":"A Communist peasant settlement in Meta, near El Pato. Like El Pato, it was settled after 1955 by families who fled the army's attack on Villarrica and came down the Duda River with Communist guerrillas.","Magdalena Medio":"Spanish for 'Middle Magdalena,' the lowland middle valley of the Magdalena River, between Antioquia, Bolívar, and Santander. The memory center writes that it had a reputation as a rebellious region, and that by the early 1980s the FARC was expanding into it.","Caquetá":"A department, or province, of southern Colombia, on the farming frontier where settlers fleeing repression and landlords' pressure took up new land. After the army's 1955 attack on Villarrica, Communist families settled at El Pato, on its border with Huila.","Catatumbo":"A region of Norte de Santander, in northeastern Colombia on the Venezuelan border, and Colombia's largest coca-growing area, by UN figures. In January 2025 the ELN attacked a FARC dissident group there. Dozens were killed, among them former FARC fighters, and thousands of civilians fled.","Villarrica":"A town in eastern Tolima where the Sumapaz leader Juan de la Cruz Varela kept a self-defense group, handing in only some weapons in 1953. After the army's 1955 attack, guerrillas led hundreds of families down the Duda River in 'marching columns,' modeled on Mao's Long March.","La Uribe":"A town in Meta, home of Casa Verde ('Green House'), the FARC's central camp, and the place that gave its name to the 1984 accords between the FARC and the government. Casa Verde sat in the upper canyon of the Duda River, at the edge of the Sumapaz moorland.","Mitú":"The capital of Vaupés, in the Amazon basin of southeastern Colombia, reachable only by air or river. On 1 November 1998 more than 1,000 FARC fighters surrounded it, knowing help would be slow: the nearest bases were 300 and 450 km away, beyond the air force's range.","National Front":"The 1957 pact in which the Liberals and Conservatives shared power equally and kept other parties out. The Truth Commission writes that the Communists backed it anyway, but that it led some on the left to see arms as the only route to the reforms blocked before.","La Violencia":"Spanish for 'the Violence,' the killing between Liberals and Conservatives that the memory center dates from 1946 to 1958. Armed groups on all sides committed massacres. In some areas landowners also took revenge for earlier peasant land struggles, seizing about 2 million hectares, by the analyst Paul Oquist's estimate.","Bogotazo":"The riots in Bogotá after the Liberal leader Jorge Eliécer Gaitán was shot dead on 9 April 1948, named from 'Bogotá' plus a Spanish ending for a violent outburst. The 10-hour riot left much of downtown Bogotá destroyed, and crowds sacked ministries and other public buildings.","Truth Commission":"Colombia's Truth Commission, which investigated the armed conflict and released its final report on 28 June 2022. In 4 years of work it held about 14,000 interviews. This page draws much of its history from that report.","National Center for Historical Memory":"Colombia's National Center for Historical Memory, a state body created in 2011 by the law on victims of the armed conflict. Its 2013 report, ¡Basta Ya! (Enough Already!), counted at least 220,000 people killed in the war from 1958 to 2012, about 8 in 10 of them civilians.","memory center":"Colombia's National Center for Historical Memory, a state body created in 2011 by the law on victims of the armed conflict. Its 2013 report, ¡Basta Ya! (Enough Already!), counted at least 220,000 people killed in the war from 1958 to 2012, about 8 in 10 of them civilians.","JEP":"The Special Jurisdiction for Peace, the court the 2016 deal created to try crimes of the war by FARC members and state agents. Reparation work for those who confess lasts 5 to 8 years. For the gravest crimes, those convicted without confessing face 15 to 20 years in prison.","Plan Colombia":"A plan President Andrés Pastrana launched in 1999 to end the war, stop drug trafficking, and promote development. It was to cost $7.5 billion, with Colombia paying $4 billion. In all, the US Congress gave it about $10 billion.","InSight Crime":"A think tank and media group that studies organized crime in the Americas, with main offices in Medellín and Washington. This page draws on its reporting on the FARC and on the armed groups that broke away from it.","Plan Lazo":"The army's early-1960s plan to defeat the guerrillas (lazo means a rope or snare). Its designer, War Minister Alberto Ruiz Novoa, said its aim was 'taking the water from the fish': cutting the guerrillas off from peasant support, with army aid to villages mattering more than combat.","Casa Verde":"The FARC's central headquarters (Casa Verde means Green House), in La Uribe, Meta, in the Duda River canyon at the edge of the Sumapaz highlands. The general who led the attack on it recalled helicopters bringing politicians, church representatives, and international delegations there during President Belisario Betancur's peace process.","Second Marquetalia":"An armed group of former FARC commanders led by Iván Márquez. Its name recalls Marquetalia, where the army's 1964 attack is taken as the birth of the FARC. InSight Crime reports that its base since 2019 has been Venezuela's Apure state.","False positives":"Civilians killed by soldiers and presented as guerrillas killed in combat. The scandal broke in 2008, when the bodies of 19 young men from Soacha and southern Bogotá were found in a mass grave in Ocaña, Norte de Santander. In October 2008, 27 members of the military were dismissed.","de la Espriella":"Abelardo de la Espriella, a right-wing lawyer who became president of Colombia on 7 August 2026. On 7 September 2026 his government shut down the remaining talks with criminal groups that had run since 2022 under President Gustavo Petro.","Gabriel Turbay":"A Liberal politician and one of the party's 2 candidates for president in 1946. The Truth Commission writes that the Liberals together were a majority of voters. Turbay then left the country and died, which left Gaitán as party leader.","Marta Nieves Ochoa":"A woman kidnapped on the University of Antioquia campus in Medellín on 12 November 1981. Her kidnappers asked her brothers, the Ochoas, known members of the Medellín cocaine cartel, for $12 million in ransom. Her brothers did not pay.","Íngrid Betancourt":"A presidential candidate of the Green Oxygen Party. Her captivity kept France's government interested in her release, which gave the FARC political leverage. In July 2008 the security forces rescued her, 3 Americans, and 11 soldiers and police without bloodshed.","Manuel Pérez":"A Spanish priest, known as 'El Cura' (the Priest), who led the ELN guerrillas. The Truth Commission writes that in 1983 the ELN set a plan to grow under a single leadership.","El Paisa":"Hernán Darío Velásquez, a former FARC commander and a commander of the Second Marquetalia. He had led the FARC's Teófilo Forero column in Huila and Caquetá. Authorities found that he ordered the FARC's February 2003 car bomb at El Nogal, a Bogotá club, which killed more than 30 people.","Romaña":"Henry Castellanos Garzón, a former FARC commander who became a commander of the Second Marquetalia. From 1994 he led the 53rd Front, a FARC unit, and was known for kidnapping travelers at random on national highways. In 2014 he joined the FARC's delegation to the peace talks in Cuba.","Communist Party":"Colombia's Communist Party, founded in 1930 with the approval of the Communist International. It worked through peasant leagues and farm workers' unions, and Moscow told it to stay in legal politics. In the 1930s the Liberals, not the Communists, won over most of the discontented.","Liberals":"Supporters of the Liberal Party, one of Colombia's 2 major parties. In the Thousand Days' War, from 1899 to 1902, the Liberals fought the government, and about 100,000 people died by the lowest estimate.","Conservatives":"Supporters of the Conservative Party, one of Colombia's 2 major parties. Before 1930 its governments relied on the Catholic Church, which under an 1887 treaty with the Vatican acted for the state in education.","Cold War":"The rivalry between the United States and the Soviet Union and their allies, from the end of the Second World War to 1991. Colombia's government joined the anticommunist campaign and broke relations with Cuba, accusing it of funding and arming Colombian guerrillas.","El Davis":"A farm in Rioblanco, in southern Tolima, where Liberal and Communist families gathered to protect themselves from Conservative persecution. At least 5,000 people sheltered there, only about 250 of them armed.","Agrarian Program":"The program the guerrillas signed on 20 July 1964, one of the founding texts of the FARC. It called for a revolutionary land reform: confiscating the large estates and giving the land, free of charge, to the peasants who worked it or wanted to.","Las Delicias":"An army base in Putumayo, home to a battalion hunting cocaine labs. The Truth Commission writes that the FARC's capture of the base was a turning point, because similar attacks followed. In June 1997, under a deal with the government, the FARC freed the soldiers taken there.","El Billar":"A village in the municipality of Cartagena del Chairá, in Caquetá. Most of the soldiers the FARC ambushed there belonged to an elite army unit. The memory center's counts of soldiers killed range from 58 to 73, and the FARC took at least 26 prisoners.","Mapiripán":"A town in Meta where AUC paramilitaries massacred civilians in July 1997. About 100 of them had flown into the airport of San José del Guaviare, held by the army and the antinarcotics police, and soldiers picked them up without any check.","Caño Limón":"An oil field in Arauca, which gave its name to the Caño Limón-Coveñas oil pipeline. Colombia's National Center for Historical Memory writes that the field's discovery forced Occidental Petroleum and the other oil companies to treat the ELN guerrillas as a power in Arauca.","Laureano Gómez":"The Conservative Party's leader, elected president in 1949. The Truth Commission writes that he played a leading part in sowing partisan hatred. After Gaitán's murder he blamed the Communists, without evidence.","comunes":"A nickname for the peasant fighters of southern Tolima who had turned Communist, as opposed to the limpios ('the clean ones'), the Liberal fighters. Liberal local bosses gave both groups these names. The comunes were young men without land, in conflict with those same bosses.","self-defense groups":"Armed peasant groups formed to defend their own communities. The Communist ones, among Colombia's first guerrilla groups, settled mainly in the province of Tequendama, in Sumapaz, and in southern Tolima."},"tag_options":["Grievances","Selective incentives","Social sanctions","Force","Something else"],"tag_question":"Which idea from the course explains this stage best? Pick one, then argue it out."};
+window.LOCKED = {};
+</script>
+<script>/* ui.js — everything the student sees and clicks.
+
+   The pure logic lives in core.js; this file renders screens, keeps the state
+   in localStorage, opens the locked screens when the classroom code is typed,
+   plays the surprise, and writes the receipt. It touches no network: there is
+   no fetch, no font, and no image that is not beside the page. */
+(function (root) {
+  "use strict";
+
+  const CORE = root.SIMCORE;
+  const RULES = root.RULES || {};
+  const DATA = root.DATA;
+  const LOCKED = root.LOCKED;
+  const KEY = "sim:" + DATA.id;
+
+  let state = CORE.emptyState(DATA.build);
+  let screens = [];
+  let opened = null;          // the after-screens, once the code is in
+  let soundOn = false;
+  let stageRun = 0;
+
+  /* ---------------------------------------------------------------- tools */
+  const $ = (sel, node) => (node || document).querySelector(sel);
+  const $$ = (sel, node) => Array.prototype.slice.call((node || document).querySelectorAll(sel));
+
+  function el(tag, cls, html) {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (html != null) node.innerHTML = html;
+    return node;
+  }
+
+  function esc(value) {
+    return String(value == null ? "" : value)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
+  function fromBase64(value) {
+    const binary = atob(value);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+    return bytes;
+  }
+
+  function notice(text, kind) {
+    const node = $("#notice");
+    if (!node) return;
+    if (!text) { node.hidden = true; node.textContent = ""; return; }
+    node.className = "notice" + (kind ? " " + kind : "");
+    node.textContent = text;
+    node.hidden = false;
+  }
+
+  function save() {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(state));
+    } catch (err) {
+      notice("This browser is not saving your work. Keep the tab open until you have copied your answers.", "warn");
+    }
+  }
+
+  function load() {
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (err) { saved = null; }
+    const restored = CORE.restore(saved, DATA.build);
+    if (restored.dropped) {
+      notice("This page was rebuilt since you last opened it, so the earlier answers were cleared.", "warn");
+    }
+    return restored.state;
+  }
+
+  function rule(name, extra) {
+    return CORE.run(RULES, name, state, dataForRules(), extra);
+  }
+
+  /* Rules see the screens that are open. Before the code, the locked screens
+     are not there, which is also true for the student. */
+  function dataForRules() {
+    return Object.assign({}, DATA, { screens: screens });
+  }
+
+  function screenById(id) {
+    for (let i = 0; i < screens.length; i += 1) if (screens[i].id === id) return screens[i];
+    return null;
+  }
+
+  function optionById(id) {
+    return CORE.index(dataForRules())[id] || null;
+  }
+
+  function value(spec) {
+    if (!spec) return "";
+    const raw = spec.rule ? rule(spec.rule) : spec.value;
+    if (raw && typeof raw === "object") return String(raw.text == null ? "" : raw.text);
+    const body = CORE.formatValue(raw, spec.format, spec.digits);
+    return (spec.prefix || "") + body + (spec.suffix ? " " + spec.suffix : "");
+  }
+
+  function sourceLine(id) {
+    const source = (DATA.sources || []).filter(s => s.id === id)[0];
+    return source ? source.text : "";
+  }
+
+  /* ------------------------------------------------------------ the shell */
+  function go(id) {
+    state.screen = id;
+    save();
+    render();
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  function currentScreen() {
+    return screenById(state.screen) || screens[0];
+  }
+
+  function render() {
+    glossSeen = new Set();
+    const screen = currentScreen();
+    const app = $("#app");
+    app.innerHTML = "";
+    const kinds = {
+      brief: renderBrief, choose: renderChoose, hold: renderHold, respond: renderRespond,
+      write: renderWrite, outcome: renderOutcome, receipt: renderReceipt, surprise: renderSurpriseGate,
+      custom: renderCustom, stage: renderStage, record: renderRecord
+    };
+    (kinds[screen.kind] || renderCustom)(screen, app);
+  }
+
+  function nextScreenId(id) {
+    for (let i = 0; i < screens.length; i += 1) {
+      if (screens[i].id === id && screens[i + 1]) return screens[i + 1].id;
+    }
+    return id;
+  }
+
+  function panel(title, meta) {
+    const box = el("section", "panel");
+    const head = el("div", "panel-h");
+    head.appendChild(el("span", null, esc(title)));
+    if (meta) head.appendChild(el("span", "mono", esc(meta)));
+    box.appendChild(head);
+    const body = el("div", "panel-b");
+    box.appendChild(body);
+    return { box: box, body: body };
+  }
+
+  /* ------------------------------------------------------------ 1. brief */
+  function renderBrief(screen, app) {
+    const wrap = el("div", "stagewrap brief");
+    if (screen.kicker) wrap.appendChild(el("p", "kicker", esc(screen.kicker)));
+    wrap.appendChild(el("h1", null, esc(screen.headline)));
+    if (screen.lede) wrap.appendChild(el("p", "lede", esc(screen.lede)));
+
+    const columns = el("div", "brief-main");
+    const left = el("div", "brief-copy");
+
+    if (screen.memo) {
+      const memo = el("div", "memo");
+      const head = el("dl", "memo-h");
+      [["To", screen.memo.to], ["From", screen.memo.from], ["Re", screen.memo.re]].forEach(pair => {
+        if (!pair[1]) return;
+        const row = el("div");
+        row.appendChild(el("dt", null, esc(pair[0])));
+        row.appendChild(el("dd", null, esc(pair[1])));
+        head.appendChild(row);
+      });
+      memo.appendChild(head);
+      (screen.memo.paragraphs || []).forEach(p => memo.appendChild(el("p", null, esc(p))));
+      left.appendChild(memo);
+    }
+
+    if (screen.steps && screen.steps.length) {
+      const steps = el("div", "steps");
+      steps.appendChild(el("h2", null, "What your group does"));
+      const list = el("ol");
+      screen.steps.forEach(s => list.appendChild(el("li", null, esc(s))));
+      steps.appendChild(list);
+      if (screen.deliverable) steps.appendChild(el("p", "deliverable", esc(screen.deliverable)));
+      if (screen.grade_note) steps.appendChild(el("p", "grade-note", esc(screen.grade_note)));
+      left.appendChild(steps);
+    }
+
+    (screen.panels || []).forEach(p => {
+      const box = panel(p.title, p.meta);
+      const list = el("ul");
+      (p.bullets || []).forEach(b => list.appendChild(el("li", null, rich(b))));
+      box.body.appendChild(list);
+      left.appendChild(box.box);
+    });
+
+    if (screen.tiles && screen.tiles.length) {
+      const tiles = el("div", "tiles");
+      screen.tiles.forEach(t => {
+        const tile = el("div");
+        tile.appendChild(el("span", "n", esc(t.value)));
+        tile.appendChild(el("span", "k", esc(t.label)));
+        if (t.source) tile.appendChild(el("span", "src", esc(sourceLine(t.source))));
+        tiles.appendChild(tile);
+      });
+      left.appendChild(tiles);
+    }
+    columns.appendChild(left);
+
+    if (screen.photos && screen.photos.length) {
+      const right = el("div", "brief-photos");
+      screen.photos.forEach(p => {
+        const figure = el("figure");
+        const img = el("img");
+        img.src = p.file;
+        img.alt = p.alt || "";
+        figure.appendChild(img);
+        figure.appendChild(el("figcaption", null, esc(p.credit || "")));
+        addInfo(figure, p.info);
+        right.appendChild(figure);
+      });
+      columns.appendChild(right);
+    }
+    wrap.appendChild(columns);
+
+    if (DATA.no_names) {
+      const start = el("div", "startrow");
+      const go1 = el("button", "btn big", esc(screen.start_label || "Start"));
+      go1.type = "button";
+      go1.addEventListener("click", () => go(nextScreenId(screen.id)));
+      start.appendChild(go1);
+      wrap.appendChild(start);
+      app.appendChild(wrap);
+      return;
+    }
+    const start = el("div", "startrow");
+    const label = el("label", null, esc(screen.names_label || "Every student's name in your group"));
+    label.setAttribute("for", "names");
+    const hint = el("p", "hint", esc(screen.names_hint
+      || "Separate them with commas. Every name here goes on what you hand in."));
+    const box = el("textarea");
+    box.id = "names";
+    box.rows = 2;
+    box.placeholder = "Amal Hourani, Rami Odeh, Sara Nasser";
+    box.value = state.names || "";
+    const said = el("p", "namemsg");
+    const button = el("button", "btn big", "Start");
+    button.type = "button";
+
+    function paintNames() {
+      const names = CORE.nameList(box.value);
+      button.disabled = names.length < 2;
+      said.textContent = names.length >= 2
+        ? names.length + " names"
+        : (box.value.trim() ? "Add the rest of the group, separated by commas." : "");
+    }
+    box.addEventListener("input", () => {
+      state.names = box.value;
+      paintNames();
+      save();
+    });
+    button.addEventListener("click", () => go(nextScreenId(screen.id)));
+    paintNames();
+    start.appendChild(label);
+    start.appendChild(hint);
+    start.appendChild(box);
+    start.appendChild(said);
+    start.appendChild(button);
+    wrap.appendChild(start);
+    app.appendChild(wrap);
+  }
+
+  /* ----------------------------------------------------------- 2. choose */
+  function renderChoose(screen, app) {
+    const wrap = el("div", "choosewrap");
+    const head = el("div", "stagewrap");
+    if (screen.intro) head.appendChild(el("p", "lede", esc(screen.intro)));
+    wrap.appendChild(head);
+
+    const grid = el("div", "choose");
+    const list = el("div", "options");
+    const cats = screen.categories && screen.categories.length
+      ? screen.categories
+      : [{ id: null, name: "" }];
+
+    cats.forEach(cat => {
+      if (cat.name) {
+        const catHead = el("div", "cat");
+        catHead.appendChild(el("h2", null, esc(cat.name)));
+        if (cat.note) catHead.appendChild(el("p", "catnote", esc(cat.note)));
+        list.appendChild(catHead);
+      }
+      (screen.options || [])
+        .filter(o => (cat.id == null ? true : o.category === cat.id))
+        .forEach(option => list.appendChild(optionCard(option, screen)));
+    });
+    grid.appendChild(list);
+    grid.appendChild(scoreboard(screen));
+    wrap.appendChild(grid);
+
+    const bar = el("div", "submitbar");
+    const count = el("span", "mono", esc(CORE.chosen(state, dataForRules()).length + " chosen"));
+    const submit = el("button", "btn", esc(screen.submit_label || "Submit"));
+    submit.type = "button";
+    submit.addEventListener("click", () => {
+      const min = screen.min_choices == null ? 1 : screen.min_choices;
+      if (CORE.chosen(state, dataForRules()).length < min) {
+        notice("Choose at least " + min + " before you submit.", "warn");
+        return;
+      }
+      notice("");
+      go(nextScreenId(screen.id));
+    });
+    bar.appendChild(count);
+    bar.appendChild(submit);
+    wrap.appendChild(bar);
+    app.appendChild(wrap);
+  }
+
+  function optionCard(option, screen) {
+    const on = state.choices[option.id] != null;
+    const card = el("div", "opt" + (on ? " on" : ""));
+    const row = el("div", "oh");
+
+    const tick = el("button", "chk", on ? "✓" : "");
+    tick.type = "button";
+    tick.setAttribute("aria-pressed", on ? "true" : "false");
+    tick.setAttribute("aria-label", (on ? "Remove " : "Add ") + option.name);
+    tick.addEventListener("click", () => {
+      if (state.choices[option.id] != null) delete state.choices[option.id];
+      else state.choices[option.id] = option.high == null ? 1 : 0.5;
+      save();
+      render();
+    });
+    row.appendChild(tick);
+
+    const body = el("div", "obody");
+    const details = el("details");
+    const summary = el("summary");
+    summary.appendChild(el("span", "otitle", esc(option.name)));
+    details.appendChild(summary);
+    if (option.description) details.appendChild(el("p", "odesc", esc(option.description)));
+    (option.detail || []).forEach(d => {
+      const line = el("p", "odetail");
+      line.appendChild(el("strong", null, esc(d.label) + ": "));
+      line.appendChild(document.createTextNode(d.text));
+      details.appendChild(line);
+    });
+    if (option.source) details.appendChild(el("p", "osource", esc(sourceLine(option.source))));
+    body.appendChild(details);
+
+    if (option.tags && option.tags.length) {
+      const tags = el("div", "otags");
+      option.tags.forEach(t => tags.appendChild(el("span", "tag", esc(t))));
+      body.appendChild(tags);
+    }
+
+    /* What this one choice does, on the row where the choice is made. A total a
+       student cannot take apart is a total nobody trusts. */
+    if (on && screen.row_rule) {
+      let line = "";
+      try { line = rule(screen.row_rule, { option: option }); } catch (err) { line = ""; }
+      if (line) body.appendChild(el("p", "orow", esc(line)));
+    }
+
+    if (on && option.high != null) {
+      const range = el("div", "orange");
+      range.appendChild(el("span", "oscale", esc(CORE.formatValue(option.low, option.format || "int"))));
+      const slider = el("input");
+      slider.type = "range";
+      slider.min = "0";
+      slider.max = "1";
+      slider.step = "0.05";
+      slider.value = String(state.choices[option.id]);
+      slider.setAttribute("aria-label", "How big: " + option.name);
+      slider.addEventListener("input", () => {
+        state.choices[option.id] = parseFloat(slider.value);
+        save();
+        paintScore();
+        const shown = card.querySelector(".oval");
+        if (shown) shown.textContent = amountText(option);
+      });
+      range.appendChild(slider);
+      range.appendChild(el("span", "oscale", esc(CORE.formatValue(option.high, option.format || "int"))));
+      body.appendChild(range);
+    }
+    row.appendChild(body);
+    row.appendChild(el("div", "oval", esc(amountText(option))));
+    card.appendChild(row);
+    return card;
+  }
+
+  function amountText(option) {
+    const size = state.choices[option.id];
+    const amount = CORE.amount(option, size == null ? 1 : size);
+    return (option.prefix || "") + CORE.formatValue(amount, option.format || "int")
+      + (option.unit ? " " + option.unit : "");
+  }
+
+  function scoreboard(screen) {
+    const box = el("aside", "score");
+    box.id = "score";
+    paintScore(box, screen);
+    return box;
+  }
+
+  function paintScore(box, screen) {
+    box = box || $("#score");
+    if (!box) return;
+    screen = screen || currentScreen();
+    box.innerHTML = "";
+    box.appendChild(el("h2", null, "Where you stand"));
+    (screen.totals || []).forEach(total => {
+      const item = el("div", "big-n");
+      item.appendChild(el("span", "k", esc(total.label)));
+      item.appendChild(el("span", "v", esc(value(total))));
+      if (total.note_rule) {
+        const note = rule(total.note_rule);
+        if (note) item.appendChild(el("span", "s", esc(note)));
+      }
+      box.appendChild(item);
+    });
+    const how = el("button", "howlink", "How this page works");
+    how.type = "button";
+    how.addEventListener("click", () => showTab("how"));
+    box.appendChild(how);
+    if (screen.flags_rule) {
+      const flags = rule(screen.flags_rule) || [];
+      const list = el("div", "flags");
+      flags.forEach(flag => {
+        const line = el("div", "flag " + (flag.kind || "note"));
+        line.appendChild(el("span", "fi", esc(flag.mark || "!")));
+        line.appendChild(el("span", null, esc(flag.text)));
+        list.appendChild(line);
+      });
+      box.appendChild(list);
+    }
+  }
+
+  /* ------------------------------------------------------------- 3. hold */
+  function renderHold(screen, app) {
+    const wrap = el("div", "stagewrap hold");
+    wrap.appendChild(el("h1", null, esc(screen.headline || "Wait here.")));
+    if (screen.text) wrap.appendChild(el("p", "lede", esc(screen.text)));
+
+    if (screen.tiles && screen.tiles.length) {
+      const tiles = el("div", "tiles");
+      screen.tiles.forEach(t => {
+        const tile = el("div");
+        tile.appendChild(el("span", "n", esc(value(t))));
+        tile.appendChild(el("span", "k", esc(t.label)));
+        tiles.appendChild(tile);
+      });
+      wrap.appendChild(tiles);
+    }
+
+    const form = el("div", "codebox");
+    const label = el("label", null, esc(screen.code_label || "The code on the screen at the front"));
+    label.setAttribute("for", "code");
+    const input = el("input");
+    input.id = "code";
+    input.type = "text";
+    input.autocomplete = "off";
+    input.setAttribute("aria-label", "The code on the screen");
+    const button = el("button", "btn", "Continue");
+    button.type = "button";
+    const said = el("p", "codemsg");
+
+    async function tryCode() {
+      said.textContent = "Checking…";
+      const ok = await unlock(input.value);
+      if (!ok) {
+        said.textContent = "That code is not right. Check the screen.";
+        said.className = "codemsg bad";
+        return;
+      }
+      said.textContent = "";
+      go(nextScreenId(screen.id));
+    }
+    button.addEventListener("click", tryCode);
+    input.addEventListener("keydown", event => { if (event.key === "Enter") tryCode(); });
+
+    form.appendChild(label);
+    form.appendChild(input);
+    form.appendChild(button);
+    form.appendChild(said);
+    wrap.appendChild(form);
+
+    /* A saved stage call cannot be changed, so there is nothing to go back to. */
+    const previous = screens[screens.indexOf(screen) - 1];
+    if (previous && previous.kind !== "stage") {
+      const back = el("button", "btn ghost", "Go back and change our answers");
+      back.type = "button";
+      back.addEventListener("click", () => go(previous.id));
+      wrap.appendChild(back);
+    }
+    app.appendChild(wrap);
+  }
+
+  /* The locked screens are AES-GCM ciphertext until the classroom code opens
+     them, so a student who opens the address early sees nothing of what comes. */
+  async function unlock(code) {
+    const clean = CORE.normalizeCode(code);
+    if (!clean || !LOCKED || !LOCKED.data) return false;
+    try {
+      const enc = new TextEncoder();
+      const raw = await crypto.subtle.importKey("raw", enc.encode(clean), "PBKDF2", false, ["deriveKey"]);
+      const key = await crypto.subtle.deriveKey(
+        { name: "PBKDF2", salt: fromBase64(LOCKED.salt), iterations: LOCKED.iter, hash: "SHA-256" },
+        raw, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+      const plain = await crypto.subtle.decrypt(
+        { name: "AES-GCM", iv: fromBase64(LOCKED.iv) }, key, fromBase64(LOCKED.data));
+      opened = JSON.parse(new TextDecoder().decode(plain));
+      state.unlocked = true;
+      state.code = clean;
+      mergeOpened();
+      save();
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function mergeOpened() {
+    if (!opened || !opened.screens) return;
+    const byId = {};
+    opened.screens.forEach(s => { byId[s.id] = s; });
+    screens = screens.map(s => (byId[s.id] ? byId[s.id] : s));
+  }
+
+  /* --------------------------------------------------------- 4. surprise */
+  function renderSurpriseGate(screen, app) {
+    const wrap = el("div", "stagewrap");
+    wrap.appendChild(el("h1", null, esc(screen.headline || "Watch the screen.")));
+    const play = el("button", "btn big", "Play it");
+    play.type = "button";
+    play.addEventListener("click", () => playSurprise(screen));
+    wrap.appendChild(play);
+    app.appendChild(wrap);
+    playSurprise(screen);
+  }
+
+  function variantFor(screen) {
+    let key = null;
+    try { key = screen.pick_rule ? rule(screen.pick_rule) : null; } catch (err) { key = null; }
+    const variants = screen.variants || {};
+    return variants[key] || variants.default || variants[Object.keys(variants)[0]] || { beats: [] };
+  }
+
+  function playSurprise(screen) {
+    const run = ++stageRun;
+    const stage = $("#stage");
+    const variant = variantFor(screen);
+    const picked = variant.option ? optionById(variant.option) : null;
+    const vars = {
+      names: state.names || "your group",
+      option: picked ? picked.name : (variant.label || ""),
+      amount: picked ? amountText(picked) : ""
+    };
+    const beats = (variant.beats || []).map(beat => Object.assign({}, beat, {
+      text: CORE.fill(beat.text, vars),
+      say: CORE.fill(beat.say || beat.text, vars)
+    }));
+
+    stage.innerHTML = "";
+    stage.hidden = false;
+    stage.setAttribute("aria-hidden", "false");
+    document.body.classList.add("staged");
+
+    const frame = el("div", "beatframe");
+    const media = el("div", "beatmedia");
+    const text = el("div", "beattext");
+    const label = el("div", "simlabel", esc(DATA.label || "Simulated for a class exercise"));
+    const controls = el("div", "beatctl");
+    const sound = el("button", null, soundOn ? "Sound on" : "Sound off");
+    const replay = el("button", null, "Play it again");
+    const skip = el("button", null, esc(screen.skip_label || "Skip ahead"));
+    const next = el("button", "next", esc(screen.continue_label || "Continue"));
+    next.hidden = true;
+    /* No sound on this site: the news plays as text only. */
+    controls.appendChild(replay);
+    controls.appendChild(skip);
+    frame.appendChild(media);
+    frame.appendChild(text);
+    frame.appendChild(label);
+    frame.appendChild(controls);
+    frame.appendChild(next);
+    stage.appendChild(frame);
+
+    sound.addEventListener("click", () => {
+      soundOn = !soundOn;
+      sound.textContent = soundOn ? "Sound on" : "Sound off";
+      if (!soundOn) stopSpeech();
+    });
+    replay.addEventListener("click", () => playSurprise(screen));
+    skip.addEventListener("click", () => finish());
+    next.addEventListener("click", () => finish());
+
+    function finish() {
+      if (run !== stageRun) return;
+      stopSpeech();
+      stage.hidden = true;
+      stage.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("staged");
+      go(nextScreenId(screen.id));
+    }
+
+    let index = 0;
+    function beat() {
+      if (run !== stageRun) return;
+      if (index >= beats.length) {
+        next.hidden = false;
+        next.focus();
+        return;
+      }
+      const item = beats[index];
+      index += 1;
+      frame.className = "beatframe " + (item.kind || "line");
+      media.innerHTML = "";
+      if (item.file) {
+        const img = el("img");
+        img.src = item.file;
+        img.alt = item.alt || "";
+        media.appendChild(img);
+        if (item.credit) media.appendChild(el("span", "credit", esc(item.credit)));
+      }
+      text.innerHTML = "";
+      if (item.stamp) text.appendChild(el("span", "stamp", esc(item.stamp)));
+      if (item.figure_rule) {
+        let figure = "";
+        try { figure = CORE.formatValue(rule(item.figure_rule), item.format || "int"); } catch (err) { figure = ""; }
+        text.appendChild(el("span", "figure", esc(figure)));
+      }
+      text.appendChild(el("p", null, esc(item.text)));
+      const ms = Math.max(item.min || 3200, estimateMs(item.text));
+      speak(item.say, () => {});
+      window.setTimeout(beat, ms);
+    }
+    beat();
+  }
+
+  function estimateMs(text) {
+    const words = String(text || "").split(/\s+/).filter(Boolean).length;
+    return 900 + words * 340;
+  }
+
+  /* Browser narration, with the four fixes Holbein's notes record: no blank
+     utterance (it wedges Chrome's queue), a generation guard so a cancelled
+     line cannot resume over the next one, a watchdog because onend sometimes
+     never fires, and no resume() after a cancel. */
+  let speechRun = 0;
+  function speak(text, done) {
+    const clean = String(text || "").trim();
+    if (true || !soundOn || !clean || !("speechSynthesis" in window)) { if (done) done(); return; }
+    const run = ++speechRun;
+    try { window.speechSynthesis.cancel(); } catch (err) { /* nothing to cancel */ }
+    const utterance = new SpeechSynthesisUtterance(clean);
+    utterance.rate = 0.95;
+    let finished = false;
+    const finish = () => {
+      if (finished || run !== speechRun) return;
+      finished = true;
+      if (done) done();
+    };
+    utterance.onend = finish;
+    utterance.onerror = finish;
+    window.setTimeout(finish, Math.max(2000, clean.length * 80));
+    try { window.speechSynthesis.speak(utterance); } catch (err) { finish(); }
+  }
+
+  function stopSpeech() {
+    speechRun += 1;
+    try { if ("speechSynthesis" in window) window.speechSynthesis.cancel(); } catch (err) { /* fine */ }
+  }
+
+  /* ---------------------------------------------------------- 5. respond */
+  function renderRespond(screen, app) {
+    const wrap = el("div", "stagewrap");
+    if (screen.headline) wrap.appendChild(el("h1", null, esc(screen.headline)));
+    if (screen.intro) wrap.appendChild(el("p", "lede", esc(screen.intro)));
+    const grid = el("div", "strats");
+    (screen.strategies || []).forEach(strategy => {
+      const card = el("button", "strat" + (state.strategy === strategy.id ? " picked" : ""));
+      card.type = "button";
+      if (strategy.theory) card.appendChild(el("span", "theory", esc(strategy.theory)));
+      card.appendChild(el("span", "sn", esc(strategy.name)));
+      if (strategy.description) card.appendChild(el("span", "sd", esc(strategy.description)));
+      if (strategy.costs && strategy.costs.length) {
+        const costs = el("span", "sc");
+        strategy.costs.forEach(c => costs.appendChild(el("b", null, esc(c))));
+        card.appendChild(costs);
+      }
+      card.addEventListener("click", () => {
+        state.strategy = strategy.id;
+        save();
+        render();
+      });
+      grid.appendChild(card);
+    });
+    wrap.appendChild(grid);
+
+    const next = el("button", "btn", esc(screen.continue_label || "Continue"));
+    next.type = "button";
+    next.disabled = !state.strategy;
+    next.addEventListener("click", () => go(nextScreenId(screen.id)));
+    wrap.appendChild(next);
+    app.appendChild(wrap);
+  }
+
+  /* ------------------------------------------------------------ 6. write */
+  function renderWrite(screen, app) {
+    const wrap = el("div", "stagewrap wide");
+    if (screen.headline) wrap.appendChild(el("h1", null, esc(screen.headline)));
+    if (screen.intro) wrap.appendChild(el("p", "lede", esc(screen.intro)));
+
+    if (screen.guide && screen.guide.length) {
+      const guide = el("div", "guide");
+      screen.guide.forEach(g => {
+        const item = el("div");
+        item.appendChild(el("strong", null, esc(g.title)));
+        item.appendChild(el("span", null, esc(g.text)));
+        guide.appendChild(item);
+      });
+      wrap.appendChild(guide);
+    }
+
+    const sent = state.sent > 0;
+    const targets = (screen.targets || []).filter(t => !(sent && state.moved[t.id]));
+    const cards = el("div", "targets");
+    targets.forEach(target => {
+      const card = el("div", "target");
+      if (target.file) {
+        const media = el("div", "tmedia");
+        const img = el("img");
+        img.src = target.file;
+        img.alt = target.name;
+        media.appendChild(img);
+        if (target.credit) media.appendChild(el("span", "credit", esc(target.credit)));
+        card.appendChild(media);
+      }
+      const body = el("div");
+      body.appendChild(el("h3", null, esc(target.name)));
+      if (target.role || target.size != null) {
+        body.appendChild(el("div", "tm", esc([target.role, target.size != null ? target.size + " votes" : ""].filter(Boolean).join(" · "))));
+      }
+      if (target.position) {
+        const p = el("p", "pos");
+        p.appendChild(el("strong", null, "What they say now: "));
+        p.appendChild(document.createTextNode(target.position));
+        body.appendChild(p);
+      }
+      if (target.needs) {
+        const p = el("p", "pos");
+        p.appendChild(el("strong", null, "What they want: "));
+        p.appendChild(document.createTextNode(target.needs));
+        body.appendChild(p);
+      }
+      if (target.source) body.appendChild(el("p", "osource", esc(sourceLine(target.source))));
+      const label = el("label", null, esc(screen.box_label || "Your message"));
+      label.setAttribute("for", "t-" + target.id);
+      const box = el("textarea");
+      box.id = "t-" + target.id;
+      box.rows = 4;
+      box.value = state.texts[target.id] || "";
+      box.addEventListener("input", () => {
+        state.texts[target.id] = box.value;
+        save();
+      });
+      body.appendChild(label);
+      body.appendChild(box);
+      card.appendChild(body);
+      cards.appendChild(card);
+    });
+    wrap.appendChild(cards);
+
+    if (sent) wrap.appendChild(resultsPanel(screen));
+
+    const row = el("div", "row");
+    const send = el("button", "btn", sent ? "Send these too" : (screen.send_label || "Send the messages"));
+    send.type = "button";
+    send.disabled = targets.length === 0;
+    send.addEventListener("click", () => {
+      const all = screen.targets || [];
+      const scored = CORE.lockPitches(all, state.texts, state.moved,
+        (target, text) => rule(screen.score_rule, { target: target, text: text }),
+        screen.policy, state.sent);
+      state.moved = scored.moved;
+      state.sent += 1;
+      save();
+      render();
+    });
+    row.appendChild(send);
+    if (sent) {
+      const next = el("button", "btn", esc(screen.continue_label || "See where the count stands"));
+      next.type = "button";
+      next.addEventListener("click", () => go(nextScreenId(screen.id)));
+      row.appendChild(next);
+    }
+    wrap.appendChild(row);
+    app.appendChild(wrap);
+  }
+
+  function resultsPanel(screen) {
+    const box = panel("What came back", null);
+    (screen.targets || []).forEach(target => {
+      const moved = !!state.moved[target.id];
+      const row = el("div", "result " + (moved ? "yes" : "no"));
+      row.appendChild(el("strong", null, esc(target.name)));
+      /* A group that gets nothing but "not moved" learns nothing. When the
+         score rule says what was missing, that line is the answer. */
+      /* What happened decides the line. The score rule's own sentence explains
+         it only when the two agree: a target that moved on the fallback must
+         not be told it stayed put. */
+      let why = moved ? (target.moved_line || "Comes with you.")
+        : (target.open_line || "Still not with you.");
+      if (screen.score_rule && !moved) {
+        const text = String(state.texts[target.id] || "").trim();
+        let scored = null;
+        try { scored = rule(screen.score_rule, { target: target, text: text }); } catch (err) { scored = null; }
+        if (scored && scored.why && !scored.ready) why = scored.why;
+      }
+      row.appendChild(el("span", null, esc(why)));
+      box.body.appendChild(row);
+    });
+    return box.box;
+  }
+
+  /* ---------------------------------------------------------- 7. outcome */
+  function renderOutcome(screen, app) {
+    const wrap = el("div", "stagewrap wide");
+    if (screen.headline) wrap.appendChild(el("h1", null, esc(screen.headline)));
+    if (screen.intro) wrap.appendChild(el("p", "lede", esc(screen.intro)));
+
+    const blocs = rule(screen.blocs_rule) || [];
+    const yes = blocs.filter(b => b.yes).reduce((total, b) => total + (Number(b.size) || 0), 0);
+    const tally = el("div", "tally");
+    tally.appendChild(el("span", "tn", esc(String(yes))));
+    tally.appendChild(el("span", "tk", esc((screen.tally_label || "with you")
+      + " · " + screen.threshold + " " + (screen.threshold_label || "needed"))));
+    const bar = el("div", "tbar");
+    const fill = el("i");
+    fill.style.width = Math.min(100, (yes / (screen.total || 100)) * 100) + "%";
+    fill.className = yes >= screen.threshold ? "pass" : "fail";
+    bar.appendChild(fill);
+    const mark = el("u");
+    mark.style.left = ((screen.threshold / (screen.total || 100)) * 100) + "%";
+    bar.appendChild(mark);
+    tally.appendChild(bar);
+    wrap.appendChild(tally);
+
+    const list = el("div", "blocs");
+    blocs.forEach(bloc => {
+      const row = el("div", "bloc " + (bloc.yes ? "yes" : "no"));
+      const head = el("div", "bh");
+      head.appendChild(el("span", "bn", esc(bloc.name)));
+      head.appendChild(el("span", "bs", esc((bloc.yes ? "✓ with you" : "✗ against") + " · " + bloc.size)));
+      row.appendChild(head);
+      if (bloc.why) row.appendChild(el("p", "bw", esc(bloc.why)));
+      list.appendChild(row);
+    });
+    wrap.appendChild(list);
+
+    if (screen.advice_rule) {
+      const advice = rule(screen.advice_rule);
+      if (advice) wrap.appendChild(el("p", "advice", esc(advice)));
+    }
+
+    const row = el("div", "row");
+    if (screen.back_to) {
+      const back = el("button", "btn ghost", esc(screen.back_label || "Go back and change our answers"));
+      back.type = "button";
+      back.addEventListener("click", () => go(screen.back_to));
+      row.appendChild(back);
+    }
+    const next = el("button", "btn", esc(screen.continue_label || "Finish"));
+    next.type = "button";
+    next.addEventListener("click", () => go(nextScreenId(screen.id)));
+    row.appendChild(next);
+    wrap.appendChild(row);
+    app.appendChild(wrap);
+  }
+
+  /* ---------------------------------------------------------- 8. receipt */
+  function receiptContext() {
+    const chosen = CORE.chosen(state, dataForRules()).map(option => ({
+      name: option.name, value: amountText(option)
+    }));
+    const strategyScreen = screens.filter(s => s.kind === "respond")[0];
+    const strategy = strategyScreen
+      ? (strategyScreen.strategies || []).filter(s => s.id === state.strategy)[0]
+      : null;
+    const writeScreen = screens.filter(s => s.kind === "write")[0];
+    const messages = writeScreen
+      ? (writeScreen.targets || []).map(target => ({
+        name: target.name, moved: !!state.moved[target.id], text: (state.texts[target.id] || "").trim()
+      }))
+      : [];
+    const outcomeScreen = screens.filter(s => s.kind === "outcome")[0];
+    let outcome = null;
+    if (outcomeScreen) {
+      const blocs = rule(outcomeScreen.blocs_rule) || [];
+      const yes = blocs.filter(b => b.yes).reduce((total, b) => total + (Number(b.size) || 0), 0);
+      outcome = {
+        headline: yes + " of " + outcomeScreen.total + ", " + outcomeScreen.threshold + " needed",
+        detail: yes >= outcomeScreen.threshold ? "It passes as it stands." : "It does not pass as it stands."
+      };
+    }
+    const surpriseScreen = screens.filter(s => s.kind === "surprise")[0];
+    let surprise = "";
+    if (surpriseScreen && state.unlocked) {
+      const variant = variantFor(surpriseScreen);
+      surprise = variant.label || (variant.option ? (optionById(variant.option) || {}).name : "") || "";
+    }
+    return { choices: chosen, strategy: strategy, messages: messages, outcome: outcome, surprise: surprise, stages: stageContext() };
+  }
+
+  function renderReceipt(screen, app) {
+    const ctx = receiptContext();
+    ctx.stats = (screen.stats || []).map(stat => ({ label: stat.label, value: value(stat) }));
+    const wrap = el("div", "stagewrap receiptwrap");
+    wrap.appendChild(el("p", "shotnote", esc(screen.shot_note
+      || "This is what your group hands in. Copy the text into the Blackboard item.")));
+
+    const card = el("div", "receipt");
+    card.appendChild(el("p", "ex", esc(screen.exercise_note
+      || (DATA.course + " · a classroom exercise, not a real document"))));
+    card.appendChild(el("h1", null, esc(screen.title || DATA.title)));
+    const namesLine = el("p", "names", esc(DATA.no_names
+      ? "Group members: add every name to the file you download, or type them into Blackboard when you upload it."
+      : (state.names || "(no names entered)")));
+    card.appendChild(namesLine);
+    const fix = el("details", "namefix");
+    const fixHead = el("summary", null, "Somebody missing? Add them");
+    const fixBox = el("textarea");
+    fixBox.rows = 2;
+    fixBox.value = state.names || "";
+    fixBox.addEventListener("input", () => {
+      state.names = fixBox.value;
+      namesLine.textContent = fixBox.value || "(no names entered)";
+      save();
+    });
+    fix.appendChild(fixHead);
+    fix.appendChild(fixBox);
+    if (!DATA.no_names) card.appendChild(fix);
+
+    if (ctx.stats.length) {
+      const stats = el("div", "tiles");
+      ctx.stats.forEach(stat => {
+        const tile = el("div");
+        tile.appendChild(el("span", "n", esc(stat.value)));
+        tile.appendChild(el("span", "k", esc(stat.label)));
+        stats.appendChild(tile);
+      });
+      card.appendChild(stats);
+    }
+
+    const sections = [
+      ["Our calls, stage by stage", (ctx.stages || []).filter(r => r.pick).map(r => r.title + ": " + r.pick + (r.why ? ". Why: " + r.why : "") + (r.real ? ". What they did: " + r.real : "") + (r.tag ? ". Idea that fits best: " + r.tag : ""))],
+      ["What we chose", ctx.choices.map(c => c.name + " (" + c.value + ")")],
+      ["Our response", ctx.strategy ? [ctx.strategy.name] : []],
+      ["Our messages", ctx.messages.map(m => m.name + ": " + (m.moved ? "moved" : "not moved"))],
+      ["Outcome", ctx.outcome ? [ctx.outcome.headline, ctx.outcome.detail] : []]
+    ];
+    sections.forEach(pair => {
+      if (!pair[1].length) return;
+      const section = el("div", "rsec");
+      section.appendChild(el("h2", null, esc(pair[0])));
+      const list = el("ul");
+      pair[1].forEach(line => list.appendChild(el("li", null, esc(line))));
+      section.appendChild(list);
+      card.appendChild(section);
+    });
+    if (screen.grade_note) card.appendChild(el("p", "grade-note", esc(screen.grade_note)));
+    wrap.appendChild(card);
+
+    const row = el("div", "row");
+    const copy = el("button", "btn", "Copy the text for Blackboard");
+    copy.type = "button";
+    copy.addEventListener("click", () => {
+      const text = CORE.receiptText(state, DATA, ctx);
+      const area = el("textarea", "offscreen");
+      area.value = text;
+      document.body.appendChild(area);
+      area.select();
+      let ok = false;
+      try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
+      document.body.removeChild(area);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => { copy.textContent = "Copied"; }, () => {});
+      }
+      copy.textContent = ok ? "Copied" : "Select the text below and copy it";
+      if (!ok) {
+        const fallback = el("textarea", "fallback");
+        fallback.value = text;
+        fallback.rows = 12;
+        wrap.appendChild(fallback);
+      }
+    });
+    /* The other way to hand it in: a file the group uploads to Blackboard, for
+       a room where pasting into a text box goes wrong. */
+    const download = el("button", "btn ghost", esc(screen.download_label || "Download our answers"));
+    download.type = "button";
+    download.addEventListener("click", () => {
+      const text = CORE.receiptText(state, DATA, ctx);
+      const blob = new Blob([text], { type: "text/plain" });
+      const link = el("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = CORE.fileName(state, DATA);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+      download.textContent = "Downloaded " + CORE.fileName(state, DATA);
+    });
+
+    const print = el("button", "btn ghost", "Print");
+    print.type = "button";
+    print.addEventListener("click", () => window.print());
+    if (DATA.no_names) {
+      download.className = "btn";
+      copy.className = "btn ghost";
+      row.appendChild(download);
+      row.appendChild(copy);
+    } else {
+      row.appendChild(copy);
+      row.appendChild(download);
+    }
+    row.appendChild(print);
+    wrap.appendChild(row);
+    app.appendChild(wrap);
+  }
+
+  /* ------------------------------------------------------------ 8b. stage
+     One stage of a case told in order: the briefing, one call with the
+     group's reason, then what really happened and what it shows for class.
+     The record stays hidden until the call is locked, and a locked call is
+     never changed, so the group always meets the record after deciding. */
+  /* More about a photo or map: shown on hover, and on a tap for touch screens. */
+  function addInfo(figure, info) {
+    if (!info) return;
+    figure.classList.add("hasinfo");
+    figure.tabIndex = 0;
+    const box = el("div", "figinfo", rich(info));
+    figure.appendChild(box);
+    figure.addEventListener("click", () => figure.classList.toggle("open"));
+  }
+
+  /* Names, groups, places, and terms the group can hover over or tap for a short
+     note. Only the first mention on each screen is marked, so the text stays calm. */
+  let glossSeen = new Set();
+  let glossRe = null;
+  function glossPattern() {
+    if (glossRe !== null) return glossRe;
+    const terms = Object.keys(DATA.glossary || {}).sort((x, y) => y.length - x.length);
+    glossRe = terms.length
+      ? new RegExp("(^|[^A-Za-zÀ-ÿ])(" + terms.map(t => esc(t).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")(?![A-Za-zÀ-ÿ])", "g")
+      : false;
+    return glossRe;
+  }
+  function gloss(html) {
+    const re = glossPattern();
+    if (!re) return html;
+    const byEsc = {};
+    Object.keys(DATA.glossary || {}).forEach(t => { byEsc[esc(t)] = t; });
+    return html.replace(re, (whole, pre, term) => {
+      const key = byEsc[term] || term;
+      const note = (DATA.glossary || {})[key];
+      if (!note || glossSeen.has(key)) return whole;
+      glossSeen.add(key);
+      return pre + '<span class="gl" tabindex="0">' + term + '<span class="gltip">' + esc(note) + "</span></span>";
+    });
+  }
+  function rich(text) {
+    return String(text == null ? "" : text).split("**")
+      .map((part, i) => (i % 2 ? "<strong>" + gloss(esc(part)) + "</strong>" : gloss(esc(part)))).join("");
+  }
+
+  /* Which idea fits? One click, saved with the calls. The course box opens
+     only after the group has picked, so it never answers the question first. */
+  function tagBox(box, row, conf) {
+    const opts = conf.tag_options || DATA.tag_options || [];
+    if (!opts.length) return false;
+    const tg = el("div", "tagbox");
+    tg.appendChild(el("h3", null, esc(conf.tag_question || DATA.tag_question || "Which idea fits this stage best?")));
+    const r3 = el("div", "tagopts");
+    opts.forEach(t => {
+      const b = el("button", "tagopt" + (row.tag === t ? " on" : ""));
+      b.type = "button";
+      b.textContent = t;
+      b.addEventListener("click", () => { row.tag = t; save(); render(); });
+      r3.appendChild(b);
+    });
+    tg.appendChild(r3);
+    const pending = !row.tag;
+    if (pending) tg.appendChild(el("p", "namemsg", esc("Pick one to go on. It is saved with your calls.")));
+    box.appendChild(tg);
+    return pending;
+  }
+
+  function renderStage(screen, app) {
+    const wrap = el("div", "stagewrap stagescreen");
+    if (screen.kicker) wrap.appendChild(el("p", "kicker", esc(screen.kicker)));
+    wrap.appendChild(el("h1", null, esc(screen.headline)));
+    /* Who the group is and when: set apart so nobody reads past it. */
+    if (screen.lede) {
+      const role = el("div", "rolebox");
+      role.appendChild(el("span", "rolelabel", "Your role"));
+      role.appendChild(el("p", null, rich(screen.lede)));
+      wrap.appendChild(role);
+    }
+
+    const columns = el("div", "brief-main");
+    const left = el("div", "brief-copy");
+    (screen.paragraphs || []).forEach(p => left.appendChild(el("p", null, rich(p))));
+    if (screen.bullets && screen.bullets.length) {
+      const list = el("ul", "stagebullets");
+      screen.bullets.forEach(b => list.appendChild(el("li", null, rich(b))));
+      left.appendChild(list);
+    }
+    (screen.panels || []).forEach(p => {
+      const box = panel(p.title, p.meta);
+      const list = el("ul");
+      (p.bullets || []).forEach(b => list.appendChild(el("li", null, rich(b))));
+      box.body.appendChild(list);
+      left.appendChild(box.box);
+    });
+    if (screen.tiles && screen.tiles.length) {
+      const tiles = el("div", "tiles");
+      screen.tiles.forEach(t => {
+        const tile = el("div");
+        tile.appendChild(el("span", "n", esc(t.value)));
+        tile.appendChild(el("span", "k", esc(t.label)));
+        if (t.source) tile.appendChild(el("span", "src", esc(sourceLine(t.source))));
+        tiles.appendChild(tile);
+      });
+      left.appendChild(tiles);
+    }
+    columns.appendChild(left);
+    if ((screen.photos && screen.photos.length) || (screen.map && screen.map.file)) {
+      const right = el("div", "brief-photos");
+      if (screen.map && screen.map.file) {
+        const figure = el("figure", "sidemap");
+        const img = el("img");
+        img.src = screen.map.file;
+        img.alt = screen.map.alt || "";
+        figure.appendChild(img);
+        figure.appendChild(el("figcaption", null, esc(screen.map.credit || "")));
+        addInfo(figure, screen.map.info);
+        right.appendChild(figure);
+      }
+      (screen.photos || []).forEach(p => {
+        const figure = el("figure");
+        const img = el("img");
+        img.src = p.file;
+        img.alt = p.alt || "";
+        figure.appendChild(img);
+        figure.appendChild(el("figcaption", null, esc(p.credit || "")));
+        addInfo(figure, p.info);
+        right.appendChild(figure);
+      });
+      columns.appendChild(right);
+    }
+    wrap.appendChild(columns);
+
+    state.stages = state.stages || {};
+    const row = state.stages[screen.id] || { pick: null, why: "", revealed: false };
+    state.stages[screen.id] = row;
+    const picks = screen.picks || [];
+
+    const ask = el("div", "stageask");
+    if (screen.question) ask.appendChild(el("h2", null, rich(screen.question)));
+    const list = el("div", "stagepicks");
+    const buttons = [];
+    picks.forEach(pick => {
+      const card = el("button", "stagepick");
+      card.type = "button";
+      card.appendChild(el("span", "pn", esc(pick.name)));
+      if (pick.detail) card.appendChild(el("span", "pd", rich(pick.detail)));
+      card.disabled = row.revealed;
+      if (row.pick === pick.id) card.classList.add("on");
+      card.addEventListener("click", () => {
+        if (row.revealed) return;
+        row.pick = pick.id;
+        buttons.forEach(b => b.classList.toggle("on", b === card));
+        save();
+        paint();
+      });
+      buttons.push(card);
+      list.appendChild(card);
+    });
+    ask.appendChild(list);
+
+    const minWords = Number(screen.why_min || 10);
+    const whyLabel = el("label", null, esc(screen.why_label || "Why? Use a fact from this page."));
+    whyLabel.setAttribute("for", "why-" + screen.id);
+    const why = el("textarea");
+    why.id = "why-" + screen.id;
+    why.rows = 3;
+    why.value = row.why || "";
+    why.disabled = row.revealed;
+    const said = el("p", "namemsg");
+    const lock = el("button", "btn big", esc(screen.lock_label || "Save our call"));
+    lock.type = "button";
+    function wordCount(text) { return String(text || "").trim().split(/\s+/).filter(Boolean).length; }
+    function paint() {
+      const n = wordCount(why.value);
+      lock.disabled = row.revealed || !row.pick || n < minWords;
+      if (row.revealed) said.textContent = "";
+      else if (!row.pick) said.textContent = "Pick one call first.";
+      else if (n < minWords) said.textContent = "Write at least " + minWords + " words on why.";
+      else said.textContent = "";
+    }
+    why.addEventListener("input", () => { row.why = why.value; save(); paint(); });
+    lock.addEventListener("click", () => {
+      if (lock.disabled) return;
+      row.why = why.value;
+      row.revealed = true;
+      save();
+      render();
+    });
+    ask.appendChild(whyLabel);
+    ask.appendChild(why);
+    ask.appendChild(said);
+    if (!row.revealed) ask.appendChild(lock);
+    wrap.appendChild(ask);
+    paint();
+
+    if (row.revealed && !screen.reveal) {
+      if (screen.wait_note) wrap.appendChild(el("p", "lede", rich(screen.wait_note)));
+      const next = el("button", "btn big", esc(screen.continue_label || "Continue"));
+      next.type = "button";
+      next.addEventListener("click", () => go(nextScreenId(screen.id)));
+      wrap.appendChild(next);
+    }
+    if (row.revealed && screen.reveal) {
+      const r = screen.reveal;
+      const box = el("div", "stagereveal");
+      box.appendChild(el("h2", null, esc(r.headline || "What really happened")));
+      const mine = picks.filter(p => p.id === row.pick)[0];
+      const real = picks.filter(p => p.id === r.real_pick)[0];
+      if (mine) {
+        const line = "Your call: " + mine.name + "."
+          + (real ? " What they did: " + real.name + "." : (r.real_label ? " What they did: " + r.real_label : ""));
+        box.appendChild(el("p", "stagecompare", esc(line)));
+      }
+      (r.paragraphs || []).forEach(p => box.appendChild(el("p", null, rich(p))));
+      if (r.bullets && r.bullets.length) {
+        const ul = el("ul", "stagetimeline");
+        r.bullets.forEach(b => ul.appendChild(el("li", null, rich(b))));
+        box.appendChild(ul);
+      }
+      /* Calls the FARC did not make: what happened to a real group that made them.
+         Shown after the FARC's record, in a grey box tagged as not the FARC's story,
+         so nobody reads it as what really happened. */
+      function othersBox(o, title) {
+        const other = el("div", "stageothers");
+        const head = el("h3");
+        head.appendChild(el("span", "otag", "Not what the FARC did"));
+        head.appendChild(document.createTextNode(" " + title));
+        other.appendChild(head);
+        other.appendChild(el("p", "othersnote", rich(o.who)));
+        const ol = el("ul");
+        (o.bullets || []).forEach(t => ol.appendChild(el("li", null, rich(t))));
+        other.appendChild(ol);
+        return other;
+      }
+      if (mine && mine.others && mine.id !== r.real_pick) {
+        box.appendChild(othersBox(mine.others, mine.others.title || "Your call was not the FARC's. What happened to others who made it"));
+      }
+      /* The other paths, read only. The saved call never changes. */
+      const rest = picks.filter(p => p.others && p.id !== row.pick && p.id !== r.real_pick);
+      if (rest.length) {
+        const more = el("details", "otherpaths");
+        more.appendChild(el("summary", null, "What happened to groups that made the other calls"));
+        rest.forEach(p => more.appendChild(othersBox(p.others, "Call: " + p.name)));
+        box.appendChild(more);
+      }
+      const tagPending = r.class_link ? tagBox(box, row, Object.assign({}, DATA, r.class_link)) : false;
+      if (r.class_link && !tagPending) {
+        const link = el("div", "stagelink");
+        link.appendChild(el("h3", null, esc(r.class_link.title || "How this connects to the readings")));
+        const ll = el("ul");
+        (Array.isArray(r.class_link.text) ? r.class_link.text : [r.class_link.text])
+          .filter(Boolean).forEach(t => ll.appendChild(el("li", null, rich(t))));
+        link.appendChild(ll);
+        if (r.class_link.reading) link.appendChild(el("p", "src", esc(r.class_link.reading)));
+        box.appendChild(link);
+      }
+      if (r.source) box.appendChild(el("p", "src", esc(sourceLine(r.source))));
+      /* Photographs of what happened stay hidden with the record. */
+      if (r.photos && r.photos.length) {
+        const row2 = el("div", "revealphotos");
+        r.photos.forEach(p => {
+          const figure = el("figure");
+          const img = el("img");
+          img.src = p.file;
+          img.alt = p.alt || "";
+          figure.appendChild(img);
+          figure.appendChild(el("figcaption", null, esc(p.credit || "")));
+        addInfo(figure, p.info);
+          row2.appendChild(figure);
+        });
+        box.appendChild(row2);
+      }
+      wrap.appendChild(box);
+      const next = el("button", "btn big", esc(screen.continue_label || "Continue"));
+      next.type = "button";
+      next.disabled = tagPending;
+      next.addEventListener("click", () => { if (!next.disabled) go(nextScreenId(screen.id)); });
+      wrap.appendChild(next);
+    }
+    app.appendChild(wrap);
+  }
+
+  /* A record screen: what really happened after a stage whose record waited
+     behind the code, with the group's own call beside it. */
+  function renderRecord(screen, app) {
+    const wrap = el("div", "stagewrap stagescreen");
+    if (screen.kicker) wrap.appendChild(el("p", "kicker", esc(screen.kicker)));
+    wrap.appendChild(el("h1", null, esc(screen.headline)));
+    const box = el("div", "stagereveal");
+    const of = screenById(screen.stage) || {};
+    const row = (state.stages || {})[screen.stage] || {};
+    const mine = (of.picks || []).filter(p => p.id === row.pick)[0];
+    const real = (of.picks || []).filter(p => p.id === screen.real_pick)[0];
+    if (mine && screen.show_call !== false) {
+      box.appendChild(el("p", "stagecompare", esc("Your call: " + mine.name + "."
+        + (real ? " What they did: " + real.name + "." : (screen.real_label ? " What they did: " + screen.real_label : "")))));
+    }
+    (screen.paragraphs || []).forEach(p => box.appendChild(el("p", null, rich(p))));
+    if (screen.bullets && screen.bullets.length) {
+      const ul = el("ul", "stagetimeline");
+      screen.bullets.forEach(b => ul.appendChild(el("li", null, rich(b))));
+      box.appendChild(ul);
+    }
+    state.stages = state.stages || {};
+    const trow = state.stages[screen.id] || {};
+    state.stages[screen.id] = trow;
+    const tagPending = screen.class_link ? tagBox(box, trow, Object.assign({}, DATA, screen.class_link)) : false;
+    if (screen.class_link && !tagPending) {
+      const link = el("div", "stagelink");
+      link.appendChild(el("h3", null, esc(screen.class_link.title || "How this connects to the readings")));
+      const ll = el("ul");
+      (Array.isArray(screen.class_link.text) ? screen.class_link.text : [screen.class_link.text])
+        .filter(Boolean).forEach(t => ll.appendChild(el("li", null, rich(t))));
+      link.appendChild(ll);
+      if (screen.class_link.reading) link.appendChild(el("p", "src", esc(screen.class_link.reading)));
+      box.appendChild(link);
+    }
+    if (screen.photos && screen.photos.length) {
+      const row2 = el("div", "revealphotos");
+      screen.photos.forEach(p => {
+        const figure = el("figure");
+        const img = el("img");
+        img.src = p.file;
+        img.alt = p.alt || "";
+        figure.appendChild(img);
+        figure.appendChild(el("figcaption", null, esc(p.credit || "")));
+        addInfo(figure, p.info);
+        row2.appendChild(figure);
+      });
+      box.appendChild(row2);
+    }
+    wrap.appendChild(box);
+    const next = el("button", "btn big", esc(screen.continue_label || "Continue"));
+    next.type = "button";
+    next.disabled = tagPending;
+    next.addEventListener("click", () => { if (!next.disabled) go(nextScreenId(screen.id)); });
+    wrap.appendChild(next);
+    app.appendChild(wrap);
+  }
+
+  function stageContext() {
+    return screens.filter(s => s.kind === "stage").map(screen => {
+      const row = (state.stages || {})[screen.id] || {};
+      const picks = screen.picks || [];
+      const mine = picks.filter(p => p.id === row.pick)[0];
+      const recordScreen = screens.filter(x => x.kind === "record" && x.stage === screen.id)[0];
+      const r = screen.reveal || recordScreen || {};
+      const real = picks.filter(p => p.id === r.real_pick)[0];
+      return {
+        title: screen.receipt_title || screen.headline,
+        pick: row.revealed && mine ? mine.name : "",
+        why: row.revealed ? String(row.why || "").trim() : "",
+        real: row.revealed ? (real ? real.name : (r.real_label || "")) : "",
+        tag: row.revealed ? (row.tag || (recordScreen && ((state.stages || {})[recordScreen.id] || {}).tag) || "") : ""
+      };
+    });
+  }
+
+  /* ----------------------------------------------------------- 9. custom */
+  function renderCustom(screen, app) {
+    const wrap = el("div", "stagewrap");
+    if (screen.headline) wrap.appendChild(el("h1", null, esc(screen.headline)));
+    if (screen.render_rule && typeof RULES[screen.render_rule] === "function") {
+      const html = rule(screen.render_rule);
+      wrap.appendChild(el("div", "custombody", String(html == null ? "" : html)));
+    } else if (screen.text) {
+      wrap.appendChild(el("p", "lede", esc(screen.text)));
+    }
+    const next = el("button", "btn", esc(screen.continue_label || "Continue"));
+    next.type = "button";
+    next.addEventListener("click", () => go(nextScreenId(screen.id)));
+    wrap.appendChild(next);
+    app.appendChild(wrap);
+  }
+
+  /* ------------------------------------------- how this page works (tab) */
+  function renderHow() {
+    const box = $("#how");
+    box.innerHTML = "";
+    const how = DATA.how_it_works || {};
+    box.appendChild(el("h1", null, "How this page works"));
+    if (how.intro) box.appendChild(el("p", "lede", esc(how.intro)));
+    if (DATA.illustrative) {
+      box.appendChild(el("p", "warn", "The numbers on this page are illustrative. It is an example build, not a class exercise."));
+    }
+
+    box.appendChild(el("h2", null, "What the page works out for you"));
+    const rules = el("ul");
+    (DATA.rules || []).forEach(r => {
+      const item = el("li");
+      item.appendChild(el("strong", null, esc(r.label || r.name)));
+      item.appendChild(document.createTextNode(" " + (r.describe || "")));
+      rules.appendChild(item);
+    });
+    box.appendChild(rules);
+    box.appendChild(el("p", "note", esc(how.model_note
+      || "These are a classroom model. The numbers they read are real and sourced below. The weights are the instructor's, chosen so the exercise is hard and fair, not to predict what would happen.")));
+
+    box.appendChild(el("h2", null, "Where the numbers come from"));
+    const sources = el("ul");
+    (DATA.sources || []).forEach(source => {
+      const item = el("li");
+      if (source.url) {
+        const link = el("a", null, esc(source.text));
+        link.href = source.url;
+        link.target = "_blank";
+        link.rel = "noopener";
+        item.appendChild(link);
+      } else {
+        item.appendChild(document.createTextNode(source.text));
+      }
+      sources.appendChild(item);
+    });
+    box.appendChild(sources);
+
+    if (how.notes && how.notes.length) {
+      box.appendChild(el("h2", null, "Worth knowing"));
+      const notes = el("ul");
+      how.notes.forEach(n => notes.appendChild(el("li", null, esc(n))));
+      box.appendChild(notes);
+    }
+  }
+
+  /* The case tab: the timeline, the people, the armed groups and the terms,
+     one click away from every screen. Shown only when the simulation has one. */
+  function renderCase() {
+    glossSeen = new Set();
+    const box = $("#case");
+    if (!box) return;
+    box.innerHTML = "";
+    const ref = DATA.reference || {};
+    box.appendChild(el("h1", null, esc(ref.title || "The case")));
+    if (ref.intro) box.appendChild(el("p", "lede", rich(ref.intro)));
+    /* A section tied to a stage stays hidden until that stage's record is
+       out, so the tab never tells a group what happened before it decides. */
+    (ref.sections || []).filter(section => !section.open_after
+      || ((state.stages || {})[section.open_after] || {}).revealed).forEach(section => {
+      box.appendChild(el("h2", null, esc(section.title)));
+      (section.paragraphs || []).forEach(p => box.appendChild(el("p", null, rich(p))));
+      if (section.items && section.items.length) {
+        const list = el("ul");
+        section.items.forEach(item => list.appendChild(el("li", null, rich(item))));
+        box.appendChild(list);
+      }
+      (section.photos || []).forEach(p => {
+        const figure = el("figure");
+        const img = el("img");
+        img.src = p.file;
+        img.alt = p.alt || "";
+        figure.appendChild(img);
+        figure.appendChild(el("figcaption", null, esc(p.credit || "")));
+        addInfo(figure, p.info);
+        box.appendChild(figure);
+      });
+    });
+  }
+
+  function showTab(which) {
+    $("#app").hidden = which !== "run";
+    $("#how").hidden = which !== "how";
+    const caseBox = $("#case");
+    if (caseBox) caseBox.hidden = which !== "case";
+    ["run", "case", "how"].forEach(name => {
+      const tab = $("#tab-" + name);
+      if (tab) tab.setAttribute("aria-selected", which === name ? "true" : "false");
+    });
+    if (which === "how") renderHow();
+    if (which === "case") renderCase();
+  }
+
+  document.addEventListener("click", ev => {
+    const g = ev.target.closest ? ev.target.closest(".gl") : null;
+    document.querySelectorAll(".gl.open").forEach(x => { if (x !== g) x.classList.remove("open"); });
+    if (g) g.classList.toggle("open");
+  });
+
+  /* ------------------------------------------------------------- 10. boot */
+  async function boot() {
+    screens = (DATA.screens || []).slice();
+    state = load();
+    if (state.unlocked && state.code) {
+      const ok = await unlock(state.code);
+      if (!ok) { state.unlocked = false; state.code = null; save(); }
+    }
+    if (!state.screen || !screenById(state.screen)) state.screen = screens[0] ? screens[0].id : null;
+    /* A screen that is still locked cannot be rendered. That happens when a
+       reload arrives before the code has been typed, so the group goes back to
+       the waiting screen rather than onto an empty one. */
+    const here = screenById(state.screen);
+    if (here && here.locked) {
+      const hold = screens.filter(screen => screen.kind === "hold")[0];
+      state.screen = hold ? hold.id : screens[0].id;
+      notice("Type the code again to open the rest.", "warn");
+      save();
+    }
+    $("#tab-run").addEventListener("click", () => showTab("run"));
+    $("#tab-how").addEventListener("click", () => showTab("how"));
+    const caseTab = $("#tab-case");
+    if (caseTab && DATA.reference) {
+      caseTab.hidden = false;
+      caseTab.addEventListener("click", () => showTab("case"));
+    }
+    const restart = $("#restart");
+    if (restart) {
+      restart.addEventListener("click", () => {
+        if (!window.confirm("This clears everything your group has entered. Start over?")) return;
+        try { localStorage.removeItem(KEY); } catch (err) { /* nothing to remove */ }
+        state = CORE.emptyState(DATA.build);
+        opened = null;
+        screens = (DATA.screens || []).slice();
+        state.screen = screens[0] ? screens[0].id : null;
+        notice("");
+        render();
+      });
+    }
+    showTab("run");
+    render();
+  }
+
+  root.SIMUI = { boot: boot, render: render, go: go };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+}(typeof globalThis !== "undefined" ? globalThis : this));
+</script>
+</body>
+</html>
